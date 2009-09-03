@@ -31,8 +31,6 @@ public class SampleHandler extends AbstractHandler {
 	public Object execute(ExecutionEvent event) throws ExecutionException {
 		IWorkspace workspace = ResourcesPlugin.getWorkspace();
 		IWorkspaceRoot root = workspace.getRoot();
-		System.out.println("ResourcePlugin.getWorkspace: " + ResourcesPlugin.getWorkspace());
-		System.out.println("workspace.getRoot: " + workspace.getRoot());
 		// Get all projects in the workspace
 		IProject[] projects = root.getProjects();
 		BufferedWriter out = null;
