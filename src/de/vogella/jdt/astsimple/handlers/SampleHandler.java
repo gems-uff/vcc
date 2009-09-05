@@ -19,6 +19,8 @@ import org.eclipse.jdt.core.JavaCore;
 import org.eclipse.jdt.core.dom.AST;
 import org.eclipse.jdt.core.dom.ASTParser;
 import org.eclipse.jdt.core.dom.CompilationUnit;
+import org.eclipse.jdt.core.dom.IMethodBinding;
+import org.eclipse.jdt.core.dom.ITypeBinding;
 import org.eclipse.jdt.core.dom.MethodDeclaration;
 import org.eclipse.jdt.core.dom.MethodInvocation;
 
@@ -34,25 +36,31 @@ public class SampleHandler extends AbstractHandler {
 		// Get all projects in the workspace
 		IProject[] projects = root.getProjects();
 		BufferedWriter out = null;
-		try {
-			out = new BufferedWriter(new FileWriter("projetoFinal.txt"));
-		} catch (IOException e1) {
+		try 
+		{
+			out = new BufferedWriter(new FileWriter("c:\\projetoFinal.txt"));
+		} 
+		catch (IOException e1) 
+		{
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
 		// Loop over all projects
-		for (IProject project : projects) {
-			try {
-				if (project.isNatureEnabled("org.eclipse.jdt.core.javanature")) {
-
+		for (IProject project : projects) 
+		{
+			try 
+			{
+				if (project.isNatureEnabled("org.eclipse.jdt.core.javanature")) 
+				{
 					IPackageFragment[] packages = JavaCore.create(project)
 							.getPackageFragments();
 					// parse(JavaCore.create(project));
-					for (IPackageFragment mypackage : packages) {
-						
-						if (mypackage.getKind() == IPackageFragmentRoot.K_SOURCE) {
-							for (ICompilationUnit unit : mypackage
-									.getCompilationUnits()) {
+					for (IPackageFragment mypackage : packages) 
+					{
+						if (mypackage.getKind() == IPackageFragmentRoot.K_SOURCE) 
+						{
+							for (ICompilationUnit unit : mypackage.getCompilationUnits()) 
+							{
 								// Now create the AST for the ICompilationUnits
 								CompilationUnit parse = parse(unit);
 								MethodVisitor visitor = new MethodVisitor();
@@ -60,29 +68,23 @@ public class SampleHandler extends AbstractHandler {
 								
 								for (MethodDeclaration method : visitor.getMethods()) 
 								{
-									//System.out.println("mypackage.toString() " + mypackage.toString());
-									System.out.println("Pacote: " + mypackage.getElementName() + " " + "Method name: " + method.getName());
-									//System.out.println("Method name: " + method.getName());
-        							MethodInvocationVisitor visitor2 = new MethodInvocationVisitor();
-									method.getBody().accept(visitor2);
-									for (MethodInvocation methodInvocation : visitor2.getMethods()) {
-										System.out.println("Method invocation name: "  + methodInvocation.getName());
-										//System.out.println("Method to string: " + methodInvocation.toString());
+									try 
+									{	
+										out.write("Declaração do método: ");
+										printMethodInvocation(method.resolveBinding(), out);
 										
-																
-								    try {
-										out.write("Pacote: " + mypackage.getElementName() + " " + "Method name: " + method.getName() + "\n");
-										out.newLine();
-										out.write("Method invocation name: "  + methodInvocation.getName() + "\n");
-										out.newLine();
-								    } catch (IOException e) {
-										// TODO Auto-generated catch block
+		    							MethodInvocationVisitor visitor2 = new MethodInvocationVisitor();
+										method.getBody().accept(visitor2);
+										out.write("Métodos invocados: \n");
+										for (MethodInvocation methodInvocation : visitor2.getMethods()) 
+											printMethodInvocation(methodInvocation.resolveMethodBinding(), out);
+										
+										out.write("\n");
+									}
+									catch (IOException e) 
+									{
 										e.printStackTrace();
 									}
-									
-										
-									}
-									
 								}
 
 							}
@@ -90,19 +92,47 @@ public class SampleHandler extends AbstractHandler {
 
 					}
 				}
-			} catch (CoreException e) {
+			} 
+			catch (CoreException e) 
+			{
 				e.printStackTrace();
 			}
-			try {
+			try 
+			{
 				out.close();
-			} catch (IOException e) {
-				// TODO Auto-generated catch block
+			} 
+			catch (IOException e) 
+			{
 				e.printStackTrace();
 			}
 		}
 		return null;
 	}
 
+	private void printParametersType(ITypeBinding[] parametersType, BufferedWriter out) throws IOException 
+	{
+		for (int i = 0; i < parametersType.length; i++) {
+		if(i != 0)
+			out.write(", ");
+			out.write(parametersType[i].getBinaryName());
+		}
+	}
+
+	/**
+	 * Imprime a declaração completa da chamada de um método
+	 * @param methodInvocation
+	 * @param out
+	 * @throws IOException
+	 */
+	private void printMethodInvocation(IMethodBinding methodBinding, BufferedWriter out) throws IOException
+	{
+		methodBinding.getDeclaringClass().getBinaryName();
+		
+		out.write(methodBinding.getDeclaringClass().getPackage().getName() + "." + methodBinding.getDeclaringClass().getName() + "." + methodBinding.getName() + "(");
+		printParametersType(methodBinding.getParameterTypes(), out);
+		out.write(")\n");
+	}
+	
 	/**
 	 * Reads a ICompilationUnit and creates the AST DOM for manipulating the
 	 * Java source file
