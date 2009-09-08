@@ -30,73 +30,65 @@ import de.vogella.jdt.astsimple.handler.MethodVisitor;
 public class SampleHandler extends AbstractHandler {
 
 	@Override
-	public Object execute(ExecutionEvent event) throws ExecutionException {
+	public Object execute(ExecutionEvent event) throws ExecutionException 
+	{
 		IWorkspace workspace = ResourcesPlugin.getWorkspace();
 		IWorkspaceRoot root = workspace.getRoot();
 		// Get all projects in the workspace
 		IProject[] projects = root.getProjects();
 		BufferedWriter out = null;
+
 		try 
 		{
 			out = new BufferedWriter(new FileWriter("c:\\projetoFinal.txt"));
-		} 
-		catch (IOException e1) 
-		{
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		}
-		// Loop over all projects
-		for (IProject project : projects) 
-		{
-			try 
+			
+			for (IProject project : projects) 
 			{
-				if (project.isNatureEnabled("org.eclipse.jdt.core.javanature")) 
-				{
-					IPackageFragment[] packages = JavaCore.create(project)
-							.getPackageFragments();
-					// parse(JavaCore.create(project));
-					for (IPackageFragment mypackage : packages) 
+				if (!project.isNatureEnabled("org.eclipse.jdt.core.javanature")) 
+					continue;
+				
+				IPackageFragment[] packages = JavaCore.create(project)
+						.getPackageFragments();
+				// parse(JavaCore.create(project));
+				for (IPackageFragment mypackage : packages)
+				{	
+					if (mypackage.getKind() == IPackageFragmentRoot.K_SOURCE)
 					{
-						if (mypackage.getKind() == IPackageFragmentRoot.K_SOURCE) 
+						for (ICompilationUnit unit : mypackage.getCompilationUnits()) 
 						{
-							for (ICompilationUnit unit : mypackage.getCompilationUnits()) 
+							// Now create the AST for the ICompilationUnits
+							CompilationUnit parse = parse(unit);
+							MethodVisitor visitor = new MethodVisitor();
+							parse.accept(visitor);
+							
+							for (MethodDeclaration method : visitor.getMethods())
 							{
-								// Now create the AST for the ICompilationUnits
-								CompilationUnit parse = parse(unit);
-								MethodVisitor visitor = new MethodVisitor();
-								parse.accept(visitor);
+								out.write("Declaração do método: ");
+								printMethod(method.resolveBinding(), out);
 								
-								for (MethodDeclaration method : visitor.getMethods()) 
-								{
-									try 
-									{	
-										out.write("Declaração do método: ");
-										printMethodInvocation(method.resolveBinding(), out);
-										
-		    							MethodInvocationVisitor visitor2 = new MethodInvocationVisitor();
-										method.getBody().accept(visitor2);
-										out.write("Métodos invocados: \n");
-										for (MethodInvocation methodInvocation : visitor2.getMethods()) 
-											printMethodInvocation(methodInvocation.resolveMethodBinding(), out);
-										
-										out.write("\n");
-									}
-									catch (IOException e) 
-									{
-										e.printStackTrace();
-									}
-								}
-
+    							MethodInvocationVisitor visitor2 = new MethodInvocationVisitor();
+								method.getBody().accept(visitor2);
+								out.write("Métodos invocados: \n");
+								for (MethodInvocation methodInvocation : visitor2.getMethods()) 
+									printMethod(methodInvocation.resolveMethodBinding(), out);
+									
+								out.write("\n");
 							}
 						}
-
 					}
 				}
-			} 
-			catch (CoreException e) 
-			{
-				e.printStackTrace();
 			}
+		}
+		catch (IOException e) 
+		{
+			e.printStackTrace();
+		}
+		catch (CoreException e) 
+		{
+			e.printStackTrace();
+		}
+		finally
+		{
 			try 
 			{
 				out.close();
@@ -124,7 +116,7 @@ public class SampleHandler extends AbstractHandler {
 	 * @param out
 	 * @throws IOException
 	 */
-	private void printMethodInvocation(IMethodBinding methodBinding, BufferedWriter out) throws IOException
+	private void printMethod(IMethodBinding methodBinding, BufferedWriter out) throws IOException
 	{
 		methodBinding.getDeclaringClass().getBinaryName();
 		
