@@ -3,6 +3,8 @@ package de.vogella.jdt.astsimple.handlers;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
 
 import org.eclipse.core.commands.AbstractHandler;
 import org.eclipse.core.commands.ExecutionEvent;
@@ -29,6 +31,12 @@ import de.vogella.jdt.astsimple.handler.MethodVisitor;
 
 public class SampleHandler extends AbstractHandler {
 
+	String nameSpaceComplete;
+	String nameParameter;
+	HashMap<String, Integer> hash = new HashMap<String, Integer>();
+	
+	int idMetodo = 1;
+	
 	@Override
 	public Object execute(ExecutionEvent event) throws ExecutionException 
 	{
@@ -37,10 +45,15 @@ public class SampleHandler extends AbstractHandler {
 		// Get all projects in the workspace
 		IProject[] projects = root.getProjects();
 		BufferedWriter out = null;
-
+		BufferedWriter saidaMap = null;
+		
 		try 
 		{
-			out = new BufferedWriter(new FileWriter("c:\\projetoFinal.txt"));
+			out = new BufferedWriter(new FileWriter("c:\\ProjetoFinal\\projetoFinal.txt"));
+			
+			saidaMap = new BufferedWriter(new FileWriter("c:\\ProjetoFinal\\projetoFinalMap.txt"));
+			
+			int userId = 1;
 			
 			for (IProject project : projects) 
 			{
@@ -61,18 +74,44 @@ public class SampleHandler extends AbstractHandler {
 							MethodVisitor visitor = new MethodVisitor();
 							parse.accept(visitor);
 							
+							
 							for (MethodDeclaration method : visitor.getMethods())
 							{
 								out.write("Declaração do método: ");
-								printMethod(method.resolveBinding(), out);
+								
+								printMethod(method.resolveBinding(), out, saidaMap);
 								
     							MethodInvocationVisitor visitor2 = new MethodInvocationVisitor();
 								method.getBody().accept(visitor2);
 								out.write("Métodos invocados: \n");
-								for (MethodInvocation methodInvocation : visitor2.getMethods()) 
-									printMethod(methodInvocation.resolveMethodBinding(), out);
+								
+								
+								//imprime o numero da transação
+								saidaMap.write (userId + " "); 
+								userId++;
+								
+								// imprime a quantidade de metodos chamados, ou seja, a quantidade de sequencias
+								saidaMap.write ((visitor2.getMethods().size()) + " "); 
+								
+								
+								for (MethodInvocation methodInvocation : visitor2.getMethods()){ 
+									printMethod(methodInvocation.resolveMethodBinding(), out, saidaMap);
 									
-								out.write("\n");
+									nameParameter = "";
+									
+									nameSpaceComplete = methodInvocation.resolveMethodBinding().getDeclaringClass().getPackage().getName() + "." + methodInvocation.resolveMethodBinding().getDeclaringClass().getName() + "." + methodInvocation.resolveMethodBinding().getName() + "(" + nameParameter;
+							           
+									
+									if (!(hash.containsKey(nameSpaceComplete))){
+										hash.put(nameSpaceComplete, ++idMetodo);
+									}
+									
+									saidaMap.write(hash.get(nameSpaceComplete) + " ");
+									
+								}
+								
+								saidaMap.write("\n");
+								
 							}
 						}
 					}
@@ -92,6 +131,7 @@ public class SampleHandler extends AbstractHandler {
 			try 
 			{
 				out.close();
+				saidaMap.close();
 			} 
 			catch (IOException e) 
 			{
@@ -106,7 +146,9 @@ public class SampleHandler extends AbstractHandler {
 		for (int i = 0; i < parametersType.length; i++) {
 		if(i != 0)
 			out.write(", ");
+			nameParameter = nameParameter + ", ";
 			out.write(parametersType[i].getBinaryName());
+			nameParameter = nameParameter + parametersType[i].getBinaryName();
 		}
 	}
 
@@ -116,13 +158,15 @@ public class SampleHandler extends AbstractHandler {
 	 * @param out
 	 * @throws IOException
 	 */
-	private void printMethod(IMethodBinding methodBinding, BufferedWriter out) throws IOException
+	private void printMethod(IMethodBinding methodBinding, BufferedWriter out, BufferedWriter saidaMap) throws IOException
 	{
 		methodBinding.getDeclaringClass().getBinaryName();
-		
+				
 		out.write(methodBinding.getDeclaringClass().getPackage().getName() + "." + methodBinding.getDeclaringClass().getName() + "." + methodBinding.getName() + "(");
+		
 		printParametersType(methodBinding.getParameterTypes(), out);
-		out.write(")\n");
+		out.write(")\n");		
+		
 	}
 	
 	/**
