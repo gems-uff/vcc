@@ -2,6 +2,7 @@ package de.vogella.jdt.astsimple.handlers;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
@@ -60,7 +61,8 @@ public class SampleHandler extends AbstractHandler
 
         try
         {
-            Runtime.getRuntime().exec("C:\\ProjetoFinal\\plwapcode\\GSP.exe");
+            Runtime.getRuntime().exec("C:\\ProjetoFinal\\plwapcode\\GSP.exe", null, new File("C:\\ProjetoFinal\\plwapcode\\"));
+            System.out.println("Entrou-------------");
         }
         catch (IOException e)
         {
