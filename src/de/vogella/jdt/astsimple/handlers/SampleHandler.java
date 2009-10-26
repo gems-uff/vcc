@@ -63,8 +63,15 @@ public class SampleHandler extends AbstractHandler
         {
             Runtime.getRuntime().exec("C:\\ProjetoFinal\\plwapcode\\GSP.exe", null, new File("C:\\ProjetoFinal\\plwapcode\\"));
             System.out.println("Entrou-------------");
+            //TODO sleep para que o algoritmo em C termine a sua execução. Deve ser alterado pra verificar se a execução terminou.
+            Thread.sleep(10000);
         }
         catch (IOException e)
+        {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+        catch (InterruptedException e)
         {
             // TODO Auto-generated catch block
             e.printStackTrace();
