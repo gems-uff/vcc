@@ -58,10 +58,12 @@ public class SampleHandler extends AbstractHandler
     public Object execute(ExecutionEvent event) throws ExecutionException
     {
         parseProjects();
+        
+        double suporteMinimo = 0.1;
 
         try
         {
-            Runtime.getRuntime().exec("C:\\ProjetoFinal\\plwapcode\\GSP.exe", null, new File("C:\\ProjetoFinal\\plwapcode\\"));
+            Runtime.getRuntime().exec("C:\\ProjetoFinal\\plwapcode\\GSP.exe " + suporteMinimo, null, new File("C:\\ProjetoFinal\\plwapcode\\"));
             System.out.println("Entrou-------------");
             //TODO sleep para que o algoritmo em C termine a sua execução. Deve ser alterado pra verificar se a execução terminou.
             Thread.sleep(10000);
@@ -76,7 +78,7 @@ public class SampleHandler extends AbstractHandler
             // TODO Auto-generated catch block
             e.printStackTrace();
         }
-
+        
         readMiningResult();
 
         return null;
