@@ -71,11 +71,12 @@ void GSP();
 list<candidate> Test(list<candidate>);
 
 
-int main()
+int main(int argc, const char* argv[])
 {
 	  //cout << "please enter the frequency:";
 	  //cin >> minSupp;
-	  minSupp = 0.3;
+	  
+	  minSupp = atof(argv[1]);
 	  //minSupp = 0.75;
 
         ofstream result("result_GSP.data", ios::trunc);
