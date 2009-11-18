@@ -1,5 +1,6 @@
 package de.vogella.jdt.astsimple.handlers;
 
+import java.io.BufferedInputStream;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
@@ -7,7 +8,10 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.InputStream;
+import java.util.Calendar;
 import java.util.HashMap;
+import java.util.Scanner;
 
 import org.eclipse.core.commands.AbstractHandler;
 import org.eclipse.core.commands.ExecutionEvent;
@@ -58,21 +62,48 @@ public class SampleHandler extends AbstractHandler
     public Object execute(ExecutionEvent event) throws ExecutionException
     {
         parseProjects();
-        
-        double suporteMinimo = 0.05;
+
+        double suporteMinimo = 0.01;
 
         try
         {
-            Runtime.getRuntime().exec("C:\\ProjetoFinal\\plwapcode\\plwap.exe " + suporteMinimo, null, new File("C:\\ProjetoFinal\\plwapcode\\"));
+            Process gsp = Runtime.getRuntime().exec("C:\\ProjetoFinal\\plwapcode\\plwap.exe " + suporteMinimo, null, new File("C:\\ProjetoFinal\\plwapcode\\"));
             System.out.println("Entrou-------------");
             //TODO sleep para que o algoritmo em C termine a sua execução. Deve ser alterado pra verificar se a execução terminou.
-            Thread.sleep(10000);
+
+            System.out.println(Calendar.getInstance().getTime());
+            gsp.waitFor();
+            System.out.println(Calendar.getInstance().getTime());
+            
+            /*
+            boolean isGSPFinished = false;
+            
+            while(!isGSPFinished)
+            {
+                isGSPFinished = true;
+                Process p= Runtime.getRuntime().exec("tasklist");  
+                InputStream input= p.getInputStream();  
+                Scanner sc= new Scanner(input); 
+                
+                while(sc.hasNextLine())
+                {
+                    String processo = sc.nextLine();
+                    if(processo.startsWith("GSP.exe"))
+                    {
+                        isGSPFinished = false;
+                        
+                        break;
+                    }
+                }
+                Thread.sleep(50000);
+            }*/
         }
         catch (IOException e)
         {
             // TODO Auto-generated catch block
             e.printStackTrace();
         }
+
         catch (InterruptedException e)
         {
             // TODO Auto-generated catch block
@@ -164,8 +195,6 @@ public class SampleHandler extends AbstractHandler
                 // parse(JavaCore.create(project));
                 for (IPackageFragment mypackage : packages)
                 {
-                    /*if (mypackage.getKind() == IPackageFragmentRoot.K_SOURCE)
-                    {*/
                     for (ICompilationUnit unit : mypackage.getCompilationUnits())
                     {
                         // Now create the AST for the ICompilationUnits
@@ -206,13 +235,13 @@ public class SampleHandler extends AbstractHandler
                                     hash.put(completeMethodInvocation, ++idMetodo);
                                     invertedHash.put(idMetodo, completeMethodInvocation);
                                 }
-                                
+
                                 saidaMap.write(hash.get(completeMethodInvocation) + " ");
                             }
                             saidaMap.write("\n");
+
                         }
                     }
-                    //}
                 }
             }
         }
