@@ -48,7 +48,7 @@ public class SampleHandler extends AbstractHandler
 
     public static final String mapFilePath               = "c:\\ProjetoFinal\\plwapcode\\test.data";
 
-    public static final String miningResultFilePath      = "c:\\ProjetoFinal\\plwapcode\\result_GSP.data";
+    public static final String miningResultFilePath      = "c:\\ProjetoFinal\\plwapcode\\result_plwap.data";
 
     public static final String miningResultNamesFilePath = "c:\\ProjetoFinal\\resultado.txt";
 
@@ -59,11 +59,11 @@ public class SampleHandler extends AbstractHandler
     {
         parseProjects();
         
-        double suporteMinimo = 0.1;
+        double suporteMinimo = 0.05;
 
         try
         {
-            Runtime.getRuntime().exec("C:\\ProjetoFinal\\plwapcode\\GSP.exe " + suporteMinimo, null, new File("C:\\ProjetoFinal\\plwapcode\\"));
+            Runtime.getRuntime().exec("C:\\ProjetoFinal\\plwapcode\\plwap.exe " + suporteMinimo, null, new File("C:\\ProjetoFinal\\plwapcode\\"));
             System.out.println("Entrou-------------");
             //TODO sleep para que o algoritmo em C termine a sua execução. Deve ser alterado pra verificar se a execução terminou.
             Thread.sleep(10000);
