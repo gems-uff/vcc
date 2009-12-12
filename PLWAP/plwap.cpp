@@ -317,8 +317,13 @@ Called in Parameters:
                         tempPattern.push(pnt->event);
                         queue<int> otherPattern = tempPattern;
 
+<<<<<<< .mine
+                        //char buffer[100];
+                        //sprintf(buffer, "%f", (float)count/(float)seqNumber);
+=======
                         char buffer[100];
                         sprintf(buffer, "%f", (float)count/(float)seqNumber);
+>>>>>>> .r20
                         ofstream result("result_PLWAP.data", ios::app);
                         FILE *txt = fopen("result_PLWAP.data", "a+");
                         fprintf(txt, "%s\n", buffer);
@@ -329,6 +334,7 @@ Called in Parameters:
                                 result<<tempPattern.front()<<";";
                                 tempPattern.pop();
                         }
+                        result<<" #"<<(float)count/(float)seqNumber;
                         result<<endl;
 
                         if ( totalSon >= frequency)
