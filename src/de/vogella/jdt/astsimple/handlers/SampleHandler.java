@@ -1,6 +1,5 @@
 package de.vogella.jdt.astsimple.handlers;
 
-import java.io.BufferedInputStream;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
@@ -8,10 +7,9 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.io.InputStream;
 import java.util.Calendar;
 import java.util.HashMap;
-import java.util.Scanner;
+import java.util.Iterator;
 
 import org.eclipse.core.commands.AbstractHandler;
 import org.eclipse.core.commands.ExecutionEvent;
@@ -32,6 +30,8 @@ import org.eclipse.jdt.core.dom.IMethodBinding;
 import org.eclipse.jdt.core.dom.ITypeBinding;
 import org.eclipse.jdt.core.dom.MethodDeclaration;
 import org.eclipse.jdt.core.dom.MethodInvocation;
+
+import br.uff.projetofinal.MethodCallNode;
 
 import de.vogella.jdt.astsimple.handler.MethodInvocationVisitor;
 import de.vogella.jdt.astsimple.handler.MethodVisitor;
@@ -58,12 +58,14 @@ public class SampleHandler extends AbstractHandler
 
     public static final String nameToHashFilePath        = "c:\\ProjetoFinal\\nameToHash.txt";
 
+    private MethodCallNode     rootNode;
+
     @Override
     public Object execute(ExecutionEvent event) throws ExecutionException
     {
         parseProjects();
 
-        double suporteMinimo = 0.003;
+        double suporteMinimo = 0.01;
 
         try
         {
@@ -74,29 +76,7 @@ public class SampleHandler extends AbstractHandler
             System.out.println(Calendar.getInstance().getTime());
             gsp.waitFor();
             System.out.println(Calendar.getInstance().getTime());
-            
-            /*
-            boolean isGSPFinished = false;
-            
-            while(!isGSPFinished)
-            {
-                isGSPFinished = true;
-                Process p= Runtime.getRuntime().exec("tasklist");  
-                InputStream input= p.getInputStream();  
-                Scanner sc= new Scanner(input); 
-                
-                while(sc.hasNextLine())
-                {
-                    String processo = sc.nextLine();
-                    if(processo.startsWith("GSP.exe"))
-                    {
-                        isGSPFinished = false;
-                        
-                        break;
-                    }
-                }
-                Thread.sleep(50000);
-            }*/
+
         }
         catch (IOException e)
         {
@@ -109,33 +89,74 @@ public class SampleHandler extends AbstractHandler
             // TODO Auto-generated catch block
             e.printStackTrace();
         }
-        
+
         readMiningResult();
 
+        try
+        {
+            BufferedWriter treeWriter = new BufferedWriter(new FileWriter("C:\\ProjetoFinal\\arvore.txt"));
+            writeTree(rootNode, treeWriter);
+            treeWriter.close();
+        }
+        catch (Exception e)
+        {
+            e.printStackTrace();
+        }
         return null;
+    }
+
+    private void writeTree(MethodCallNode node, BufferedWriter writer) throws IOException
+    {
+        for (int i = 0; i < node.getDepth(); i++)
+            writer.write("\t");
+        writer.write(node.getMethodSignature() + "\t");
+        for (int i = 0; i < node.getConfidences().length; i++)
+        {
+            writer.write(node.getConfidences()[i] + ",");
+        }
+        writer.write("\n");
+        
+        for (Iterator<MethodCallNode> iterator = node.getMethodChildren().values().iterator(); iterator.hasNext();)
+        {
+            MethodCallNode child = (MethodCallNode) iterator.next();
+            writeTree(child, writer);
+        }
     }
 
     private void readMiningResult()
     {
         BufferedReader in = null;
         BufferedWriter result = null;
+        rootNode = new MethodCallNode(null, null, null);
+
         try
         {
             in = new BufferedReader(new FileReader(miningResultFilePath));
             result = new BufferedWriter(new FileWriter(miningResultNamesFilePath));
             String str;
             result.write("Sequências frequentemente chamadas: ");
-            
+
             while (in.ready())
             {
                 str = in.readLine();
                 String[] ids = str.split(";");
-                
+                //                if(ids.length == 1)
+                //                    continue;
+                MethodCallNode parentNode = rootNode;
+
                 for (int i = 0; i < ids.length - 1; i++)
                 {
                     if (i != 0)
                         result.write(" , ");
-                    result.write(invertedHash.get(Integer.parseInt(ids[i])));
+                    String methodSignature = invertedHash.get(Integer.parseInt(ids[i]));
+                    result.write(methodSignature);
+                    if (i != ids.length - 2)
+                        parentNode = parentNode.getMethodChildren().get(methodSignature);
+                    else
+                    {
+                        double support = Double.parseDouble(ids[i + 1]);
+                        parentNode.addChild(createMethodCallNode(methodSignature, parentNode, support));
+                    }
                 }
                 result.write("\n");
             }
@@ -150,7 +171,12 @@ public class SampleHandler extends AbstractHandler
         {
             // TODO Auto-generated catch block
             e.printStackTrace();
-        }finally
+        }
+        catch (Exception e)
+        {
+            e.printStackTrace();
+        }
+        finally
         {
             try
             {
@@ -163,6 +189,20 @@ public class SampleHandler extends AbstractHandler
             }
         }
 
+    }
+
+    private MethodCallNode createMethodCallNode(String methodSignature, MethodCallNode parentNode, double support)
+    {
+        double[] confidences = new double[parentNode.getDepth() + 1];
+        int index = confidences.length - 1;
+        MethodCallNode actualNode = parentNode;
+        while (actualNode != null)
+        {
+            confidences[index--] = support / actualNode.getSupport();
+            actualNode = actualNode.getParentNode();
+        }
+
+        return new MethodCallNode(methodSignature, confidences, parentNode);
     }
 
     private void parseProjects()
