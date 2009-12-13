@@ -63,7 +63,7 @@ public class SampleHandler extends AbstractHandler
     {
         parseProjects();
 
-        double suporteMinimo = 0.01;
+        double suporteMinimo = 0.003;
 
         try
         {
@@ -131,7 +131,7 @@ public class SampleHandler extends AbstractHandler
                 str = in.readLine();
                 String[] ids = str.split(";");
                 
-                for (int i = 0; i < ids.length; i++)
+                for (int i = 0; i < ids.length - 1; i++)
                 {
                     if (i != 0)
                         result.write(" , ");
