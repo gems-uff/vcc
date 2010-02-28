@@ -1,11 +1,15 @@
 package br.uff.projetofinal;
 
+import java.io.Serializable;
 import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Set;
 
-public class MethodCallNode
+public class MethodCallNode implements Serializable
 {
+    /**
+     * 
+     */
+    private static final long serialVersionUID = -3961267160887082047L;
+
     private String              methodSignature;
 
     private double[]            confidences;
@@ -14,8 +18,6 @@ public class MethodCallNode
 
     private MethodCallNode      parentNode;
     
-    //private double              support;
-
     public MethodCallNode(String methodSignature, double[] confidences, MethodCallNode parentNode)
     {
         this.methodSignature = methodSignature;
