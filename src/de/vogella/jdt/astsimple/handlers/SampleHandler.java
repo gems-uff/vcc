@@ -4,9 +4,12 @@ import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.ObjectOutputStream;
+import java.io.OutputStream;
 import java.util.Calendar;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -65,7 +68,7 @@ public class SampleHandler extends AbstractHandler
     {
         parseProjects();
 
-        double suporteMinimo = 0.01;
+        double suporteMinimo = 0.007;
 
         try
         {
@@ -91,6 +94,18 @@ public class SampleHandler extends AbstractHandler
         }
 
         readMiningResult();
+        
+        try
+        {
+            FileOutputStream fos = new FileOutputStream("arvore.ser");
+            ObjectOutputStream oos = new ObjectOutputStream(fos);
+            oos.writeObject(rootNode);
+        }
+        catch (IOException e1)
+        {
+            // TODO Auto-generated catch block
+            e1.printStackTrace();
+        }
 
         try
         {
