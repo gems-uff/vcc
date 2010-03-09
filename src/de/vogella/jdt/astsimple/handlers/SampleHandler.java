@@ -8,8 +8,12 @@ import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+<<<<<<< .mine
+import java.io.ObjectOutputStream;
+=======
 import java.io.ObjectOutputStream;
 import java.io.OutputStream;
+>>>>>>> .r27
 import java.util.Calendar;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -112,11 +116,16 @@ public class SampleHandler extends AbstractHandler
             BufferedWriter treeWriter = new BufferedWriter(new FileWriter("C:\\ProjetoFinal\\arvore.txt"));
             writeTree(rootNode, treeWriter);
             treeWriter.close();
+            
+            ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("C:\\ProjetoFinal\\arvore.obj"));
+            oos.writeObject(rootNode);
+            oos.close();
         }
         catch (Exception e)
         {
             e.printStackTrace();
         }
+        
         return null;
     }
 
@@ -255,6 +264,7 @@ public class SampleHandler extends AbstractHandler
                         // Now create the AST for the ICompilationUnits
                         CompilationUnit parse = parse(unit);
                         MethodVisitor visitor = new MethodVisitor();
+                        
                         parse.accept(visitor);
 
                         for (MethodDeclaration method : visitor.getMethods())
