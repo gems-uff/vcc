@@ -8,15 +8,11 @@ import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
-<<<<<<< .mine
 import java.io.ObjectOutputStream;
-=======
-import java.io.ObjectOutputStream;
-import java.io.OutputStream;
->>>>>>> .r27
 import java.util.Calendar;
 import java.util.HashMap;
 import java.util.Iterator;
+import java.util.List;
 
 import org.eclipse.core.commands.AbstractHandler;
 import org.eclipse.core.commands.ExecutionEvent;
@@ -39,7 +35,6 @@ import org.eclipse.jdt.core.dom.MethodDeclaration;
 import org.eclipse.jdt.core.dom.MethodInvocation;
 
 import br.uff.projetofinal.MethodCallNode;
-
 import de.vogella.jdt.astsimple.handler.MethodInvocationVisitor;
 import de.vogella.jdt.astsimple.handler.MethodVisitor;
 
@@ -266,9 +261,11 @@ public class SampleHandler extends AbstractHandler
                         MethodVisitor visitor = new MethodVisitor();
                         
                         parse.accept(visitor);
-
-                        for (MethodDeclaration method : visitor.getMethods())
+                        
+                        List<MethodDeclaration> methodsDeclarations = visitor.getMethods(); 
+                        for (int i = 0; i < methodsDeclarations.size(); i++)
                         {
+                            MethodDeclaration method = methodsDeclarations.get(i);
                             out.write(userId + " - Declaração do método: ");
 
                             String methodName = getCompleteMethodName(method.resolveBinding());
@@ -303,7 +300,8 @@ public class SampleHandler extends AbstractHandler
 
                                 saidaMap.write(hash.get(completeMethodInvocation) + " ");
                             }
-                            saidaMap.write("\n");
+                            if(i < methodsDeclarations.size() - 1)
+                                saidaMap.write("\n");
 
                         }
                     }
