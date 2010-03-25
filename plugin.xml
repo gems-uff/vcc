@@ -9,9 +9,14 @@
             id="de.vogella.jdt.astsimple.commands.category">
       </category>
       <command
-            name="Sample Command"
+            name="Generate Tree"
             categoryId="de.vogella.jdt.astsimple.commands.category"
             id="de.vogella.jdt.astsimple.commands.sampleCommand">
+      </command>
+      <command
+            name="Parse Method"
+            categoryId="de.vogella.jdt.astsimple.commands.category"
+            id="de.vogella.jdt.astsimple.commands.parseMethodCommand">
       </command>
    </extension>
    <extension
@@ -19,6 +24,10 @@
       <handler
             commandId="de.vogella.jdt.astsimple.commands.sampleCommand"
             class="de.vogella.jdt.astsimple.handlers.SampleHandler">
+      </handler>
+      <handler
+            commandId="de.vogella.jdt.astsimple.commands.parseMethodCommand"
+            class="br.uff.projetofinal.Parser">
       </handler>
    </extension>
    <extension
@@ -35,28 +44,20 @@
       <menuContribution
             locationURI="menu:org.eclipse.ui.main.menu?after=additions">
          <menu
-               label="Sample Menu"
-               mnemonic="M"
+               label="Vertical Code-Complete"
+               mnemonic="V"
                id="de.vogella.jdt.astsimple.menus.sampleMenu">
             <command
                   commandId="de.vogella.jdt.astsimple.commands.sampleCommand"
-                  mnemonic="S"
+                  mnemonic="G"
                   id="de.vogella.jdt.astsimple.menus.sampleCommand">
+            </command>
+            <command
+                  commandId="de.vogella.jdt.astsimple.commands.parseMethodCommand"
+                  mnemonic="P"
+                  id="de.vogella.jdt.astsimple.menus.parseMethodCommand">
             </command>
          </menu>
       </menuContribution>
-      <menuContribution
-            locationURI="toolbar:org.eclipse.ui.main.toolbar?after=additions">
-         <toolbar
-               id="de.vogella.jdt.astsimple.toolbars.sampleToolbar">
-            <command
-                  commandId="de.vogella.jdt.astsimple.commands.sampleCommand"
-                  icon="icons/sample.gif"
-                  tooltip="Say hello world"
-                  id="de.vogella.jdt.astsimple.toolbars.sampleCommand">
-            </command>
-         </toolbar>
-      </menuContribution>
    </extension>
-
 </plugin>
