@@ -8,7 +8,12 @@ import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+
 import java.io.ObjectOutputStream;
+
+import java.io.ObjectOutputStream;
+import java.io.OutputStream;
+
 import java.util.Calendar;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -33,6 +38,18 @@ import org.eclipse.jdt.core.dom.IMethodBinding;
 import org.eclipse.jdt.core.dom.ITypeBinding;
 import org.eclipse.jdt.core.dom.MethodDeclaration;
 import org.eclipse.jdt.core.dom.MethodInvocation;
+import org.eclipse.jdt.internal.corext.util.MethodOverrideTester;
+import org.eclipse.jface.text.IEditingSupport;
+import org.eclipse.jface.text.ISelectionValidator;
+import org.eclipse.jface.text.ITextSelection;
+import org.eclipse.jface.viewers.ISelection;
+import org.eclipse.jface.viewers.ISelectionProvider;
+import org.eclipse.ui.IEditorActionBarContributor;
+import org.eclipse.ui.IEditorInput;
+import org.eclipse.ui.IEditorPart;
+import org.eclipse.ui.IElementFactory;
+import org.eclipse.ui.PlatformUI;
+import org.eclipse.ui.texteditor.ITextEditor; 
 
 import br.uff.projetofinal.MethodCallNode;
 import de.vogella.jdt.astsimple.handler.MethodInvocationVisitor;
@@ -65,9 +82,37 @@ public class SampleHandler extends AbstractHandler
     @Override
     public Object execute(ExecutionEvent event) throws ExecutionException
     {
+    	
+    	//TESTE
+        
+    	IEditorPart editor = PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage().getActiveEditor();
+    	
+        System.out.println("Range: " + ((ITextEditor)editor).getHighlightRange().getLength());
+    	
+    	if (editor instanceof ITextEditor) {
+	    	ISelectionProvider selectionProvider = ((ITextEditor)editor).getSelectionProvider();
+	    	
+	    	ISelection selection = selectionProvider.getSelection();
+	    	
+	    	
+	    	
+	    	if (selection instanceof ITextSelection) {
+		    	ITextSelection textSelection = (ITextSelection)selection;
+		    	int offset = textSelection.getOffset(); // etc.
+
+		    	System.out.println("offset: " + textSelection.getOffset() + " start line: " + textSelection.getStartLine() + " end line: " + textSelection.getEndLine());
+		    	
+		  	}
+    	
+    	}
+        
+        //FIM DO TESTE
+    	
+    	
+     	
         parseProjects();
 
-        double suporteMinimo = 0.007;
+        double suporteMinimo = 0.5;
 
         try
         {
@@ -262,12 +307,13 @@ public class SampleHandler extends AbstractHandler
                         
                         parse.accept(visitor);
                         
+                    	                       
                         List<MethodDeclaration> methodsDeclarations = visitor.getMethods(); 
                         for (int i = 0; i < methodsDeclarations.size(); i++)
                         {
                             MethodDeclaration method = methodsDeclarations.get(i);
                             out.write(userId + " - Declaração do método: ");
-
+                            
                             String methodName = getCompleteMethodName(method.resolveBinding());
                             out.write(methodName + "\n");
 
@@ -288,7 +334,7 @@ public class SampleHandler extends AbstractHandler
                             for (MethodInvocation methodInvocation : visitor2.getMethods())
                             {
                                 String completeMethodInvocation = getCompleteMethodName(methodInvocation.resolveMethodBinding());
-
+                                     
                                 out.write(completeMethodInvocation + "\n");
 
                                 if (!(hash.containsKey(completeMethodInvocation)))
@@ -381,4 +427,13 @@ public class SampleHandler extends AbstractHandler
         parser.setResolveBindings(true);
         return (CompilationUnit) parser.createAST(null); // parse
     }
+    
+    private static CompilationUnit parseTeste(ICompilationUnit unit) {
+    	ASTParser parser = ASTParser.newParser(AST.JLS3); 
+    	parser.setKind(ASTParser.K_CLASS_BODY_DECLARATIONS);
+    	parser.setSource(unit); // set source
+    	parser.setResolveBindings(true); // we need bindings later on
+    	return (CompilationUnit) parser.createAST(null /* IProgressMonitor */); // parse
+    }
+
 }
