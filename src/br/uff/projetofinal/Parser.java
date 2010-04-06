@@ -52,6 +52,8 @@ public class Parser extends AbstractHandler
                         break;
                     method.getBody().accept(visitor2);
                 }
+                
+                System.out.println("nome do Metodo: " + method.getName());
             }
         }
         catch (Exception e)
@@ -104,7 +106,7 @@ public class Parser extends AbstractHandler
     @Override
     public Object execute(ExecutionEvent arg0) throws ExecutionException
     {
-        parseMethod("JFreeChart", "org.jfree.chart", "ChartFactory.java", "createPieChart");
+        parseMethod("Venda", "src", "Principal.java", "fecharCompra");
         return null;
     }
 }

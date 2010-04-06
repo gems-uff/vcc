@@ -29,6 +29,7 @@ import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.jdt.core.ICompilationUnit;
 import org.eclipse.jdt.core.IPackageFragment;
+import org.eclipse.jdt.core.IPackageFragmentRoot;
 import org.eclipse.jdt.core.JavaCore;
 import org.eclipse.jdt.core.dom.AST;
 import org.eclipse.jdt.core.dom.ASTParser;
@@ -83,36 +84,10 @@ public class SampleHandler extends AbstractHandler
     public Object execute(ExecutionEvent event) throws ExecutionException
     {
     	
-    	//TESTE
-        
-    	IEditorPart editor = PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage().getActiveEditor();
     	
-        System.out.println("Range: " + ((ITextEditor)editor).getHighlightRange().getLength());
-    	
-    	if (editor instanceof ITextEditor) {
-	    	ISelectionProvider selectionProvider = ((ITextEditor)editor).getSelectionProvider();
-	    	
-	    	ISelection selection = selectionProvider.getSelection();
-	    	
-	    	
-	    	
-	    	if (selection instanceof ITextSelection) {
-		    	ITextSelection textSelection = (ITextSelection)selection;
-		    	int offset = textSelection.getOffset(); // etc.
+    	parseProjects();
 
-		    	System.out.println("offset: " + textSelection.getOffset() + " start line: " + textSelection.getStartLine() + " end line: " + textSelection.getEndLine());
-		    	
-		  	}
-    	
-    	}
-        
-        //FIM DO TESTE
-    	
-    	
-     	
-        parseProjects();
-
-        double suporteMinimo = 0.5;
+        double suporteMinimo = 0.007;
 
         try
         {
@@ -292,6 +267,7 @@ public class SampleHandler extends AbstractHandler
 
             for (IProject project : projects)
             {
+            
                 if (!project.isOpen() || !project.isNatureEnabled("org.eclipse.jdt.core.javanature"))
                     continue;
 
@@ -299,8 +275,10 @@ public class SampleHandler extends AbstractHandler
                 // parse(JavaCore.create(project));
                 for (IPackageFragment mypackage : packages)
                 {
+                
                     for (ICompilationUnit unit : mypackage.getCompilationUnits())
                     {
+                    	
                         // Now create the AST for the ICompilationUnits
                         CompilationUnit parse = parse(unit);
                         MethodVisitor visitor = new MethodVisitor();

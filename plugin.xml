@@ -18,6 +18,11 @@
             categoryId="de.vogella.jdt.astsimple.commands.category"
             id="de.vogella.jdt.astsimple.commands.parseMethodCommand">
       </command>
+      <command
+            name="Search for Patterns"
+            categoryId="de.vogella.jdt.astsimple.commands.category"
+            id="de.vogella.jdt.astsimple.commands.searchPatternsCommand">
+     </command>
    </extension>
    <extension
          point="org.eclipse.ui.handlers">
@@ -29,6 +34,10 @@
             commandId="de.vogella.jdt.astsimple.commands.parseMethodCommand"
             class="br.uff.projetofinal.Parser">
       </handler>
+      <handler
+            commandId="de.vogella.jdt.astsimple.commands.searchPatternsCommand"
+            class="br.uff.projetofinal.SearchPatterns">
+     </handler>
    </extension>
    <extension
          point="org.eclipse.ui.bindings">
@@ -57,6 +66,11 @@
                   mnemonic="P"
                   id="de.vogella.jdt.astsimple.menus.parseMethodCommand">
             </command>
+            <command
+                  commandId="de.vogella.jdt.astsimple.commands.searchPatternsCommand"
+                  mnemonic="P"
+                  id="de.vogella.jdt.astsimple.menus.searchPatternsCommand">
+           </command>
          </menu>
       </menuContribution>
    </extension>
