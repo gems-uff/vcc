@@ -8,12 +8,7 @@ import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
-
 import java.io.ObjectOutputStream;
-
-import java.io.ObjectOutputStream;
-import java.io.OutputStream;
-
 import java.util.Calendar;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -29,7 +24,6 @@ import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.jdt.core.ICompilationUnit;
 import org.eclipse.jdt.core.IPackageFragment;
-import org.eclipse.jdt.core.IPackageFragmentRoot;
 import org.eclipse.jdt.core.JavaCore;
 import org.eclipse.jdt.core.dom.AST;
 import org.eclipse.jdt.core.dom.ASTParser;
@@ -39,18 +33,6 @@ import org.eclipse.jdt.core.dom.IMethodBinding;
 import org.eclipse.jdt.core.dom.ITypeBinding;
 import org.eclipse.jdt.core.dom.MethodDeclaration;
 import org.eclipse.jdt.core.dom.MethodInvocation;
-import org.eclipse.jdt.internal.corext.util.MethodOverrideTester;
-import org.eclipse.jface.text.IEditingSupport;
-import org.eclipse.jface.text.ISelectionValidator;
-import org.eclipse.jface.text.ITextSelection;
-import org.eclipse.jface.viewers.ISelection;
-import org.eclipse.jface.viewers.ISelectionProvider;
-import org.eclipse.ui.IEditorActionBarContributor;
-import org.eclipse.ui.IEditorInput;
-import org.eclipse.ui.IEditorPart;
-import org.eclipse.ui.IElementFactory;
-import org.eclipse.ui.PlatformUI;
-import org.eclipse.ui.texteditor.ITextEditor; 
 
 import br.uff.projetofinal.MethodCallNode;
 import de.vogella.jdt.astsimple.handler.MethodInvocationVisitor;
