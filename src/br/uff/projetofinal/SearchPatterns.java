@@ -37,116 +37,111 @@ public class SearchPatterns extends AbstractHandler
 {
     private void searchPatterns()
     {
-    	
-    	//TESTE
-        
-    	IEditorPart editor = PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage().getActiveEditor();
-    	
-    
-    	ITextSelection textSelection = null;
-    	    	       
-    	if (editor instanceof ITextEditor) {
-	    	ISelectionProvider selectionProvider = ((ITextEditor)editor).getSelectionProvider();
-	    	
-	    	ISelection selection = selectionProvider.getSelection();
-	
-	    	if (selection instanceof ITextSelection) {
-		    	textSelection = (ITextSelection)selection;
-		    	
-		    	System.out.println("offset: " + textSelection.getOffset() + " start line: " + textSelection.getStartLine() + " end line: " + textSelection.getEndLine());
-		    	
-		  	}
-    	
-    	}
-        
-   
-    	System.out.println("tooltip: " + editor.getTitleToolTip());
-    	
-    	String editorTitleToolTip[] = editor.getTitleToolTip().split("/");
 
-    	String nameProject = editorTitleToolTip[0];;
-    	String packageTooolTip = editorTitleToolTip[1];
-    	String className = editor.getTitle();
-    	
-    	
-    	System.out.println("nameProject: " + nameProject + " Package: " + packageTooolTip + " unit: " + className);
-    	
-    	//FIM DO TESTE
-    	
-    	
-    	
-    	IWorkspace workspace = ResourcesPlugin.getWorkspace();
+        //TESTE
+
+        IEditorPart editor = PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage().getActiveEditor();
+
+        ITextSelection textSelection = null;
+
+        if (editor instanceof ITextEditor)
+        {
+            ISelectionProvider selectionProvider = ((ITextEditor) editor).getSelectionProvider();
+
+            ISelection selection = selectionProvider.getSelection();
+
+            if (selection instanceof ITextSelection)
+            {
+                textSelection = (ITextSelection) selection;
+
+                System.out.println("offset: " + textSelection.getOffset() + " start line: " + textSelection.getStartLine() + " end line: " + textSelection.getEndLine());
+
+            }
+
+        }
+
+        System.out.println("tooltip: " + editor.getTitleToolTip());
+
+        String editorTitleToolTip[] = editor.getTitleToolTip().split("/");
+
+        String nameProject = editorTitleToolTip[0];
+        ;
+        String packageTooolTip = editorTitleToolTip[1];
+        String className = editor.getTitle();
+
+        System.out.println("nameProject: " + nameProject + " Package: " + packageTooolTip + " unit: " + className);
+
+        //FIM DO TESTE
+
+        IWorkspace workspace = ResourcesPlugin.getWorkspace();
         IWorkspaceRoot root = workspace.getRoot();
         // Get all projects in the workspace
         IProject[] projects = root.getProjects();
-        
-          
+
         try
         {
 
             for (IProject project : projects)
             {
-            
+
                 if (!project.isOpen() || !project.isNatureEnabled("org.eclipse.jdt.core.javanature"))
                     continue;
-                 
-   
+
                 IPackageFragment[] packages = JavaCore.create(project).getPackageFragments();
                 // parse(JavaCore.create(project));
-                for (IPackageFragment mypackage : packages)              	
+                for (IPackageFragment mypackage : packages)
                 {
-           
-                	for (ICompilationUnit unit : mypackage.getCompilationUnits()) {
-                		
-                		
-                		//ICompilationUnit unit = mypackage.getCompilationUnit(className);
-                		
-                		if (unit.getElementName().equals(className)){
-                			
-                			CompilationUnit parse = parse(unit);
-    	                    MethodVisitor visitor = new MethodVisitor();  
-    	                    parse.accept(visitor);
-    	                    
-    	                    List<MethodDeclaration> methodsDeclarations = visitor.getMethods(); 
-    	                    
-    	                    for (int i = 0; i < methodsDeclarations.size(); i++)
-    	                    {
-                                  MethodDeclaration method = methodsDeclarations.get(i);
-                                  //System.out.println("nome do metodo: " + method.getName());
-                                  
-                                  
-                                  
-                                  MethodInvocationVisitor visitor2 = new MethodInvocationVisitor();
-                                  Block methodBody = method.getBody();
-                                  if (methodBody == null)
-                                      continue;
-                                  method.getBody().accept(visitor2);
-                                 
-                                  for (MethodInvocation methodInvocation : visitor2.getMethods())
-                                  {
-                                	  if(methodInvocation.getStartPosition() > (textSelection.getOffset() - 200)  && methodInvocation.getStartPosition() < textSelection.getOffset()){
-                                		  
-                                		  String completeMethodInvocation = getCompleteMethodName(methodInvocation.resolveMethodBinding());
-                                		  
-                                		  LerArvore.SearchNodeInThree(completeMethodInvocation);
-                                		  
-                                		  System.out.println("Métodos invocados: " + completeMethodInvocation);
-                                	  }
-                                  }
 
-    	                    }
-                		
-                		
-                		}
-                		                              
-                              
+                    for (ICompilationUnit unit : mypackage.getCompilationUnits())
+                    {
 
-                	}
-                	
+                        //ICompilationUnit unit = mypackage.getCompilationUnit(className);
+
+                        if (unit.getElementName().equals(className))
+                        {
+
+                            CompilationUnit parse = parse(unit);
+                            MethodVisitor visitor = new MethodVisitor();
+                            parse.accept(visitor);
+
+                            List<MethodDeclaration> methodsDeclarations = visitor.getMethods();
+
+                            for (int i = 0; i < methodsDeclarations.size(); i++)
+                            {
+                                if(i < methodsDeclarations.size() - 1 && methodsDeclarations.get(i+1).getStartPosition() < textSelection.getOffset())
+                                    continue;
+
+                                MethodDeclaration method = methodsDeclarations.get(i);
+
+                                MethodInvocationVisitor visitor2 = new MethodInvocationVisitor();
+                                Block methodBody = method.getBody();
+                                if (methodBody == null)
+                                    break;;
+                                method.getBody().accept(visitor2);
+
+                                for (MethodInvocation methodInvocation : visitor2.getMethods())
+                                {
+                                    /*if (methodInvocation.getStartPosition() > (textSelection.getOffset() - 200) && methodInvocation.getStartPosition() < textSelection.getOffset())
+                                    {
+*/
+                                    String completeMethodInvocation = getCompleteMethodName(methodInvocation.resolveMethodBinding());
+
+                                    LerArvore.searchNodeInTree(completeMethodInvocation);
+
+                                    //System.out.println("Métodos invocados: " + completeMethodInvocation);
+//                                    }
+                                }
+
+                            }
+
+                        }
+
+                    }
+
                 }
             }
         }
-        
+
         catch (CoreException e)
         {
             e.printStackTrace();
@@ -156,9 +151,8 @@ public class SearchPatterns extends AbstractHandler
             e.printStackTrace();
         }
 
-    	
     }
-    
+
     private static CompilationUnit parse(ICompilationUnit unit)
     {
         ASTParser parser = ASTParser.newParser(AST.JLS3);
@@ -167,7 +161,7 @@ public class SearchPatterns extends AbstractHandler
         parser.setResolveBindings(true);
         return (CompilationUnit) parser.createAST(null); // parse
     }
-    
+
     private String getParametersType(ITypeBinding[] parametersType) throws IOException
     {
         String parametersTypes = "";
@@ -180,7 +174,7 @@ public class SearchPatterns extends AbstractHandler
 
         return parametersTypes;
     }
-    
+
     private String getMethodSignature(IMethodBinding methodBinding) throws IOException
     {
         methodBinding.getDeclaringClass().getBinaryName();
@@ -191,8 +185,7 @@ public class SearchPatterns extends AbstractHandler
 
         return methodName + "(" + parametersTypes + ")";
     }
-    
-    
+
     private String getCompleteMethodName(IMethodBinding methodBinding) throws IOException
     {
         methodBinding.getDeclaringClass().getBinaryName();
@@ -203,14 +196,13 @@ public class SearchPatterns extends AbstractHandler
 
         return methodNameSpace + "(" + parametersTypes + ")";
     }
-    
-    
 
-	@Override
-	public Object execute(ExecutionEvent arg0) throws ExecutionException {
-		searchPatterns();
-	
-		return null;
-	}
+    @Override
+    public Object execute(ExecutionEvent arg0) throws ExecutionException
+    {
+        searchPatterns();
+
+        return null;
+    }
 
 }

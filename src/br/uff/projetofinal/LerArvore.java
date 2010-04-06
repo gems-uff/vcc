@@ -4,13 +4,14 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.ObjectInputStream;
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.Iterator;
-import java.util.StringTokenizer;
 
 public class LerArvore {
 	
-	public static void SearchNodeInThree (String completeMethodInvocation) {
+	public static void searchNodeInTree (String completeMethodInvocation) {
 		ObjectInputStream ois;
 		try {
 			ois = new ObjectInputStream(new FileInputStream(
@@ -20,22 +21,19 @@ public class LerArvore {
 			MethodCallNode node = (MethodCallNode) ois.readObject();
 			MethodCallNode child = node.getMethodChildren().get(completeMethodInvocation);
 
+			if(child == null)
+			    return;
+			
 			HashMap<String, MethodCallNode> childNodes = child.getMethodChildren();
-			 
-			System.out.println("Dicas:");
+			
+			if(childNodes.size() == 0)
+			    return;
+			
+			System.out.println("\n\nDicas:");
 			System.out.println("Geralmente usuários que chamam o método: " + completeMethodInvocation + " também chamam logo em seguida: ");
 			
 			for (Iterator it = childNodes.keySet().iterator(); it.hasNext();) {
-				
-				child = childNodes.get(it.next());
-				
-				if(child != null){
-
-					System.out.println(child.getMethodSignature()+ "  com suporte de " + child.getConfidences()[0] + "% e confiança de " + child.getConfidences()[child.getConfidences().length - 1] + "%") ;
-					
-				}
-
-				
+			    printSuggestion(childNodes.get(it.next()));
 			}
 			
 			
@@ -52,4 +50,18 @@ public class LerArvore {
 		}
 
 	}
+
+    private static void printSuggestion(MethodCallNode method)
+    {
+        HashMap<String, MethodCallNode> childNodes = method.getMethodChildren();
+        if(childNodes.size() == 0)
+            System.out.println(method.getMethodSignature()+ "  com suporte de " + method.getConfidences()[0] + "% e confiança de " + method.getConfidences()[method.getConfidences().length - 1] + "%\n") ;
+        else
+        {
+            for (Iterator it = childNodes.keySet().iterator(); it.hasNext();) {
+                System.out.println(method.getMethodSignature());
+                printSuggestion(childNodes.get(it.next()));
+            }
+        }
+    }
 }
