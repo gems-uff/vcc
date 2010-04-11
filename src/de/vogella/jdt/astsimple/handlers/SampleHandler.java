@@ -387,13 +387,4 @@ public class SampleHandler extends AbstractHandler
         parser.setResolveBindings(true);
         return (CompilationUnit) parser.createAST(null); // parse
     }
-    
-    private static CompilationUnit parseTeste(ICompilationUnit unit) {
-    	ASTParser parser = ASTParser.newParser(AST.JLS3); 
-    	parser.setKind(ASTParser.K_CLASS_BODY_DECLARATIONS);
-    	parser.setSource(unit); // set source
-    	parser.setResolveBindings(true); // we need bindings later on
-    	return (CompilationUnit) parser.createAST(null /* IProgressMonitor */); // parse
-    }
-
 }
