@@ -1,6 +1,9 @@
 package br.uff.projetofinal;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 
 import org.eclipse.core.commands.AbstractHandler;
@@ -118,24 +121,30 @@ public class SearchPatterns extends AbstractHandler
                                 if (methodBody == null)
                                     break;;
                                 method.getBody().accept(visitor2);
-
+                                
+                                ArrayList<String> methodNames = new ArrayList<String>();
                                 for (MethodInvocation methodInvocation : visitor2.getMethods())
                                 {
                                     /*if (methodInvocation.getStartPosition() > (textSelection.getOffset() - 200) && methodInvocation.getStartPosition() < textSelection.getOffset())
                                     {
-*/
-                                    String completeMethodInvocation = getCompleteMethodName(methodInvocation.resolveMethodBinding());
-
-                                    LerArvore.searchNodeInTree(completeMethodInvocation);
+*/                                  if(methodInvocation.getStartPosition() < textSelection.getOffset())
+                                        methodNames.add(getCompleteMethodName(methodInvocation.resolveMethodBinding()));
+                                    else
+                                        break;
 
                                     //System.out.println("Métodos invocados: " + completeMethodInvocation);
 //                                    }
                                 }
-
+                                
+                                ArrayList<Suggestion> suggestions = new ArrayList<Suggestion>();
+                                
+                                for(int j = 0; j < methodNames.size();j++)
+                                {
+                                     suggestions.addAll(LerArvore.searchNodeInTree(methodNames.subList(methodNames.size() - (1 + j), methodNames.size())));
+                                }
+                                Collections.sort(suggestions);
                             }
-
                         }
-
                     }
 
                 }
