@@ -14,11 +14,6 @@
             id="de.vogella.jdt.astsimple.commands.sampleCommand">
       </command>
       <command
-            name="Parse Method"
-            categoryId="de.vogella.jdt.astsimple.commands.category"
-            id="de.vogella.jdt.astsimple.commands.parseMethodCommand">
-      </command>
-      <command
             name="Search for Patterns"
             categoryId="de.vogella.jdt.astsimple.commands.category"
             id="de.vogella.jdt.astsimple.commands.searchPatternsCommand">
@@ -31,10 +26,6 @@
             class="de.vogella.jdt.astsimple.handlers.SampleHandler">
       </handler>
       <handler
-            commandId="de.vogella.jdt.astsimple.commands.parseMethodCommand"
-            class="br.uff.projetofinal.Parser">
-      </handler>
-      <handler
             commandId="de.vogella.jdt.astsimple.commands.searchPatternsCommand"
             class="br.uff.projetofinal.SearchPatterns">
      </handler>
@@ -45,6 +36,12 @@
             commandId="de.vogella.jdt.astsimple.commands.sampleCommand"
             contextId="org.eclipse.ui.contexts.window"
             sequence="M1+6"
+            schemeId="org.eclipse.ui.defaultAcceleratorConfiguration">
+      </key>
+      <key
+            commandId="de.vogella.jdt.astsimple.commands.searchPatternsCommand"
+            contextId="org.eclipse.ui.contexts.window"
+            sequence="M1+ARROW_DOWN"
             schemeId="org.eclipse.ui.defaultAcceleratorConfiguration">
       </key>
    </extension>
@@ -60,11 +57,6 @@
                   commandId="de.vogella.jdt.astsimple.commands.sampleCommand"
                   mnemonic="G"
                   id="de.vogella.jdt.astsimple.menus.sampleCommand">
-            </command>
-            <command
-                  commandId="de.vogella.jdt.astsimple.commands.parseMethodCommand"
-                  mnemonic="P"
-                  id="de.vogella.jdt.astsimple.menus.parseMethodCommand">
             </command>
             <command
                   commandId="de.vogella.jdt.astsimple.commands.searchPatternsCommand"
