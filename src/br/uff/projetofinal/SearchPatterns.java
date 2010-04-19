@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
+import java.util.Iterator;
 import java.util.List;
 
 import org.eclipse.core.commands.AbstractHandler;
@@ -29,15 +30,18 @@ import org.eclipse.jface.text.ITextSelection;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.ISelectionProvider;
 import org.eclipse.ui.IEditorPart;
-import org.eclipse.ui.IWorkbenchPage;
 import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.texteditor.ITextEditor;
 
+import br.uff.projetofinal.util.ComparableList;
+import br.uff.projetofinal.util.Suggestion;
 import de.vogella.jdt.astsimple.handler.MethodInvocationVisitor;
 import de.vogella.jdt.astsimple.handler.MethodVisitor;
 
 public class SearchPatterns extends AbstractHandler
 {
+    private static Integer                maxSizeCombinations = 4;
+    
     private void searchPatterns()
     {
 
@@ -80,14 +84,16 @@ public class SearchPatterns extends AbstractHandler
         IWorkspaceRoot root = workspace.getRoot();
         // Get all projects in the workspace
         IProject[] projects = root.getProjects();
-
+        
+        ComparableList<String> methodNames = new ComparableList<String>();
+        
         try
         {
-
+            
             for (IProject project : projects)
             {
 
-                if (!project.isOpen() || !project.isNatureEnabled("org.eclipse.jdt.core.javanature"))
+                if (!project.isOpen() || !project.isNatureEnabled("org.eclipse.jdt.core.javanature") || !project.getName().equals(nameProject))
                     continue;
 
                 IPackageFragment[] packages = JavaCore.create(project).getPackageFragments();
@@ -122,7 +128,6 @@ public class SearchPatterns extends AbstractHandler
                                     break;;
                                 method.getBody().accept(visitor2);
                                 
-                                ArrayList<String> methodNames = new ArrayList<String>();
                                 for (MethodInvocation methodInvocation : visitor2.getMethods())
                                 {
                                     /*if (methodInvocation.getStartPosition() > (textSelection.getOffset() - 200) && methodInvocation.getStartPosition() < textSelection.getOffset())
@@ -131,23 +136,16 @@ public class SearchPatterns extends AbstractHandler
                                         methodNames.add(getCompleteMethodName(methodInvocation.resolveMethodBinding()));
                                     else
                                         break;
-
-                                    //System.out.println("Métodos invocados: " + completeMethodInvocation);
-//                                    }
                                 }
+                                break;
                                 
-                                ArrayList<Suggestion> suggestions = new ArrayList<Suggestion>();
                                 
-                                for(int j = 0; j < methodNames.size();j++)
-                                {
-                                     suggestions.addAll(LerArvore.searchNodeInTree(methodNames.subList(methodNames.size() - (1 + j), methodNames.size())));
-                                }
-                                Collections.sort(suggestions);
                             }
                         }
                     }
 
                 }
+                
             }
         }
 
@@ -159,7 +157,97 @@ public class SearchPatterns extends AbstractHandler
         {
             e.printStackTrace();
         }
+        
+        
+        ArrayList<ComparableList<String>> combinations = new ArrayList<ComparableList<String>>();
+        for(int i = 1; i <= Math.min(maxSizeCombinations, methodNames.size()); i++)
+        {
+            combinations.addAll(generateCombinations(methodNames, i));
+        }
+        
+        Long initialTime = System.currentTimeMillis();
+        
+        Collections.sort(combinations);
+        
+        ArrayList<Suggestion> suggestions = new ArrayList<Suggestion>();
+        
+        for (int i = 0; i < combinations.size(); i++)
+        {
+            Collection<Suggestion> methodSug = LerArvore.searchNodeInTree(combinations.get(i));
+            if(methodSug != null)
+               suggestions.addAll(methodSug);
+            else
+               poda(combinations, combinations.get(i), i + 1);
+        }
+        
+        //Collections.sort(suggestions);
+        System.out.println("Total de sugestões: " + suggestions.size());
+        
+        System.out.println("Tempo total: " + (System.currentTimeMillis() - initialTime)/1000 + " segundos");
+        
+        for (Iterator<Suggestion> iterator = suggestions.iterator(); iterator.hasNext();)
+        {
+            Suggestion suggestion = (Suggestion) iterator.next();
+            System.out.println("Usuários que chamam os métodos: ");
+            Collection<String> invocatedMethods = suggestion.getInvocatedMethods();
+            for (Iterator<String> iterator2 = invocatedMethods.iterator(); iterator2.hasNext();)
+            {
+                System.out.print(iterator2.next() + " , ");
+            }
+            System.out.println("\nTambém chamam em seguida: ");
+            Collection<String> methods = suggestion.getSuggestedMethods();
+            for (Iterator<String> iterator2 = methods.iterator(); iterator2.hasNext();)
+            {
+                System.out.print(iterator2.next() + " , ");
+            }
+            System.out.println("\nSuporte: " + suggestion.getSupport() + " Confianca: " + suggestion.getConfidence() + "\n\n");
+            
+        }
+    }
 
+    private void poda(ArrayList<ComparableList<String>> combinations, ComparableList<String> nonFrequencyList, int initialIndex)
+    {
+        for (int i = initialIndex; i < combinations.size(); i++)
+        {
+            if(combinations.get(i).containsAll(nonFrequencyList))
+                combinations.remove(i);
+        }
+    }
+
+    private Collection<ComparableList<String>> generateCombinations(ComparableList<String> methodNames, int size)
+    {
+        Collection<ComparableList<String>> combinations = new ArrayList<ComparableList<String>>();
+        
+        if(methodNames.size() == size)
+        {
+            combinations.add(methodNames);
+            return combinations;
+        }
+        
+        if(size == 1)
+        {
+            for(int i = 0; i < methodNames.size(); i++)
+            {
+                ComparableList<String> combination = new ComparableList<String>();
+                combination.add(methodNames.get(i));
+                combinations.add(combination);
+            }
+            return combinations;
+        }
+        
+        for(int i = 0; i <= methodNames.size() - size; i++)
+        {
+            ComparableList<String> methodsClone = (ComparableList<String>)methodNames.clone();
+            methodsClone.removeAll(methodNames.subList(0, i + 1));
+            Collection<ComparableList<String>> elementCombinations = generateCombinations(methodsClone, size - 1);
+            for (Iterator<ComparableList<String>> iterator = elementCombinations.iterator(); iterator.hasNext();)
+            {
+                iterator.next().add(0, methodNames.get(i));
+            }
+            combinations.addAll(elementCombinations);
+        }
+        
+        return combinations;
     }
 
     private static CompilationUnit parse(ICompilationUnit unit)
