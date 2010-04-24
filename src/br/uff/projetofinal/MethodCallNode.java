@@ -8,20 +8,22 @@ public class MethodCallNode implements Serializable
     /**
      * 
      */
-    private static final long serialVersionUID = -3961267160887082047L;
+    private static final long               serialVersionUID = -3961267160887082047L;
 
-    private String              methodSignature;
+    private String                          methodSignature;
 
-    private double[]            confidences;
+    private double[]                        confidences;
+
+    private int                             maxTreeDepth     = 0;
 
     private HashMap<String, MethodCallNode> methodChildren;
 
-    private MethodCallNode      parentNode;
-    
+    private MethodCallNode                  parentNode;
+
     public MethodCallNode(String methodSignature, double[] confidences, MethodCallNode parentNode)
     {
         this.methodSignature = methodSignature;
-        if(confidences != null)
+        if (confidences != null)
             this.confidences = confidences;
         else
             this.confidences = new double[0];
@@ -85,8 +87,18 @@ public class MethodCallNode implements Serializable
 
     public double getSupport()
     {
-        if(confidences.length == 0)
+        if (confidences.length == 0)
             return 1;
         return confidences[0];
+    }
+
+    public Integer getMaxTreeDepth()
+    {
+        return maxTreeDepth;
+    }
+
+    public void setMaxTreeDepth(Integer maxTreeDepth)
+    {
+        this.maxTreeDepth = maxTreeDepth;
     }
 }
