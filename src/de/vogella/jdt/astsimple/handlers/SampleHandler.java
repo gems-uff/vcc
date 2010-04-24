@@ -1,5 +1,6 @@
 package de.vogella.jdt.astsimple.handlers;
 
+
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
@@ -35,6 +36,7 @@ import org.eclipse.jdt.core.dom.MethodDeclaration;
 import org.eclipse.jdt.core.dom.MethodInvocation;
 
 import br.uff.projetofinal.MethodCallNode;
+
 import de.vogella.jdt.astsimple.handler.MethodInvocationVisitor;
 import de.vogella.jdt.astsimple.handler.MethodVisitor;
 
@@ -161,9 +163,10 @@ public class SampleHandler extends AbstractHandler
             {
                 str = in.readLine();
                 String[] ids = str.split(";");
-                //                if(ids.length == 1)
-                //                    continue;
+                
                 MethodCallNode parentNode = rootNode;
+                if(ids.length - 1 > rootNode.getMaxTreeDepth())
+                    rootNode.setMaxTreeDepth(ids.length - 1);
 
                 for (int i = 0; i < ids.length - 1; i++)
                 {
