@@ -32,8 +32,19 @@ import org.eclipse.jdt.core.dom.MethodInvocation;
 import org.eclipse.jface.text.ITextSelection;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.ISelectionProvider;
+import org.eclipse.swt.SWT;
+import org.eclipse.swt.layout.FillLayout;
+import org.eclipse.swt.widgets.Display;
+import org.eclipse.swt.widgets.Shell;
+import org.eclipse.swt.widgets.Tree;
+import org.eclipse.swt.widgets.TreeColumn;
+import org.eclipse.swt.widgets.TreeItem;
 import org.eclipse.ui.IEditorPart;
 import org.eclipse.ui.PlatformUI;
+import org.eclipse.ui.console.ConsolePlugin;
+import org.eclipse.ui.console.IConsole;
+import org.eclipse.ui.console.MessageConsole;
+import org.eclipse.ui.console.MessageConsoleStream;
 import org.eclipse.ui.texteditor.ITextEditor;
 
 import br.uff.projetofinal.util.ComparableList;
@@ -47,6 +58,7 @@ public class SearchPatterns extends AbstractHandler
 
     private void searchPatterns()
     {
+	
         IEditorPart editor = PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage().getActiveEditor();
 
         ObjectInputStream ois;
@@ -95,24 +107,84 @@ public class SearchPatterns extends AbstractHandler
 
     private void printResults(ArrayList<Suggestion> suggestions)
     {
+    	
+    	
+    	Display display = Display.getDefault();
+
+        Shell shell = new Shell(display);
+        shell.setText("Sugestões encontradas");
+        shell.setLayout(new FillLayout());
+        shell.setSize(800, 400);
+        
+        Tree tree = new Tree(shell, SWT.BORDER | SWT.H_SCROLL | SWT.V_SCROLL | SWT.VIRTUAL );
+        
+        
+        tree.setHeaderVisible(true);
+        
+        TreeColumn column1 = new TreeColumn(tree, SWT.NONE);
+        column1.setText("Métodos frequentemente chamados");
+        column1.setWidth(400);
+        column1.setAlignment(SWT.LEFT);
+        
+        TreeColumn column2 = new TreeColumn(tree, SWT.NONE);
+        column2.setText("Suporte");
+        column2.setWidth(200);
+        column2.setAlignment(SWT.CENTER);
+        
+        
+        TreeColumn column3 = new TreeColumn(tree, SWT.NONE);
+        column3.setText("Confiança");
+        column3.setWidth(200);
+        column3.setAlignment(SWT.CENTER);
+
+        
+
+           	
         for (Iterator<Suggestion> iterator = suggestions.iterator(); iterator.hasNext();)
         {
             Suggestion suggestion = (Suggestion) iterator.next();
             System.out.println("Usuários que chamam os métodos: ");
             Collection<String> invocatedMethods = suggestion.getInvocatedMethods();
+            
+            StringBuffer nameMethod = new StringBuffer();
+            
             for (Iterator<String> iterator2 = invocatedMethods.iterator(); iterator2.hasNext();)
             {
-                System.out.print(iterator2.next() + " , ");
+            	nameMethod.append(iterator2.next() + " , ");
+//                System.out.print(iterator2.next() + " , ");
             }
+            
+            TreeItem treeItem = new TreeItem(tree, 0);
+            treeItem.setText(new String [] {nameMethod.toString(), "-", "-"});
+            
+            
             System.out.println("\nTambém chamam em seguida: ");
             Collection<String> methods = suggestion.getSuggestedMethods();
+            
+            StringBuffer sugestion = new StringBuffer();
             for (Iterator<String> iterator2 = methods.iterator(); iterator2.hasNext();)
             {
-                System.out.print(iterator2.next() + " , ");
+            	sugestion.append(iterator2.next() + " , ");
+//                System.out.print(iterator2.next() + " , ");
             }
+            
+            TreeItem subTreeItem = new TreeItem(treeItem, SWT.NONE);
+            subTreeItem.setText(new String[] {sugestion.toString(), String.valueOf(suggestion.getSupport()), String.valueOf(suggestion.getConfidence())} );
+//            
+            
             System.out.println("\nSuporte: " + suggestion.getSupport() + " Confianca: " + suggestion.getConfidence() + "\n\n");
 
+            
+            
+            
         }
+    	
+        shell.open();
+        while (!shell.isDisposed()) {
+            if (!display.readAndDispatch())
+                display.sleep();
+        }
+        display.dispose();
         
     }
 
