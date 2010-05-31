@@ -1,0 +1,45 @@
+\begin{thebibliography}{1}
+
+\bibitem{Ball}
+T.~Ball, J.~Kim, A.A. Porter e et~al.
+\newblock If your version control system could talk.
+\newblock {\em Workshop on Process Modelling and Empirical Studies of Software
+  Engineering}, 1, 1997.
+
+\bibitem{Dantas}
+C.~Dantas, L.~Murta e C.~Werner.
+\newblock Mining change traces from versioned uml repositories.
+\newblock {\em XXI Simpósio Brasileiro de Engenharia de Software (SBES 2007)},
+  1, October de 2007.
+
+\bibitem{LivroMineracao}
+J.~Han e M.~Kamber.
+\newblock {\em Data Mining: Concepts and Techniques (2nd edition)}.
+\newblock Morgan Kaufmann, 2006.
+
+\bibitem{Shirabad}
+J.S. Shirabad, T.~Lethbridge e S.~Matwin.
+\newblock Supporting software maintenance by mining software update records.
+\newblock {\em International Conference on Software Maintenance (ICSM)},
+  1:22--31, November de 2001.
+
+\bibitem{SrikantAgrawal}
+R.~Srikant e R.~Agrawal.
+\newblock Mining sequential patterns: Generalizations and performance
+  improvements.
+\newblock Em {\em Proceedings of the 5th International Conference on Extending
+  Database Technology - EDBT}, 1996.
+
+\bibitem{Ying}
+A.T.T. Ying, G.C. Murphy, R.~Ng e et~al.
+\newblock Predicting source code changes by mining change history.
+\newblock {\em IEEE Transactions on Software Engineering (TSE)},
+  30(9):574--586, 2004.
+
+\bibitem{Zimmerman}
+T~Zimmermann, P.~Weisgerber, S.~Diehl e et~al.
+\newblock Mining version histories to guide software changes.
+\newblock {\em International Conference on Software Engineering (ICSE)},
+  1:563--572, May de 2004.
+
+\end{thebibliography}

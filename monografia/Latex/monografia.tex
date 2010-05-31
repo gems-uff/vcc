@@ -1,0 +1,71 @@
+\documentclass[normaltoc,capchap,capsec,times]{abnt}
+\usepackage[latin1]{inputenc}
+\usepackage[brazil]{babel}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{uff}
+\usepackage{multirow}
+
+\begin{document}
+
+\newcommand{\mesh}{\textit{mesh}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Dados da Monografia
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Nome do autor
+\autor{Luiz Laerte Nunes da Silva Junior\\Thiago Nazareth de Oliveira}
+
+
+% Mes de apresentação
+\mes{Junho}
+
+% Ano de apresentação
+\ano{2010}
+
+% Título 
+\titulo{Vertical Code Completion}
+
+% Orientador
+\orientador{Leonardo Murta}
+
+% Co-orientador
+\coorientador{Alexandre Plastino}
+
+% Capítulo 0: elementos pré-textuais (capa, folha de rosto...)
+\input{capitulo0}
+
+% Começo do corpo da monografia
+
+% Vários capítulos
+\input{capitulo1}
+
+\input{capitulo2}
+
+\input{capitulo3}
+
+\input{capitulo4}
+
+\input{capitulo5}
+
+\input{capitulo6}
+
+% Capítulo de conclusão
+%\input{conclusao}
+
+% Bibliografia
+\nocite*
+
+\bibliographystyle{plain-br}
+
+%ler bibliografia.bib
+\bibliography{bibliografia}
+
+% Início dos apêndices
+%\apendices
+
+% Inclusão do primeiro apêndice
+%\input{apendiceA}
+
+\end{document}
