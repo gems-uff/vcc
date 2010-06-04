@@ -126,19 +126,22 @@ public class SearchPatterns extends AbstractHandler
         column1.setWidth(400);
         column1.setAlignment(SWT.LEFT);
         
+        
         TreeColumn column2 = new TreeColumn(tree, SWT.NONE);
         column2.setText("Suporte");
         column2.setWidth(200);
         column2.setAlignment(SWT.CENTER);
+        column2.addSelectionListener(new SortTreeListener());
         
         
         TreeColumn column3 = new TreeColumn(tree, SWT.NONE);
         column3.setText("Confiança");
         column3.setWidth(200);
         column3.setAlignment(SWT.CENTER);
+        column3.addSelectionListener(new SortTreeListener());
 
         
-
+        int i = 0;
            	
         for (Iterator<Suggestion> iterator = suggestions.iterator(); iterator.hasNext();)
         {
@@ -155,7 +158,8 @@ public class SearchPatterns extends AbstractHandler
             }
             
             TreeItem treeItem = new TreeItem(tree, 0);
-            treeItem.setText(new String [] {nameMethod.toString(), "-", "-"});
+            treeItem.setText(new String [] {nameMethod.toString(), Integer.toString(i), Integer.toString(i)});
+            i++;
             
             
             System.out.println("\nTambém chamam em seguida: ");
@@ -184,7 +188,7 @@ public class SearchPatterns extends AbstractHandler
             if (!display.readAndDispatch())
                 display.sleep();
         }
-        display.dispose();
+        //display.dispose();
         
     }
 

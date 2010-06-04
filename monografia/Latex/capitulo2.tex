@@ -6,17 +6,21 @@ Neste capítulo são abordados alguns conceitos e técnicas de Mineração de Dados, 
 
 \section{Mineração de Dados}
 
-Desde 1960, bases de dados evoluíram de simples processamento de arquivos a sofisticados sistemas de banco de dados. Isso permitiu que empresas e centros de pesquisas acumulassem grandes quantidades de dados históricos nos anos 70 e 80 \cite{LivroMineracao}.
+A evolução computacional das últimas décadas, ocasionada pela evolução tecnológica, permitiu um grande aumento no poder de processamento e na capacidade de armazenamento de dados a baixo custo, inserindo no mercado, novas tecnologias de transmissão e disponibilização de dados\cite{Domingues}. Isso permitiu que empresas e centros de pesquisa acumulassem grandes quantidades de dados históricos a partir dos anos 70 e 80\cite{LivroMineracao}.
 
-Porém, essa enorme quantidade de dados não refletia uma grande riqueza de conhecimento, já que a análise desses dados sem ferramentas adequadas ultrapassava a habilidade humana para compreensão de um volume tão extenso de informações armazenadas. Consequentemente, importantes decisões eram frequentemente tomadas somente por intuição, simplesmente pela falta dessas ferramentas que poderiam extrair conhecimentos valiosos dos repositórios de dados \cite{LivroMineracao}.
+Porém, essa enorme quantidade de dados não refletia uma grande riqueza de conhecimento, pois não era analisada com ferramentas adequadas, já que um volume tão extenso de informações ultrapassa a habilidade humana de compreensão. Consequentemente, importantes decisões eram frequentemente tomadas somente por intuição, simplesmente pela falta dessas ferramentas que poderiam extrair conhecimentos valiosos dos repositórios de dados \cite{LivroMineracao}.
 
 Isso motivou diversos estudos a partir do início dos anos 90, que resultaram na criação do campo de pesquisa de Mineração de Dados, área que se refere ao processo de descoberta de novas informações e conhecimento, no formato de regras e padrões, a partir de grandes bases de dados \cite{SrikantAgrawal}. A partir daí, foram desenvolvidas ferramentas para analisar e descobrir importantes padrões de dados, contribuindo para diversas áreas, tais como \cite{LivroMineracao}: pesquisas médicas, negócios estratégicos, biologia molecular, entre outras.
 
-Existem quatro principais tarefas em Mineração de Dados  \cite{LivroMineracao}: classificação, regras de associação, clusterização e padrões seqüências. Em geral, essas tarefas podem ser classificadas em duas categorias: mineração preditiva e mineração descritiva \cite{LivroMineracao}. 
-
-Na mineração preditiva, deseja-se prever o valor desconhecido de um determinado atributo, a partir da análise histórica dos dados armazenados na base. Na mineração descritiva, padrões e regras descrevem características importantes dos dados dos quais se está trabalhando.
 
 \subsection{Tarefas de Mineração de dados}
+
+Existem diversas tarefas em Mineração de Dados, as principais \cite{Goncalves}, que serão apresentadas nesse capítulo são: classificação, regras de associação, clusterização, padrões em séries temporais e padrões seqüências. Em geral, essas tarefas podem ser classificadas em duas categorias: mineração preditiva e mineração descritiva \cite{LivroMineracao}.
+
+Na mineração preditiva, deseja-se prever o valor desconhecido de um determinado atributo, a partir da análise histórica dos dados armazenados na base. Nessa categoria se enquadram as tarefas de classificação e padrões em séries temporais.
+Na mineração descritiva, padrões e regras descrevem características importantes dos dados dos quais se está trabalhando. As tarefas de regras de associação, clusterização e padrões sequenciais fazem parte dessa categoria.
+
+
 
 \subsubsection{Classificação}
 
@@ -26,15 +30,25 @@ Um sistema de um banco, que tem por objetivo inferir se um cliente será ou não u
 
 \subsubsection{Regras de Associação}
 
-	Uma regra de associação representa um padrão de relacionamento entre itens de dados do domínio da aplicação que ocorre com uma determinada frequência na base. Ela é extraída a partir de uma base de dados que contêm transações, que são formadas por conjunto de itens do domínio da aplicação. 
+	Uma regra de associação representa um padrão de relacionamento entre itens de dados do domínio da aplicação, que ocorre com uma determinada frequência. Essas regras são extraídas a partir de uma base de dados organizada em transações, que são formadas por um conjunto de itens desse domínio. 
+	Um exemplo fictício de regra de associação que poderia ser extraído de uma base de dados de dados qualquer de vendas é: clientes que compram o produto A geralmente compram o produto B. 
+	
+	Outro exemplo, porém real, que foi extraído de uma base de dados médica após a aplicação dessa técnica, descreve que pacientes aidéticos que contraem a doença candíase também têm pneumonia.
 
-A rede de lojas Wal-Mart, após aplicar esta técnica em sua base de dados, descobriu que parte significativa das compras de homens às sextas-feiras à noite, que incluí fraldas, incluí também cerveja, ou seja, a regra de associação minerada diz que a compra de fraldas está associada a compra de cervejas nas condições descritas acima. Após uma análise mais detalhada sobre esse padrão extraído, soube-se que os pais ao comprarem fraldas para seus bebês, aproveitavam também para comprar cerveja para o final de semana. Esse é um exemplo clássico de extração de regras de associação. Outro exemplo, que foi extraído de uma base de dados médica após a aplicação dessa técnica, descreve que pacientes aidéticos que contraem a doença candíase também têm pneumonia. 
 
 \subsubsection{Clusterização}
 
-A tarefa de clusterização é usada para agrupar (clusterizar) elementos de uma base de dados através de seus atributos ou características, de forma que elementos mais similares fiquem no mesmo cluster e elementos menos similares fiquem em clusters distintos. 
+A tarefa de clusterização é usada para agrupar elementos de uma base de dados através de seus atributos ou características, de forma que elementos mais similares fiquem no mesmo cluster e elementos menos similares fiquem em clusters distintos. 
 
-Esta técnica é muito utilizada em sistemas de grandes operadoras de cartão de crédito, separando os clientes em grupos de forma que aqueles que apresentam o mesmo comportamento de consumo fiquem no mesmo grupo.  A separação desses clientes por grupo pode ser usada para fazer algum tipo de marketing apropriado ao grupo ou na detecção de fraudes no caso de um cliente apresentar um comportamento diferente do esperado para o seu perfil.
+Esta técnica é muito utilizada em sistemas de grandes operadoras de cartão de crédito, separando os clientes em grupos de forma que aqueles que apresentam o mesmo comportamento de consumo fiquem no mesmo grupo.  A separação desses clientes por grupo pode ser usada para fazer algum tipo de marketing apropriado ao grupo ou na detecção de fraudes, no caso de um cliente apresentar um comportamento diferente do esperado para o seu perfil.
+
+
+\subsubsection{Padrões em Séries Temporais}
+
+	Consiste de uma seqüência de valores mensurados em intervalos iguais de tempo \cite{LivroMineracao}. O principal objetivo da análise de padrões sequenciais em séries temporais é realizar previsões futuras baseando-se no histórico dos dados. 
+
+	Cotação diária do dólar, faturamento anual de uma empresa e evolução do índice da bolsa de valores são exemplos de séries temporais.
+
 
 \subsubsection{Padrões Sequenciais}
 
@@ -45,7 +59,7 @@ Existem muitas aplicações envolvendo dados sequenciais, e a ordem com que esses 
 	
 Uma sequência é uma lista ordenada de eventos e seu tamanho é determinado pelo seu número de itens. Uma sequência \textbf{s} é representada por $<e_{1}e_{2}e_{3}...e_{n}>$, onde e$_{k}$ é dito um evento ou elemento da sequência \textbf{s} e e$_{1}$ ocorre antes de e$_{2}$, que ocorre antes de e$_{3}$ e assim sucessivamente. Por sua vez, um evento ou elemento da sequência é representado por \textbf{e} = (i$_{1}i_{2}i_{3}...i_{m}$), onde i$_{k}$ é um item do domínio da aplicação.
 
-Podemos dizer que um evento em uma base de dados de uma loja de vendas é uma compra feita por um cliente, e o item do domínio da aplicação são os produtos que pertencem à compra do cliente. 
+Podemos dizer que um evento em uma base de dados de uma loja de vendas é uma compra feita por um cliente, e o item do domínio da aplicação são os produtos que pertencem à essa compra. 
 
 Além disso, outras definições são importantes. Uma sequência pode ser parte de outra sequência maior. Nesse caso, a sequência  $\alpha$ = $<a_{1}a_{2}...a_{n}>$ é chamada de subsequência de outra sequência $\beta$ = $<b_{1}b_{2}...b_{m}>$, e $\beta$  é uma supersequência de $\alpha$, denotado como $\alpha$ $\subseteq$ $\beta$, se existirem inteiros 1 $\leq j_{1} < j_{2} < ... < j_{n} \leq$ m tais que a$_{1} \subseteq b_{j1},$ $a_{2} \subseteq b_{j2},..., a_{1} \subseteq b_{jn}$. Por exemplo, se $\alpha$ = $<(ab), d>$ e $\beta$ = $<(abc), (de)>$, onde \textit{a}, \textit{b}, \textit{c}, \textit{d} e \textit{e} são itens, então $\alpha$ é uma subsequência de $\beta$ e $\beta$ é uma supersequência de $\alpha$.
 
@@ -61,5 +75,8 @@ Tarefas de mineração de dados têm sido muito utilizadas na engenharia de softwar
 Em seu trabalho, \cite{Ying} aplica mineração de dados para encontrar relações de dependências no código fonte para ajudar os desenvolvedores em tarefas de modificação. Em especial, é utilizada a técnica de extração de regras de associação para determinar padrões de mudanças no código fonte. 
 
 \cite{Dantas} utiliza técnicas de mineração de dados num repositório UML versionado para extrair regras de associação que possam identificar elementos do modelo UML que foram modificados juntos no passado e que provavelmente precisarão ser modificados juntos no futuro.
+
+\cite{Zimmerman} aplica técnicas de mineração de dados em repositórios versionados de código fonte para extrai regras de associação do tipo: "`programadores que alteraram a função A também alteraram as funções B e C"'. Tais regras são extraídas com o objetivo de guiar desenvolvedores de software na alteração do código fonte.
+
 
 Em \cite{Ball}, um algoritmo de clusterização foi utilizado num sistema de controle de versões para identificar classes semanticamente relacionadas. A partir do gráfico gerado pelo algoritmo, pôde-se analisar que mudanças em classes de certo cluster eram frequentemente envolvidas com mudanças em classes de outro cluster.

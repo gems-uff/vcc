@@ -3,14 +3,15 @@
 \contentsline {chapter}{\uppercase {Cap\IeC {\'\i }tulo 2 - Revis\~ao da Literatura}}{6}
 \contentsline {section}{\numberline {2.1}Introdu\c c\~ao}{6}
 \contentsline {section}{\numberline {2.2}Minera\c c\~ao de Dados}{6}
-\contentsline {subsection}{\numberline {2.2.1}Tarefas de Minera\c c\~ao de dados}{7}
+\contentsline {subsection}{\numberline {2.2.1}Tarefas de Minera\c c\~ao de dados}{6}
 \contentsline {subsubsection}{\numberline {2.2.1.1}Classifica\c c\~ao}{7}
 \contentsline {subsubsection}{\numberline {2.2.1.2}Regras de Associa\c c\~ao}{7}
 \contentsline {subsubsection}{\numberline {2.2.1.3}Clusteriza\c c\~ao}{7}
-\contentsline {subsubsection}{\numberline {2.2.1.4}Padr\~oes Sequenciais}{8}
+\contentsline {subsubsection}{\numberline {2.2.1.4}Padr\~oes em S\'eries Temporais}{8}
+\contentsline {subsubsection}{\numberline {2.2.1.5}Padr\~oes Sequenciais}{8}
 \contentsline {section}{\numberline {2.3}Minera\c c\~ao de dados na Engenharia de Software}{9}
-\contentsline {chapter}{\uppercase {Cap\IeC {\'\i }tulo 3 - Vertical Code Completion}}{10}
-\contentsline {chapter}{\uppercase {Cap\IeC {\'\i }tulo 4 - Implementa\c c\~ao}}{11}
-\contentsline {chapter}{\uppercase {Cap\IeC {\'\i }tulo 5 - Resultados Experimentais}}{12}
-\contentsline {chapter}{\uppercase {Cap\IeC {\'\i }tulo 6 - Conclus\~oes}}{13}
-\contentsline {chapter}{\uppercase {Refer\^encias Bibliogr\'aficas}}{14}
+\contentsline {chapter}{\uppercase {Cap\IeC {\'\i }tulo 3 - Vertical Code Completion}}{11}
+\contentsline {chapter}{\uppercase {Cap\IeC {\'\i }tulo 4 - Implementa\c c\~ao}}{12}
+\contentsline {chapter}{\uppercase {Cap\IeC {\'\i }tulo 5 - Resultados Experimentais}}{13}
+\contentsline {chapter}{\uppercase {Cap\IeC {\'\i }tulo 6 - Conclus\~oes}}{14}
+\contentsline {chapter}{\uppercase {Refer\^encias Bibliogr\'aficas}}{15}
