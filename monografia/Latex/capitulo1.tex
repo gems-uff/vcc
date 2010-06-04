@@ -1,4 +1,25 @@
-
 \capitulo{Introdução}\label{cap:introducao}
 
-Capítulo 1
+No domínio do desenvolvimento de aplicações comerciais, alcançar o máximo de produtividade, qualidade e eficiência é um dos objetivos fundamentas da Engenharia de Software \cite{Melo}. Diversas técnicas e ferramentas são criadas com esse propósito, e muitas delas utilizam de alguma forma conhecimento de produtos de software preexistentes. Em muitos casos, esses produtos possuem uma quantidade de linhas de código da ordem de milhões e muito conhecimento importante pode ser extraído desse montante de dados \cite{Holmes}.
+
+Dentre as ferramentas que utilizam essa fonte de informações, as que completam código automaticamente se destacam e são adotadas em praticamente todas as IDEs(Ambiente de Desenvolvimento Integrado) utilizadas atualmente\cite{Robbes}. Isso acontece, pois elas incrementam a produtividade dos programadores, e os encorajam a usar nomes de variáveis mais descritivos tornando o código mais legível, pois com um simples clique ou uma simples combinação de teclas pode-se reescrever uma variável de nome extenso. 
+
+Todavia, essas são ferramentas bastante simplificadas que fazem apenas um casamento do que foi digitado com o que está disponível no ambiente de desenvolvimento. Neste contexto, este trabalho propõe a utilização dos repositórios de software de uma forma mais inteligente, melhorando ainda mais a produtividade dos desenvolvedores de software.
+
+Essa nova proposta de utilização exige uma grande quantidade de informações em um repositório de código fonte, para que ocorra uma efetiva extração de conhecimento. Entretanto, essa necessidade também se torna um empecilho, pois não é fácil filtrar o que realmente importa. Coletar esses dados manualmente é inviável, pois demandaria muito tempo e esforço, e os projetos em geral estão em contínua evolução.
+
+Surge então a necessidade de automatizar a extração de informações úteis desse grande volume de dados. Nesse contexto, técnicas de mineração de dados se apresentam como uma forma eficiente de se extrair padrões que se repetem frequentemente \cite{LivroMineracao}.  
+
+Dessa forma, o objetivo deste trabalho é criar uma ferramenta que se propõe a ir além do code completion tradicional \cite{Robbes}, sugerindo sequências semânticas de código fonte, extraídas de um repositório através da aplicação de técnicas de mineração de padrões sequenciais. Essas sugestões podem aumentar a produtividade do desenvolvedor assim como evitar o surgimento de erros, devido ao questionamento natural que o mesmo irá fazer sempre que uma informação pertinente, que não se relaciona com o que estava para ser desenvolvida, for sugerida no decorrer da atividade.
+
+O restante deste trabalho está organizado da seguinte forma.
+
+O Capítulo 2 apresenta uma introdução à área de mineração de dados, descrevendo e exemplificando as suas tarefas: extração de regras de associação, classificação, clusterização e extração de padrões sequenciais, sendo esta última a técnica usada neste trabalho para extrair sugestões de código. Além disso, apresentamos alguns trabalhos que aplicam mineração de dados na área de engenharia de software.
+
+O Capítulo 3 apresenta uma visão geral da abordagem proposta neste trabalho, descrevendo em alto nível os passos tomados para se chegar a solução proposta.
+
+O Capítulo 4 discute os detalhes de implementação da abordagem proposta, descrevendo técnicas, ferramentas e tecnologias utilizadas.
+
+O Capítulo 5 apresenta os resultados experimentais obtidos, descrevendo o planejamento do experimento bem como a avaliação e discussão dos resultados.
+
+Finalmente, o Capítulo 6 apresenta a conclusão deste trabalho, relatando as suas contribuições, limitações e possíveis trabalhos futuros.
