@@ -4,7 +4,7 @@ Neste capítulo, são abordados alguns conceitos e técnicas de Mineração de Dados,
 
 \section{Mineração de Dados}
 
-A evolução computacional das últimas décadas, ocasionada pela evolução tecnológica, permitiu um grande aumento no poder de processamento e na capacidade de armazenamento de dados a baixo custo, inserindo no mercado, novas tecnologias de transmissão e disponibilização de dados \cite{Domingues}. Isso permitiu que empresas e centros de pesquisa acumulassem grandes quantidades de dados históricos a partir dos anos 70 e 80 \cite{LivroMineracao}.
+A evolução computacional das últimas décadas, ocasionada pela evolução tecnológica, permitiu um grande aumento no poder de processamento e na capacidade de armazenamento de dados a baixo custo, inserindo no mercado, novas tecnologias de transmissão e disponibilização de dados \cite{Domingues}. Isso permitiu que empresas e centros de pesquisa acumulassem grandes quantidades de dados históricos a partir dos anos 70 e 80\cite{LivroMineracao}.
 
 Porém, essa enorme quantidade de dados não refletia uma grande riqueza de conhecimento, pois não era analisada com ferramentas adequadas, já que um volume tão extenso de informações ultrapassa a habilidade humana de compreensão. Consequentemente, importantes decisões eram frequentemente tomadas somente por intuição, simplesmente pela falta dessas ferramentas que poderiam extrair conhecimentos valiosos dos repositórios de dados \cite{LivroMineracao}.
 
@@ -21,7 +21,7 @@ A seguir serão descritas as principais tarefas de mineração de dados.
 
 A tarefa de classificação tem por objetivo identificar, entre um conjunto pré-definido de classes, aquela à qual pertence um elemento a partir de seus atributos. Para inferir a qual classe esse elemento pertence, é necessária uma base de treinamento. 
 
-Um sistema de um banco, que tem por objetivo inferir se um cliente será ou não um bom pagador, com base nos dados de clientes antigos e nas características do elemento que está sendo classificado, é um exemplo de utilização da tarefa de classificação.
+Um sistema de um banco, que tem por objetivo inferir a classe à qual o cliente pertence, indicando se o mesmo será ou não um bom pagador, com base nos dados de clientes antigos e nas características do elemento que está sendo classificado, é um exemplo de utilização da tarefa de classificação.
 
 \subsection{Regras de Associação}
 
@@ -61,9 +61,10 @@ Dessa forma, uma sequência de eventos é dita frequente se a quantidade de vezes 
 
 Tarefas de mineração de dados têm sido muito utilizadas em engenharia de software, principalmente quando aplicadas em repositórios de dados para se obter informações sobre a evolução de software ao longo do tempo, com o objetivo de aumentar a qualidade do processo de desenvolvimento de software \cite{Ball, Dantas, Shirabad, Ying, Zimmerman}.
 
-Em \cite{Shirabad}, utilizou-se um algoritmo classificador, a partir do aprendizado em uma base de treinamento, para classificar a relação de relevância de manutenção entre dois arquivos MELHORAR. Essa relação é utilizada no contexto de manutenção de software.
+Em \cite{Shirabad}, utilizou-se um algoritmo classificador, a partir do aprendizado em uma base de treinamento, para extrair relações
+que indicam que arquivos de código fonte, em um sistema legado, são relevantes uns aos outros no contexto da manutenção de software. Tais relações poderem revelar interconexões complexas entre os arquivos de código fonte do sistema, podendo sua vez, ser úteis na compreensão deles. Assim, o algoritmo classificador, após receber dois arquivos de código fonte, retorna verdadeiro ou falso, indicando se são relevantes entre si. 
 
-Em \cite{Ying}, aplica-se mineração de dados para se encontrar relações de dependências no código fonte para ajudar os desenvolvedores em tarefas de modificação. Em especial, é utilizada a técnica de extração de regras de associação para determinar padrões de mudanças no código fonte. EXEMPLO.
+Em \cite{Ying}, aplica-se mineração de dados para se encontrar relações de dependências entre arquivos do código fonte, até mesmo dependências difíceis de se determinar, tais como aquelas existentes entre códigos fonte de linguagens diferentes. Em especial, é utilizada a técnica de extração de regras de associação para determinar padrões de mudanças entre arquivos do código fonte para ajudar os desenvolvedores em tarefas de modificação.
 
 Em \cite{Dantas}, utilizam-se técnicas de mineração de dados num repositório UML versionado para se extrair regras de associação que possam identificar elementos do modelo UML que foram modificados juntos no passado e que provavelmente precisarão ser modificados juntos no futuro.
 

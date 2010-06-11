@@ -1,16 +1,21 @@
-\begin{thebibliography}{1}
+\begin{thebibliography}{10}
 
 \bibitem{Ball}
 T.~Ball, J.~Kim, A.A. Porter e et~al.
 \newblock If your version control system could talk.
 \newblock {\em Workshop on Process Modelling and Empirical Studies of Software
-  Engineering}, 1, 1997.
+  Engineering}, 1:1, 1997.
 
 \bibitem{Dantas}
 C.~Dantas, L.~Murta e C.~Werner.
 \newblock Mining change traces from versioned uml repositories.
 \newblock {\em XXI Simpósio Brasileiro de Engenharia de Software (SBES 2007)},
-  1, October de 2007.
+  1:236 -- 252, October de 2007.
+
+\bibitem{Deitel}
+H.~M. Deitel.
+\newblock {\em Java, How To Program}.
+\newblock Prentice Hall, 4 edi\c{c}\~ao, 2002.
 
 \bibitem{Domingues}
 M.~A. Domingues.
@@ -21,12 +26,35 @@ M.~A. Domingues.
 E.C. Gonçalves.
 \newblock Regras de associação e suas medidas de interesse objetivas e
   subjetivas.
-\newblock {\em INFOCOMP Journal Computer Science}, 1, 1999.
+\newblock {\em INFOCOMP Journal Computer Science}, 1:27--36, 1999.
 
 \bibitem{LivroMineracao}
 J.~Han e M.~Kamber.
 \newblock {\em Data Mining: Concepts and Techniques (2nd edition)}.
 \newblock Morgan Kaufmann, 2006.
+
+\bibitem{Holmes}
+Reid Holmes.
+\newblock Using structural context to recommend source code examples.
+\newblock Dissertação de Mestrado, The University of British Columbia, 2004.
+
+\bibitem{Melo}
+Walcelio Melo, Caroline B.~S. Holanda e Clarissa~Angélica de~A.~de Souza.
+\newblock Proreuso: um repositório de componentes para web dirigido por um
+  processo de reuso.
+\newblock {\em XV Simpósio Brasileiro de Engenharia de Software}, 1:208--223,
+  2001.
+
+\bibitem{ProblemsAlgorithms}
+Ian Parberry e William Gasarch.
+\newblock {\em Problems on Algorithms}.
+\newblock Prentice Hall, 2002.
+
+\bibitem{Robbes}
+Romain Robbes e Michele Lanza.
+\newblock How program history can improve code completion.
+\newblock {\em 23rd IEEE/ACM International Conference on Automated Software
+  Engineering}, 1:317--326, 2008.
 
 \bibitem{Shirabad}
 J.S. Shirabad, T.~Lethbridge e S.~Matwin.
