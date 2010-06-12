@@ -114,7 +114,7 @@ public class SearchPatterns extends AbstractHandler
         Shell shell = new Shell(display);
         shell.setText("Sugestões encontradas");
         shell.setLayout(new FillLayout());
-        shell.setSize(800, 400);
+        shell.setSize(1000, 400);
         
         Tree tree = new Tree(shell, SWT.BORDER | SWT.H_SCROLL | SWT.V_SCROLL | SWT.VIRTUAL );
         
@@ -123,7 +123,7 @@ public class SearchPatterns extends AbstractHandler
         
         TreeColumn column1 = new TreeColumn(tree, SWT.NONE);
         column1.setText("Métodos frequentemente chamados");
-        column1.setWidth(400);
+        column1.setWidth(600);
         column1.setAlignment(SWT.LEFT);
         
         
@@ -158,8 +158,8 @@ public class SearchPatterns extends AbstractHandler
             }
             
             TreeItem treeItem = new TreeItem(tree, 0);
-            treeItem.setText(new String [] {nameMethod.toString(), Integer.toString(i), Integer.toString(i)});
-            i++;
+            treeItem.setText(new String [] {nameMethod.toString(), null, null});
+//            i++;
             
             
             System.out.println("\nTambém chamam em seguida: ");
