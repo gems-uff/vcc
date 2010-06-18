@@ -4,13 +4,13 @@
 T.~Ball, J.~Kim, A.A. Porter e et~al.
 \newblock If your version control system could talk.
 \newblock {\em Workshop on Process Modelling and Empirical Studies of Software
-  Engineering}, 1:1, 1997.
+  Engineering, Boston, MA}, 1997.
 
 \bibitem{Dantas}
 C.~Dantas, L.~Murta e C.~Werner.
 \newblock Mining change traces from versioned uml repositories.
 \newblock {\em XXI Simpósio Brasileiro de Engenharia de Software (SBES 2007)},
-  1:236 -- 252, October de 2007.
+  pp. 236 -- 252, October de 2007.
 
 \bibitem{Deitel}
 H.~M. Deitel.
@@ -26,7 +26,7 @@ M.~A. Domingues.
 E.C. Gonçalves.
 \newblock Regras de associação e suas medidas de interesse objetivas e
   subjetivas.
-\newblock {\em INFOCOMP Journal Computer Science}, 1:27--36, 1999.
+\newblock {\em INFOCOMP Journal Computer Science}, pp. 27--36, 1999.
 
 \bibitem{LivroMineracao}
 J.~Han e M.~Kamber.
@@ -42,7 +42,7 @@ Reid Holmes.
 Walcelio Melo, Caroline B.~S. Holanda e Clarissa~Angélica de~A.~de Souza.
 \newblock Proreuso: um repositório de componentes para web dirigido por um
   processo de reuso.
-\newblock {\em XV Simpósio Brasileiro de Engenharia de Software}, 1:208--223,
+\newblock {\em XV Simpósio Brasileiro de Engenharia de Software}, pp. 208--223,
   2001.
 
 \bibitem{ProblemsAlgorithms}
@@ -54,20 +54,20 @@ Ian Parberry e William Gasarch.
 Romain Robbes e Michele Lanza.
 \newblock How program history can improve code completion.
 \newblock {\em 23rd IEEE/ACM International Conference on Automated Software
-  Engineering}, 1:317--326, 2008.
+  Engineering}, pp. 317--326, 2008.
 
 \bibitem{Shirabad}
 J.S. Shirabad, T.~Lethbridge e S.~Matwin.
 \newblock Supporting software maintenance by mining software update records.
-\newblock {\em International Conference on Software Maintenance (ICSM)},
-  1:22--31, November de 2001.
+\newblock {\em International Conference on Software Maintenance (ICSM)}, pp.
+  22--31, November de 2001.
 
 \bibitem{SrikantAgrawal}
 R.~Srikant e R.~Agrawal.
 \newblock Mining sequential patterns: Generalizations and performance
   improvements.
-\newblock Em {\em Proceedings of the 5th International Conference on Extending
-  Database Technology - EDBT}, 1996.
+\newblock Em {\em 5th International Conference on Extending Database Technology
+  - EDBT}, 1996.
 
 \bibitem{Ying}
 A.T.T. Ying, G.C. Murphy, R.~Ng e et~al.
@@ -78,7 +78,7 @@ A.T.T. Ying, G.C. Murphy, R.~Ng e et~al.
 \bibitem{Zimmerman}
 T~Zimmermann, P.~Weisgerber, S.~Diehl e et~al.
 \newblock Mining version histories to guide software changes.
-\newblock {\em International Conference on Software Engineering (ICSE)},
-  1:563--572, May de 2004.
+\newblock {\em International Conference on Software Engineering (ICSE)}, pp.
+  563--572, May de 2004.
 
 \end{thebibliography}

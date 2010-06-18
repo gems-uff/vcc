@@ -14,8 +14,10 @@
 \contentsline {subsection}{\numberline {3.1.2}Minera\c c\~ao do c\'odigo fonte}{14}
 \contentsline {subsubsection}{\numberline {3.1.2.1}Suporte e Confian\c ca}{15}
 \contentsline {subsubsection}{\numberline {3.1.2.2}Gera\c c\~ao de \'arvore de chamadas}{16}
-\contentsline {section}{\numberline {3.2}Sugest\~ao de padr\~oes frequentes de c\'odigo fonte}{17}
-\contentsline {chapter}{\uppercase {Cap\IeC {\'\i }tulo 4 - Implementa\c c\~ao}}{21}
-\contentsline {chapter}{\uppercase {Cap\IeC {\'\i }tulo 5 - Resultados Experimentais}}{22}
-\contentsline {chapter}{\uppercase {Cap\IeC {\'\i }tulo 6 - Conclus\~oes}}{23}
-\contentsline {chapter}{\uppercase {Refer\^encias Bibliogr\'aficas}}{24}
+\contentsline {section}{\numberline {3.2}Sugest\~ao de padr\~oes frequentes de c\'odigo fonte}{18}
+\contentsline {chapter}{\uppercase {Cap\IeC {\'\i }tulo 4 - Implementa\c c\~ao}}{20}
+\contentsline {chapter}{\uppercase {Cap\IeC {\'\i }tulo 5 - Resultados Experimentais}}{21}
+\contentsline {chapter}{\uppercase {Cap\IeC {\'\i }tulo 6 - Conclus\~oes}}{22}
+\contentsline {chapter}{\uppercase {Refer\^encias Bibliogr\'aficas}}{23}
+\contentsline {chapter}{Ap\^endice I}{24}
+\contentsline {chapter}{Ap\^endice II}{26}
