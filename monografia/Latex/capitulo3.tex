@@ -46,8 +46,9 @@ Na Figura \ref{fig:metodo-transacao}, é possível visualizar uma codificação de m
 \begin{figure}[htb]
        \centering  % figura centralizada
        \fbox{\includegraphics[scale=0.5]{metodo-transacao.png}}
-       \caption{\it Exemplo de codificação de método e a transação gerada.}
-       \label{fig:metodo-transacao}
+       \FigLegenda{\label{fig:metodo-transacao}Exemplo de codificação de método e a transação gerada.}
+       %\caption{\it Exemplo de codificação de método e a transação gerada.}
+       %\label{fig:metodo-transacao}
 \end{figure}
 
 Sendo assim, cada declaração de método representa o início de uma sequência de eventos, que pode conter algum padrão sequencial frequente no seu interior. Essa sequência de eventos se encontra no corpo do método, e cada evento é atômico, ou seja, não pode ser dividido em diferentes itens. Esses eventos atômicos são as chamadas a outros métodos do projeto de software que está sendo construído. Dessa forma, os padrões sequenciais minerados são listas de chamadas de método, que obedecem a uma determinada sequência e se repetem frequentemente em diferentes corpos de métodos.
@@ -95,8 +96,7 @@ Para que os padrões obtidos na fase de mineração sequencial possam ser utilizado
 \begin{figure}[htb]
        \centering  % figura centralizada
        \fbox{\includegraphics[scale=0.45]{arvore-sem-suporte.png}}
-       \caption{\it Exemplo de árvore de padrões frequentes.}
-       \label{fig:arvore-sem-suporte}
+       \FigLegenda{\label{fig:arvore-sem-suporte}Exemplo de árvore de padrões frequentes.}
 \end{figure}
 	
 	Após definir a estrutura de armazenamento como uma árvore, é importante que seja decidido o que cada nó irá armazenar. Considerando cada nó como o fim de um padrão sequencial frequente, nos mesmos será armazenado o suporte desse padrão. 
@@ -123,8 +123,7 @@ A Figura \ref{fig:arvore} apresenta a árvore de padrões sequenciais frequentes e
 \begin{figure}[htb]
        \centering  % figura centralizada
        \fbox{\includegraphics[scale=0.425]{arvore.png}}
-       \caption{\it Exemplo de árvore de padrões frequentes com suportes e confianças.}
-       \label{fig:arvore}
+       \FigLegenda{\label{fig:arvore}Exemplo de árvore de padrões frequentes com suportes e confianças.}
 \end{figure}
 
 
