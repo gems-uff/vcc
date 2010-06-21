@@ -22,6 +22,12 @@ M.~A. Domingues.
 \newblock Generalização de regras de associação.
 \newblock Dissertação de Mestrado, USP - São Carlos, 2004.
 
+\bibitem{Ezeife}
+C.~I. Ezeife, Yi~Lu e Yi~Liu.
+\newblock Plwap sequential mining: Open source code.
+\newblock {\em International Workshop on Open Source Data Mining: Frequent
+  Pattern Mining Implementations}, 1:26--35, 2005.
+
 \bibitem{Goncalves}
 E.C. Gonçalves.
 \newblock Regras de associação e suas medidas de interesse objetivas e
@@ -45,6 +51,30 @@ Walcelio Melo, Caroline B.~S. Holanda e Clarissa~Angélica de~A.~de Souza.
 \newblock {\em XV Simpósio Brasileiro de Engenharia de Software}, pp. 208--223,
   2001.
 
+\bibitem{Murphy}
+Gail~C. Murphy, Mik Kersten e Leah Findlater.
+\newblock How are java software developers using the eclipse ide?
+\newblock {\em IEEE Software}, 23:76--83, 2006.
+
+\bibitem{Myers}
+Andrew~C. Myers, Joseph~A. Bank e Barbara Liskov.
+\newblock Parameterized types for java.
+\newblock {\em ACM Symposium on Principles of Programming Languages (POPL)},
+  24:132--145, 1997.
+
+\bibitem{Opyrchal}
+Lukasz Opyrchal e Atul Prakash.
+\newblock Efficient object serialization in java.
+\newblock {\em IEEE International Conference on Distributed Computing Systems
+  Workshops on Electronic Commerce and Web-based Applications/ Middleware},
+  19:96--101, 1999.
+
+\bibitem{Palsberg}
+Jens Palsberg e C.~Barry Jay.
+\newblock The essence of the visitor pattern.
+\newblock {\em IEEE. Int. Computer Software and Applications Conf. (COMPSAC)},
+  22:9--15, 1998.
+
 \bibitem{ProblemsAlgorithms}
 Ian Parberry e William Gasarch.
 \newblock {\em Problems on Algorithms}.
@@ -53,8 +83,8 @@ Ian Parberry e William Gasarch.
 \bibitem{Robbes}
 Romain Robbes e Michele Lanza.
 \newblock How program history can improve code completion.
-\newblock {\em 23rd IEEE/ACM International Conference on Automated Software
-  Engineering}, pp. 317--326, 2008.
+\newblock {\em IEEE/ACM International Conference on Automated Software
+  Engineering}, 23:317--326, 2008.
 
 \bibitem{Shirabad}
 J.S. Shirabad, T.~Lethbridge e S.~Matwin.

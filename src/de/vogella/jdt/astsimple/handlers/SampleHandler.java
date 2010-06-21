@@ -71,7 +71,7 @@ public class SampleHandler extends AbstractHandler
     	
     	parseProjects();
 
-        double suporteMinimo = 0.005;
+        double suporteMinimo = 0.003;
 
         try
         {
