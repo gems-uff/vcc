@@ -1,7 +1,7 @@
 
 \capitulo{Resultados Experimentais}\label{cap:resultExperimentais}
 
-Neste capítulo serão discutidos os resultados experimentais obtidos a partir da utilização do \textit{plugin} VCC sobre o sistema objeto de estudo, o IdUFF - Sistema de Gestão da Universidade Federal Fluminense. Na seção 5.1 será apresentado o sistema utilizado no experimento, na seção 5.2 será apresentado o planejamento do experimento seguido pela seção 5.3, que aborda a aplicação do experimento. Finalmente, nas seções 5.4 e 5.5 serão apresentados, respectivamente, os resultados obtidos e as ameaças a validade desse experimento.
+Nesse capítulo serão discutidos os resultados experimentais obtidos a partir da utilização do \textit{plugin} VCC sobre o sistema objeto de estudo, o IdUFF - Sistema de Gestão da Universidade Federal Fluminense. Na seção 5.1 será apresentado o sistema utilizado no experimento, na seção 5.2 será apresentado o planejamento do experimento, seguido pela seção 5.3, que aborda a aplicação do experimento. Finalmente, nas seções 5.4 e 5.5 serão apresentados, respectivamente, os resultados obtidos e as ameaças a validade desse experimento.
 
 \section{O sistema objeto de estudo - IdUFF}
 
@@ -24,7 +24,7 @@ A segunda abordagem foi escolhida, justamente por permitir um maior controle sob
 
 Para participar do experimento, os voluntários deveriam pertencer obrigatoriamente à equipe de desenvolvimento do sistema IdUFF. Sete desenvolvedores foram voluntários na participação desse experimento. Não houve nenhum tipo de compensação para os participantes.
 
-Inicialmente, o voluntário foi informado do estudo através do Formulário de Consentimento (\ref{apendice1}). Caso concordasse em participar, ele preenchia o Questionário de Caracterização (Apêndice X), que avalia o nível de conhecimento e experiência do voluntário em diferentes temas relacionados ao estudo. Essas informações foram de grande utilidade, ajudando na interpretação dos resultados obtidos por cada um dos participantes.
+Inicialmente, o voluntário foi informado do estudo através do Formulário de Consentimento (Apêndice I). Caso concordasse em participar, ele preenchia o Questionário de Caracterização (Apêndice II), que avalia o nível de conhecimento e experiência do voluntário em diferentes temas relacionados ao estudo. Essas informações foram de grande utilidade, ajudando na interpretação dos resultados obtidos por cada um dos participantes.
 
 
 A tabela \ref{fig:resumo-caracterizacao} apresenta um resumo da caracterização desses participantes. Os níveis de experiência variam de 0 a 4, onde 0 representa o nível mais baixo e 4 representa o nível mais alto de experiência. 
@@ -36,11 +36,11 @@ A tabela \ref{fig:resumo-caracterizacao} apresenta um resumo da caracterização d
 	\end{center}
 \end{figure}
 
-Na situação proposta aos participantes, 	um cenário fictício foi sugerido, onde os mesmos estariam programando uma linha de código, por exemplo, chamando pelo método A, e o plugin VCC iria exibir um padrão, sugerindo que desenvolvedores que chamam o método A  também chamam o método B.
+Na situação proposta aos participantes, um cenário fictício foi sugerido, onde os mesmos estariam programando uma linha de código, por exemplo, chamando pelo método A, e o \textit{plugin} VCC iria exibir um padrão, sugerindo que desenvolvedores que chamam o método A  também chamam o método B.
 
-Assim, dez padrões de código foram retirados do total de 424 padrões minerados através da utilização do plugin VCC, para serem analisados pelos desenvolvedores.  Esses padrões foram obtidos utilizando-se um suporte mínimo de 0,3\%, que foi escolhido após testes com diversos valores, por apresentar um número razoável de sequências mineradas e ter um tempo de processamento de processamento relativamente rápido. O critério de escolha dos 10 padrões adotados foi uma combinação entre os valores de suporte e confiança dos mesmos: suporte alto e confiança alta, suporte alto e confiança baixa, suporte baixo e confiança alta, suporte baixo e confiança baixa.
+Assim, 10 padrões de código foram retirados do total de 424 padrões minerados através da utilização do \textit{plugin} VCC, para serem analisados pelos desenvolvedores.  Esses padrões foram obtidos utilizando-se um suporte mínimo de 0,3\%, que foi escolhido após testes com diversos valores, por apresentar um número razoável de sequências mineradas e ter um tempo de processamento relativamente rápido. O critério de escolha dos 10 padrões adotados foi uma combinação entre os valores de suporte e confiança dos mesmos: suporte alto e confiança alta, suporte alto e confiança baixa, suporte baixo e confiança alta, suporte baixo e confiança baixa.
 
-Os voluntários então preenchiam o Questionário de Avaliação (\ref{apendice3}), por meio do qual expressavam sua opinião com relação a cada sugestão, podendo optar pelas seguintes respostas: não sei, discordo totalmente, discordo parcialmente, concordo parcialmente e concordo plenamente. As respostas foram dispostas exatamente nessa ordem de aceitação da sugestão. 
+Os voluntários então preenchiam o Questionário de Avaliação (Apêndice III), por meio do qual expressavam sua opinião com relação a cada sugestão, podendo optar pelas seguintes respostas: não sei, discordo totalmente, discordo parcialmente, concordo parcialmente e concordo plenamente. As respostas foram dispostas exatamente nessa ordem de aceitação da sugestão. 
 
 
 \section{Resultados Obtidos}
@@ -50,7 +50,7 @@ Como visto na seção 5.3, 7 voluntários participaram do experimento, todos eles c
 
 \subsection{Análise Quantitativa}
 
-Das 70 respostas obtidas a partir do preenchimento do questionário de avaliação pelos voluntários, 35 foram positivas, sendo 10 marcadas como concordo parcialmente e 25 marcadas como concordo totalmente, indicando assim um índice de 50\% de aceitação das sugestões de código fonte. Foram 12 respostas negativas, sendo 6 marcadas como discordo totalmente e 6 marcadas como discordo parcialmente, indicando um índice de 17,14\% de reprovação das sugestões apresentadas. Do total das 70 respostas, 3 respostas foram marcadas como não sei, sendo 4,28\% desse total.
+Das 60 respostas obtidas a partir do preenchimento do questionário de avaliação pelos voluntários, 43 foram positivas, sendo 11 marcadas como \textit{concordo parcialmente} e 32 marcadas como \textit{concordo totalmente}, indicando assim um índice de 71,66\% de aceitação das sugestões de código fonte. Foram 12 respostas negativas, sendo 6 marcadas como \textit{discordo totalmente} e 6 marcadas como \textit{discordo parcialmente}, indicando um índice de 20\% de reprovação das sugestões apresentadas. Do total das 60 respostas, 5 respostas foram marcadas como \textit{não sei}, sendo 8,33\% desse total.
 
 
 A figura \ref{fig:histograma} apresenta o total de respostas para cada item que poderia ser escolhido.
@@ -68,7 +68,7 @@ As questões 6 e 8 foram as que mais receberam respostas negativas, contabilizand
 
 A questão 10 recebeu a resposta \textit{discordo totalmente} por um dos voluntários e o comentário do mesmo foi pertinente à sugestão apresentada: ``Se usa o método \textit{BaseMB.info(String)} para mensagens que indiquem sucesso, não faz sentido exibir uma mensagem proveniente de uma situação de erro. Na minha opinião, essa regra apresentada é aplicável aos métodos \textit{BaseMB.error(String)} e \textit{BaseMB.warn(String)}''. Esse comentário reflete uma das limitações desse projeto: não levar em conta blocos de repetição, condição e tratamento de erros, como no caso da estrutura \textit{try catch}. Geralmente o método \textit{BaseMB.info(String)} é usado dentro de uma estrutura \textit{try}, e é executado se houver sucesso na operação, enquanto o método \textit{java.lang.Throwable.getMessage()} é utilizado dentro de uma estrutura \textit{catch}, indicando um erro sendo lançado na aplicação. Sendo assim, se a estrutura \textit{try catch} fosse levada em consideração ao se buscar os padrões sequências, essa sugestão não seria minerada, já que o método \textit{java.lang.Throwable.getMessage()} não se enquadraria como uma sequência para o método \textit{BaseMB.info(String)}.
 
-A questão 1 foi a que mais recebeu respostas \textit{não sei}, contabilizando 2 de um total de 3. Isso pode ser justificado pelo questionário de caracterização, onde os voluntários que responderam essa questão dessa maneira são os que marcaram não ter experiência com o \textit{framework} de testes \textit{Mockito} já que a sugestão apresentada está relacionada a esse \textit{framework}. As outras respostas obtidas para essa questão foram bem satisfatórias: 3 respostas \textit{concordo plenamente}. Essa questão apresentava um suporte baixo, porém uma confiança alta, com valor de 100\%. Os desenvolvedores que comentaram essa questão disseram que a sugestão apresentada se dá por conta da estrutura do \textit{framework Mockito} e seria bastante útil sua utilização.
+A questão 1 foi a que mais recebeu respostas \textit{não sei}, contabilizando 3 de um total de 5. Isso pode ser justificado pelo questionário de caracterização, onde os voluntários que responderam essa questão dessa maneira são os que indicaram ter pouca ou nenhuma experiência com o \textit{framework} de testes \textit{Mockito} já que a sugestão apresentada está relacionada a esse \textit{framework}. As outras respostas obtidas para essa questão foram bem satisfatórias: 3 respostas \textit{concordo plenamente}. Essa questão apresentava um suporte baixo, porém uma confiança alta, com valor de 100\%. Os desenvolvedores que comentaram essa questão disseram que a sugestão apresentada se dá por conta da estrutura do \textit{framework Mockito} e seria bastante útil sua utilização.
 
 As questões que foram respondidas como \textit{concordo totalmente} e \textit{concordo parcialmente}, em geral não receberam comentários.
 
