@@ -1,16 +1,16 @@
 
 \capitulo{Resultados Experimentais}\label{cap:resultExperimentais}
 
-Nesse capítulo serão discutidos os resultados experimentais obtidos a partir da utilização do \textit{plugin} VCC sobre o sistema objeto de estudo, o IdUFF - Sistema de Gestão da Universidade Federal Fluminense. Na seção 5.1 será apresentado o sistema utilizado no experimento, na seção 5.2 será apresentado o planejamento do experimento, seguido pela seção 5.3, que aborda a aplicação do experimento. Finalmente, nas seções 5.4 e 5.5 serão apresentados, respectivamente, os resultados obtidos e as ameaças a validade desse experimento.
+Nesse capítulo serão discutidos os resultados experimentais obtidos a partir da utilização do \textit{plugin} VCC sobre o sistema objeto de estudo, o IdUFF - Sistema de Gestão Acadêmica da Universidade Federal Fluminense. Na seção 5.1 será apresentado o sistema utilizado no experimento, na seção 5.2 será apresentado o planejamento do experimento, seguido pela seção 5.3, que aborda a aplicação do experimento. Finalmente, nas seções 5.4 e 5.5 serão apresentados, respectivamente, os resultados obtidos e as ameaças a validade desse experimento.
 
 \section{O sistema objeto de estudo - IdUFF}
 
-O sistema IdUFF é o sistema de gestão acadêmica utilizado na Universidade Federal Fluminense. O mesmo foi desenvolvido sobre a plataforma Java. Possuí aproximadamente 40 mil usuários, entre alunos, professores e funcionários da universidade.  O repositório de código fonte do IdUFF possui 4920 commits e o sistema IdUFF tem aproximandamente 850 revisões. O sistema possui 779 classes JAVA, desconsiderando classes de teste, arquivos de interface HTML e arquivos de configuração.
+O sistema IdUFF é o sistema de gestão acadêmica utilizado na Universidade Federal Fluminense. Ele foi escolhido para ser utilizado no experimento pela facilidade de contato com os desenvolvedores, que são ou foram alunos de graduação e pós-graduação da UFF, e por ser um sistema de médio porte, que vem sendo desenvolvido há 3 anos e apresenta uma grande quantidade de código fonte a ser minerada. O mesmo foi desenvolvido sobre a plataforma Java, a mesma linguagem que o \textit{plugin} VCC foi desenvolvido para ser utilizado. Possuí aproximadamente 40 mil usuários, entre alunos, professores e funcionários da Universidade.  O repositório de código fonte do IdUFF possui 4920 commits e o sistema IdUFF tem aproximandamente 850 revisões. O sistema possui 779 classes JAVA, desconsiderando classes de teste, arquivos de interface HTML e arquivos de configuração.
 
 
 \section{Planejamento do Experimento}
 
-Com o objetivo de avaliar o quanto as sugestões de código do \textit{plugin} VCC seriam úteis para um desenvolvedor que o estivesse utilizando, duas abordagens de experimento foram discutidas, ambas utilizando como base a experiência de desenvolvimento do programador no sistema idUFF. 
+Com o objetivo de avaliar o quanto as sugestões de código do \textit{plugin} VCC seriam úteis para um desenvolvedor que o estivesse utilizando, duas abordagens de experimento foram discutidas, ambas utilizando como base a experiência de desenvolvimento do programador no sistema IdUFF. 
 
 Na primeira abordagem, o próprio desenvolvedor utilizaria o \textit{plugin} VCC, instalado na sua IDE, ou seja, no seu ambiente de desenvolvimento do dia-a-dia de trabalho e, a partir disso, poderia avaliar se as sugestões do \textit{plugin} seriam úteis. Porém, esta abordagem não se mostrou interessante para ser aplicada nesse projeto, pois além de demandar muito tempo, causaria muitos transtornos, pois o ambiente de desenvolvimento do sistema IdUFF utiliza uma IDE diferente da qual o \textit{plugin}  VCC foi acoplado. Outro ponto negativo dessa abordagem é que a usabilidade do \textit{plugin} não é o foco desse experimento, e sim os resultados apresentados pelo mesmo.
 
@@ -22,9 +22,10 @@ Na segunda abordagem, uma análise em ambiente controlado poderia ser aplicada, f
 
 A segunda abordagem foi escolhida, justamente por permitir um maior controle sobre a avaliação feita pelos desenvolvedores voluntários, garantindo-se que os mesmos padrões fossem avaliados por todos. Assim, poderíamos avaliar se os resultados eram interessantes para os diversos perfis de desenvolvedores.
 
-Para participar do experimento, os voluntários deveriam pertencer obrigatoriamente à equipe de desenvolvimento do sistema IdUFF. Sete desenvolvedores foram voluntários na participação desse experimento. Não houve nenhum tipo de compensação para os participantes.
+Para participar do experimento, os voluntários deveriam pertencer obrigatoriamente à equipe de desenvolvimento do sistema IdUFF. Seis desenvolvedores foram voluntários na participação desse experimento. Não houve nenhum tipo de compensação para os participantes.
 
 Inicialmente, o voluntário foi informado do estudo através do Formulário de Consentimento (Apêndice I). Caso concordasse em participar, ele preenchia o Questionário de Caracterização (Apêndice II), que avalia o nível de conhecimento e experiência do voluntário em diferentes temas relacionados ao estudo. Essas informações foram de grande utilidade, ajudando na interpretação dos resultados obtidos por cada um dos participantes.
+
 
 
 A Tabela \ref{tab:resumo-caracterizacao} apresenta um resumo da caracterização desses participantes. Os níveis de experiência variam de 0 a 4, onde 0 representa o nível mais baixo e 4 representa o nível mais alto de experiência. 
@@ -39,14 +40,14 @@ A Tabela \ref{tab:resumo-caracterizacao} apresenta um resumo da caracterização d
 
 Na situação proposta aos participantes, um cenário fictício foi sugerido, onde os mesmos estariam programando uma linha de código, por exemplo, chamando pelo método A, e o \textit{plugin} VCC iria exibir um padrão, sugerindo que desenvolvedores que chamam o método A  também chamam o método B.
 
-Assim, 10 padrões de código foram retirados do total de 424 padrões minerados através da utilização do \textit{plugin} VCC, para serem analisados pelos desenvolvedores.  Esses padrões foram obtidos utilizando-se um suporte mínimo de 0,3\%, que foi escolhido após testes com diversos valores, por apresentar um número razoável de sequências mineradas e ter um tempo de processamento relativamente rápido. O critério de escolha dos 10 padrões adotados foi uma combinação entre os valores de suporte e confiança dos mesmos: suporte alto e confiança alta, suporte alto e confiança baixa, suporte baixo e confiança alta, suporte baixo e confiança baixa.
+Assim, 10 padrões de código foram escolhidos do total de 424 padrões minerados através da utilização do \textit{plugin} VCC, para serem analisados pelos desenvolvedores.  Esses padrões foram obtidos utilizando-se um suporte mínimo de 0,3\%, que foi escolhido após testes com diversos valores, por apresentar um número razoável de sequências mineradas e ter um tempo de processamento relativamente rápido. O critério de escolha dos 10 padrões adotados foi uma combinação entre os valores de suporte e confiança dos mesmos: suporte alto e confiança alta, suporte alto e confiança baixa, suporte baixo e confiança alta, suporte baixo e confiança baixa.
 
 Os voluntários então preenchiam o Questionário de Avaliação (Apêndice III), por meio do qual expressavam sua opinião com relação a cada sugestão, podendo optar pelas seguintes respostas: não sei, discordo totalmente, discordo parcialmente, concordo parcialmente e concordo plenamente. As respostas foram dispostas exatamente nessa ordem de aceitação da sugestão. 
 
 
 \section{Resultados Obtidos}
 
-Como visto na seção 5.3, 7 voluntários participaram do experimento, todos eles com experiência em desenvolvimento de software. Os resultados obtidos do questionário de avaliação foram, em geral, positivos com relação à utilidade das sugestões de código informadas. Grande parte dos voluntários se mostrou interessado no \textit{plugin}, e gostaria de vê-lo sendo utilizado em seu ambiente de trabalho, se disponibilizando para ajudar a implementar as alterações necessárias para que o mesmo seja utilizado na IDE \textit{NetBeans}.
+Como visto na seção 5.3, 6 voluntários participaram do experimento, todos eles com experiência em desenvolvimento de software. Os resultados obtidos do questionário de avaliação foram, em geral, positivos com relação à utilidade das sugestões de código informadas. Grande parte dos voluntários se mostrou interessado no \textit{plugin}, e gostaria de vê-lo sendo utilizado em seu ambiente de trabalho, se disponibilizando para ajudar a implementar as alterações necessárias para que o mesmo seja utilizado na IDE \textit{NetBeans}.
 
 
 \subsection{Análise Quantitativa}
@@ -58,7 +59,7 @@ A figura \ref{fig:histograma} apresenta o total de respostas para cada item que 
 \begin{figure}
 	\begin{center}
 		\includegraphics[width=1.0\textwidth]{histograma.png}
-			\FigLegenda{\label{fig:resumo-caracterizacao}Total de respostas dos participantes para cada item.}
+			\FigLegenda{\label{fig:histograma}Total de respostas dos participantes para cada item.}
 	\end{center}
 \end{figure}
 
