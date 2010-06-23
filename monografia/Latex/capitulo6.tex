@@ -1,10 +1,12 @@
 
 \capitulo{Conclusões}\label{cap:Conclusao}
 
-  Já ficou evidenciado que o desenvolvimento de \textit{software}, sem ferramentas de apoio a essa atividade, se tornou praticamente impensável nos últimos anos~\cite{Melo}. Essas ferramentas, na maioria das vezes, incrementam a produtividade da construção de sistemas de informação, e novas implementações e técnicas continuam surgindo. Nesse trabalho foi apresentado um aperfeiçoamento da técnica de \textit{code completion}, o Vertical Code Completion -- uma ferramenta que utiliza a Mineração de Dados para extrair padrões sequenciais frequentes, e sugere linhas de código de fonte de acordo com o que já foi programado.
+  Nesse trabalho foi apresentado um aperfeiçoamento da técnica de \textit{code completion}, o Vertical Code Completion -- uma ferramenta que utiliza a Mineração de Dados para extrair padrões sequenciais frequentes e sugerir linhas de código de fonte de acordo com o que já foi programado.
 
-	Além da contribuição direta desse trabalho, com um plugin que auxilia na produção de código fonte, o conceito de confiança na mineração de padrões sequenciais frequentes foi outra contribuição importante apresentada nessa monografia.
+	Como contribuição direta desse trabalho, foi desenvolvido um plugin que auxilia na produção de código fonte, trazendo resultados positivos no desenvolvimento de aplicações de médio a grande porte, como agilidade e produtividade na programação e a exibição de conhecimento embutido no código. 
 	
-  Nossa análise de resultados, mostrou que essa técnica também pode trazer resultados positivos no desenvolvimento de aplicações de médio a grande porte, como o IdUFF. Entretanto, a falta de um desses ambientes, porém com um número maior de desenvolvedores disponíveis para responder ao questionário de sugestões da ferramenta, desfavoreceu a confiabilidade do experimento, tornando-se uma limitação nessa monografia
+	O conceito de confiança na mineração de padrões sequenciais frequentes foi outra contribuição importante apresentada nessa monografia. Este conceito foi derivado da tarefa de regras de associação e sua definição é análoga à dessa tarefa, fornecendo mais uma métrica para avaliação dos padrões sequenciais obtidos.
+	
+  A falta de um ambiente com um número maior de desenvolvedores disponíveis para responder ao questionário de sugestões da ferramenta, desfavoreceu a confiabilidade do experimento, tornando-se uma limitação nessa monografia
   
   Um possível trabalho futuro, que pode aumentar a qualidade das sugestões produzidas pelo VCC, é a análise do código fonte levando em consideração as estruturas de repetição e principalmente de condição. Com isso, uma estrura condicional, que possui mais de uma alternativa, não seria vista como uma única sequência de chamadas, e sim como sequências independentes. Além disso, outra possível melhoria, com o intuito de aumentar a usabilidade da ferramenta, é o preenchimento do código fonte no editor da IDE, ao invés de exibir as sugestões em uma janela \textit{popup}.
