@@ -3,23 +3,29 @@
 
 Neste capítulo, os detalhes das tecnologias utilizadas na implementação do \textit{plugin} VCC são abordados, com foco nos pontos detalhados no capítulo 3.
 
-	Para desenvolver uma ferramenta que auxilie o desenvolvedor de \textit{software} no momento da codificação, primeiramente é necessário decidir em que ambiente a mesma será utilizada. Atualmente é difícil se pensar em desenvolver um sistema sem o auxílio de uma IDE, que além de ajudar os programadores, em geral é um ambiente ideal para se acoplar uma nova ferramenta. Por esse motivo, e ainda visando alcançar o maior número de usuários, decidiu-se utilizar o VCC acoplado em uma IDE.
+	Para desenvolver uma ferramenta que auxilie o desenvolvedor de \textit{software} no momento da codificação, primeiramente é necessário decidir em que ambiente a mesma será utilizada. Atualmente é difícil se pensar em desenvolver um sistema sem o auxílio de uma IDE (Integrated Development Environment), que além de ajudar os programadores, em geral é um ambiente ideal para se acoplar uma nova ferramenta. Por esse motivo, e ainda visando alcançar o maior número de usuários, decidiu-se utilizar o VCC acoplado em uma IDE.
 	
-	Entretanto, para decidir em que IDE o VCC será acoplado, é preciso definir qual será a linguagem de programação em que o mesmo será utilizado. Neste trabalho a linguagem escolhida foi Java, mas utilizando os conceitos detalhados no capítulo 3 é possível construir uma ferramenta semelhante a esta. Com isso, utilizando como argumentos favoráveis a facilidade de acoplar novas ferramentas no formato de \textit{plugins} e também a enorme abrangência na comunidade Java~\cite{Murphy}, a IDE Eclipse foi escolhida para receber o \textit{plugin} VCC.
+	Entretanto, para decidir em que IDE o VCC seria acoplado, foi preciso definir com qual linguagem de programação o mesmo seria utilizado. Devido ao nosso conhecimento prévio e a abrangência na comunidade de desenvolvimento, Java foi escolhida como a linguagem da implementação desse trabalho. Por esses mesmos motivos e também pela facilidade de acoplar novas ferramentas no formato de \textit{plugins}, a IDE Eclipse~\cite{Murphy} foi escolhida para receber o \textit{plugin} VCC.
 	
-	Uma das grandes vantagens de implementar este trabalho no formato de um \textit{plugin} para o Eclipse é que a própria IDE já fornece uma interface de desenvolvimento de \textit{plugins}. É possível então, utilizar diversas funcionalidades que a ferramenta disponibiliza, como por exemplo o ASTParser.
+	Uma das grandes vantagens de implementar este trabalho no formato de um \textit{plugin} para o Eclipse é que a própria IDE já fornece uma interface de desenvolvimento de \textit{plugins}. É possível então, utilizar diversas funcionalidades que a ferramenta disponibiliza, como por exemplo o ASTParser~\cite{Holz}, que transforma código Java para um formato de árvore.
 	
   Essa ferramenta constrói uma AST do código fonte em que o \textit{plugin} está sendo executado. Embora a AST seja uma representação estritamente sintática da estrutura do código fonte de uma aplicação, essa representação funciona exatamente como o volume de dados necessário para efetuar a mineração de padrões sequenciais frequentes. Na construção do VCC, o trabalho de análise do código fonte, que foi destacado no capítulo 3, se reduziu a acessar essa AST, sem que tenha sido preciso construir um parser textual para a linguagem Java.
 
 \section{A análise do código fonte através da ASTParser}
 
-	Para extrair os padrões sequenciais frequentes da aplicação em que o VCC está sendo utilizado, é preciso obter todas as chamadas de métodos utilizadas nos corpos dos métodos deste projeto. Para isso, se devem seguir as convenções de acesso à AST, que serão listadas a seguir.
+	Para extrair os padrões sequenciais frequentes da aplicação em que o VCC está sendo utilizado, é preciso obter todas as chamadas de métodos utilizadas nos corpos dos métodos deste projeto. Conforme mostra a Figura \ref{fig:tela-menu}, o usuário deve clicar no item do menu \textit{Generate Tree} para que a árvore de padrões frequentes possa ser gerada. 
 	
-	Primeiramente, é necessário definir que no topo da hierarquia da AST está a classe~ASTNode. Todas as construções Java são representadas por esta classe. Obviamente, através do mecanismo de herança, essas entidades Java são especializadas, permitindo que cada uma possua características próprias.
+\begin{figure}[htb]
+       \centering  % figura centralizada
+       \fbox{\includegraphics[scale=0.4]{tela-menu.png}}
+       \FigLegenda{\label{fig:tela-menu}Menu do Plugin VCC}
+\end{figure}
 	
-	Sendo assim, para analisar o código fonte, os ASTNodes devem ser acessados, extraindo as chamadas de métodos e salvando-as para serem mineradas pelo algoritmo de mineração de padrões sequenciais. Para obter essas chamadas, uma hierarquia deve ser seguida para acessar todas as classes do projeto em questão. Essa hierarquia é intuitiva, pois obedece a estrutura adotada pela linguagem Java e pela IDE Eclipse. 
+	Para construir essa árvore, foram seguidas algumas convenções de acesso à AST. Primeiramente, é necessário definir que no topo da hierarquia da AST está a classe~ASTNode. As construções Java são representadas por esta classe. É importante notar que através do mecanismo de herança, essas entidades Java são especializadas, permitindo que cada uma possua características próprias.
 	
-	A Figura \ref{fig:workspace} exibe a estrutura de um \textit{Workspace} Java. Um \textit{Workspace}, como a tradução já diria, é um espaço de trabalho em que os projetos do usuário ficam armazenados.
+	Sendo assim, para analisar o código fonte, os ASTNodes devem ser acessados, extraindo as chamadas de métodos e salvando-as para serem mineradas pelo algoritmo de mineração de padrões sequenciais. Para obter essas chamadas, uma hierarquia deve ser seguida para acessar todas as classes do projeto em questão. Essa hierarquia é intuitiva, pois obedece a estrutura adotada pela linguagem Java e pela IDE Eclipse.
+	
+	A Figura \ref{fig:workspace} exibe a estrutura de um \textit{Workspace} Java, que juntamento com os Projetos e Pacotes não são ASTNodes, mas funcionam como porta de entrada para acessar as demais entidades Java. Um \textit{Workspace}, como a tradução já diria, é um espaço de trabalho em que os projetos do usuário ficam armazenados.
 	
 \begin{figure}[htb]
        \centering  % figura centralizada
@@ -33,25 +39,25 @@ Neste capítulo, os detalhes das tecnologias utilizadas na implementação do \text
 	
 \section{Mineração de Padrões Sequenciais}
 
- Existem diversas implementações de código aberto de algoritmos de mineração de padrões sequenciais, disponíveis na web. Por esse motivo, foi decidido que não seria necessário o desenvolvimento de um programa que realize a mineração desses padrões. Após a análise de algumas dessas implementações, o PLWAP~\cite{Ezeife} foi escolhido como o algoritmo que seria utilizado para a extração dos padrões.
+ Existem diversas implementações de código aberto de algoritmos de mineração de padrões sequenciais, disponíveis na literatura~\cite{Ezeife, LivroMineracao, SrikantAgrawal, Zhou}. Por esse motivo, foi decidido que não seria necessário o desenvolvimento de um programa que realize a mineração desses padrões. Após a análise dos algoritmos GSP, PLWAP e WapTree, o PLWAP foi escolhido, por apresentar uma melhor perfoemance com relação aos demais, como o algoritmo que seria utilizado para a extração dos padrões.
 
-Entretanto, embora o desempenho do PLWAP fosse satisfatório, o mesmo apenas informava quais padrões sequenciais eram frequentes, sem disponibilizar o suporte de cada padrão. Uma modificação no algoritmo foi necessária para obter esses valores e em seguida calcular as confianças de cada padrão sequencial frequente.
+Entretanto, embora o desempenho do PLWAP fosse satisfatório, o mesmo apenas informava quais padrões sequenciais eram frequentes, sem disponibilizar o suporte de cada padrão. Foi necessário apenas uma simples modificação no algoritmo, já que os valores de suporte já eram utilizados para filtrar as sequências que não possuíam o suporte mínimo. Em seguida, após obter todos os valores de suporte, foi possível calcular as confianças de cada padrão sequencial frequente, conforme citado na seção 3.1.2.1.
 
 \section{Árvore de padrões frequentes}
 
 Conforme visto no capítulo 3, todos os padrões sequenciais são armazenados em uma árvore, que é consultada quando um padrão sequencial está sendo buscado. Na implementação do VCC, está árvore é representada por um conjunto de nós, que são objetos da classe \textbf{MethodCallNode}. Essa classe possui além das confianças do padrão e da assinatura completa do método, uma referência para o nó pai e um \textbf{HashMap}, que contém todos os filhos desse nó. Um \textbf{HashMap} é uma classe Java, que através de uma tabela \textit{hash}, organiza um mapa de dados \cite{Myers}.
 
-Para exemplificar essa estrutura, supondo um padrão sequencial X = $<A , B,  C>$, e outro padrão Y = $<A, B, D>$, o nó \textbf{B} será representado na árvore como um objeto do tipo \textbf{MethodCallNode}, que contém um \textbf{HashMap} com as referências para os nós \textbf{C} e \textbf{D}, além de uma referência para o nó \textbf{A}.
+Para exemplificar essa estrutura, supondo um padrão sequencial X = $<A , B,  C>$, e outro padrão Y = $<A, B, D>$, o nó \textbf{B} será representado na árvore como um objeto do tipo \textbf{MethodCallNode}, que contém um \textbf{HashMap} com as referências para os nós \textbf{C} e \textbf{D}, além de uma referência para o nó \textbf{A}. Além disso, B também poderá aparecer como filho de outros elemento na árvore, representando outros padrões sequenciais. Também é importante ressaltar que B, obrigatoriamente, aparecerá no segundo nível da árvore, conforme citado na seção 3.1.3.
 
 Por fim, como a fase de construção da árvore de padrões sequenciais é independente da fase de consulta a esses padrões, utilizando a interface Serializable\cite{Opyrchal}, o objeto que representa o nó raiz dessa árvore é armazenado na memória secundária do sistema em que o plugin está sendo executado, para ser acessado posteriormente na fase de consultas.
 
 \section{Sugestão de Padrões Frequentes}
 
-Diversas estratégias foram discutidas, com o intuito de decidir como as chamadas de método que já foram codificadas, seriam enviadas para serem consultadas na árvore de padrões frequentes. Duas opções principais foram analisadas e são expostas a seguir. 
+Diversas estratégias foram analisadas, com o intuito de decidir como as chamadas de método que já foram codificadas seriam enviadas para serem consultadas na árvore de padrões frequentes. Duas opções principais foram identificadas e são expostas a seguir. 
 
 A primeira dessas opções é analisar todas as chamadas de métodos que estão disponíveis no corpo do método que está sendo codificado. A seleção deste método poderia ser feita através da digitação do nome do pacote, da classe e do próprio método. Embora essa opção representasse uma facilidade na implementação, prejudicava muito a usabilidade da ferramenta, além de não permitir uma melhor delimitação da área de pesquisa. Um usuário poderia estar realizando uma alteração na metade do corpo do método, por exemplo, e independentemente disso, todas as chamadas, do início ao fim do mesmo seriam utilizadas na pesquisa por padrões de código fonte.
 
-A segunda opção seria utilizar a posição do cursor do mouse do usuário do VCC, assim como funciona no \textit{code completion} tradicional. Quando o usuário posiciona o mouse e faz uma chamada ao VCC, todas as chamadas de método que se localizam acima do cursor, até o início do corpo do método, são combinadas e utilizadas para a consulta na arvore de padrões frequentes.  Pode ser visto então, que essa alternativa, além de delimitar melhor a área de consulta, também incrementa a usabilidade do \textit{plugin}, fazendo com que tenha sido a escolhida para ser implementada.
+A segunda opção seria utilizar a posição do cursor do mouse do usuário do VCC, assim como funciona no \textit{code completion} tradicional. Quando o usuário posiciona o mouse e faz uma chamada ao VCC, todas as chamadas de método que se localizam acima do cursor, até o início do corpo do método, são combinadas e utilizadas para a consulta na arvore de padrões frequentes.  Pode ser visto, então, que essa alternativa, além de delimitar melhor a área de consulta, também incrementa a usabilidade do \textit{plugin}, fazendo com que tenha sido a escolhida para ser implementada.
 
 \section{Geração e poda das combinações de chamadas de métodos}
 
@@ -59,6 +65,12 @@ Como foi citado no Capítulo 3, a geração de todas as combinações de chamadas de 
 
 Para que essas combinações possam ser geradas, primeiramente é preciso ler todas as chamadas de métodos que se encontram antes do cursor. Para facilitar essa tarefa, mais uma vez a \textbf{ASTParser} foi utilizada, entretanto, não foi preciso iterar em todos os pacotes, classes e métodos, pois a posição do cursor já informa em qual método devem ser lidas todas as chamadas. Após a leitura das chamadas de métodos, cada combinação é armazenada em um objeto da classe \textbf{ComparableList}. Essa classe pertence ao projeto VCC, é uma subclasse de \textbf{ArrayList} e implementa a interface \textbf{Comparable}. Esta interface exige que um método \textbf{compareTo} seja criado, para que dois objetos possam ser comparados. O critério de comparação utilizado para essa classe foi o tamanho da lista. Com isso, é possível armazenar todas as combinações em um outro \textbf{ArrayList}  e ordená-lo pelo tamanho das combinações.
 
-Essa ordenação é muito importante, pois conforme já foi citado anteriormente, gerar todas as combinações de chamadas de métodos pode produzir uma enorme quantidade de dados para serem consultados, fazendo com que seja necessária a criação de uma estratégia de poda das combinações. Essa estratégia depende da ordenação dos dados, pois permite que após consultar uma determinada combinação de chamadas de métodos que não é frequente, o \textbf{ArrayList} que contém todas as outras combinações geradas é percorrido, apenas a partir do índice dessa combinação. Todas as combinações que são supersequências da sequência que não é frequente são então removidas, evitando que sejam feitas consultas inúteis.
+Essa ordenação é muito importante, pois conforme já foi citado na seção 3.2, gerar todas as combinações de chamadas de métodos pode produzir uma enorme quantidade de dados para serem consultados, fazendo com que seja necessária a criação de uma estratégia de poda das combinações. Essa estratégia depende da ordenação dos dados, pois permite que, após consultar uma determinada combinação de chamadas de métodos que não é frequente, o \textbf{ArrayList} que contém todas as outras combinações geradas seja percorrido, apenas a partir do índice dessa combinação. Todas as combinações que são supersequências da sequência que não é frequente são então removidas, evitando que sejam feitas consultas inúteis.
 
-Após todas as consultas terem sido feitas, os padrões sequenciais obtidos são então sugeridos ao usuário da aplicação em uma janela, permitindo que o mesmo avalie de acordo com o suporte e a confiança da regra, qual melhor se aplica na sua codificação. 
+Após todas as consultas terem sido feitas, os padrões sequenciais obtidos são então sugeridos ao usuário da aplicação em uma janela, conforme mostrado na Figura \ref{fig:tela-sugestoes}, permitindo que o mesmo avalie de acordo com o suporte e a confiança da regra, qual melhor se aplica na sua codificação.
+
+\begin{figure}[htb]
+       \centering  % figura centralizada
+       \fbox{\includegraphics[scale=0.45]{tela-sugestoes.png}}
+       \FigLegenda{\label{fig:tela-sugestoes}Sugestões baseadas nos padrões sequenciais frequentes.}
+\end{figure}

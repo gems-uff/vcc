@@ -1,11 +1,11 @@
 
 \capitulo{Vertical Code Completion}\label{cap:VCC}
 
-Nesse capítulo será detalhada a abordagem proposta nessa monografia. O mesmo foi dividido em duas seções, que representam duas fases distintas no processo de uso do plugin VCC, construído como resultado desse trabalho.
+Neste capítulo, será detalhada a abordagem proposta neste trabalho. O mesmo foi dividido em duas seções, que representam duas fases distintas no processo de uso do VCC, construído como resultado desse trabalho no formato de um plugin.
 
-A primeira fase é a de preparação e mineração dos dados, onde são extraídos todos os padrões que serão sugeridos ao programador que estiver utilizando a ferramenta. Nesta fase o código fonte é analisado e organizado, para permitir que a mineração de dados desse código seja efetuada, e em seguida seus resultados são armazenados em uma estrutura adequada.
+A primeira fase é a de preparação e mineração dos dados, detalhada na seção 3.1, onde são extraídos todos os padrões que serão sugeridos ao programador que estiver utilizando a ferramenta. Nesta fase, o código fonte é analisado e organizado, para permitir que a mineração de dados desse código seja efetuada, e em seguida seus resultados são armazenados em uma estrutura adequada.
 	
-A segunda fase desse projeto está detalhada na seção 3.2. Nessa etapa, o código que está sendo produzido em tempo real pelo usuário do VCC será analisado com o intuito de encontrar padrões frequentes que foram obtidos na primeira fase. Em seguida, esses padrões são classificados através de métricas e sugeridos para o usuário.
+A segunda fase do processo de uso do VCC, está detalhada na seção 3.2. Nessa etapa, o código que está sendo produzido em tempo real pelo usuário do VCC será analisado com o intuito de encontrar trechos correspondentes a padrões frequentes que foram obtidos na primeira fase. Em seguida, esses padrões são classificados através de métricas e sugeridos para o usuário.
 
 A Figura \ref{fig:fluxo} ilustra todo o processo de uso do plugin VCC.
 
@@ -20,17 +20,17 @@ A Figura \ref{fig:fluxo} ilustra todo o processo de uso do plugin VCC.
 
 \section{Obtenção de padrões frequentes de codificação de software.}
 
-Nesta seção, o processo de análise de código fonte é apresentado na subseção 3.1.1. Em seguida a estratégia de mineração de dados é descrita na subseção 3.1.2. Por último, a estrutura de armazenamento dos padrões obtidos é detalhada na subseção 3.1.3.
+Nesta seção, o processo de análise de código fonte é apresentado na Subseção 3.1.1. Em seguida a estratégia de mineração de dados é descrita na Subseção 3.1.2. Por último, a estrutura de armazenamento dos padrões obtidos é detalhada na Subseção 3.1.3.
 
 \subsection{Análise do código fonte}
 
-Para construir um software que possa, através de uma fonte de conhecimento pré-existente, sugerir padrões frequentes de código fonte, se faz necessário a existência de uma base de dados armazenada de forma coesa e estruturada para execução de consultas. Nesse trabalho isso não é uma realidade inicial, visto que o código de uma aplicação é armazenado em formato texto, sem obedecer a padrões rígidos de estruturação. Felizmente, cada linguagem de programação obedece a um conjunto de regras de formatação, que são necessárias para a compilação adequada em linguagem de máquina do código produzido. 
+Para construir um software que possa, através de uma fonte de conhecimento pré-existente, sugerir padrões frequentes de código fonte, se faz necessária a existência de uma base de dados armazenada de forma coesa e estruturada para execução de consultas. Neste trabalho, isso não é uma realidade inicial, visto que o código de uma aplicação é armazenado em formato texto, sem obedecer a padrões rígidos de estruturação. Felizmente, cada linguagem de programação obedece a um conjunto de regras de formatação, que são necessárias para a compilação adequada em linguagem de máquina do código produzido. 
 
-Desta forma, embora não seja possível fornecer diretamente arquivos de código como entrada para um software padrão de mineração sequencial de dados, os padrões da linguagem de programação podem ser utilizados para se extrair as informações pertinentes do código fonte. Essas informações devem então ser organizadas de uma maneira que obedeça aos padrões de entrada do programa que executará a mineração de padrões sequenciais. Como será visto no capítulo 4, existem ferramentas que podem auxiliar na interpretação do código fonte, evitando que um parser precise ser construído para cada linguagem.
+Dessa forma, embora não seja possível fornecer diretamente arquivos de código como entrada para um software padrão de mineração sequencial de dados, os padrões da linguagem de programação podem ser utilizados para se extrair as informações pertinentes do código fonte. Essas informações devem então ser organizadas de uma maneira que obedeça aos padrões de entrada do programa que executará a mineração de padrões sequenciais. Como será visto no Capítulo 4, existem ferramentas que podem auxiliar na interpretação do código fonte, evitando que um parser precise ser construído para cada linguagem.
 
-Como visto na seção 2.2.1.5, sequências de eventos relacionados são utilizadas como entrada para as implementações de algoritmos de mineração de padrões sequenciais. Todavia, em cada domínio de aplicação, eventos, sequências e os itens que compõem cada evento possuem significados distintos \cite{LivroMineracao}.
+Como visto na Subseção 2.2.1.5, sequências de eventos relacionados são utilizadas como entrada para os algoritmos de mineração de padrões sequenciais. Todavia, em cada domínio de aplicação, eventos, sequências e os itens que compõem cada evento possuem significados distintos \cite{LivroMineracao}.
 
-No projeto VCC, o objetivo é encontrar padrões sequenciais na codificação de métodos, blocos ou procedimentos criados pelo usuário. Como estas nomenclaturas dependem da linguagem de programação em que o projeto está sendo aplicado, nesta dissertação será considerado a sugestão de padrões na construção de métodos.
+Conforme visto no Capítulo 2, através da análise de eventos que ocorrem em sequência, é possível detectar padrões frequentes que obedecem uma determinada sequência. Neste trabalho, os eventos correlacionados estão todos em um mesmo corpo de método, e cada evento é uma chamada de método. Com isso, não é possível dividir o evento em diferentes itens, sendo então cada evento atômico. Dessa forma, os padrões sequenciais minerados são listas de chamadas de método, que obedecem a uma determinada sequência e se repetem frequentemente em diferentes corpos de métodos.
 
 Na Figura \ref{fig:metodo-transacao}, é possível visualizar uma codificação de método genérica e sua respectiva transação gerada. 
 
@@ -51,8 +51,6 @@ Na Figura \ref{fig:metodo-transacao}, é possível visualizar uma codificação de m
        %\label{fig:metodo-transacao}
 \end{figure}
 
-Sendo assim, cada declaração de método representa o início de uma sequência de eventos, que pode conter algum padrão sequencial frequente no seu interior. Essa sequência de eventos se encontra no corpo do método, e cada evento é atômico, ou seja, não pode ser dividido em diferentes itens. Esses eventos atômicos são as chamadas a outros métodos do projeto de software que está sendo construído. Dessa forma, os padrões sequenciais minerados são listas de chamadas de método, que obedecem a uma determinada sequência e se repetem frequentemente em diferentes corpos de métodos.
-
 \subsection{Mineração do código fonte}
 
 Existem diversos algoritmos para realizar mineração de padrões sequenciais, cada um com suas particularidades de entrada e saída. Organizando os dados de uma maneira que atenda a essas particularidades, a mineração de padrões sequenciais pode então ser realizada, mas para que os resultados desse processo sejam proveitosos, os dois conceitos que são apresentados a seguir são essenciais.
@@ -61,25 +59,23 @@ Existem diversos algoritmos para realizar mineração de padrões sequenciais, cada
 
 O suporte e a confiança dos padrões frequentes que são gerados, são elementos chave para a mineração sequencial utilizada nesse projeto.
 
-O suporte já foi definido anteriormente no capítulo 2, e sabe-se que é a quantidade de vezes que um determinado padrão se repete na base de dados. Portanto, é possível definir um suporte mínimo para a obtenção desses padrões, filtrando os padrões mais frequentes. 
+O suporte já foi definido anteriormente no Capítulo 2, e sabe-se que é a quantidade de vezes que um determinado padrão se repete na base de dados. Portanto, é possível definir um suporte mínimo para a obtenção desses padrões, filtrando os padrões mais frequentes. 
 
-A confiança, por outro lado, é muito importante nas regras de associação e representa uma métrica de avaliação que traz uma maior riqueza para a apresentação de regras mineradas. Entretanto, não é um conceito utilizado na mineração de padrões sequenciais, sendo introduzido por nós nessa área da mineração de dados.
+A confiança, por outro lado, é muito importante nas regras de associação e representa uma métrica de avaliação que traz uma maior riqueza para a apresentação de regras mineradas. Entretanto, apesar de não ser um conceito utilizado na mineração de padrões sequenciais, será neste trabalho definido e utilizado.
 
 Para definir a confiança em padrões sequenciais, primeiramente será apresentada a definição de confiança em regras de associação. Consequentemente, é necessário que também seja apresentada a definição do suporte de uma regra de associação. 
 
-O suporte de um item A, representa a porcentagem de transações da base de dados que contém esse item, e pode ser nomeado como Sup(A). Esse item pode compor um conjunto de itens $\left(A, B\right)$ por exemplo, e formar uma regra $\left(A \rightarrow B\right)$. O suporte dessa regra será igual à porcentagem de transações que possui A e B \cite{Goncalves}.
+O suporte de um conjunto de itens A, representa a porcentagem de transações da base de dados que contêm esse item, e pode ser representado por Sup(A). Análogamente, um outro conjunto de itens B, que contém o conjunto de itens A, terá suporte representado por Sup(B)~\cite{Goncalves}. 
 
-Já a confiança de uma regra de associação A $\rightarrow$ B, representa a porcentagens de transações que contém A e B, dentre todas as transações que contém A, ou seja, Conf$\left(A \rightarrow B\right)$ = Sup$\left(A \cup B\right)$ / Sup$\left(A\right)$ \cite{Goncalves}.
+A confiança é um conceito um pouco mais complexo. Dado uma regra de associação A $\rightarrow$ B, a confiança dessa regra representa a porcentagens de transações que contêm B, dentre todas as transações que contÊm A, ou seja, Conf$\left(A \rightarrow B\right)$ = Sup$\left(B\right)$ / Sup$\left(A\right)$ \cite{Goncalves}.
 
-É possível então definir a confiança em mineração de padrões sequenciais, enxergando-a como uma derivação da existente em regras de associação. Dado um padrão sequencial X, formado por $\left\{A, B, C, D\right\}$, pode-se chamá-lo de uma supersequência de Y, formado por $\left\{A, B\right\}$, que é uma subsequência de X. A confiança de um padrão sequencial será então, a porcentagem de transações que possui a supersequência X, dentre todas as transações que possuem a subsequência Y.
-
-Definindo a sequência que contém todos os elementos como \textbf{SuperSeq} e a subsequência como \textbf{SubSeq}, a confiança de \textbf{SuperSeq} é calculada como:
+É possível então definir a confiança em mineração de padrões sequenciais, enxergando-a como uma derivação da existente em regras de associação. Uma sequência \textbf{s}, representada por uma lista de eventos $<e_{1}e_{2}e_{3}...e_{n}>$, onde e$_{j}$, $1 \leq j \leq $n, é dito um evento ou elemento da sequência \textbf{s}, pode ser subsequência de outra sequência \textbf{S}, representada por uma lista de eventos que obrigatoriamente contém todos os eventos da sequência \textbf{s}. Sendo assim, nomeando \textbf{s} como \textbf{SubSeq} e \textbf{S} como \textbf{SuperSeq} a confiança de \textbf{SuperSeq} é calculada como:
 
                \textbf{Confiança$_{\textbf{SuperSeq/SubSeq}}$ = Suporte$_{\textbf{SubSeq}}$ / Suporte$_{\textbf{SuperSeq}}$}
                
 Esse conceito pode ser exemplificado da seguinte maneira:
 
-Dado que a sequência X possui suporte de 28\%, e a sequência Y um suporte de 35\%, a confiança de X em função de Y é de 80\%.
+Dado que um padrão sequencial X, formado por $\left\{A, B, C, D\right\}$, possui suporte de 28\% e que o padrão sequencial Y, formado por $\left\{A, B\right\}$, possui suporte de 35\%. A confiança de X em função de Y é de 80\%.
 
 Com isso, a seguinte afirmação pode ser empregada pelo VCC:
 
@@ -87,29 +83,31 @@ Com isso, a seguinte afirmação pode ser empregada pelo VCC:
 
 \subsection{Geração de árvore de chamadas}
 
-Para que os padrões obtidos na fase de mineração sequencial possam ser utilizados na sugestão de código fonte, uma estrutura adequada deve ser empregada para o armazenamento dos mesmos.
+Para que os padrões obtidos na fase de mineração sequencial possam ser utilizados na sugestão de código fonte, uma estrutura adequada deve ser empregada para o armazenamento e consulta dos mesmos.
 
-	Nesse trabalho, é utilizada uma árvore de profundidade e largura variável para armazenar os padrões frequentes obtidos. É importante ressaltar que a estrutura utilizada na criação da árvore permite que a busca por uma sequência de código tenha complexidade assintótica\cite{ProblemsAlgorithms} O$\left(n\right)$, sendo n o tamanho da sequência pesquisada. Isso acontece porque todos os elementos presentes na árvore em níveis mais profundos, também estão representados no segundo nível.
+	Neste trabalho, é utilizada uma árvore de profundidade e largura variável para armazenar os padrões frequentes obtidos. A Figura \ref{fig:arvore-sem-suporte} ilustra a estrutura de uma árvore de padrões frequentes.
 	
-	Apesar de parecer um desperdício proposital de espaço de armazenamento para obter um melhor desempenho na busca por elementos da árvore, a presença de todos os elementos frequentes no segundo nível da árvore é na verdade um comportamento inerente à mineração de padrões sequenciais. Isso acontece devido ao princípio que diz que se uma sequência é frequente, ou seja, possui suporte superior ao suporte mínimo, todas as suas subsequências também serão frequentes. Entretanto, o suporte e a confiança das subsequências não são obrigatoriamente iguais aos das sequências que as contém, portanto esses padrões devem ser armazenados independentemente. A Figura \ref{fig:arvore-sem-suporte} ilustra a estrutura de uma árvore de padrões frequentes, conforme citado.
-
 \begin{figure}[htb]
        \centering  % figura centralizada
        \fbox{\includegraphics[scale=0.45]{arvore-sem-suporte.png}}
        \FigLegenda{\label{fig:arvore-sem-suporte}Exemplo de árvore de padrões frequentes.}
 \end{figure}
+
+	É importante ressaltar que a estrutura utilizada na criação da árvore permite que a busca por uma sequência de código tenha complexidade assintótica~\cite{ProblemsAlgorithms} O$\left(n\right)$, sendo n o tamanho da sequência pesquisada. Isso acontece porque todos os elementos presentes na árvore em níveis mais profundos, também estão representados no segundo nível.
+	
+	Apesar de parecer um desperdício proposital de espaço de armazenamento para obter um melhor desempenho na busca por elementos da árvore, a presença de todos os elementos frequentes no segundo nível da árvore  se deve a um comportamento inerente à mineração de padrões sequenciais que diz que se uma sequência é frequente, ou seja, possui suporte superior ao suporte mínimo, todas as suas subsequências também serão frequentes. Entretanto, o suporte e a confiança das subsequências não são obrigatoriamente iguais aos das sequências que as contém, portanto esses padrões devem ser armazenados independentemente. 
 	
 	Após definir a estrutura de armazenamento como uma árvore, é importante que seja decidido o que cada nó irá armazenar. Considerando cada nó como o fim de um padrão sequencial frequente, nos mesmos será armazenado o suporte desse padrão. 
 	
 	Entretanto, a confiança de um padrão não pode ser vista como um único valor. A confiança de um padrão sequencial, depende da subsequência que está sendo considerada. Desta forma, o tamanho do padrão sequencial minerado determinará quantos valores de confiança o mesmo terá. Dada uma sequência de tamanho igual a três, X = $<C, D, B>$, as seguintes confianças são definidas:
 
 \begin{itemize}
-	\item Confiança de X em relação a uma sequência vazia. O valor desta confiança é o mesmo do suporte do padrão sequencial; 
-	\item Confiança de X em relação à sequência $< C >$. O valor desta confiança será o suporte de X, dividido pelo suporte de $< C >$;
-	\item Confiança de X em relação à sequência $< C, D >$. O valor desta confiança será o suporte de X, dividido pelo suporte de $< C, D >$;
+	\item Confiança de X em função de uma sequência vazia. O valor dessa confiança é o mesmo do suporte do padrão sequencial; 
+	\item Confiança de X em função da sequência $< C >$. O valor dessa confiança será o suporte de X dividido pelo suporte de $< C >$;
+	\item Confiança de X em função da sequência $< C, D >$. O valor dessa confiança será o suporte de X dividido pelo suporte de $< C, D >$;
 \end{itemize}
 
-Desta forma, uma gama de sugestões pode ser fornecida ao usuário utilizador do VCC. Dado que uma chamada ao método C foi codificada, pode-se sugerir o método D, com suporte s$_1$ e confiança c$_1$, e também a sequência $< D, B >$, com suporte s$_2$ e confiança c$_2$.
+Dessa forma, uma gama de sugestões pode ser fornecida ao usuário utilizador do VCC. Dado que uma chamada ao método C, que possui suporte \textbf{s} na base foi codificada, e dado que a sequência $< C, D >$ possui suporte \textbf{S$_1$}, superior ao suporte mínimo, pode-se sugerir a chamada ao método D com confiança \textbf{C$_1$}, dado que \textbf{C$_1$} = \textbf{S$_1$ / s}. Além disso, se a sequência $< C, D, B>$ possui suporte \textbf{S$_2$}, superior ao suporte mínimo, pode-se sugerir a sequência de chamadas $< D, B>$ com confiança \textbf{C$_2$}, dado que \textbf{C$_2$} = \textbf{S$_2$ / s}.
 
 A Figura \ref{fig:arvore} apresenta a árvore de padrões sequenciais frequentes e a forma com que os suportes e confianças são armazenados.
 
@@ -130,24 +128,24 @@ A Figura \ref{fig:arvore} apresenta a árvore de padrões sequenciais frequentes e
 Na Figura \ref{fig:arvore} pode-se ver como o suporte e a confiança dos padrões são armazenados. Observando a sequência frequente $<C, D, B>$ por exemplo, as confianças armazenadas no nó que representa o método B, 3\%, 50\% e 75\%, são respectivamente:
 
 \begin{itemize}
-	\item A confiança do padrão sequencial $<C, D, B>$ com relação a toda base de dados;
+	\item A confiança do padrão sequencial $<C, D, B>$ com relação a toda base de dados, ou seja, o suporte;
 	\item	A confiança do padrão sequencial $<C, D, B>$ com relação à sequência $<C>$; 
 	\item	E a confiança do padrão sequencial $<C, D, B>$ com relação à sequência $<C, D>$.
 \end{itemize}
 
-É importante ressaltar que embora na figura representativa, o valor das confianças dos padrões sequenciais completos - no padrão $<A, B>$, o valor 5\% por exemplo - esteja armazenado, essa prática tem caráter apenas ilustrativo. Na implementação da árvore isso não é necessário, visto que essas confianças sempre serão iguais ao suporte do padrão.
+É importante ressaltar que embora na figura representativa, o valor das confianças dos padrões sequenciais completos -- no padrão $<A, B>$, o valor 5\% por exemplo -- esteja armazenado, essa prática tem caráter apenas ilustrativo. Na implementação da árvore isso não é necessário, visto que essas confianças sempre serão iguais ao suporte do padrão.
 
 \section{Sugestão de padrões frequentes de código fonte}
 
 Para que um padrão sequencial possa ser sugerido, é necessário que uma entrada seja disponibilizada pelo usuário. Nesse momento, diversas estratégias podem ser tomadas para decidir como será feita a pesquisa do que está sendo programado.
 
-	Enquanto o projeto VCC estava sendo desenvolvido, algumas dessas estratégias foram testadas com o intuito de realizar poucas consultas, otimizando o tempo de resposta do programa. Utilizar apenas as últimas linhas que foram programadas, ou apenas combinações de linhas contíguas mostrou-se infrutífero, pois muitos padrões interessantes passaram despercebidos por estarem dispostos de diversas maneiras no corpo do método.
+	Enquanto o projeto VCC estava sendo desenvolvido, algumas dessas estratégias foram testadas com o intuito de realizar poucas consultas, otimizando o tempo de resposta do programa. Utilizar apenas as últimas linhas que foram programadas, ou apenas combinações de linhas contíguas, mostrou-se infrutífero, pois muitos padrões interessantes passaram despercebidos por estarem dispostos de diversas maneiras no corpo do método.
 	
  Em um método com dez linhas, por exemplo, um padrão sequencial frequente pode ser detectado a partir de chamadas que estão localizadas imediatamente uma após a outra, como em chamadas que se encontram uma no início e outra no fim do que já foi programado. Um exemplo interessante de padrões sequenciais que não se localizam contiguamente, são as aberturas e fechamentos de conexões com bancos de dados. Ao abrir uma conexão, espera-se que algum procedimento seja realizado na base de dados, antes que a mesma seja fechada.
  
 Com isso, não é possível prever se o padrão sequencial deve ser sugerido de acordo com o que foi programado nas primeiras, ou nas últimas linhas de código do método em que está sendo realizada a consulta. Portanto, a estratégia adotada nesse trabalho é a de combinar todas as chamadas de métodos disponíveis para realizar a consulta à arvore de padrões sequenciais, mas isso proporciona uma nova dificuldade com relação ao tamanho máximo de cada combinação.
 
-Chamando a profundidade máxima da árvore de padrões sequenciais de \textbf{n}. Em um cenário ideal, todas as combinações possíveis, com tamanho variando de 1 até n - 1, deveriam ser utilizadas para consultar os de padrões sequenciais frequentes. Entretanto, não se pode prever qual será a profundidade máxima da árvore de padrões. Mesmo sabendo que as boas práticas de programação recomendam a filosofia de dividir para conquistar \cite{Deitel}, métodos em um projeto de software podem se tornar grandes demais. Dessa forma, o tempo de resposta para a consulta de todas essas combinações pode se tornar inaceitável.
+Chamando a profundidade máxima da árvore de padrões sequenciais de \textbf{n}. Em um cenário ideal, todas as combinações possíveis, com tamanho variando de 1 até \textbf{n- 1}, deveriam ser utilizadas para consultar os de padrões sequenciais frequentes. Entretanto, não se pode prever qual será a profundidade máxima da árvore de padrões. Mesmo sabendo que as boas práticas de programação recomendam a filosofia de dividir para conquistar \cite{Deitel}, métodos em um projeto de software podem se tornar grandes demais. Dessa forma, o tempo de resposta para a consulta de todas essas combinações pode se tornar inaceitável.
 
 Com isso, para que a consulta a todas as combinações de chamadas de métodos seja realizada em tempo hábil, é necessário que o tamanho máximo dessas combinações seja limitado. No projeto VCC, é possível que o tamanho máximo das combinações seja configurado, permitindo que um valor que atenda às características do projeto em que o mesmo está sendo utilizado seja alcançado. Entretanto, esse valor pode ser alto, gerando uma enorme quantidade de combinações, e fazendo com que o tempo de resposta das consultas não seja satisfatório.
 
@@ -162,6 +160,3 @@ Com o intuito de minimizar esse problema, a partir da análise das combinações ge
 	\item	Chamada ao método B com suporte de 3,5\% e confiança de 50\%;
 	\item	Chamada ao método E com suporte de 1,755\% e confiança de 25\%.
 \end{itemize}
-
-
-
