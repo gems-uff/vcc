@@ -10,9 +10,9 @@ Porém, essa enorme quantidade de dados não refletia uma grande riqueza de conhec
 
 Isso motivou diversos estudos a partir do início dos anos 90, que resultaram no surgimento do campo de pesquisa de Mineração de Dados, área que se refere ao processo de descoberta de novas informações e conhecimento, no formato de regras e padrões, a partir de grandes bases de dados \cite{SrikantAgrawal}. A partir daí, foram desenvolvidas ferramentas para analisar e descobrir importantes padrões de dados, contribuindo para diversas áreas, tais como \cite{LivroMineracao}: pesquisas médicas, negócios estratégicos, biologia molecular, entre outras.
 
-Dentre as principais tarefas em Mineração de Dados, destacam-se \cite{Goncalves}: classificação, extração de regras de associação, clusterização, padrões em séries temporais e extração de padrões seqüências. Em geral, essas tarefas podem ser classificadas em duas categorias: mineração preditiva e mineração descritiva \cite{LivroMineracao}.
+Dentre as principais tarefas em Mineração de Dados, destacam-se \cite{Goncalves}: classificação, extração de regras de associação, clusterização,  extração de padrões em séries temporais e extração de padrões seqüências. Em geral, essas tarefas podem ser classificadas em duas categorias: mineração preditiva e mineração descritiva \cite{LivroMineracao}.
 
-Na mineração preditiva, deseja-se prever o valor desconhecido de um determinado atributo, a partir da análise histórica dos dados armazenados na base. Nessa categoria se enquadram as tarefas de classificação e padrões em séries temporais.
+Na mineração preditiva, deseja-se prever o valor desconhecido de um determinado atributo, a partir da análise histórica dos dados armazenados na base. Nessa categoria se enquadram as tarefas de classificação e extração de padrões em séries temporais.
 Na mineração descritiva, padrões e regras descrevem características importantes dos dados com os quais se está trabalhando. Mineração de regras de associação, clusterização e mineração de padrões sequenciais fazem parte dessa categoria.
 
 A seguir serão descritas as principais tarefas de mineração de dados.
@@ -21,7 +21,7 @@ A seguir serão descritas as principais tarefas de mineração de dados.
 
 A tarefa de classificação tem por objetivo identificar, entre um conjunto pré-definido de classes, aquela à qual pertence um elemento a partir de seus atributos. Para inferir a qual classe esse elemento pertence, é necessária uma base de treinamento. 
 
-Um sistema de um banco, que tem por objetivo inferir a classe à qual o cliente pertence, indicando se o mesmo será ou não um bom pagador, com base nos dados de clientes antigos e nas características do elemento que está sendo classificado, é um exemplo de utilização da tarefa de classificação.
+Um sistema de um banco que tem por objetivo inferir a classe à qual o cliente pertence, indicando se o mesmo será ou não um bom pagador, com base nos dados de clientes antigos e nas características do elemento que está sendo classificado, é um exemplo de utilização da tarefa de classificação.
 
 \subsection{Regras de Associação}
 
@@ -54,18 +54,18 @@ Podemos dizer que um evento em uma base de dados de uma loja de vendas é uma com
 
 Além disso, outras definições são importantes. Uma sequência pode ser parte de outra sequência maior. Nesse caso, a sequência  $\alpha$ = $<a_{1}a_{2}...a_{n}>$ é chamada de subsequência de outra sequência $\beta$ = $<b_{1}b_{2}...b_{m}>$, e $\beta$  é uma supersequência de $\alpha$, denotado como $\alpha$ $\subseteq$ $\beta$, se existirem inteiros 1 $\leq j_{1} < j_{2} < ... < j_{n} \leq$ m tais que a$_{1} \subseteq b_{j1},$ $a_{2} \subseteq b_{j2},..., a_{1} \subseteq b_{jn}$. Por exemplo, se $\alpha$ = $<(ab), (d)>$ e $\beta$ = $<(abc), (de)>$, onde \textit{a}, \textit{b}, \textit{c}, \textit{d} e \textit{e} são itens, então $\alpha$ é uma subsequência de $\beta$ e $\beta$ é uma supersequência de $\alpha$.
 
-A métrica de avaliação dos padrões sequenciais é o suporte. Um banco de dados de sequência, \textit{S}, é composto de um conjunto de tuplas, $<SID, s>$, onde \textit{SID} é o identificador da sequência e \textit{s} é a sequência. O suporte de uma sequência $\alpha$ num banco de dados de sequência, \textit{S}, é o número de tuplas no banco de dados que contem $\alpha$. Esse suporte pode ser absoluto, representado apenas por um número inteiro, ou relativo, informando o percentual de vezes que a sequência ocorreu. Dessa forma, uma sequência de eventos é dita frequente se a quantidade de vezes que essa sequência ocorrer for superior ao suporte mínimo informado pelo usuário, formando assim um padrão sequencial.
+A métrica de avaliação dos padrões sequenciais é o suporte. Um banco de dados de sequências, \textit{S}, é composto de um conjunto de tuplas, $<SID, s>$, onde \textit{SID} é o identificador da sequência e \textit{s} é a sequência. O suporte de uma sequência $\alpha$ num banco de dados de sequências, \textit{S}, é o número de tuplas no banco de dados que contêm $\alpha$. Esse suporte pode ser absoluto, representado apenas por um número inteiro, ou relativo, informando o percentual de vezes que a sequência aparece. Dessa forma, uma sequência de eventos é dita frequente se a quantidade de vezes que essa sequência aparecer for superior ao suporte mínimo informado pelo usuário, formando assim um padrão sequencial.
 
 \section{Mineração de dados na Engenharia de Software}
 
 Tarefas de mineração de dados têm sido muito utilizadas em engenharia de software, principalmente quando aplicadas em repositórios de dados para se obter informações sobre a evolução de software ao longo do tempo, com o objetivo de aumentar a qualidade do processo de desenvolvimento de software \cite{Ball, Dantas, Shirabad, Ying, Zimmerman}.
 
 Em \cite{Shirabad}, utilizou-se um algoritmo classificador, a partir do aprendizado em uma base de treinamento, para extrair relações
-que indicam que arquivos de código fonte, em um sistema legado, são relevantes uns aos outros no contexto da manutenção de software. Tais relações poderem revelar interconexões complexas entre os arquivos de código fonte do sistema, podendo sua vez, ser úteis na compreensão deles. Assim, o algoritmo classificador, após receber dois arquivos de código fonte, retorna verdadeiro ou falso, indicando se são relevantes entre si. 
+que indicam que arquivos de código fonte, em um sistema legado, são relevantes uns aos outros no contexto da manutenção de software. Tais relações puderam revelar interconexões complexas entre os arquivos do código fonte do sistema, sendo úteis na compreensão deles. Assim, o algoritmo classificador, após receber dois arquivos de código fonte, retorna verdadeiro ou falso, indicando se são relevantes entre si. 
 
 Em \cite{Ying}, aplica-se mineração de dados para se encontrar relações de dependências entre arquivos do código fonte, até mesmo dependências difíceis de se determinar, tais como aquelas existentes entre códigos fonte de linguagens diferentes. Em especial, é utilizada a técnica de extração de regras de associação para determinar padrões de mudanças entre arquivos do código fonte para ajudar os desenvolvedores em tarefas de modificação.
 
-Em \cite{Dantas}, utilizam-se técnicas de mineração de dados num repositório UML versionado para se extrair regras de associação que possam identificar elementos do modelo UML que foram modificados juntos no passado e que provavelmente precisarão ser modificados juntos no futuro.
+Em \cite{Dantas}, utilizam-se técnicas de mineração de dados em um repositório UML versionado para se extrair regras de associação que possam identificar elementos do modelo UML que foram modificados juntos no passado e que provavelmente precisarão ser modificados juntos no futuro.
 
 Em \cite{Zimmerman}, aplicam-se técnicas de mineração de dados em repositórios versionados de código fonte para se extrair regras de associação do tipo: ``programadores que alteraram a função A também alteraram as funções B e C''. Tais regras são extraídas com o objetivo de guiar desenvolvedores de software na alteração do código fonte.
 

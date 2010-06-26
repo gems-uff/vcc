@@ -158,7 +158,7 @@ public class SearchPatterns extends AbstractHandler
             }
             
             TreeItem treeItem = new TreeItem(tree, 0);
-            treeItem.setText(new String [] {nameMethod.toString(), null, null});
+            treeItem.setText(new String [] {"Usuários que chamam o método: " + nameMethod.toString(), null, null});
 //            i++;
             
             
@@ -173,7 +173,7 @@ public class SearchPatterns extends AbstractHandler
             }
             
             TreeItem subTreeItem = new TreeItem(treeItem, SWT.NONE);
-            subTreeItem.setText(new String[] {sugestion.toString(), String.valueOf(suggestion.getSupport()), String.valueOf(suggestion.getConfidence())} );
+            subTreeItem.setText(new String[] {"Também chamam: " + sugestion.toString(), String.valueOf(suggestion.getSupport()), String.valueOf(suggestion.getConfidence())} );
 //            
             
             System.out.println("\nSuporte: " + suggestion.getSupport() + " Confianca: " + suggestion.getConfidence() + "\n\n");

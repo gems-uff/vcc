@@ -23,14 +23,14 @@
 \contentsline {section}{\numberline {4.5}Gera\c c\~ao e poda das combina\c c\~oes de chamadas de m\'etodos}{25}
 \contentsline {chapter}{\uppercase {Cap\IeC {\'\i }tulo 5 - Resultados Experimentais}}{27}
 \contentsline {section}{\numberline {5.1}O sistema objeto de estudo - IdUFF}{27}
-\contentsline {section}{\numberline {5.2}Planejamento do Experimento}{27}
+\contentsline {section}{\numberline {5.2}Planejamento do Experimento}{28}
 \contentsline {section}{\numberline {5.3}Aplica\c c\~ao do Experimento}{28}
-\contentsline {section}{\numberline {5.4}Resultados Obtidos}{29}
+\contentsline {section}{\numberline {5.4}Resultados Obtidos}{30}
 \contentsline {subsection}{\numberline {5.4.1}An\'alise Quantitativa}{30}
-\contentsline {subsection}{\numberline {5.4.2}An\'alise Qualitativa}{30}
-\contentsline {section}{\numberline {5.5}Amea\c cas a Validade}{31}
-\contentsline {chapter}{\uppercase {Cap\IeC {\'\i }tulo 6 - Conclus\~oes}}{33}
-\contentsline {chapter}{\uppercase {Refer\^encias Bibliogr\'aficas}}{34}
-\contentsline {chapter}{Ap\^endice I}{36}
-\contentsline {chapter}{Ap\^endice II}{38}
-\contentsline {chapter}{Ap\^endice III}{40}
+\contentsline {subsection}{\numberline {5.4.2}An\'alise Qualitativa}{31}
+\contentsline {section}{\numberline {5.5}Amea\c cas \`a Validade}{35}
+\contentsline {chapter}{\uppercase {Cap\IeC {\'\i }tulo 6 - Conclus\~oes}}{36}
+\contentsline {chapter}{\uppercase {Refer\^encias Bibliogr\'aficas}}{37}
+\contentsline {chapter}{Ap\^endice I}{39}
+\contentsline {chapter}{Ap\^endice II}{41}
+\contentsline {chapter}{Ap\^endice III}{43}
