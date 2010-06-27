@@ -69,9 +69,9 @@ A confiança é um conceito um pouco mais complexo. Dado uma regra de associação A
 
 %É possível então definir a confiança em mineração de padrões sequenciais, enxergando-a como uma derivação da existente em %regras de associação. Uma sequência \textbf{s}, representada por uma lista de eventos $<e_{1}e_{2}e_{3}...e_{n}>$, onde %e$_{j}$, $1 \leq j \leq $n, é dito um evento ou elemento da sequência \textbf{s}, pode ser subsequência de outra sequência %\textbf{S}, representada por uma lista de eventos que obrigatoriamente contém todos os eventos da sequência \textbf{s}. Sendo %assim, nomeando \textbf{s} como \textbf{SubSeq} e \textbf{S} como \textbf{SuperSeq} a confiança de \textbf{SuperSeq} é %calculada como:
 
-É possível então definir a confiança em mineração de padrões sequenciais, enxergando-a como uma derivação da existente em regras de associação. Dada uma sequência \textbf{s}, representada por uma lista de eventos \textbf{l}, e outra sequência \textbf{S}, representada por uma lista de eventos \textbf{L}, tal que l \subset L. Chamando então \textbf{s} de \textbf{SubSeq} e \textbf{S} de \textbf{SuperSeq}, a confiança de \textbf{SuperSeq} em relação à \textbf{SubSeq} é calculada como:
+É possível então definir a confiança em mineração de padrões sequenciais, enxergando-a como uma derivação da existente em regras de associação. Dada uma sequência \textbf{s}, representada por uma lista de eventos \textbf{l}, e outra sequência \textbf{S}, representada por uma lista de eventos \textbf{L}, tal que \textbf{l $\subset$ L}. A confiança de \textbf{S} em relação a \textbf{s}, será a porcentagem de vezes que \textbf{S} ocorrer na base de dados, dado que \textbf{s} ocorreu. Chamando então \textbf{s} de \textbf{SubSeq} e \textbf{S} de \textbf{SuperSeq}, a confiança de \textbf{SuperSeq} em relação à \textbf{SubSeq} é calculada como:
 
-               \textbf{Confiança$_{\textbf{SuperSeq/SubSeq}}$ = Suporte$_{\textbf{SubSeq}}$ / Suporte$_{\textbf{SuperSeq}}$}
+               \textbf{Confiança$_{\textbf{SuperSeq/SubSeq}}$ = Suporte$_{\textbf{SuperSeq}}$ / Suporte$_{\textbf{SubSeq}}$}
                
 Esse conceito pode ser exemplificado da seguinte maneira:
 
