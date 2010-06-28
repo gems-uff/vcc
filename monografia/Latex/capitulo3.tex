@@ -91,7 +91,7 @@ Para que os padrões obtidos na fase de mineração sequencial possam ser utilizado
 	
 	Após definir a estrutura de armazenamento como uma árvore, é importante que seja decidido o que cada nó irá armazenar.  Considerando cada nó como o fim de um padrão sequencial frequente, nos mesmos será armazenado o suporte desse padrão. 
 	
-	Entretanto, a confiança de um padrão não pode ser vista como um único valor. A confiança de um padrão sequencial depende da subsequência que está sendo consultada. Desta forma, o tamanho do padrão sequencial minerado determinará quantos valores de confiança o mesmo terá. Dada uma sequência de tamanho igual a três, X = $<C, D, B>$, as seguintes confianças são definidas:
+	Entretanto, a confiança de um padrão não pode ser vista como um único valor. A confiança de um padrão sequencial depende da subsequência que está sendo consultada. Desta forma, o tamanho do padrão sequencial minerado determinará quantos valores de confiança o mesmo terá. Dada uma sequência de tamanho igual a três, X = $<C, D, E>$, as seguintes confianças são definidas:
 
 \begin{itemize}
 	\item Confiança de X em função de uma sequência vazia. O valor dessa confiança é o mesmo do suporte do padrão sequencial; 
@@ -99,7 +99,7 @@ Para que os padrões obtidos na fase de mineração sequencial possam ser utilizado
 	\item Confiança de X em função da sequência $< C, D >$. O valor dessa confiança será o suporte de X dividido pelo suporte de $< C, D >$;
 \end{itemize}
 
-Dessa forma, uma gama de sugestões pode ser fornecida ao usuário utilizador do VCC. Dado que uma chamada ao método C, que possui suporte \textbf{s}, foi codificada, e que a sequência $< C, D >$, que está presente na árvore de padrões sequenciais frequentes, possui suporte \textbf{S$_1$}, pode-se sugerir a chamada ao método D, com confiança \textbf{C$_1$}, dado que \textbf{C$_1$} = \textbf{S$_1$ / s}. Além disso, dado que a sequência $< C, D, B>$ também está possui suporte \textbf{S$_2$}, superior ao suporte mínimo, pode-se sugerir a sequência de chamadas $< D, B>$ com confiança \textbf{C$_2$}, dado que \textbf{C$_2$} = \textbf{S$_2$ / s}.
+Dessa forma, uma gama de sugestões pode ser fornecida ao usuário utilizador do VCC. Dado que uma chamada ao método C, que possui suporte \textbf{s}, foi codificada, e que a sequência $< C, D >$, que está presente na árvore de padrões sequenciais frequentes, possui suporte \textbf{S$_1$}, pode-se sugerir a chamada ao método D, com confiança \textbf{C$_1$}, dado que \textbf{C$_1$} = \textbf{S$_1$ / s}. Além disso, dado que a sequência $< C, D, E>$ também possui suporte \textbf{S$_2$}, superior ao suporte mínimo, pode-se sugerir a sequência de chamadas $< D, E>$ com confiança \textbf{C$_2$}, dado que \textbf{C$_2$} = \textbf{S$_2$ / s}.
 
 A Figura \ref{fig:arvore} apresenta a árvore de padrões sequenciais frequentes e a forma com que os suportes e confianças são armazenados.
 
@@ -117,11 +117,11 @@ A Figura \ref{fig:arvore} apresenta a árvore de padrões sequenciais frequentes e
 \end{figure}
 
 
- Observando a sequência frequente $<C, D, B>$ por exemplo, as confianças armazenadas no nó que representa o método B, 40\% e 70\%, são respectivamente:
+ Observando a sequência frequente $<C, D, E>$ por exemplo, as confianças armazenadas no nó que representa o método E, 40\% e 70\%, são respectivamente:
 
 \begin{itemize}
-	\item	A confiança do padrão sequencial $<C, D, B>$ com relação à sequência $<C>$;e 
-	\item	A confiança do padrão sequencial $<C, D, B>$ com relação à sequência $<C, D>$.
+	\item	A confiança do padrão sequencial $<C, D, E>$ com relação à sequência $<C>$;e 
+	\item	A confiança do padrão sequencial $<C, D, E>$ com relação à sequência $<C, D>$.
 \end{itemize}
 
 \section{Sugestão de Padrões Frequentes de Código Fonte}
@@ -149,6 +149,6 @@ Com o intuito de minimizar esse problema, a partir da análise das combinações ge
 	\item	$<A, F>$;
 	\item	$<D, F>$.
 \end{itemize}
-  Essas combinações são então consultadas na árvore de padrões frequentes, de acordo com o tamanho de cada combinação. Ao consultar a chamada ao método A, a chamada ao método B seria obtida com suporte de 5\% e confiança de 62,5\%. Já consultando a chamada ao método D, a chamada ao método E seria obtida com suporte de 3\% e confiança de 66,6\%. Em seguida, ao consultar a chamada ao método F nenhum padrão seria encontrado, fazendo com que a poda de combinações seja realizada. As combinações $<A, F>$, $<D, F>$ e $<A, D, F>$ são então 'podadas', evitando que sejam consultadas desnecessariamente.
+  Essas combinações são então consultadas na árvore de padrões frequentes, de acordo com o tamanho de cada combinação. Ao consultar a chamada ao método A, a chamada ao método B seria obtida com suporte de 5\% e confiança de 62,5\%. Já consultando a chamada ao método D, a chamada ao método E seria obtida com suporte de 3\% e confiança de 66,6\%. Em seguida, ao consultar a chamada ao método F nenhum padrão seria encontrado, fazendo com que a poda de combinações seja realizada. As combinações $<A, F>$ e $<D, F>$ são então 'podadas', evitando que sejam consultadas desnecessariamente.
   Finalmente, a combinação $<A, D>$ é consultada na árvore de padrões frequentes e novamente nenhum padrão é encontrado, a poda é chamada, mas como não existem outras combinações a serem consultadas, nenhuma ação é realizada.
   É importante ressaltar que a combinação $<A, D, F>$ não é nem mesmo gerada para ser consultada, visto que na árvore não existe nenhum padrão sequencial que possua mais de três chamadas de método.
