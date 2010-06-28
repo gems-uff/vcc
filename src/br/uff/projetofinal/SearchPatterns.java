@@ -1,7 +1,9 @@
 package br.uff.projetofinal;
 
+import java.io.BufferedReader;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.util.ArrayList;
@@ -41,10 +43,6 @@ import org.eclipse.swt.widgets.TreeColumn;
 import org.eclipse.swt.widgets.TreeItem;
 import org.eclipse.ui.IEditorPart;
 import org.eclipse.ui.PlatformUI;
-import org.eclipse.ui.console.ConsolePlugin;
-import org.eclipse.ui.console.IConsole;
-import org.eclipse.ui.console.MessageConsole;
-import org.eclipse.ui.console.MessageConsoleStream;
 import org.eclipse.ui.texteditor.ITextEditor;
 
 import br.uff.projetofinal.util.ComparableList;
@@ -54,7 +52,27 @@ import de.vogella.jdt.astsimple.handler.MethodVisitor;
 
 public class SearchPatterns extends AbstractHandler
 {
-    private static Integer maxSizeCombinations = 4;
+    private static Integer maxSizeCombinations;
+    
+    static
+    {
+        BufferedReader configReader;
+        try
+        {
+            configReader = new BufferedReader(new FileReader("C:\\ProjetoFinal\\config.txt"));
+            String maxSizeLine = configReader.readLine();
+            maxSizeCombinations = Integer.parseInt(maxSizeLine.split("=")[1]);
+            configReader.close();
+        }
+        catch (FileNotFoundException e)
+        {
+            e.printStackTrace();
+        }
+        catch (IOException e)
+        {
+            e.printStackTrace();
+        }
+    }
 
     private void searchPatterns()
     {
@@ -126,7 +144,6 @@ public class SearchPatterns extends AbstractHandler
         column1.setWidth(600);
         column1.setAlignment(SWT.LEFT);
         
-        
         TreeColumn column2 = new TreeColumn(tree, SWT.NONE);
         column2.setText("Suporte");
         column2.setWidth(200);
@@ -141,12 +158,12 @@ public class SearchPatterns extends AbstractHandler
         column3.addSelectionListener(new SortTreeListener());
 
         
-        int i = 0;
+
            	
         for (Iterator<Suggestion> iterator = suggestions.iterator(); iterator.hasNext();)
         {
             Suggestion suggestion = (Suggestion) iterator.next();
-            System.out.println("Usuários que chamam os métodos: ");
+            //System.out.println("Usuários que chamam os métodos: ");
             Collection<String> invocatedMethods = suggestion.getInvocatedMethods();
             
             StringBuffer nameMethod = new StringBuffer();
@@ -162,7 +179,7 @@ public class SearchPatterns extends AbstractHandler
 //            i++;
             
             
-            System.out.println("\nTambém chamam em seguida: ");
+            //System.out.println("\nTambém chamam em seguida: ");
             Collection<String> methods = suggestion.getSuggestedMethods();
             
             StringBuffer sugestion = new StringBuffer();
@@ -176,7 +193,7 @@ public class SearchPatterns extends AbstractHandler
             subTreeItem.setText(new String[] {"Também chamam: " + sugestion.toString(), String.valueOf(suggestion.getSupport()), String.valueOf(suggestion.getConfidence())} );
 //            
             
-            System.out.println("\nSuporte: " + suggestion.getSupport() + " Confianca: " + suggestion.getConfidence() + "\n\n");
+            //System.out.println("\nSuporte: " + suggestion.getSupport() + " Confianca: " + suggestion.getConfidence() + "\n\n");
 
             
             
