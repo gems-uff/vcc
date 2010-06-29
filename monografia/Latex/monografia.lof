@@ -1,11 +1,14 @@
 \select@language {brazil}
 \contentsline {figure}{\uppercase {Figura 1: Fluxo de uso do VCC.}}{14}
-\contentsline {figure}{\uppercase {Figura 2: Exemplo de codifica\c c\~ao de m\'etodo e a transa\c c\~ao gerada.}}{16}
-\contentsline {figure}{\uppercase {Figura 3: Exemplo de \'arvore de padr\~oes frequentes.}}{18}
-\contentsline {figure}{\uppercase {Figura 4: Exemplo de \'arvore de padr\~oes frequentes com suportes e confian\c cas.}}{19}
-\contentsline {figure}{\uppercase {Figura 5: Estrutura de um Workspace Java.}}{23}
-\contentsline {figure}{\uppercase {Figura 6: Total de respostas dos participantes para cada item.}}{31}
-\contentsline {figure}{\uppercase {Figura 7: Total de respostas, por item, dos participantes com experi\^encia alta nas quest\~oes com padr\~oes de confian\c ca alta.}}{32}
-\contentsline {figure}{\uppercase {Figura 8: Total de respostas, por item, dos participantes n\~ao experientes nas quest\~oes com padr\~oes de confian\c ca alta.}}{32}
-\contentsline {figure}{\uppercase {Figura 9: Total de respostas, por item, dos participantes com experi\^encia alta nas quest\~oes com padr\~oes de confian\c ca baixa.}}{33}
-\contentsline {figure}{\uppercase {Figura 10: Total de respostas, por item, dos participantes n\~ao experientes nas quest\~oes com padr\~oes de confian\c ca alta.}}{33}
+\contentsline {figure}{\uppercase {Figura 2: Exemplo de codifica\c c\~ao de m\'etodo e a sequ\^encia gerada.}}{15}
+\contentsline {figure}{\uppercase {Figura 3: Exemplo de \'arvore de padr\~oes frequentes.}}{16}
+\contentsline {figure}{\uppercase {Figura 4: Exemplo de \'arvore de padr\~oes frequentes com suportes e confian\c cas.}}{18}
+\contentsline {figure}{\uppercase {Figura 5: Menu do Plugin VCC}}{22}
+\contentsline {figure}{\uppercase {Figura 6: Estrutura de um Workspace Java.}}{23}
+\contentsline {figure}{\uppercase {Figura 7: Chamada do usu\'ario com o intuito de obter as sugest\~oes de c\'odigo fonte.}}{25}
+\contentsline {figure}{\uppercase {Figura 8: Sugest\~oes baseadas nos padr\~oes sequenciais frequentes.}}{26}
+\contentsline {figure}{\uppercase {Figura 9: Total de respostas dos participantes para cada item.}}{31}
+\contentsline {figure}{\uppercase {Figura 10: Total de respostas, por item, dos participantes experientes nas quest\~oes com padr\~oes de confian\c ca alta.}}{32}
+\contentsline {figure}{\uppercase {Figura 11: Total de respostas, por item, dos participantes n\~ao experientes nas quest\~oes com padr\~oes de confian\c ca alta.}}{32}
+\contentsline {figure}{\uppercase {Figura 12: Total de respostas, por item, dos participantes experientes nas quest\~oes com padr\~oes de confian\c ca baixa.}}{33}
+\contentsline {figure}{\uppercase {Figura 13: Total de respostas, por item, dos participantes n\~ao experientes nas quest\~oes com padr\~oes de confian\c ca alta.}}{33}

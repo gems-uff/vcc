@@ -1,16 +1,16 @@
 \begin{thebibliography}{10}
 
 \bibitem{Ball}
-T.~Ball, J.~Kim, A.A. Porter e et~al.
+T.~Ball, J.~Kim e A.A. Porter.
 \newblock If your version control system could talk.
 \newblock {\em Workshop on Process Modelling and Empirical Studies of Software
-  Engineering, Boston, MA}, 1997.
+  Engineering, Boston, MA}, Maio de 1997.
 
 \bibitem{Dantas}
 C.~Dantas, L.~Murta e C.~Werner.
 \newblock Mining change traces from versioned uml repositories.
-\newblock {\em XXI Simpósio Brasileiro de Engenharia de Software (SBES 2007)},
-  pp. 236 -- 252, October de 2007.
+\newblock {\em XXI Simpósio Brasileiro de Engenharia de Software (SBES 2007).
+  João Pessoa, Brasil}, pp. 236 -- 252, Outubro de 2007.
 
 \bibitem{Deitel}
 H.~M. Deitel.
@@ -20,19 +20,20 @@ H.~M. Deitel.
 \bibitem{Domingues}
 M.~A. Domingues.
 \newblock Generalização de regras de associação.
-\newblock Dissertação de Mestrado, USP - São Carlos, 2004.
+\newblock Dissertação de Mestrado, USP - São Carlos, Fevereiro de 2004.
 
 \bibitem{Ezeife}
-C.~I. Ezeife, Yi~Lu e Yi~Liu.
+C.~I. Ezeife, Y.~Lu e Y.~Liu.
 \newblock Plwap sequential mining: Open source code.
 \newblock {\em International Workshop on Open Source Data Mining: Frequent
-  Pattern Mining Implementations}, 1:26--35, 2005.
+  Pattern Mining Implementations. Chicago, USA}, pp. 26--35, Agosto de 2005.
 
 \bibitem{Goncalves}
 E.C. Gonçalves.
 \newblock Regras de associação e suas medidas de interesse objetivas e
   subjetivas.
-\newblock {\em INFOCOMP Journal Computer Science}, pp. 27--36, 1999.
+\newblock {\em INFOCOMP Journal Computer Science - Volume 4, Issue 1}, pp.
+  27--36, Março de 2005.
 
 \bibitem{LivroMineracao}
 J.~Han e M.~Kamber.
@@ -40,75 +41,88 @@ J.~Han e M.~Kamber.
 \newblock Morgan Kaufmann, 2006.
 
 \bibitem{Holmes}
-Reid Holmes.
+R.~Holmes e G.~C. Murphy.
 \newblock Using structural context to recommend source code examples.
-\newblock Dissertação de Mestrado, The University of British Columbia, 2004.
+\newblock {\em 27th International Conference on Software Engineering. St.
+  Louis, USA}, pp. 117 -- 125, Maio de 2004.
+
+\bibitem{Holz}
+W.~Holz, R.~Premraj, T.~Zimmermann e A.~Zeller.
+\newblock Predicting software metrics at design time.
+\newblock {\em 9th International conference on Product-Focused Software Process
+  Improvement. Rome, Italy}, pp. 34 -- 44, Junho de 2008.
 
 \bibitem{Melo}
-Walcelio Melo, Caroline B.~S. Holanda e Clarissa~Angélica de~A.~de Souza.
+W.~Melo, C.~B.~S. Holanda e C.~A.~A. de~Souza.
 \newblock Proreuso: um repositório de componentes para web dirigido por um
   processo de reuso.
-\newblock {\em XV Simpósio Brasileiro de Engenharia de Software}, pp. 208--223,
-  2001.
+\newblock {\em XV Simpósio Brasileiro de Engenharia de Software. Rio de
+  Janeiro, Brasil}, pp. 208--223, Outubro de 2001.
 
 \bibitem{Murphy}
-Gail~C. Murphy, Mik Kersten e Leah Findlater.
+G.~C. Murphy, M.~K. e L.~Findlater.
 \newblock How are java software developers using the eclipse ide?
-\newblock {\em IEEE Software}, 23:76--83, 2006.
+\newblock {\em IEEE Software - Volume 23, Issue 4}, pp. 76--83, Julho de 2006.
 
 \bibitem{Myers}
-Andrew~C. Myers, Joseph~A. Bank e Barbara Liskov.
+A.~C. Myers, J.~A. Bank e B.~Liskov.
 \newblock Parameterized types for java.
-\newblock {\em ACM Symposium on Principles of Programming Languages (POPL)},
-  24:132--145, 1997.
+\newblock {\em 24th ACM Symposium on Principles of Programming Languages
+  (POPL). Paris, France}, pp. 132--145, Janeiro de 1997.
 
 \bibitem{Opyrchal}
-Lukasz Opyrchal e Atul Prakash.
+L.~Opyrchal e A.~Prakash.
 \newblock Efficient object serialization in java.
-\newblock {\em IEEE International Conference on Distributed Computing Systems
-  Workshops on Electronic Commerce and Web-based Applications/ Middleware},
-  19:96--101, 1999.
+\newblock {\em 19th IEEE International Conference on Distributed Computing
+  Systems Workshops on Electronic Commerce and Web-based Applications/
+  Middleware. Austin, USA}, pp. 96--101, Janeiro de 1999.
 
 \bibitem{Palsberg}
-Jens Palsberg e C.~Barry Jay.
+J.~Palsberg e C.~B. Jay.
 \newblock The essence of the visitor pattern.
-\newblock {\em IEEE. Int. Computer Software and Applications Conf. (COMPSAC)},
-  22:9--15, 1998.
+\newblock {\em 22nd IEEE. Int. Computer Software and Applications Conf.
+  (COMPSAC). Vienna, Austria}, pp. 9--15, Agosto de 1998.
 
 \bibitem{ProblemsAlgorithms}
-Ian Parberry e William Gasarch.
+I.~Parberry e W.~Gasarch.
 \newblock {\em Problems on Algorithms}.
 \newblock Prentice Hall, 2002.
 
 \bibitem{Robbes}
-Romain Robbes e Michele Lanza.
+R.~Robbes e M.~Lanza.
 \newblock How program history can improve code completion.
-\newblock {\em IEEE/ACM International Conference on Automated Software
-  Engineering}, 23:317--326, 2008.
+\newblock {\em 23rd IEEE/ACM International Conference on Automated Software
+  Engineering. L'Aquila, Italy}, pp. 317--326, Setembro de 2008.
 
 \bibitem{Shirabad}
 J.S. Shirabad, T.~Lethbridge e S.~Matwin.
 \newblock Supporting software maintenance by mining software update records.
-\newblock {\em International Conference on Software Maintenance (ICSM)}, pp.
-  22--31, November de 2001.
+\newblock {\em International Conference on Software Maintenance (ICSM).
+  Florence, Italy}, pp. 22--31, Novembro de 2001.
 
 \bibitem{SrikantAgrawal}
 R.~Srikant e R.~Agrawal.
 \newblock Mining sequential patterns: Generalizations and performance
   improvements.
-\newblock Em {\em 5th International Conference on Extending Database Technology
-  - EDBT}, 1996.
+\newblock {\em 5th International Conference on Extending Database Technology -
+  EDBT. Avignon, France}, pp. 3--17, Março de 1996.
 
 \bibitem{Ying}
-A.T.T. Ying, G.C. Murphy, R.~Ng e et~al.
+A.T.T. Ying, G.C. Murphy, R.~Ng e M.~C. Chu-Carroll.
 \newblock Predicting source code changes by mining change history.
-\newblock {\em IEEE Transactions on Software Engineering (TSE)},
-  30(9):574--586, 2004.
+\newblock {\em 30th IEEE Transactions on Software Engineering (TSE)}, pp.
+  574--586, Setembro de 2004.
+
+\bibitem{Zhou}
+B.Y. Zhou, S.C. Hui,  e A.C.M. Fong.
+\newblock Cs-mine: An efficient wap-tree mining for web access patterns.
+\newblock {\em 6th Asia Pacific Web Conference. Hangzhou, China}, pp. 523--532,
+  Abril de 2004.
 
 \bibitem{Zimmerman}
-T~Zimmermann, P.~Weisgerber, S.~Diehl e et~al.
+T.~Zimmermann, P.~Weisgerber, S.~Diehl e A.~Zeller.
 \newblock Mining version histories to guide software changes.
-\newblock {\em International Conference on Software Engineering (ICSE)}, pp.
-  563--572, May de 2004.
+\newblock {\em 26th International Conference on Software Engineering (ICSE).
+  Edinburgh, Scotland}, pp. 563--572, Maio de 2004.
 
 \end{thebibliography}

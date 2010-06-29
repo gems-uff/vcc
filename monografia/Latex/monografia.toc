@@ -7,30 +7,28 @@
 \contentsline {subsection}{\numberline {2.1.3}Clusteriza\c c\~ao}{9}
 \contentsline {subsection}{\numberline {2.1.4}Padr\~oes em S\'eries Temporais}{10}
 \contentsline {subsection}{\numberline {2.1.5}Padr\~oes Sequenciais}{10}
-\contentsline {section}{\numberline {2.2}Minera\c c\~ao de dados na Engenharia de Software}{11}
+\contentsline {section}{\numberline {2.2}Minera\c c\~ao de Dados na Engenharia de Software}{11}
 \contentsline {chapter}{\uppercase {Cap\IeC {\'\i }tulo 3 - Vertical Code Completion}}{13}
-\contentsline {section}{\numberline {3.1}Obten\c c\~ao de padr\~oes frequentes de codifica\c c\~ao de software.}{15}
-\contentsline {subsection}{\numberline {3.1.1}An\'alise do c\'odigo fonte}{15}
-\contentsline {subsection}{\numberline {3.1.2}Minera\c c\~ao do c\'odigo fonte}{16}
-\contentsline {subsubsection}{\numberline {3.1.2.1}Suporte e Confian\c ca}{16}
-\contentsline {subsection}{\numberline {3.1.3}Gera\c c\~ao de \'arvore de chamadas}{18}
-\contentsline {section}{\numberline {3.2}Sugest\~ao de padr\~oes frequentes de c\'odigo fonte}{20}
-\contentsline {chapter}{\uppercase {Cap\IeC {\'\i }tulo 4 - O \textit {Plugin} VCC}}{22}
-\contentsline {section}{\numberline {4.1}A an\'alise do c\'odigo fonte atrav\'es da ASTParser}{23}
-\contentsline {section}{\numberline {4.2}Minera\c c\~ao de Padr\~oes Sequenciais}{24}
-\contentsline {section}{\numberline {4.3}\'Arvore de padr\~oes frequentes}{24}
-\contentsline {section}{\numberline {4.4}Sugest\~ao de Padr\~oes Frequentes}{25}
-\contentsline {section}{\numberline {4.5}Gera\c c\~ao e poda das combina\c c\~oes de chamadas de m\'etodos}{25}
+\contentsline {section}{\numberline {3.1}Obten\c c\~ao de Padr\~oes Frequentes de Codifica\c c\~ao de Software.}{13}
+\contentsline {subsection}{\numberline {3.1.1}An\'alise do C\'odigo Fonte}{13}
+\contentsline {subsection}{\numberline {3.1.2}Minera\c c\~ao do C\'odigo Fonte}{14}
+\contentsline {subsection}{\numberline {3.1.3}Gera\c c\~ao de \'Arvore de Chamadas}{16}
+\contentsline {section}{\numberline {3.2}Sugest\~ao de Padr\~oes Frequentes de C\'odigo Fonte}{18}
+\contentsline {chapter}{\uppercase {Cap\IeC {\'\i }tulo 4 - O \textit {Plugin} VCC}}{21}
+\contentsline {section}{\numberline {4.1}A An\'alise do C\'odigo Fonte Atrav\'es da ASTParser}{22}
+\contentsline {section}{\numberline {4.2}Minera\c c\~ao do C\'odigo Fonte}{23}
+\contentsline {section}{\numberline {4.3}\'Arvore de Padr\~oes Frequentes}{24}
+\contentsline {section}{\numberline {4.4}Gera\c c\~ao e Poda das Combina\c c\~oes de Chamadas de M\'etodos}{25}
 \contentsline {chapter}{\uppercase {Cap\IeC {\'\i }tulo 5 - Resultados Experimentais}}{27}
-\contentsline {section}{\numberline {5.1}O sistema objeto de estudo - IdUFF}{27}
+\contentsline {section}{\numberline {5.1}O Sistema Objeto de Estudo - IdUFF}{27}
 \contentsline {section}{\numberline {5.2}Planejamento do Experimento}{28}
 \contentsline {section}{\numberline {5.3}Aplica\c c\~ao do Experimento}{28}
 \contentsline {section}{\numberline {5.4}Resultados Obtidos}{30}
 \contentsline {subsection}{\numberline {5.4.1}An\'alise Quantitativa}{30}
-\contentsline {subsection}{\numberline {5.4.2}An\'alise Qualitativa}{31}
+\contentsline {subsection}{\numberline {5.4.2}An\'alise Qualitativa}{34}
 \contentsline {section}{\numberline {5.5}Amea\c cas \`a Validade}{35}
-\contentsline {chapter}{\uppercase {Cap\IeC {\'\i }tulo 6 - Conclus\~oes}}{36}
-\contentsline {chapter}{\uppercase {Refer\^encias Bibliogr\'aficas}}{37}
-\contentsline {chapter}{Ap\^endice I}{39}
-\contentsline {chapter}{Ap\^endice II}{41}
-\contentsline {chapter}{Ap\^endice III}{43}
+\contentsline {chapter}{\uppercase {Cap\IeC {\'\i }tulo 6 - Conclus\~oes}}{37}
+\contentsline {chapter}{\uppercase {Refer\^encias Bibliogr\'aficas}}{38}
+\contentsline {chapter}{AP\^ENDICE I}{40}
+\contentsline {chapter}{AP\^ENDICE II}{42}
+\contentsline {chapter}{AP\^ENDICE III}{44}

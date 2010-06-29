@@ -4,59 +4,57 @@ Neste capítulo, são abordados alguns conceitos e técnicas de Mineração de Dados,
 
 \section{Mineração de Dados}
 
-A evolução computacional das últimas décadas, ocasionada pela evolução tecnológica, permitiu um grande aumento no poder de processamento e na capacidade de armazenamento de dados a baixo custo, inserindo no mercado, novas tecnologias de transmissão e disponibilização de dados \cite{Domingues}. Isso permitiu que empresas e centros de pesquisa acumulassem grandes quantidades de dados históricos a partir dos anos 70 e 80 \cite{LivroMineracao}.
+A evolução computacional das últimas décadas, ocasionada pela evolução tecnológica, permitiu um grande aumento no poder de processamento e na capacidade de armazenamento de dados a baixo custo, inserindo no mercado novas tecnologias de transmissão e disponibilização de dados \cite{Domingues}. Isso permitiu que empresas e centros de pesquisa acumulassem grandes quantidades de dados históricos a partir dos anos 70 e 80 \cite{LivroMineracao}.
 
-Porém, essa enorme quantidade de dados não refletia uma grande riqueza de conhecimento, pois não era analisada com ferramentas adequadas, já que um volume tão extenso de informações ultrapassa a habilidade humana de compreensão. Consequentemente, importantes decisões eram frequentemente tomadas somente por intuição, simplesmente pela falta dessas ferramentas que poderiam extrair conhecimentos valiosos dos repositórios de dados \cite{LivroMineracao}.
+Porém, essa enorme quantidade de dados não refletia uma grande riqueza em conhecimento, pois não era analisada com ferramentas adequadas, já que um volume tão extenso ultrapassa a habilidade humana de compreensão. Consequentemente, importantes decisões eram frequentemente tomadas somente por intuição, simplesmente pela falta dessas ferramentas que poderiam extrair conhecimentos valiosos dos repositórios de dados \cite{LivroMineracao}.
 
-Isso motivou diversos estudos a partir do início dos anos 90, que resultaram no surgimento do campo de pesquisa de Mineração de Dados, área que se refere ao processo de descoberta de novas informações e conhecimento, no formato de regras e padrões, a partir de grandes bases de dados \cite{SrikantAgrawal}. A partir daí, foram desenvolvidas ferramentas para analisar e descobrir importantes padrões de dados, contribuindo para diversas áreas, tais como \cite{LivroMineracao}: pesquisas médicas, negócios estratégicos, biologia molecular, entre outras.
+Isso motivou diversos estudos a partir do início dos anos 90, que resultaram no surgimento do campo de pesquisa de Mineração de Dados, área que se refere ao processo de descoberta de novas informações e conhecimento, no formato de regras e padrões, a partir de grandes bases de dados \cite{SrikantAgrawal}. A partir daí, foram desenvolvidas ferramentas para analisar bases de dados e descobrir padrões, contribuindo para diversas áreas, tais como \cite{LivroMineracao}: pesquisas médicas, negócios estratégicos, biologia molecular, entre outras.
 
-Dentre as principais tarefas em Mineração de Dados, destacam-se \cite{Goncalves}: classificação, extração de regras de associação, clusterização,  extração de padrões em séries temporais e extração de padrões seqüências. Em geral, essas tarefas podem ser classificadas em duas categorias: mineração preditiva e mineração descritiva \cite{LivroMineracao}.
+Dentre as principais tarefas em Mineração de Dados, destacam-se \cite{Goncalves}: classificação, extração de regras de associação, clusterização,  extração de padrões em séries temporais e extração de padrões sequencias. Em geral, essas tarefas podem ser classificadas em duas categorias: mineração preditiva e mineração descritiva \cite{LivroMineracao}.
 
 Na mineração preditiva, deseja-se prever o valor desconhecido de um determinado atributo, a partir da análise histórica dos dados armazenados na base. Nessa categoria se enquadram as tarefas de classificação e extração de padrões em séries temporais.
-Na mineração descritiva, padrões e regras descrevem características importantes dos dados com os quais se está trabalhando. Mineração de regras de associação, clusterização e mineração de padrões sequenciais fazem parte dessa categoria.
-
-A seguir serão descritas as principais tarefas de mineração de dados.
+Na mineração descritiva, padrões e regras descrevem características importantes dos dados com os quais se está trabalhando. Mineração de regras de associação, clusterização e mineração de padrões sequenciais fazem parte dessa categoria. A seguir serão descritas as principais tarefas de mineração de dados.
 
 \subsection{Classificação}
 
 A tarefa de classificação tem por objetivo identificar, entre um conjunto pré-definido de classes, aquela à qual pertence um elemento a partir de seus atributos. Para inferir a qual classe esse elemento pertence, é necessária uma base de treinamento. 
 
-Um sistema de um banco que tem por objetivo inferir a classe à qual o cliente pertence, indicando se o mesmo será ou não um bom pagador, com base nos dados de clientes antigos e nas características do elemento que está sendo classificado, é um exemplo de utilização da tarefa de classificação.
+Um sistema de um banco que tem por objetivo inferir a classe à qual o cliente pertence, indicando se o mesmo será ou não um bom pagador, com base nos dados de clientes antigos e nas características do cliente que está sendo classificado, é um exemplo de utilização da tarefa de classificação.
 
 \subsection{Regras de Associação}
 
 	Uma regra de associação representa um padrão de relacionamento entre itens de dados de um domínio de aplicação, que ocorre com uma determinada frequência. Essas regras são extraídas a partir de uma base de dados organizada em transações, que são formadas por um conjunto de itens desse domínio. 
-	Um exemplo genérico de regra de associação que poderia ser extraído de uma base de dados de dados qualquer de vendas é: ``clientes que compram o produto A geralmente compram o produto B''. 
+	Um exemplo genérico de regra de associação que poderia ser extraída de uma base de dados de dados qualquer de vendas é: ``clientes que compram o produto A geralmente compram o produto B''. 
 
 \subsection{Clusterização}
 
-A tarefa de clusterização é usada para agrupar elementos de uma base de dados através de seus atributos ou características, de forma que elementos similares fiquem no mesmo cluster e elementos não similares entre si fiquem em clusters distintos. 
+A tarefa de clusterização é usada para agrupar elementos de uma base de dados através de seus atributos ou características, fazendo com que elementos similares fiquem no mesmo cluster e elementos não similares entre si fiquem em clusters distintos. 
 
 Essa técnica é muito utilizada em sistemas de grandes operadoras de cartão de crédito, separando os clientes em grupos de forma que aqueles que apresentam o mesmo comportamento de consumo fiquem no mesmo grupo.  A separação desses clientes por grupo pode ser usada para fazer algum tipo de marketing apropriado ao grupo ou na detecção de fraudes, no caso de um cliente apresentar um comportamento diferente do esperado para o seu perfil.
 
 
 \subsection{Padrões em Séries Temporais}
 
-	Uma série temporal é uma seqüência de valores mensurados em intervalos iguais de tempo \cite{LivroMineracao}. O principal objetivo da análise de padrões em séries temporais é realizar previsões futuras baseando-se no histórico dos dados. 
+	Uma série temporal é uma sequência de valores mensurados em intervalos iguais de tempo \cite{LivroMineracao}. O principal objetivo da análise de padrões em séries temporais é realizar previsões futuras baseando-se no histórico dos dados. 
 
 	Cotação diária do dólar, faturamento anual de uma empresa e evolução do índice da bolsa de valores são exemplos de séries temporais.
 
 
 \subsection{Padrões Sequenciais}
 	
-Nesta seção, detalharemos com maior profundidade a extração de padrões sequenciais, visto que essa será aplicada em nosso trabalho.
+Nesta seção, é detalhada com maior profundidade a extração de padrões sequenciais, visto que essa tarefa é de especial interesse para o testante do trabalho.
 	
-Existem muitas aplicações envolvendo dados sequenciais, e a ordem com que esses dados aparecem é muito importante para análise e entendimento de alguns padrões. Exemplos típicos incluem sequências de compras de um cliente, sequências biológicas e sequências de eventos na ciência e na engenharia. Padrões sequenciais representam sequências de eventos ordenados, que aparecem com significativa frequência em uma base de dados.  Um exemplo de padrão seqüencial é: ``clientes que compram uma câmera digital Canon comumente compram uma impressora HP colorida dentro de um mês''.
+Existem muitas aplicações envolvendo dados sequenciais, e a ordem com que esses dados aparecem é muito importante para análise e entendimento de alguns padrões. Exemplos típicos incluem sequências de compras de um cliente, sequências biológicas e sequências de eventos na ciência e na engenharia. Padrões sequenciais representam sequências de eventos ordenados, que aparecem com significativa frequência em uma base de dados.  Um exemplo de padrão sequencial é: ``clientes que compram uma câmera digital Canon comumente compram uma impressora HP colorida dentro de um mês''.
 	
-Sequências são listas ordenadas de eventos. Uma sequência \textbf{s} é representada por $<e_{1}e_{2}e_{3}...e_{n}>$, onde e$_{j}$, $1 \leq j \leq $n, é dito um evento ou elemento da sequência \textbf{s} e e$_{1}$ ocorre antes de e$_{2}$, que ocorre antes de e$_{3}$ e assim sucessivamente. Por sua vez, um evento ou elemento da sequência é representado por \textbf{e} = (i$_{1}i_{2}i_{3}...i_{m}$), onde i$_{k}$, $1 \leq k \leq $n, é um item do domínio da aplicação. O tamanho da sequência é determinado pelo seu número de itens.
+Sequências são listas ordenadas de eventos. Uma sequência \textbf{s} é representada por $<e_{1}e_{2}e_{3}...\\e_{n}>$, onde e$_{j}$, $1 \leq j \leq $n, é dito um evento ou elemento da sequência \textbf{s} e e$_{1}$ ocorre antes de e$_{2}$, que ocorre antes de e$_{3}$ e assim sucessivamente. Por sua vez, um evento ou elemento da sequência é representado por \textbf{e} = (i$_{1}i_{2}i_{3}...i_{m}$), onde i$_{k}$, $1 \leq k \leq $n, é um item do domínio da aplicação. O tamanho da sequência é determinado pelo seu número de itens.
 
 Podemos dizer que um evento em uma base de dados de uma loja de vendas é uma compra feita por um cliente, e os itens do domínio da aplicação são os produtos que pertencem à essa compra. 
 
 Além disso, outras definições são importantes. Uma sequência pode ser parte de outra sequência maior. Nesse caso, a sequência  $\alpha$ = $<a_{1}a_{2}...a_{n}>$ é chamada de subsequência de outra sequência $\beta$ = $<b_{1}b_{2}...b_{m}>$, e $\beta$  é uma supersequência de $\alpha$, denotado como $\alpha$ $\subseteq$ $\beta$, se existirem inteiros 1 $\leq j_{1} < j_{2} < ... < j_{n} \leq$ m tais que a$_{1} \subseteq b_{j1},$ $a_{2} \subseteq b_{j2},..., a_{1} \subseteq b_{jn}$. Por exemplo, se $\alpha$ = $<(ab), (d)>$ e $\beta$ = $<(abc), (de)>$, onde \textit{a}, \textit{b}, \textit{c}, \textit{d} e \textit{e} são itens, então $\alpha$ é uma subsequência de $\beta$ e $\beta$ é uma supersequência de $\alpha$.
 
-A métrica de avaliação dos padrões sequenciais é o suporte. Um banco de dados de sequências, \textit{S}, é composto de um conjunto de tuplas, $<SID, s>$, onde \textit{SID} é o identificador da sequência e \textit{s} é a sequência. O suporte de uma sequência $\alpha$ num banco de dados de sequências, \textit{S}, é o número de tuplas no banco de dados que contêm $\alpha$. Esse suporte pode ser absoluto, representado apenas por um número inteiro, ou relativo, informando o percentual de vezes que a sequência aparece. Dessa forma, uma sequência de eventos é dita frequente se a quantidade de vezes que essa sequência aparecer for superior ao suporte mínimo informado pelo usuário, formando assim um padrão sequencial.
+A métrica de avaliação dos padrões sequenciais é o suporte. Um banco de dados de sequências, \textit{S}, é composto de um conjunto de tuplas, $<SID, s>$, onde \textit{SID} é o identificador da sequência e \textit{s} é a sequência. O suporte de uma sequência $\alpha$ num banco de dados de sequências \textit{S} é o número de ocorrências dessa sequência no banco de dados. Esse suporte pode ser absoluto, representado apenas por um número inteiro, ou relativo, informando o percentual de vezes que a sequência aparece. Dessa forma, uma sequência de eventos é dita frequente se a quantidade de vezes que essa sequência aparecer for superior ao suporte mínimo informado pelo usuário, formando assim um padrão sequencial.
 
-\section{Mineração de dados na Engenharia de Software}
+\section{Mineração de Dados na Engenharia de Software}
 
 Tarefas de mineração de dados têm sido muito utilizadas em engenharia de software, principalmente quando aplicadas em repositórios de dados para se obter informações sobre a evolução de software ao longo do tempo, com o objetivo de aumentar a qualidade do processo de desenvolvimento de software \cite{Ball, Dantas, Shirabad, Ying, Zimmerman}.
 
@@ -71,3 +69,5 @@ Em \cite{Zimmerman}, aplicam-se técnicas de mineração de dados em repositórios v
 
 
 Em \cite{Ball}, um algoritmo de clusterização foi utilizado num sistema de controle de versões para identificar classes semanticamente relacionadas. A partir do gráfico gerado pelo algoritmo, pôde-se analisar que mudanças em classes de certo cluster eram frequentemente envolvidas com mudanças em classes de outro cluster.
+
+Apesar de existirem diversas abordagens que aplicam mineração de dados em problemas de engenharia de software, a partir da análise do histórico de publicações do \textit{workshop Mining Software Repositories} e de edições especiais das revistas \textit{IEEE Transactions on Software Engineering} e \textit{IEEE Software}, não foi possível identificar outros trabalhos que atuavam no problema de \textit{code completion}, o que motivou a elaboração deste trabalho.
