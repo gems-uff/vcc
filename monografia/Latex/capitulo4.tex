@@ -53,13 +53,21 @@ Por fim, como a fase de construção da árvore de padrões sequenciais é independen
 
 \section{Geração e Poda das Combinações de Chamadas de Métodos}
 
-Como foi citado no Capítulo 3, a geração de todas as combinações de chamadas de método, com o intuito de consultar a árvore de padrões frequentes, foi considerada uma maneira apropriada para garantir que padrões não estão deixando de ser sugeridos ao usuário.
+Como foi citado no Capítulo 3, a geração de todas as combinações de chamadas de método, com o intuito de consultar a árvore de padrões frequentes, foi considerada uma maneira apropriada para garantir que padrões não estão deixando de ser sugeridos ao usuário. 
 
 Entretanto ainda é necessário decidir quais chamadas de método, dentre as disponíveis no corpo de cada método, serão utilizadas na consulta à árvore. Isso porque existem duas opções de escolha.
 
 A primeira dessas opções é analisar todas as chamadas de métodos que estão disponíveis no corpo do método que está sendo codificado. A seleção deste método poderia ser feita através da digitação do nome do pacote, da classe e do próprio método. Embora essa opção represente uma facilidade na implementação, prejudica em muito a usabilidade da ferramenta, além de não permitir uma melhor delimitação da área de pesquisa. Um usuário poderia estar realizando uma alteração na metade do corpo do método, por exemplo, e independentemente disso, todas as chamadas, do início ao fim do mesmo seriam utilizadas na pesquisa por padrões de código fonte.
 
 A segunda opção seria utilizar a posição do cursor do mouse do usuário do VCC, assim como funciona no \textit{code completion} tradicional. Quando o usuário posiciona o mouse e faz uma chamada ao VCC, todas as chamadas de método que se localizam acima do cursor, até o início do corpo do método, são combinadas e utilizadas para a consulta na arvore de padrões frequentes.  Pode ser visto, então, que essa alternativa, além de delimitar melhor a área de consulta, também incrementa a usabilidade do \textit{plugin}, fazendo com que tenha sido a escolhida para ser implementada.
+
+A Figura \ref{fig:print-search-patterns} mostra a posição do cursor no corpo do método do usuário, no momento da requisição de obtenção das sugestões de código fonte.
+
+\begin{figure}[htb]
+       \centering  % figura centralizada
+       \fbox{\includegraphics[scale=0.3]{print-search-patterns.png}}
+       \FigLegenda{\label{fig:print-search-patterns} Chamada do usuário com o intuito de obter as sugestões de código fonte.}
+\end{figure}
 
 Em seguida, para que essas combinações possam ser geradas, primeiramente é preciso ler todas as chamadas de métodos que se encontram antes do cursor. Para facilitar essa tarefa, mais uma vez a \textbf{ASTParser} foi utilizada, entretanto, não foi preciso iterar em todos os pacotes, classes e métodos, pois a posição do cursor já informa em qual método devem ser lidas todas as chamadas. Após a leitura das chamadas de métodos, cada combinação é armazenada em um objeto da classe \textbf{ComparableList}. Essa classe pertence ao projeto VCC, é uma subclasse de \textbf{ArrayList} e implementa a interface \textbf{Comparable}. Esta interface exige que um método \textbf{compareTo} seja criado, para que dois objetos possam ser comparados. O critério de comparação utilizado para essa classe foi o tamanho da lista. Com isso, é possível armazenar todas as combinações em outro \textbf{ArrayList}  e ordená-lo pelo tamanho das combinações.
 
