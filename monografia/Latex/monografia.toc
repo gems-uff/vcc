@@ -19,14 +19,12 @@
 \contentsline {section}{\numberline {4.2}Minera\c c\~ao do C\'odigo Fonte}{23}
 \contentsline {section}{\numberline {4.3}\'Arvore de Padr\~oes Frequentes}{24}
 \contentsline {section}{\numberline {4.4}Gera\c c\~ao e Poda das Combina\c c\~oes de Chamadas de M\'etodos}{25}
-\contentsline {chapter}{\uppercase {Cap\IeC {\'\i }tulo 5 - Resultados Experimentais}}{27}
-\contentsline {section}{\numberline {5.1}O Sistema Objeto de Estudo - IdUFF}{27}
-\contentsline {section}{\numberline {5.2}Planejamento do Experimento}{28}
-\contentsline {section}{\numberline {5.3}Aplica\c c\~ao do Experimento}{28}
-\contentsline {section}{\numberline {5.4}Resultados Obtidos}{30}
-\contentsline {subsection}{\numberline {5.4.1}An\'alise Quantitativa}{30}
-\contentsline {subsection}{\numberline {5.4.2}An\'alise Qualitativa}{34}
-\contentsline {section}{\numberline {5.5}Amea\c cas \`a Validade}{35}
+\contentsline {chapter}{\uppercase {Cap\IeC {\'\i }tulo 5 - Resultados Experimentais}}{28}
+\contentsline {section}{\numberline {5.1}O Sistema Objeto de Estudo - IdUFF}{28}
+\contentsline {section}{\numberline {5.2}Planejamento do Experimento}{29}
+\contentsline {section}{\numberline {5.3}Aplica\c c\~ao do Experimento}{29}
+\contentsline {section}{\numberline {5.4}Resultados Obtidos}{31}
+\contentsline {section}{\numberline {5.5}Amea\c cas \`a Validade}{36}
 \contentsline {chapter}{\uppercase {Cap\IeC {\'\i }tulo 6 - Conclus\~oes}}{37}
 \contentsline {chapter}{\uppercase {Refer\^encias Bibliogr\'aficas}}{38}
 \contentsline {chapter}{AP\^ENDICE I}{40}

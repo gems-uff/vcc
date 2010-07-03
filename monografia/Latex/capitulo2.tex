@@ -13,13 +13,13 @@ Isso motivou diversos estudos a partir do início dos anos 90, que resultaram no 
 Dentre as principais tarefas em Mineração de Dados, destacam-se \cite{Goncalves}: classificação, extração de regras de associação, clusterização,  extração de padrões em séries temporais e extração de padrões sequencias. Em geral, essas tarefas podem ser classificadas em duas categorias: mineração preditiva e mineração descritiva \cite{LivroMineracao}.
 
 Na mineração preditiva, deseja-se prever o valor desconhecido de um determinado atributo, a partir da análise histórica dos dados armazenados na base. Nessa categoria se enquadram as tarefas de classificação e extração de padrões em séries temporais.
-Na mineração descritiva, padrões e regras descrevem características importantes dos dados com os quais se está trabalhando. Mineração de regras de associação, clusterização e mineração de padrões sequenciais fazem parte dessa categoria. A seguir serão descritas as principais tarefas de mineração de dados.
+Na mineração descritiva, padrões e regras descrevem características importantes dos dados com os quais se está trabalhando. Mineração de regras de associação, clusterização e mineração de padrões sequenciais fazem parte dessa categoria. A seguir, serão descritas as principais tarefas de mineração de dados.
 
 \subsection{Classificação}
 
-A tarefa de classificação tem por objetivo identificar, entre um conjunto pré-definido de classes, aquela à qual pertence um elemento a partir de seus atributos. Para inferir a qual classe esse elemento pertence, é necessária uma base de treinamento. 
+A tarefa de classificação tem por objetivo identificar, entre um conjunto pré-definido de classes, aquela à qual pertence um elemento a partir dos valores de seus atributos. Para inferir a qual classe esse elemento pertence, é necessária uma base de treinamento na qual cada instância é caracterizada pelos valores de seus atributos e pela classe a qual pertence.
 
-Um sistema de um banco que tem por objetivo inferir a classe à qual o cliente pertence, indicando se o mesmo será ou não um bom pagador, com base nos dados de clientes antigos e nas características do cliente que está sendo classificado, é um exemplo de utilização da tarefa de classificação.
+Um sistema de um banco que tem por objetivo inferir a classe à qual o cliente pertence, indicando se o mesmo será ou não um bom pagador é um exemplo de utilização da tarefa de classificação. Essa estimativa ocorre a partir de uma base de dados contendo as características e a classe dos clientes antigos.
 
 \subsection{Regras de Associação}
 
@@ -30,29 +30,29 @@ Um sistema de um banco que tem por objetivo inferir a classe à qual o cliente pe
 
 A tarefa de clusterização é usada para agrupar elementos de uma base de dados através de seus atributos ou características, fazendo com que elementos similares fiquem no mesmo cluster e elementos não similares entre si fiquem em clusters distintos. 
 
-Essa técnica é muito utilizada em sistemas de grandes operadoras de cartão de crédito, separando os clientes em grupos de forma que aqueles que apresentam o mesmo comportamento de consumo fiquem no mesmo grupo.  A separação desses clientes por grupo pode ser usada para fazer algum tipo de marketing apropriado ao grupo ou na detecção de fraudes, no caso de um cliente apresentar um comportamento diferente do esperado para o seu perfil.
+Essa técnica é muito utilizada em sistemas de operadoras de cartão de crédito, separando os clientes em grupos de forma que aqueles que apresentam o mesmo comportamento de consumo fiquem no mesmo grupo.  A separação desses clientes por grupo pode ser usada para fazer algum tipo de marketing apropriado ao grupo ou na detecção de fraudes, no caso de um cliente apresentar um comportamento diferente do esperado para o seu perfil.
 
 
 \subsection{Padrões em Séries Temporais}
 
 	Uma série temporal é uma sequência de valores mensurados em intervalos iguais de tempo \cite{LivroMineracao}. O principal objetivo da análise de padrões em séries temporais é realizar previsões futuras baseando-se no histórico dos dados. 
 
-	Cotação diária do dólar, faturamento anual de uma empresa e evolução do índice da bolsa de valores são exemplos de séries temporais.
+	Cotação diária do dólar, faturamento anual de uma empresa e evolução do índice da bolsa de valores são exemplos de séries temporais. Assim, pode-se também considerar a identificação de empresas com padrões de crescimento similares e ações ou fundos de investimento com movimentos de preços parecidos.
 
 
 \subsection{Padrões Sequenciais}
 	
-Nesta seção, é detalhada com maior profundidade a extração de padrões sequenciais, visto que essa tarefa é de especial interesse para o testante do trabalho.
+Nesta seção, é detalhada com maior profundidade a extração de padrões sequenciais, visto que essa tarefa é de especial interesse para o restante do trabalho.
 	
-Existem muitas aplicações envolvendo dados sequenciais, e a ordem com que esses dados aparecem é muito importante para análise e entendimento de alguns padrões. Exemplos típicos incluem sequências de compras de um cliente, sequências biológicas e sequências de eventos na ciência e na engenharia. Padrões sequenciais representam sequências de eventos ordenados, que aparecem com significativa frequência em uma base de dados.  Um exemplo de padrão sequencial é: ``clientes que compram uma câmera digital Canon comumente compram uma impressora HP colorida dentro de um mês''.
+Existem muitas aplicações envolvendo dados sequenciais, e a ordem com que esses dados aparecem é muito importante para análise e entendimento de alguns comportamentos. Exemplos típicos incluem sequências de compras de um cliente, sequências biológicas e sequências de eventos na ciência e na engenharia. Padrões sequenciais representam sequências de eventos ordenados, que aparecem com significativa frequência em uma base de dados.  Um exemplo de padrão sequencial é: ``clientes que compram uma câmera digital Canon comumente compram uma impressora HP colorida dentro de um mês''.
 	
-Sequências são listas ordenadas de eventos. Uma sequência \textbf{s} é representada por $<e_{1}e_{2}e_{3}...\\e_{n}>$, onde e$_{j}$, $1 \leq j \leq $n, é dito um evento ou elemento da sequência \textbf{s} e e$_{1}$ ocorre antes de e$_{2}$, que ocorre antes de e$_{3}$ e assim sucessivamente. Por sua vez, um evento ou elemento da sequência é representado por \textbf{e} = (i$_{1}i_{2}i_{3}...i_{m}$), onde i$_{k}$, $1 \leq k \leq $n, é um item do domínio da aplicação. O tamanho da sequência é determinado pelo seu número de itens.
+Sequências são listas ordenadas de eventos. Uma sequência \textbf{s} é representada por $<e_{1}e_{2}e_{3}...\\e_{n}>$, onde \textit{e$_{j}$}, $1 \leq j \leq $n, é dito um evento ou elemento da sequência \textbf{s} e \textit{e$_{1}$} ocorre antes de \textit{e$_{2}$}, que ocorre antes de \textit{e$_{3}$} e assim sucessivamente. Por sua vez, um evento ou elemento da sequência é representado por \textbf{e} = (\textit{i$_{1}i_{2}i_{3}...i_{m}$}), onde \textit{i$_{k}$}, $1 \leq k \leq $n, é um item do domínio da aplicação. O tamanho da sequência é determinado pelo seu número de itens.
 
 Podemos dizer que um evento em uma base de dados de uma loja de vendas é uma compra feita por um cliente, e os itens do domínio da aplicação são os produtos que pertencem à essa compra. 
 
 Além disso, outras definições são importantes. Uma sequência pode ser parte de outra sequência maior. Nesse caso, a sequência  $\alpha$ = $<a_{1}a_{2}...a_{n}>$ é chamada de subsequência de outra sequência $\beta$ = $<b_{1}b_{2}...b_{m}>$, e $\beta$  é uma supersequência de $\alpha$, denotado como $\alpha$ $\subseteq$ $\beta$, se existirem inteiros 1 $\leq j_{1} < j_{2} < ... < j_{n} \leq$ m tais que a$_{1} \subseteq b_{j1},$ $a_{2} \subseteq b_{j2},..., a_{1} \subseteq b_{jn}$. Por exemplo, se $\alpha$ = $<(ab), (d)>$ e $\beta$ = $<(abc), (de)>$, onde \textit{a}, \textit{b}, \textit{c}, \textit{d} e \textit{e} são itens, então $\alpha$ é uma subsequência de $\beta$ e $\beta$ é uma supersequência de $\alpha$.
 
-A métrica de avaliação dos padrões sequenciais é o suporte. Um banco de dados de sequências, \textit{S}, é composto de um conjunto de tuplas, $<SID, s>$, onde \textit{SID} é o identificador da sequência e \textit{s} é a sequência. O suporte de uma sequência $\alpha$ num banco de dados de sequências \textit{S} é o número de ocorrências dessa sequência no banco de dados. Esse suporte pode ser absoluto, representado apenas por um número inteiro, ou relativo, informando o percentual de vezes que a sequência aparece. Dessa forma, uma sequência de eventos é dita frequente se a quantidade de vezes que essa sequência aparecer for superior ao suporte mínimo informado pelo usuário, formando assim um padrão sequencial.
+A métrica de avaliação dos padrões sequenciais é o suporte. Um banco de dados de sequências \textit{S} é composto de um conjunto de tuplas, $<SID, s>$, onde \textit{SID} é o identificador da sequência e \textit{s} é a sequência. O suporte de uma sequência $\alpha$ num banco de dados de sequências \textit{S}, representado por Sup($\alpha$), é o número de tuplas de \textit{S} cujas sequências são supersequências de $\alpha$. Esse suporte pode ser absoluto, representado apenas por um número inteiro, ou relativo, informando o percentual de vezes que a sequência aparece. Dessa forma, uma sequência de eventos é dita frequente se a quantidade de vezes que essa sequência aparecer for superior ao suporte mínimo informado pelo usuário, formando assim um padrão sequencial.
 
 \section{Mineração de Dados na Engenharia de Software}
 

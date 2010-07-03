@@ -1,13 +1,13 @@
 
 \capitulo{Resultados Experimentais}\label{cap:resultExperimentais}
 
-Nesse capítulo são discutidos os resultados experimentais obtidos a partir da utilização da abordagem proposta sobre o sistema objeto de estudo, o IdUFF - Sistema de Gestão Acadêmica da Universidade Federal Fluminense. A seção 5.1 apresenta o sistema utilizado no experimento. A seção 5.2 apresenta o planejamento do experimento, seguido pela seção 5.3, que aborda a aplicação do experimento. Finalmente, as seções 5.4 e 5.5 apresentam, respectivamente, os resultados obtidos e as ameaças à validade desse experimento.
+Nesse capítulo, são discutidos os resultados experimentais obtidos a partir da utilização da abordagem proposta sobre o sistema objeto de estudo, o IdUFF - Sistema de Gestão Acadêmica da Universidade Federal Fluminense. A Seção 5.1 apresenta o sistema utilizado no experimento. A Seção 5.2 apresenta o planejamento do experimento, seguido pela Seção 5.3, que aborda a aplicação do experimento. Finalmente, as Seções 5.4 e 5.5 apresentam, respectivamente, os resultados obtidos e as ameaças à validade desse experimento.
 
 \section{O Sistema Objeto de Estudo - IdUFF}
 
 O sistema IdUFF é o sistema de gestão acadêmica utilizado na Universidade Federal Fluminense. Possui como principal funcionalidade a inscrição on-line de alunos em disciplas, permitindo que aproximadamente 30 mil alunos escolham as disciplinas que vão cursar no período sem precisar comparecer a coordenação do curso, como era feito antes do sistema existir. Outras funcionalidades do IdUFF incluem a geração de históricos e comprovantes de regularidade de matrícula on-line, o módulo de lançamento de notas pelos professores, entre outras. 
 
-O IdUFF foi desenvolvido sobre a plataforma Java, a mesma linguagem que o \textit{plugin} VCC foi desenvolvido para ser utilizado. Sua arquitetura utiliza os frameworks Hibernate, que é responsável pelo mapeamento objeto/relacional da aplicação Java, Spring que é responsável pela inversão de controle e injeção de dependências no sistema e Mockito, responsável por simular o comportamento de certos objetos para realizar testes. Do ponto de vista de utilização, possuí aproximadamente 40 mil usuários, entre alunos, professores e funcionários da Universidade.  O repositório de código fonte do IdUFF possui 850 commits. O sistema possui 779 classes Java, desconsiderando classes de teste, arquivos de interface HTML e arquivos de configuração.
+O IdUFF foi desenvolvido sobre a plataforma Java, a mesma linguagem que o \textit{plugin} VCC foi desenvolvido para ser utilizado. Sua arquitetura utiliza os frameworks Hibernate, que é responsável pelo mapeamento objeto/relacional da aplicação Java, Spring que é responsável pela inversão de controle e injeção de dependências no sistema e Mockito, responsável por simular o comportamento de certos objetos para realizar testes. Do ponto de vista de utilização, possui aproximadamente 40 mil usuários, entre alunos, professores e funcionários da Universidade.  O repositório de código fonte do IdUFF possui 850 commits. O sistema possui 779 classes Java, desconsiderando classes de teste, arquivos de interface HTML e arquivos de configuração.
 
 O IdUFF foi escolhido para ser utilizado no experimento pela facilidade de contato com os desenvolvedores, que são ou foram alunos de graduação e pós-graduação da UFF, e por ser um sistema de médio porte, que vem sendo desenvolvido há 4 anos e apresenta uma grande quantidade de código fonte a ser minerada. 
 
@@ -18,7 +18,7 @@ Com o objetivo de avaliar o quanto as sugestões de código do \textit{plugin} VCC
 
 Na primeira abordagem, o próprio desenvolvedor utilizaria o \textit{plugin} VCC, instalado na sua IDE, ou seja, no seu ambiente de desenvolvimento do dia-a-dia de trabalho e, a partir disso, poderia avaliar se as sugestões do \textit{plugin} seriam úteis. Porém, esta abordagem não se mostrou interessante para ser aplicada nesse momento, pois além de demandar muito tempo, causaria muitos transtornos, pois o ambiente de desenvolvimento do sistema IdUFF utiliza uma IDE diferente da qual o \textit{plugin}  VCC foi acoplado. Outro ponto negativo dessa abordagem é que a usabilidade do \textit{plugin} não é o foco desse experimento, mas sim os resultados apresentados pelo mesmo.
 
-Na segunda abordagem, uma análise em ambiente controlado poderia ser aplicada. Desta forma, inicialmente os padrões de código seriam obtidos a partir da utilização do \textit{plugin} VCC sobre o repositório de código fonte do IdUFF e, a partir daí, um questionário de avaliação contendo alguns desses padrões de código pré-selecionados seria apresentado aos desenvolvedores voluntários do IdUFF.  Assim, cada voluntário poderia classificar, a partir de sua experiência no desenvolvimento do sistema, se as sugestões apresentadas fazem sentido ou não.
+Na segunda abordagem, uma análise em ambiente controlado poderia ser aplicada. Dessa forma, inicialmente os padrões de código seriam obtidos a partir da utilização do \textit{plugin} VCC sobre o repositório de código fonte do IdUFF e, a partir daí, um questionário de avaliação contendo alguns desses padrões de código pré-selecionados seria apresentado aos desenvolvedores voluntários do IdUFF.  Assim, cada voluntário poderia classificar, a partir de sua experiência no desenvolvimento do sistema, se as sugestões apresentadas fazem sentido ou não.
 
 A segunda abordagem foi escolhida, justamente por permitir um maior controle sobre a avaliação feita pelos desenvolvedores voluntários, garantindo que os mesmos padrões fossem avaliados por todos. Assim, poderíamos avaliar se os resultados eram interessantes para os diversos perfis de desenvolvedores.
 
@@ -28,7 +28,7 @@ Para participar do experimento, os voluntários deveriam pertencer obrigatoriamen
 
 \section{Aplicação do Experimento}
 
-Inicialmente, cada voluntário foi informado do estudo através do Formulário de Consentimento (Apêndice I). Caso concordasse em participar, o Questionário de Caracterização (Apêndice II) era preenchido, avaliando o nível de conhecimento e experiência do voluntário em diferentes temas relacionados ao estudo. Essas informações foram de grande utilidade, ajudando na interpretação dos resultados obtidos por cada um dos participantes.
+Inicialmente, cada voluntário foi informado do estudo através do Formulário de Consentimento (Apêndice I). Caso concordasse em participar, o Questionário de Caracterização (Apêndi\-ce II) era preenchido, avaliando o nível de conhecimento e experiência do voluntário em diferentes temas relacionados ao estudo. Essas informações foram de grande utilidade, ajudando na interpretação dos resultados obtidos por cada um dos participantes.
 
 
 A Tabela \ref{tab:resumo-caracterizacao} apresenta um resumo da caracterização desses participantes. Os níveis de experiência variam de 0 a 4, onde esses números representam:
@@ -41,7 +41,7 @@ A Tabela \ref{tab:resumo-caracterizacao} apresenta um resumo da caracterização d
 	\item 4 - usou em projetos na indústria;
 \end{itemize} 
 
-\begin{table}
+\begin{table}[htbp]
 	\begin{center}
 		\includegraphics[width=1.0\textwidth]{resumo-caracterizacao.png}
 		  \TabLegenda{\label{tab:resumo-caracterizacao}Resumo do Questionário de Caracterização dos participantes.}
@@ -52,10 +52,10 @@ A Tabela \ref{tab:resumo-caracterizacao} apresenta um resumo da caracterização d
 
 Na situação proposta aos participantes, um cenário fictício foi sugerido, onde os mesmos estariam programando uma linha de código e o \textit{plugin} VCC iria sugerir algum código complementar. Por exemplo, se o usuário estivesse chamando o método \textit{br.uff.iduff2.mo\-delo.academico.Tur\-ma.getDisciplina()}, o \textit{plugin} VCC iria exibir um padrão, sugerindo que desenvolvedores que chamam esse método também chamam o método  \textit{br.uff.iduff2.modelo.academico.Disciplina.get\-CargaHorariaTeorica()}.
 
-Assim, 10 padrões de código foram escolhidos, do total de 424 padrões minerados através da utilização do \textit{plugin} VCC, para serem analisados pelos desenvolvedores.  Esses padrões foram obtidos utilizando-se um suporte mínimo de 0,3\%, após testes com diversos valores, por apresentar um número razoável de sequências mineradas e ter um tempo de processamento relativamente rápido, de aproximadamente 15 segundos. O critério de escolha dos 10 padrões adotados foi buscar por padrões de confiança alta e confiança baixa, o que permitiu uma avaliação a partir dessas informações. Cada um desses padrões é exibido na tabela \ref{tab:chamadas-sugestoes}.
+Assim, 10 padrões de código foram escolhidos, do total de 424 padrões minerados através da utilização do \textit{plugin} VCC, para serem analisados pelos desenvolvedores.  Esses padrões foram obtidos utilizando-se um suporte mínimo de 0,3\%, após testes com diversos valores, por apresentar um número razoável de sequências mineradas e ter um tempo de processamento relativamente rápido, de aproximadamente 15 segundos. O critério de escolha dos 10 padrões adotados foi buscar por padrões de confiança alta e confiança baixa, o que permitiu uma avaliação a partir dessas informações. Cada um desses padrões é exibido na Tabela \ref{tab:chamadas-sugestoes}.
 
 
-\begin{table}
+\begin{table}[htbp]
 	\begin{center}
 		\includegraphics[width=1.0\textwidth]{chamadas-sugestoes.png}
 		  \TabLegenda{\label{tab:chamadas-sugestoes}Questões com as sugestões do Questionário de Avaliação}
@@ -71,14 +71,10 @@ O tempo esperado para o preenchimento de todos os documentos necessários para a 
 
 \section{Resultados Obtidos}
 
-Como visto na seção 5.3, 6 voluntários participaram do experimento, todos eles com experiência em desenvolvimento de software. Os resultados obtidos do questionário de avaliação foram, em geral, positivos com relação à utilidade das sugestões de código informadas. Grande parte dos voluntários se mostrou interessada no \textit{plugin}, e gostaria de vê-lo sendo utilizado em seu ambiente de trabalho, se disponibilizando para ajudar a implementar as alterações necessárias para que o mesmo seja utilizado na IDE \textit{NetBeans}.
+Como visto na Seção 5.3, seis voluntários participaram do experimento. Todos eles com experiência em desenvolvimento de software. Os resultados obtidos do questionário de avaliação foram, em geral, positivos com relação à utilidade das sugestões de código informadas. Grande parte dos voluntários se mostrou interessada no \textit{plugin}, e gostaria de vê-lo sendo utilizado em seu ambiente de trabalho, se disponibilizando para ajudar a implementar as alterações necessárias para que o mesmo seja utilizado na IDE \textit{NetBeans}.
 
 
-\subsection{Análise Quantitativa}
-
-
-
-Das 60 respostas obtidas a partir do preenchimento do questionário de avaliação pelos voluntários, 43 foram positivas, sendo 11 marcadas como \textit{concordo parcialmente} e 32 marcadas como \textit{concordo totalmente}, indicando assim um índice de 71,66\% de aceitação das sugestões de código fonte. Foram 12 respostas negativas, sendo 6 marcadas como \textit{discordo totalmente} e 6 marcadas como \textit{discordo parcialmente}, indicando um índice de 20\% de reprovação das sugestões apresentadas. Do total das 60 respostas, 5 respostas foram marcadas como \textit{não sei}, sendo 8,33\% desse total. A figura \ref{fig:histograma} apresenta o total de respostas para cada item que poderia ser escolhido. A tabela \ref{tab:tab-questoes-suporte} apresenta um resumo detalhado das respostas, em porcentagem, de cada questão.
+Das 60 respostas obtidas a partir do preenchimento do questionário de avaliação pelos voluntários, 43 foram positivas, sendo 11 marcadas como \textit{concordo parcialmente} e 32 marcadas como \textit{concordo totalmente}, indicando assim um índice de 71,66\% de aceitação das sugestões de código fonte. Foram 12 respostas negativas, sendo 6 marcadas como \textit{discordo totalmente} e 6 marcadas como \textit{discordo parcialmente}, indicando um índice de 20\% de reprovação das sugestões apresentadas. Do total das 60 respostas, 5 respostas foram marcadas como \textit{não sei}, sendo 8,33\% desse total. A Figura \ref{fig:histograma} apresenta o total de respostas para cada item que poderia ser escolhido. A Tabela \ref{tab:tab-questoes-suporte} apresenta um resumo detalhado das respostas, em porcentagem, de cada questão.
 
 
 \begin{figure}[!htb]
@@ -97,17 +93,25 @@ Das 60 respostas obtidas a partir do preenchimento do questionário de avaliação 
 	\end{center}
 \end{table}
 
-Foi feita também uma análise, relacionando a experiência dos desenvolvedores voluntários e o valor de confiança dos padrões encontrados. Para essa análise, foram considerados 2 grupos de desenvolvedores: experientes, com 3 ou mais anos de experiência no sistema IdUFF, e não experientes, com 2 anos ou menos de experiência. Cada um dos grupos ficou com 3 desenvolvedores dentro desse perfil de experiência. As sugestões também foram separadas em 2 grupos: sugestões com confiança alta, com valores iguais ou superiores à 60\%, e sugestões com confiança baixa, com valores abaixo de 60\%.
+Foi feita também uma análise, relacionando a experiência dos desenvolvedores voluntários e o valor de confiança dos padrões encontrados. Para essa análise, foram considerados 2 grupos de desenvolvedores: experientes, com 3 ou mais anos de experiência no sistema IdUFF, e não experientes, com 2 anos ou menos de experiência. Cada um dos grupos ficou com 3 desenvolvedores dentro desse perfil de experiência. As sugestões também foram separadas em 2 grupos: sugestões com confiança alta, com valores iguais ou superiores a 60\%, e sugestões com confiança baixa, com valores abaixo de 60\%.
 
 
-\begin{figure}
+
+Os gráficos das Figuras \ref{fig:hist-exp-conf-alta}, \ref{fig:hist-nao-exp-conf-alta}, \ref{fig:hist-exp-conf-baixa} e \ref{fig:hist-nao-exp-conf-baixa} relacionam a experiência dos desenvolvedores com a confiança dos padrões e permitem a visualização do total de respostas dos voluntários para cada item. 
+
+
+Com relação as questões com sugestões de confiança alta, os voluntários não experientes se mostraram muito satisfeitos, respondendo \textit{concordo plenamente} em 13 das 15 respostas que foram apresentadas para esse grupo de desenvolvedores. As outras 2 respostas foram marcadas como \textit{não sei}. Já os desenvolvedores experientes, responderam de forma positiva em 10 das 15 respostas. Esses números servem como indício que as sugestões com confiança alta tiveram um índice de aceitação bom, tanto para os desenvolvedores experientes quanto para os não experientes.
+
+
+
+\begin{figure}[htbp]
 	\begin{center}
 		\includegraphics[width=0.9\textwidth]{hist-exp-conf-alta.png}
 			\FigLegenda{\label{fig:hist-exp-conf-alta}Total de respostas, por item, dos participantes experientes nas questões com padrões de confiança alta.}
 	\end{center}
 \end{figure}
 
-\begin{figure}
+\begin{figure}[htbp]
 	\begin{center}
 		\includegraphics[width=0.9\textwidth]{hist-nao-exp-conf-alta.png}
 			\FigLegenda{\label{fig:hist-nao-exp-conf-alta}Total de respostas, por item, dos participantes não experientes nas questões com padrões de confiança alta.}
@@ -115,7 +119,7 @@ Foi feita também uma análise, relacionando a experiência dos desenvolvedores vol
 \end{figure}
 
 
-\begin{figure}
+\begin{figure}[htbp]
 	\begin{center}
 		\includegraphics[width=0.9\textwidth]{hist-exp-conf-baixa.png}
 			\FigLegenda{\label{fig:hist-exp-conf-baixa}Total de respostas, por item, dos participantes experientes nas questões com padrões de confiança baixa.}
@@ -123,7 +127,7 @@ Foi feita também uma análise, relacionando a experiência dos desenvolvedores vol
 \end{figure}
 
 
-\begin{figure}
+\begin{figure}[htbp]
 	\begin{center}
 		\includegraphics[width=0.9\textwidth]{hist-nao-exp-conf-baixa.png}
 			\FigLegenda{\label{fig:hist-nao-exp-conf-baixa}Total de respostas, por item, dos participantes não experientes nas questões com padrões de confiança alta.}
@@ -131,21 +135,11 @@ Foi feita também uma análise, relacionando a experiência dos desenvolvedores vol
 \end{figure}
 
 
-Os gráficos das figuras \ref{fig:hist-exp-conf-alta}, \ref{fig:hist-nao-exp-conf-alta}, \ref{fig:hist-exp-conf-baixa} e \ref{fig:hist-nao-exp-conf-baixa} relacionam a experiência dos desenvolvedores com a confiança dos padrões e permitem a visualização do total de respostas dos voluntários para cada item. 
-
-
-
-
-\subsection{Análise Qualitativa}
-
-
-Com relação as questões com sugestões de confiança alta, os voluntários não experientes se mostraram muito satisfeitos, respondendo \textit{concordo plenamente} em 13 das 15 respostas que foram apresentadas para esse grupo de desenvolvedores. As outras 2 respostas foram marcadas como \textit{não sei}. Já os desenvolvedores experientes, responderam de forma positiva em 10 das 15 respostas. Esses números servem como indício que as sugestões com confiança alta tiveram um índice de aceitação bom, tanto para os desenvolvedores experientes quanto para os não experientes.
-
 As questões que apresentaram sugestões de confiança baixa, como esperado, foram as que mais receberam respostas negativas. Foram 5 respostas negativas dos desenvolvedores experientes e 4 dos não experientes, totalizando 9 dessas respostas. Com relação às respostas positivas, os desenvolvedores experientes foram os que mais fizeram ressalvas, marcando 7 questões como \textit{concordo parcialmente} e 3 como \textit{concordo plenamente}. Já os desenvolvedores não experientes marcaram 2 questões como \textit{concordo parcialmente} e 8 como \textit{concordo plenamente}. Esses números mostram que, para os desenvolvedores experientes, as sugestões com confiança baixa se mostraram, em geral, úteis, porém com a utilização com restrições. 
 
-As questões 6 e 8 foram as que mais receberam respostas negativas, contabilizando 8 do total de 12 respostas nesse contexto. Dessas 8 respostas, 5 foram marcadas por desenvolvedores experientes. Esse resultado já era esperado já que essas questões foram escolhidas por apresentarem sugestões com confiança baixa. Os voluntários que marcaram a questão 6 negativamente, comentaram que a sugestão apresentada não fazia sentido por não ser muito usada, e sugeriram outros padrões de chamada de método.
+As questões 6 e 8 foram as que mais receberam respostas negativas, contabilizando 8 do total de 12 respostas nesse contexto. Dessas 8 respostas, 5 foram marcadas por desenvolvedores experientes. Esse resultado já era esperado já que essas questões foram escolhidas por apresentarem sugestões com confiança baixa. Os voluntários que marcaram a questão 6 negativamente comentaram que a sugestão apresentada não fazia sentido por não ser muito usada, e sugeriram outros padrões de chamada de método.
 
-A questão 10 recebeu a resposta \textit{discordo totalmente} por um dos voluntários e o comentário do mesmo foi pertinente à sugestão apresentada: ``Se usa o método \textit{BaseMB.info(String)} para mensagens que indiquem sucesso, não faz sentido exibir uma mensagem proveniente de uma situação de erro. Na minha opinião, essa regra apresentada é aplicável aos métodos \textit{BaseMB.er\-ror(String)} e \textit{BaseMB.warn(String)}''. Esse comentário reflete uma das limitações desse projeto: não levar em conta blocos de repetição, condição e tratamento de erros, como no caso da estrutura \textit{try catch}. Geralmente o método \textit{BaseMB.info(String)} é usado dentro de uma estrutura \textit{try}, e é executado se houver sucesso na operação, enquanto o método \textit{java.lang.Throwable.getMessa\-ge()} é utilizado dentro de uma estrutura \textit{catch}, indicando um erro sendo lançado na aplicação. Sendo assim, se a estrutura \textit{try catch} fosse levada em consideração ao se buscar os padrões sequências, essa sugestão não seria minerada, já que o método \textit{java.lang.Throwable.getMessage()} não se enquadraria como uma sequência para o método \textit{BaseMB.info(String)}.
+A questão 10 recebeu a resposta \textit{discordo totalmente} por um dos voluntários e o comentário do mesmo foi pertinente à sugestão apresentada: ``Se usa o método \textit{BaseMB.info(String)} para mensagens que indiquem sucesso, não faz sentido exibir uma mensagem proveniente de uma situação de erro. Na minha opinião, essa regra apresentada é aplicável aos métodos \textit{BaseMB.er\-ror(String)} e \textit{BaseMB.warn(String)}''. Esse comentário reflete uma das limitações desse projeto: não levar em conta blocos de repetição, condição e tratamento de erros, como no caso da estrutura \textit{try catch}. Geralmente, o método \textit{BaseMB.info(String)} é usado dentro de uma estrutura \textit{try}, e é executado se houver sucesso na operação, enquanto o método \textit{java.lang.Throwable.getMessa\-ge()} é utilizado dentro de uma estrutura \textit{catch}, indicando um erro sendo lançado na aplicação. Sendo assim, se a estrutura \textit{try catch} fosse levada em consideração ao se buscar os padrões sequências, essa sugestão não seria minerada, já que o método \textit{java.lang.Throwable.getMessa\-ge()} não se enquadraria como uma sequência para o método \textit{BaseMB.info(String)}.
 
 A questão 1 foi a que mais recebeu respostas \textit{não sei}, contabilizando 3 de um total de 5. Isso pode ser justificado pelo questionário de caracterização, onde os voluntários que responderam essa questão dessa maneira são os que indicaram ter pouca ou nenhuma experiência com o \textit{framework} de testes \textit{Mockito}. A sugestão apresentada está relacionada a esse \textit{framework}. As outras respostas obtidas para essa questão foram bem satisfatórias: 3 respostas \textit{concordo plenamente}. Essa questão apresentava uma sugestão com confiança alta, com valor de 100\%. Os desenvolvedores que comentaram essa questão disseram que a sugestão apresentada se dá por conta da estrutura do \textit{framework Mockito} e seria bastante útil sua utilização.
 
@@ -156,7 +150,7 @@ As questões que foram respondidas como \textit{concordo totalmente} e \textit{co
 \section{Ameaças à Validade}
 
 
-A seleção dos participantes foi feita por meio da solicitação de voluntários dentro da equipe de desenvolvimento do sistema IdUFF, a qual um dos pesquisadores faz parte como desenvolvedor. Como consequência, os resultados podem ter sido influenciados pela relação de amizade entre os voluntários e o pesquisador.  O pequeno número de participantes foi outro fator importante, pois é possível que os resultados sejam influenciados pelo tamanho e pelas características específicas do grupo.
+A seleção dos participantes foi feita por meio da solicitação de voluntários dentro da equipe de desenvolvimento do sistema IdUFF, a qual um dos proponentes deste trabalho faz parte como desenvolvedor. Como consequência, os resultados podem ter sido influenciados pela relação de amizade entre os voluntários e o pesquisador.  O pequeno número de participantes foi outro fator importante, pois é possível que os resultados sejam influenciados pelo tamanho e pelas características específicas do grupo.
 
 A quantidade de sugestões avaliadas pelos voluntários era pequena e simplificada, exibindo somente uma sugestão onde poderiam ser sugeridas várias outras. Isso foi necessário devido à limitação de tempo para o preenchimento do questionário por meio dos voluntários e também para análise dos resultados.
 
