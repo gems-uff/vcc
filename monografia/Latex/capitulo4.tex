@@ -39,7 +39,7 @@ Com o intuito de automatizar a abordagem definida no Capítulo 3, foi implementad
 	
 \section{Mineração do Código Fonte}
 
- Existem diversas implementações de código aberto de algoritmos de mineração de padrões sequenciais, disponíveis na literatura~\cite{Ezeife, LivroMineracao, SrikantAgrawal, Zhou}. Por esse motivo, foi decidido que não seria necessário o desenvolvimento de um programa que realize a mineração desses padrões. Após a análise dos algoritmos GSP, PLWAP e WapTree, o PLWAP foi escolhido como o algoritmo que seria utilizado para a extração dos padrões por apresentar uma melhor performance com relação aos demais.
+ Existem diversas implementações de código aberto de algoritmos de mineração de padrões sequenciais, disponíveis na literatura. Por esse motivo, foi decidido que não seria necessário o desenvolvimento de um programa que realize a mineração desses padrões. Após a análise dos algoritmos GSP~\cite{SrikantAgrawal}, PLWAP~\cite{Ezeife} e WapTree~\cite{Zhou}, o PLWAP foi escolhido como o algoritmo que seria utilizado para a extração dos padrões por apresentar uma melhor performance com relação aos demais.
 
 Entretanto, embora o desempenho do PLWAP fosse satisfatório, o mesmo apenas informava quais padrões sequenciais eram frequentes, sem disponibilizar o suporte de cada padrão. Foi então necessário efetuar uma modificação no algoritmo para registrar esse valor de suporte. Em seguida, após obter todos os valores de suporte, foi possível calcular as confianças de cada padrão sequencial frequente, conforme citado na Seção 3.1.2.
 
