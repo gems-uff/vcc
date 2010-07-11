@@ -4,13 +4,13 @@ Neste capítulo, são abordados alguns conceitos e técnicas de Mineração de Dados,
 
 \section{Mineração de Dados}
 
-A evolução computacional das últimas décadas, ocasionada pela evolução tecnológica, permitiu um grande aumento no poder de processamento e na capacidade de armazenamento de dados a baixo custo, inserindo no mercado novas tecnologias de transmissão e disponibilização de dados \cite{Domingues}. Isso permitiu que empresas e centros de pesquisa acumulassem grandes quantidades de dados históricos a partir dos anos 70 e 80 \cite{LivroMineracao}.
+A evolução computacional das últimas décadas, ocasionada pela evolução tecnológica, permitiu um grande aumento no poder de processamento e na capacidade de armazenamento de dados a baixo custo, inserindo no mercado novas tecnologias de transmissão e disponibilização de dados~\cite{Domingues}. Isso permitiu que empresas e centros de pesquisa acumulassem grandes quantidades de dados históricos a partir dos anos 70 e 80~\cite{LivroMineracao}.
 
-Porém, essa enorme quantidade de dados não refletia uma grande riqueza em conhecimento, pois não era analisada com ferramentas adequadas, já que um volume tão extenso ultrapassa a habilidade humana de compreensão. Consequentemente, importantes decisões eram frequentemente tomadas somente por intuição, simplesmente pela falta dessas ferramentas que poderiam extrair conhecimentos valiosos dos repositórios de dados \cite{LivroMineracao}.
+Porém, essa enorme quantidade de dados não refletia uma grande riqueza em conhecimento, pois não era analisada com ferramentas adequadas, já que um volume tão extenso ultrapassa a habilidade humana de compreensão. Consequentemente, importantes decisões eram frequentemente tomadas somente por intuição, simplesmente pela falta dessas ferramentas que poderiam extrair conhecimentos valiosos dos repositórios de dados~\cite{LivroMineracao}.
 
-Isso motivou diversos estudos a partir do início dos anos 90, que resultaram no surgimento do campo de pesquisa de Mineração de Dados, área que se refere ao processo de descoberta de novas informações e conhecimento, no formato de regras e padrões, a partir de grandes bases de dados \cite{SrikantAgrawal}. A partir daí, foram desenvolvidas ferramentas para analisar bases de dados e descobrir padrões, contribuindo para diversas áreas, tais como \cite{LivroMineracao}: pesquisas médicas, negócios estratégicos, biologia molecular, entre outras.
+Isso motivou diversos estudos a partir do início dos anos 90, que resultaram no surgimento do campo de pesquisa de Mineração de Dados, área que se refere ao processo de descoberta de novas informações e conhecimento, no formato de regras e padrões, a partir de grandes bases de dados~\cite{SrikantAgrawal}. A partir daí, foram desenvolvidas ferramentas para analisar bases de dados e descobrir padrões, contribuindo para diversas áreas, tais como~\cite{LivroMineracao}: pesquisas médicas, negócios estratégicos, biologia molecular, entre outras.
 
-Dentre as principais tarefas em Mineração de Dados, destacam-se \cite{Goncalves}: classificação, extração de regras de associação, clusterização,  extração de padrões em séries temporais e extração de padrões sequencias. Em geral, essas tarefas podem ser classificadas em duas categorias: mineração preditiva e mineração descritiva \cite{LivroMineracao}.
+Dentre as principais tarefas em Mineração de Dados, destacam-se~\cite{Goncalves}: classificação, extração de regras de associação, clusterização,  extração de padrões em séries temporais e extração de padrões sequencias. Em geral, essas tarefas podem ser classificadas em duas categorias: mineração preditiva e mineração descritiva~\cite{LivroMineracao}.
 
 Na mineração preditiva, deseja-se prever o valor desconhecido de um determinado atributo, a partir da análise histórica dos dados armazenados na base. Nessa categoria se enquadram as tarefas de classificação e extração de padrões em séries temporais.
 Na mineração descritiva, padrões e regras descrevem características importantes dos dados com os quais se está trabalhando. Mineração de regras de associação, clusterização e mineração de padrões sequenciais fazem parte dessa categoria. A seguir, serão descritas as principais tarefas de mineração de dados.
@@ -35,7 +35,7 @@ Essa técnica é muito utilizada em sistemas de operadoras de cartão de crédito, s
 
 \subsection{Padrões em Séries Temporais}
 
-	Uma série temporal é uma sequência de valores mensurados em intervalos iguais de tempo \cite{LivroMineracao}. O principal objetivo da análise de padrões em séries temporais é realizar previsões futuras baseando-se no histórico dos dados. 
+	Uma série temporal é uma sequência de valores mensurados em intervalos iguais de tempo~\cite{LivroMineracao}. O principal objetivo da análise de padrões em séries temporais é realizar previsões futuras baseando-se no histórico dos dados. 
 
 	Cotação diária do dólar, faturamento anual de uma empresa e evolução do índice da bolsa de valores são exemplos de séries temporais. Assim, pode-se também considerar a identificação de empresas com padrões de crescimento similares e ações ou fundos de investimento com movimentos de preços parecidos.
 
@@ -56,18 +56,18 @@ A métrica de avaliação dos padrões sequenciais é o suporte. Um banco de dados de
 
 \section{Mineração de Dados na Engenharia de Software}
 
-Técnicas de mineração de dados têm sido muito utilizadas em engenharia de software, principalmente quando aplicadas em repositórios de dados para se obter informações sobre a evolução de software ao longo do tempo, com o objetivo de aumentar a qualidade do processo de desenvolvimento de software \cite{Ball, Dantas, Shirabad, Ying, Zimmerman}.
+Técnicas de mineração de dados têm sido muito utilizadas em engenharia de software, principalmente quando aplicadas em repositórios de dados para se obter informações sobre a evolução de software ao longo do tempo, com o objetivo de aumentar a qualidade do processo de desenvolvimento de software~\cite{Ball, Dantas, Shirabad, Ying, Zimmerman}.
 
-Em \cite{Shirabad}, utilizou-se um algoritmo classificador, a partir do aprendizado em uma base de treinamento, para extrair relações
+Em~\cite{Shirabad}, utilizou-se um algoritmo classificador, a partir do aprendizado em uma base de treinamento, para extrair relações
 que indicam que arquivos de código fonte, em um sistema legado, são relevantes uns aos outros no contexto da manutenção de software. Tais relações puderam revelar interconexões complexas entre os arquivos do código fonte do sistema, sendo úteis na compreensão deles. Assim, o algoritmo classificador, após receber dois arquivos de código fonte, retorna verdadeiro ou falso, indicando se são relevantes entre si. 
 
-Em \cite{Ying}, aplica-se mineração de dados para se encontrar relações de dependências entre arquivos do código fonte, até mesmo dependências difíceis de se determinar, tais como aquelas existentes entre códigos fonte de linguagens diferentes. Em especial, é utilizada a técnica de extração de regras de associação para determinar padrões de mudanças entre arquivos do código fonte para ajudar os desenvolvedores em tarefas de modificação.
+Em~\cite{Ying}, aplica-se mineração de dados para se encontrar relações de dependências entre arquivos do código fonte, até mesmo dependências difíceis de se determinar, tais como aquelas existentes entre códigos fonte de linguagens diferentes. Em especial, é utilizada a técnica de extração de regras de associação para determinar padrões de mudanças entre arquivos do código fonte para ajudar os desenvolvedores em tarefas de modificação.
 
-Em \cite{Dantas}, utilizam-se técnicas de mineração de dados em um repositório UML versionado para se extrair regras de associação que possam identificar elementos do modelo UML que foram modificados juntos no passado e que provavelmente precisarão ser modificados juntos no futuro.
+Em~\cite{Dantas}, utilizam-se técnicas de mineração de dados em um repositório UML versionado para se extrair regras de associação que possam identificar elementos do modelo UML que foram modificados juntos no passado e que provavelmente precisarão ser modificados juntos no futuro.
 
-Em \cite{Zimmerman}, aplicam-se técnicas de mineração de dados em repositórios versionados de código fonte para se extrair regras de associação do tipo: ``programadores que alteraram a função A também alteraram as funções B e C''. Tais regras são extraídas com o objetivo de guiar desenvolvedores de software na alteração do código fonte.
+Em~\cite{Zimmerman}, aplicam-se técnicas de mineração de dados em repositórios versionados de código fonte para se extrair regras de associação do tipo: ``programadores que alteraram a função A também alteraram as funções B e C''. Tais regras são extraídas com o objetivo de guiar desenvolvedores de software na alteração do código fonte.
 
 
-Em \cite{Ball}, um algoritmo de clusterização foi utilizado num sistema de controle de versões para identificar classes semanticamente relacionadas. A partir do gráfico gerado pelo algoritmo, pôde-se analisar que mudanças em classes de certo cluster eram frequentemente envolvidas com mudanças em classes de outro cluster.
+Em~\cite{Ball}, um algoritmo de clusterização foi utilizado num sistema de controle de versões para identificar classes semanticamente relacionadas. A partir do gráfico gerado pelo algoritmo, pôde-se analisar que mudanças em classes de certo cluster eram frequentemente envolvidas com mudanças em classes de outro cluster.
 
 Apesar de existirem diversas abordagens que aplicam mineração de dados em problemas de engenharia de software, a partir da análise do histórico de publicações do \textit{workshop Mining Software Repositories} e de edições especiais das revistas \textit{IEEE Transactions on Software Engineering} e \textit{IEEE Software}, não foi possível identificar outros trabalhos que atuavam no problema de \textit{code completion}, o que motivou a elaboração deste trabalho.
