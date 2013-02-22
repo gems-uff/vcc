@@ -1,4 +1,4 @@
-package br.uff.projetofinal;
+package br.uff.vcc;
 
 import java.text.Collator;
 import java.util.Locale;

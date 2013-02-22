@@ -1,4 +1,4 @@
-package de.vogella.jdt.astsimple;
+package br.uff.vcc.plugin;
 
 import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
@@ -10,7 +10,7 @@ import org.osgi.framework.BundleContext;
 public class Activator extends AbstractUIPlugin {
 
 	// The plug-in ID
-	public static final String PLUGIN_ID = "de.vogella.jdt.astsimple";
+	public static final String PLUGIN_ID = "br.uff.vcc";
 
 	// The shared instance
 	private static Activator plugin;

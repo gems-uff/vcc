@@ -1,4 +1,4 @@
-package de.vogella.jdt.astsimple.handler;
+package br.uff.vcc.plugin.visitors;
 
 import java.util.ArrayList;
 import java.util.List;

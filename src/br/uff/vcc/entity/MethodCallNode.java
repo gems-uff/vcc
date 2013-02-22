@@ -1,13 +1,10 @@
-package br.uff.projetofinal;
+package br.uff.vcc.entity;
 
 import java.io.Serializable;
 import java.util.HashMap;
 
 public class MethodCallNode implements Serializable
 {
-    /**
-     * 
-     */
     private static final long               serialVersionUID = -3961267160887082047L;
 
     private String                          methodSignature;

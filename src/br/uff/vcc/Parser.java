@@ -1,4 +1,4 @@
-package br.uff.projetofinal;
+package br.uff.vcc;
 
 import java.io.IOException;
 
@@ -21,8 +21,9 @@ import org.eclipse.jdt.core.dom.IMethodBinding;
 import org.eclipse.jdt.core.dom.ITypeBinding;
 import org.eclipse.jdt.core.dom.MethodDeclaration;
 
-import de.vogella.jdt.astsimple.handler.MethodInvocationVisitor;
-import de.vogella.jdt.astsimple.handler.MethodVisitor;
+import br.uff.vcc.plugin.visitors.MethodInvocationVisitor;
+import br.uff.vcc.plugin.visitors.MethodVisitor;
+
 
 public class Parser extends AbstractHandler
 {

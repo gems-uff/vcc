@@ -1,16 +1,13 @@
-package br.uff.projetofinal;
+package br.uff.vcc;
 
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.io.ObjectInputStream;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 
-import br.uff.projetofinal.util.Suggestion;
+import br.uff.vcc.entity.MethodCallNode;
+import br.uff.vcc.util.Suggestion;
 
 public class LerArvore
 {
