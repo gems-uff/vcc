@@ -1,45 +1,45 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?eclipse version="3.2"?>
+<?eclipse version="3.7"?>
 <plugin>
 
    <extension
          point="org.eclipse.ui.commands">
       <category
-            name="Sample Category"
-            id="de.vogella.jdt.astsimple.commands.category">
+            name="VCC Category"
+            id="br.uff.vcc.commands.category">
       </category>
       <command
             name="Generate Tree"
-            categoryId="de.vogella.jdt.astsimple.commands.category"
-            id="de.vogella.jdt.astsimple.commands.sampleCommand">
+            categoryId="br.uff.vcc.commands.category"
+            id="br.uff.vcc.commands.generateTreeCommand">
       </command>
       <command
             name="Search for Patterns"
-            categoryId="de.vogella.jdt.astsimple.commands.category"
-            id="de.vogella.jdt.astsimple.commands.searchPatternsCommand">
+            categoryId="br.uff.vcc.commands.category"
+            id="br.uff.vcc.commands.searchPatternsCommand">
      </command>
    </extension>
    <extension
          point="org.eclipse.ui.handlers">
       <handler
-            commandId="de.vogella.jdt.astsimple.commands.sampleCommand"
-            class="de.vogella.jdt.astsimple.handlers.SampleHandler">
+            commandId="br.uff.vcc.commands.generateTreeCommand"
+            class="br.uff.vcc.plugin.handlers.GenerateTreeHandler">
       </handler>
       <handler
-            commandId="de.vogella.jdt.astsimple.commands.searchPatternsCommand"
-            class="br.uff.projetofinal.SearchPatterns">
+            commandId="br.uff.vcc.commands.searchPatternsCommand"
+            class="br.uff.vcc.plugin.handlers.SearchPatternsHandler">
      </handler>
    </extension>
    <extension
          point="org.eclipse.ui.bindings">
       <key
-            commandId="de.vogella.jdt.astsimple.commands.sampleCommand"
+            commandId="br.uff.vcc.commands.generateTreeCommand"
             contextId="org.eclipse.ui.contexts.window"
             sequence="M1+6"
             schemeId="org.eclipse.ui.defaultAcceleratorConfiguration">
       </key>
       <key
-            commandId="de.vogella.jdt.astsimple.commands.searchPatternsCommand"
+            commandId="br.uff.vcc.commands.searchPatternsCommand"
             contextId="org.eclipse.ui.contexts.window"
             sequence="M1+ARROW_DOWN"
             schemeId="org.eclipse.ui.defaultAcceleratorConfiguration">
@@ -52,16 +52,16 @@
          <menu
                label="Vertical Code-Complete"
                mnemonic="V"
-               id="de.vogella.jdt.astsimple.menus.sampleMenu">
+               id="br.uff.vcc.menus.vccMenu">
             <command
-                  commandId="de.vogella.jdt.astsimple.commands.sampleCommand"
+                  commandId="br.uff.vcc.commands.generateTreeCommand"
                   mnemonic="G"
-                  id="de.vogella.jdt.astsimple.menus.sampleCommand">
+                  id="br.uff.vcc.menus.generateTreeCommand">
             </command>
             <command
-                  commandId="de.vogella.jdt.astsimple.commands.searchPatternsCommand"
+                  commandId="br.uff.vcc.commands.searchPatternsCommand"
                   mnemonic="P"
-                  id="de.vogella.jdt.astsimple.menus.searchPatternsCommand">
+                  id="br.uff.vcc.menus.searchPatternsCommand">
            </command>
          </menu>
       </menuContribution>
