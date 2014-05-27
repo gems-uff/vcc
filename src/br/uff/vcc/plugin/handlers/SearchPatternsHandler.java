@@ -65,6 +65,7 @@ public class SearchPatternsHandler extends AbstractHandler {
 
 	private void searchPatterns() {
 
+		Long timeIni = System.currentTimeMillis();
 		IEditorPart editor = PlatformUI.getWorkbench()
 				.getActiveWorkbenchWindow().getActivePage().getActiveEditor();
 
@@ -96,13 +97,14 @@ public class SearchPatternsHandler extends AbstractHandler {
 					poda(combinations, combinations.get(i), i + 1);
 			}
 
-			// Collections.sort(suggestions);
+			Collections.sort(suggestions);
 			System.out.println("Total de sugestões: " + suggestions.size());
 
 			System.out.println("Tempo total: " + (System.currentTimeMillis() - initialTime) / 1000 + " segundos");
 
 			printResults(suggestions);
 
+			System.out.println(System.currentTimeMillis() - timeIni);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

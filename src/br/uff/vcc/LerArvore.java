@@ -56,4 +56,15 @@ public class LerArvore
 
         actualSuggestion.remove(method.getMethodSignature());
     }
+    
+    public int countChars(String str, Character lookedChar){
+    	int count = 0;
+    	for (int i = 0; i < str.length(); i++) {
+    		Character readChar = str.charAt(i);
+    		if(readChar.equals(lookedChar)){
+    			count = count + 1;
+    		}
+		}
+    	return count;
+    }
 }

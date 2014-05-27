@@ -71,6 +71,11 @@ public class MethodCallNode implements Serializable
         else
             return false;
     }
+    
+    @Override
+    public int hashCode() {
+    	return methodSignature.hashCode();
+    }
 
     public MethodCallNode getParentNode()
     {

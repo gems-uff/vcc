@@ -54,10 +54,10 @@ public class Suggestion implements Comparable<Suggestion>
     @Override
     public int compareTo(Suggestion o)
     {
-        if (support > o.getSupport())
-            return 1;
-        else
+        if (confidence > o.getConfidence())
             return -1;
+        else
+            return 1;
     }
 
     public Collection<String> getInvocatedMethods()
