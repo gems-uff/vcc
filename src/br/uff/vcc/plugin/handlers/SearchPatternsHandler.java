@@ -69,14 +69,26 @@ public class SearchPatternsHandler extends AbstractHandler {
 		IEditorPart editor = PlatformUI.getWorkbench()
 				.getActiveWorkbenchWindow().getActivePage().getActiveEditor();
 
-		ObjectInputStream ois;
+		ComparableList<String> methodNames = readMethodNames(editor);
+
+		ArrayList<Suggestion> suggestions = searchInTree(methodNames);
+		
+		System.out.println("Total de sugestões: " + suggestions.size());
+		
+		
+		printResults(suggestions);
+		
+		System.out.println(System.currentTimeMillis() - timeIni);
+	}
+
+	public static ArrayList<Suggestion> searchInTree(ComparableList<String> methodNames) {
+		ArrayList<Suggestion> suggestions = new ArrayList<Suggestion>();
+		ObjectInputStream ois = null;
 		try {
 			ois = new ObjectInputStream(new FileInputStream(
 					"C:\\VCC\\arvore.obj"));
 
 			MethodCallNode rootNode = (MethodCallNode) ois.readObject();
-
-			ComparableList<String> methodNames = readMethodNames(editor);
 
 			ArrayList<ComparableList<String>> combinations = new ArrayList<ComparableList<String>>();
 			for (int i = 1; i <= Math.min(maxSizeCombinations, Math.min(methodNames.size(), rootNode.getMaxTreeDepth() - 1)); i++) {
@@ -87,7 +99,6 @@ public class SearchPatternsHandler extends AbstractHandler {
 
 			Collections.sort(combinations);
 
-			ArrayList<Suggestion> suggestions = new ArrayList<Suggestion>();
 
 			for (int i = 0; i < combinations.size(); i++) {
 				Collection<Suggestion> methodSug = LerArvore.searchNodeInTree(combinations.get(i), rootNode);
@@ -98,16 +109,16 @@ public class SearchPatternsHandler extends AbstractHandler {
 			}
 
 			Collections.sort(suggestions);
-			System.out.println("Total de sugestões: " + suggestions.size());
-
 			System.out.println("Tempo total: " + (System.currentTimeMillis() - initialTime) / 1000 + " segundos");
-
-			printResults(suggestions);
-
-			System.out.println(System.currentTimeMillis() - timeIni);
 		} catch (Exception e) {
 			e.printStackTrace();
+		}finally{
+			try {
+				ois.close();
+			} catch (Exception e) {
+			}
 		}
+		return suggestions;
 	}
 
 	private void printResults(ArrayList<Suggestion> suggestions) {
@@ -347,7 +358,7 @@ public class SearchPatternsHandler extends AbstractHandler {
 		return 0;
 	}
 
-	private void poda(ArrayList<ComparableList<String>> combinations,
+	private static void poda(ArrayList<ComparableList<String>> combinations,
 			ComparableList<String> nonFrequencyList, int initialIndex) {
 		for (int i = initialIndex; i < combinations.size(); i++) {
 			if (combinations.get(i).containsAll(nonFrequencyList))
@@ -355,7 +366,7 @@ public class SearchPatternsHandler extends AbstractHandler {
 		}
 	}
 
-	private Collection<ComparableList<String>> generateCombinations(
+	private static Collection<ComparableList<String>> generateCombinations(
 			ComparableList<String> methodNames, int size) {
 		Collection<ComparableList<String>> combinations = new ArrayList<ComparableList<String>>();
 

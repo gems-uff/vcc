@@ -646,7 +646,7 @@ public class GenerateTreeHandler extends AbstractHandler {
 		return methodId;
 	}
 
-	private String getParametersType(ITypeBinding[] parametersType)
+	private static String getParametersType(ITypeBinding[] parametersType)
 			throws IOException {
 		String parametersTypes = "";
 		for (int i = 0; i < parametersType.length; i++) {
@@ -665,7 +665,7 @@ public class GenerateTreeHandler extends AbstractHandler {
 	 * @param out
 	 * @throws IOException
 	 */
-	private String getCompleteMethodName(IMethodBinding methodBinding)
+	public static String getCompleteMethodName(IMethodBinding methodBinding)
 			throws IOException {
 		methodBinding.getDeclaringClass().getBinaryName();
 
