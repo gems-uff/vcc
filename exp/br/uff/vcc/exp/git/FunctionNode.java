@@ -7,18 +7,22 @@ import java.util.Hashtable;
 import java.util.List;
 import java.util.Map;
 
+import org.eclipse.core.resources.IProject;
+import org.eclipse.core.resources.IWorkspace;
+import org.eclipse.core.resources.IWorkspaceRoot;
+import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.jdt.core.JavaCore;
 import org.eclipse.jdt.core.dom.AST;
 import org.eclipse.jdt.core.dom.ASTParser;
 import org.eclipse.jdt.core.dom.ASTVisitor;
 import org.eclipse.jdt.core.dom.CompilationUnit;
+import org.eclipse.jdt.core.dom.IMethodBinding;
 import org.eclipse.jdt.core.dom.MethodDeclaration;
 import org.eclipse.jdt.core.dom.MethodInvocation;
 import org.eclipse.jgit.diff.DiffEntry.ChangeType;
 
 import br.uff.vcc.exp.entity.MethodCallsDiff;
 import br.uff.vcc.plugin.handlers.GenerateTreeHandler;
-import br.uff.vcc.plugin.visitors.MethodInvocationVisitor;
 
 public class FunctionNode {
 	int lineStart;
@@ -72,15 +76,29 @@ public class FunctionNode {
 		
 	}
 	*/
-	private static Map<String,MethodDeclaration> extractMethodDeclarations(ClassNode _classNode){
+	private static Map<String,MethodDeclaration> extractMethodDeclarations(String newData){
 		final Map<String,MethodDeclaration> methods = new HashMap<String, MethodDeclaration>();
 		
 		ASTParser parser = ASTParser.newParser(AST.JLS3);
-		parser.setSource(_classNode.getData().toCharArray());
+		parser.setSource(newData.toCharArray());
+		parser.setResolveBindings(true);
 		parser.setKind(ASTParser.K_COMPILATION_UNIT);
 		Hashtable<String, String> options = JavaCore.getOptions();
 		options.put(JavaCore.COMPILER_DOC_COMMENT_SUPPORT, JavaCore.DISABLED);
 		parser.setCompilerOptions(options);
+		
+		IWorkspace workspace = ResourcesPlugin.getWorkspace();
+		IWorkspaceRoot root = workspace.getRoot();
+		IProject[] projects = root.getProjects();
+		IProject parsedProject = null;
+		for (IProject project : projects) {
+			if (project.getName().equals("slf4j-api")){
+				parsedProject = project;
+				break;
+			}
+		}
+		parser.setProject(JavaCore.create(parsedProject));
+		parser.setUnitName("/slf4j-api/src/main/java/org/slf4j/helpers/BasicMarker.java");
 		
 		final CompilationUnit cu = (CompilationUnit) parser.createAST(null);
 
@@ -89,7 +107,12 @@ public class FunctionNode {
 			public boolean visit(MethodDeclaration node){
 				String methodName = "";
 				try {
-					methodName = GenerateTreeHandler.getCompleteMethodName(node.resolveBinding());
+					IMethodBinding imb = node.resolveBinding();
+					if(imb == null){
+						methodName = node.getName().toString();
+					}else{
+						methodName = GenerateTreeHandler.getCompleteMethodName(imb);
+					}
 				} catch (IOException e) {
 					e.printStackTrace();
 				}
@@ -106,21 +129,43 @@ public class FunctionNode {
 	private static List<String> extractInvokedMethods(MethodDeclaration methodDeclaration){
 		final List<String> methodInvocatons = new ArrayList<String >();
 		
-		ASTParser parser = ASTParser.newParser(AST.JLS3);
+		/*ASTParser parser = ASTParser.newParser(AST.JLS3);
 		parser.setSource(methodDeclaration.toString().toCharArray());
+		parser.setResolveBindings(true);
 		parser.setKind(ASTParser.K_COMPILATION_UNIT);
-		Hashtable<String, String> options = JavaCore.getOptions();
+/*		Hashtable<String, String> options = JavaCore.getOptions();
 		options.put(JavaCore.COMPILER_DOC_COMMENT_SUPPORT, JavaCore.DISABLED);
 		parser.setCompilerOptions(options);
 		
-		final CompilationUnit cu = (CompilationUnit) parser.createAST(null);
+		IWorkspace workspace = ResourcesPlugin.getWorkspace();
+		IWorkspaceRoot root = workspace.getRoot();
+		IProject[] projects = root.getProjects();
+		IProject parsedProject = null;
+		for (IProject project : projects) {
+			if (project.getName().equals("slf4j-api")){
+				parsedProject = project;
+				break;
+			}
+		}
+		parser.setProject(JavaCore.create(parsedProject));
+		
+		final CompilationUnit cu = (CompilationUnit) parser.createAST(null);*/
 
-		cu.accept(new ASTVisitor() {
+		if(methodDeclaration.getBody() == null){
+			return methodInvocatons;
+		}
+		
+		methodDeclaration.getBody().accept(new ASTVisitor() {
 			
 			public boolean visit(MethodInvocation node){
 				String methodName = "";
 				try {
-					methodName = GenerateTreeHandler.getCompleteMethodName(node.resolveMethodBinding());
+					IMethodBinding imb = node.resolveMethodBinding();
+					if(imb == null){
+						methodName = node.getName().toString();
+					}else{
+						methodName = GenerateTreeHandler.getCompleteMethodName(imb);
+					}
 				} catch (IOException e) {
 					e.printStackTrace();
 				}
@@ -167,43 +212,47 @@ public class FunctionNode {
 		return resultFunctions;
 	}*/
 	
-	public static List<MethodCallsDiff> extractMethodCallsDiff(ClassNode _newClass, ClassNode _oldClass) {
+	public static List<MethodCallsDiff> extractMethodCallsDiff(String newData, String oldData) {
 		
 		List<MethodCallsDiff> methodCallsDiffs = new ArrayList<MethodCallsDiff>();
 
-		switch (_newClass.getChangeType()) {
-		case ADD: {
-			Map<String,MethodDeclaration> methodDeclarations = extractMethodDeclarations(_newClass);
+		if(oldData == null){//ADD
+			Map<String,MethodDeclaration> methodDeclarations = extractMethodDeclarations(newData);
 			for (String methodName: methodDeclarations.keySet()) {
 				MethodCallsDiff mDiff = new MethodCallsDiff();
 				mDiff.setMethodName(methodName);
 				mDiff.setNewMethodCalls(extractInvokedMethods(methodDeclarations.get(methodName)));
 				methodCallsDiffs.add(mDiff);
 			}
-		}
-			break;
-
-		case MODIFY: {
+		}else{//MODIFY
 			// Extract functions from class in order to see if there is any
 			// modification on it
-			Map<String,MethodDeclaration> methodDeclarations = extractMethodDeclarations(_newClass);
-			Map<String,MethodDeclaration> oldMethodDeclarations = extractMethodDeclarations(_oldClass);
+			Map<String,MethodDeclaration> methodDeclarations = extractMethodDeclarations(newData);
+			Map<String,MethodDeclaration> oldMethodDeclarations = extractMethodDeclarations(oldData);
 			for (String methodName: methodDeclarations.keySet()) {
 				MethodCallsDiff mDiff = new MethodCallsDiff();
 				mDiff.setMethodName(methodName);
-				mDiff.setNewMethodCalls(extractInvokedMethods(methodDeclarations.get(methodName)));
 				MethodDeclaration oldMethodDeclaration = oldMethodDeclarations.get(methodName);
-				if(oldMethodDeclaration != null){
+				MethodDeclaration newMethodDeclaration = methodDeclarations.get(methodName);
+				mDiff.setNewMethodCalls(extractInvokedMethods(newMethodDeclaration));
+				//Don't analyze empty methods
+				if(mDiff.getNewMethodCalls().size() == 0){
+					continue;
+				}
+				if(oldMethodDeclaration != null && oldMethodDeclaration.getBody() != null){
+					//Don't analyze unchanged methods
+					if(newMethodDeclaration.getBody().toString().equals(oldMethodDeclaration.getBody().toString())){
+						continue;
+					}
 					mDiff.setOldMethodCalls(extractInvokedMethods(oldMethodDeclaration));
+					if(mDiff.getNewMethodCalls().equals(mDiff.getOldMethodCalls())){
+						continue;
+					}
 				}
 				methodCallsDiffs.add(mDiff);
 			}
 		}
-			break;
 
-		default:
-
-		}
 		return methodCallsDiffs;
 	}
 	

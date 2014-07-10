@@ -53,7 +53,30 @@ public class RepositoryNode {
 	}
 	
 	public void Parse() throws Exception{
-		List<EvaluatedMethod> evaluatedMethods = CommitNode.evaluateRepository(gitRepository, "a64161a3f0845562b26995aa62b46068af1c821b");
+		List<EvaluatedMethod> evaluatedMethods = CommitNode.evaluateRepository(gitRepository, "0e70e23f8301223b677dbf3f4720c0f22969ac4a");
+		int suggestionsProvided = 0;
+		int suggestionsAccepted = 0;
+		for (EvaluatedMethod evaluatedMethod : evaluatedMethods) {
+			printMethodReport();
+			printOldMethodCalls();
+			printNewMethodCalls();
+			printAddedMethodCalls();
+			if(evaluatedMethod.getSuggestionAccepted()){
+				suggestionsAccepted++;
+				suggestionsProvided++;
+			}
+			else if(evaluatedMethod.getSuggestionsProvided()){
+				suggestionsProvided++;
+			}
+		}
+		printFinalReport(evaluatedMethods, suggestionsProvided, suggestionsAccepted);
+	}
+
+	public void printFinalReport(List<EvaluatedMethod> evaluatedMethods,
+			int suggestionsProvided, int suggestionsAccepted) {
+		System.out.println("Métodos avaliados: " + evaluatedMethods.size());
+		System.out.println("Métodos onde alguma sugestão foi fornecida: " + suggestionsProvided);
+		System.out.println("Métodos onde uma sugestão foi aceita: " + suggestionsAccepted);
 	}
 	
 	public void Debug(){
@@ -76,7 +99,7 @@ public class RepositoryNode {
 	}
 	
 	public static void main(String[] args) throws Exception {
-		RepositoryNode r= new RepositoryNode("sl4j", "C:\\Desenvolvimento\\repositorios\\slf4j\\");
+		RepositoryNode r= new RepositoryNode("sl4j-api", "C:\\Desenvolvimento\\repositorios\\slf4j\\slf4j-api\\");
 		r.Parse();
 	}
 }

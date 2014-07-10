@@ -19,6 +19,9 @@ import org.eclipse.jgit.revwalk.RevCommit;
 import org.eclipse.jgit.revwalk.RevWalk;
 import org.eclipse.jgit.revwalk.RevWalkUtils;
 import org.eclipse.jgit.treewalk.TreeWalk;
+import org.eclipse.jgit.treewalk.filter.AndTreeFilter;
+import org.eclipse.jgit.treewalk.filter.PathFilter;
+import org.eclipse.jgit.treewalk.filter.TreeFilter;
 import org.eclipse.jgit.util.io.DisabledOutputStream;
 
 import br.uff.vcc.exp.entity.AddedMethod;
@@ -62,15 +65,15 @@ import br.uff.vcc.util.Suggestion;
 	}
 	
 	final public static List<EvaluatedMethod> evaluateRepository(Repository _repo, String initialCommitId) throws Exception{
-		List<CommitNode> commits = new ArrayList<CommitNode>();
+		//List<CommitNode> commits = new ArrayList<CommitNode>();
 		List<EvaluatedMethod> evaluatedMethods = new ArrayList<EvaluatedMethod>();
 		
 		RevWalk rw = new RevWalk(_repo);
+		rw.setTreeFilter(AndTreeFilter.create(PathFilter.create("slf4j-api"), TreeFilter.ANY_DIFF));
 		AnyObjectId headId, targetCommitId;
 		
 		try {
-			
-			headId = _repo.resolve(Constants.HEAD);
+			headId = _repo.resolve(Constants.MASTER);
 			targetCommitId = _repo.resolve(initialCommitId);
 			RevCommit targetCommit = rw.parseCommit(targetCommitId);
 			RevCommit headCommit = rw.parseCommit(headId);
@@ -83,13 +86,13 @@ import br.uff.vcc.util.Suggestion;
 					methodsDiff.addAll(f.Parse(_repo));
 				}
 				
-				evaluatedMethods.addAll(evaluateMethods(methodsDiff));
+				evaluatedMethods.addAll(evaluateMethods(methodsDiff, c.getId().toString()));
 				
 				
 				//commit.user = UserNode.AddOrRetrieveUser(c.getAuthorIdent().getName());
-				commit.logMessage = c.getFullMessage();
-				commit.id = c.getId().toString();
-				commits.add(commit);
+				//commit.logMessage = c.getFullMessage();
+				///commit.id = ;
+				//commits.add(commit);
 			}
 			
 		} catch (AmbiguousObjectException e) {
@@ -100,34 +103,79 @@ import br.uff.vcc.util.Suggestion;
 			e.printStackTrace();
 		}
 
-		return null;
+		return evaluatedMethods;
 	}
 	
 	
-	
-	private static List<EvaluatedMethod> evaluateMethods(List<MethodCallsDiff> methodsDiff) {
+	/**
+	 * Create EvaluatedMethod objects. Only the methods calls that weren't invoked before the commit, or that were invoked less times before the commit, are evaluated.
+	 * @param methodsDiff
+	 * @param commitId
+	 * @return
+	 */
+	private static List<EvaluatedMethod> evaluateMethods(List<MethodCallsDiff> methodsDiff, String commitId) {
 		List<EvaluatedMethod> evaluatedMethods = new ArrayList<EvaluatedMethod>();
 		for (MethodCallsDiff methodCallsDiff : methodsDiff) {
-			EvaluatedMethod e = new EvaluatedMethod(methodCallsDiff.getMethodName(), new ArrayList<AddedMethod>());
+			EvaluatedMethod e = new EvaluatedMethod(methodCallsDiff.getMethodName(), new ArrayList<AddedMethod>(), commitId);
+			//The first method is not evaluated, provided we don't have any previous method call to query the tree
 			for (int i = 1; i < methodCallsDiff.getNewMethodCalls().size(); i++) {
 				String newMethodCall = methodCallsDiff.getNewMethodCalls().get(i);
-				if(!methodCallsDiff.getOldMethodCalls().contains(newMethodCall)){
-					ComparableList<String> queryInput = new ComparableList<String>();
-					for (int j = 0; j < i; j++) {
-						queryInput.add(methodCallsDiff.getNewMethodCalls().get(j));
-					}
-					ArrayList<Suggestion> suggestions = SearchPatternsHandler.searchInTree(queryInput);
-					e.getAddedMethods().add(createAddedMethod(newMethodCall, suggestions));
+				if(methodWillBeInvokedLater(newMethodCall, methodCallsDiff.getNewMethodCalls(), i)){
+					continue;
 				}
+				if(methodCallsDiff.getOldMethodCalls() != null && methodCallsDiff.getOldMethodCalls().contains(newMethodCall)){
+					int newMethodsCount = countListOcurrences(methodCallsDiff.getNewMethodCalls(), newMethodCall);
+					int oldMethodsCount = countListOcurrences(methodCallsDiff.getOldMethodCalls(), newMethodCall);;
+					if(oldMethodsCount >= newMethodsCount){
+						continue;
+					}
+				}
+				ComparableList<String> queryInput = new ComparableList<String>();
+				for (int j = 0; j < i; j++) {
+					queryInput.add(methodCallsDiff.getNewMethodCalls().get(j));
+				}
+				ArrayList<Suggestion> suggestions = SearchPatternsHandler.searchInTree(queryInput);
+				e.getAddedMethods().add(createAddedMethod(newMethodCall, suggestions));
 			}
-			evaluatedMethods.add(e);
+			if(e.getAddedMethods().size() > 0){
+				for (AddedMethod addedMethod : e.getAddedMethods()) {
+					if (addedMethod.getSuggestionsProvided().size() > 0) {
+						e.setSuggestionsProvided(Boolean.TRUE);
+					}
+					if(addedMethod.getAcceptedSugestionPosition() != -1){
+						e.setSuggestionAccepted(Boolean.TRUE);
+						break;
+					}
+				}
+				e.setMethodCallsDiff(methodCallsDiff);
+				evaluatedMethods.add(e);
+			}
 		}
 		return evaluatedMethods;
 	}
 
+	private static boolean methodWillBeInvokedLater(String newMethodCall, List<String> newMethodCalls, int i) {
+		for (int j = i + 1; j < newMethodCalls.size(); j++) {
+			if(newMethodCall.equals(newMethodCalls.get(j))){
+				return true;
+			}
+		}
+		return false;
+	}
+
+	private static int countListOcurrences(List list, Object o){
+		int count = 0;
+		for (Object listObject : list) {
+			if(o.equals(listObject)){
+				count++;
+			}
+		}
+		return count;
+		
+	}
 	private static AddedMethod createAddedMethod(String newMethodCall, ArrayList<Suggestion> suggestions) {
 		if(suggestions.size() == 0){
-			return new AddedMethod(newMethodCall, null, -1, 0D);
+			return new AddedMethod(newMethodCall, new ArrayList<Suggestion>(), -1, 0D);
 		}else{
 			for (int i = 0; i < suggestions.size(); i++) {
 				Suggestion suggestion = suggestions.get(i);
@@ -150,7 +198,6 @@ import br.uff.vcc.util.Suggestion;
 		
 		CommitNode c = new CommitNode(null);
 
-		
 		RevWalk rw = new RevWalk(_repo);
 		try {
 			/*if (commit == null) {
@@ -191,6 +238,10 @@ import br.uff.vcc.util.Suggestion;
 				}
 				
 				for (DiffEntry diff : diffs) {
+					
+					if(!diff.getNewPath().startsWith("slf4j-api")){
+						continue;
+					}
 					
 					if (diff.getChangeType().equals(ChangeType.ADD)) {
 						if (isJavaFile(diff.getNewPath())){

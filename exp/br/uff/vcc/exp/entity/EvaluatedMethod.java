@@ -9,10 +9,17 @@ public class EvaluatedMethod {
 	private Boolean suggestionsProvided;
 	private Boolean suggestionAccepted;
 	
-	public EvaluatedMethod(String methodName, List<AddedMethod> addedMethods) {
+	private String commitId;
+	
+	private MethodCallsDiff methodCallsDiff;
+	
+	public EvaluatedMethod(String methodName, List<AddedMethod> addedMethods, String commitId) {
 		super();
 		this.methodName = methodName;
 		this.addedMethods = addedMethods;
+		this.commitId = commitId;
+		suggestionAccepted = Boolean.FALSE;
+		suggestionsProvided = Boolean.FALSE;
 	}
 
 	public String getMethodName() {
@@ -45,5 +52,21 @@ public class EvaluatedMethod {
 
 	public void setSuggestionAccepted(Boolean suggestionAccepted) {
 		this.suggestionAccepted = suggestionAccepted;
+	}
+
+	public String getCommitId() {
+		return commitId;
+	}
+
+	public void setCommitId(String commitId) {
+		this.commitId = commitId;
+	}
+
+	public MethodCallsDiff getMethodCallsDiff() {
+		return methodCallsDiff;
+	}
+
+	public void setMethodCallsDiff(MethodCallsDiff methodCallsDiff) {
+		this.methodCallsDiff = methodCallsDiff;
 	}
 }

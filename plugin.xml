@@ -18,6 +18,11 @@
             categoryId="br.uff.vcc.commands.category"
             id="br.uff.vcc.commands.searchPatternsCommand">
      </command>
+     <command
+            name="Run Experiment"
+            categoryId="br.uff.vcc.commands.category"
+            id="br.uff.vcc.commands.runExperimentCommand">
+     </command>
    </extension>
    <extension
          point="org.eclipse.ui.handlers">
@@ -28,6 +33,10 @@
       <handler
             commandId="br.uff.vcc.commands.searchPatternsCommand"
             class="br.uff.vcc.plugin.handlers.SearchPatternsHandler">
+     </handler>
+     <handler
+            commandId="br.uff.vcc.commands.runExperimentCommand"
+            class="br.uff.vcc.exp.handler.RunExperimentHandler">
      </handler>
    </extension>
    <extension
@@ -62,6 +71,11 @@
                   commandId="br.uff.vcc.commands.searchPatternsCommand"
                   mnemonic="P"
                   id="br.uff.vcc.menus.searchPatternsCommand">
+           </command>
+           <command
+                  commandId="br.uff.vcc.commands.runExperimentCommand"
+                  mnemonic="E"
+                  id="br.uff.vcc.menus.runExperimentCommand">
            </command>
          </menu>
       </menuContribution>
