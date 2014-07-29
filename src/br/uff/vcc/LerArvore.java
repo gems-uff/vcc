@@ -46,7 +46,7 @@ public class LerArvore
     {
         actualSuggestion.add(method.getMethodSignature());
 
-        Suggestion suggestion = new Suggestion(methods, (Collection<String>) actualSuggestion.clone(), method.getSupport(), method.getConfidences()[methods.size()]);
+        Suggestion suggestion = new Suggestion(methods, (List<String>) actualSuggestion.clone(), method.getSupport(), method.getConfidences()[methods.size()]);
         suggestions.add(suggestion);
 
         HashMap<String, MethodCallNode> childNodes = method.getMethodChildren();

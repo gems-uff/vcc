@@ -3,11 +3,13 @@ package br.uff.vcc.plugin.handlers;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -75,8 +77,29 @@ public class GenerateTreeHandler extends AbstractHandler {
 	public static final String RESULT_NAMES_FILE_PATH = "c:\\VCC\\result.txt";
 	public static final String NAME_TO_HASH_FILE_PATH = "c:\\VCC\\nameToHash.txt";
 
-	private MethodCallNode rootNode;
+	private static MethodCallNode rootNode;
+	
+	public static MethodCallNode getRootNode(){
+		ObjectInputStream ois = null;
+		if(rootNode == null){
+			try {
+				ois = new ObjectInputStream(new FileInputStream(
+						"C:\\VCC\\arvore.obj"));
 
+				rootNode = (MethodCallNode) ois.readObject();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}finally{
+				try {
+					ois.close();
+				} catch (Exception e) {
+				}
+			}
+		}
+		
+		return rootNode;
+	}
+	
 	@Override
 	public Object execute(ExecutionEvent event) throws ExecutionException {
 
@@ -667,19 +690,17 @@ public class GenerateTreeHandler extends AbstractHandler {
 	 */
 	public static String getCompleteMethodName(IMethodBinding methodBinding)
 			throws IOException {
-		methodBinding.getDeclaringClass().getBinaryName();
-
-		String methodNameSpace = methodBinding.getDeclaringClass().getPackage()
-				.getName()
-				+ "."
-				+ methodBinding.getDeclaringClass().getName()
-				+ "."
-				+ methodBinding.getName();
-
-		String parametersTypes = getParametersType(methodBinding
-				.getParameterTypes());
-
-		return methodNameSpace + "(" + parametersTypes + ")";
+			ITypeBinding declaringClass = methodBinding.getMethodDeclaration().getDeclaringClass();
+			declaringClass.getBinaryName();
+	
+			String methodNameSpace = declaringClass.getBinaryName()
+					+ "."
+					+ methodBinding.getName();
+	
+			String parametersTypes = getParametersType(methodBinding
+					.getParameterTypes());
+	
+			return methodNameSpace + "(" + parametersTypes + ")";
 	}
 
 	/**
@@ -698,7 +719,7 @@ public class GenerateTreeHandler extends AbstractHandler {
 		return (CompilationUnit) parser.createAST(null); // parse
 	}
 	
-	private void showDialogWait(){
+	private Display showDialogWait(){
 		Display display = Display.getDefault();
 
 		final Shell shell = new Shell(display);
@@ -723,6 +744,8 @@ public class GenerateTreeHandler extends AbstractHandler {
 		
 	    shell.pack();
 	    shell.open();
+	    
+	    return display;
 //	    while (!shell.isDisposed ()) {
 //	        if (!display.readAndDispatch ()) display.sleep ();
 //	    }

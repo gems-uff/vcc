@@ -1,8 +1,6 @@
 package br.uff.vcc.plugin.handlers;
 
-import java.io.FileInputStream;
 import java.io.IOException;
-import java.io.ObjectInputStream;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
@@ -83,42 +81,50 @@ public class SearchPatternsHandler extends AbstractHandler {
 
 	public static ArrayList<Suggestion> searchInTree(ComparableList<String> methodNames) {
 		ArrayList<Suggestion> suggestions = new ArrayList<Suggestion>();
-		ObjectInputStream ois = null;
-		try {
-			ois = new ObjectInputStream(new FileInputStream(
-					"C:\\VCC\\arvore.obj"));
+		
+		MethodCallNode rootNode = GenerateTreeHandler.getRootNode();
 
-			MethodCallNode rootNode = (MethodCallNode) ois.readObject();
+		//Query single methods before generate combinations in order to avoid generation of combinations with non frequent patterns
+		querySingleMethodCalls(methodNames, suggestions, rootNode);
+		
+		ArrayList<ComparableList<String>> combinations = new ArrayList<ComparableList<String>>();
+		for (int i = 2; i <= Math.min(maxSizeCombinations, Math.min(methodNames.size(), rootNode.getMaxTreeDepth() - 1)); i++) {
+			combinations.addAll(generateCombinations(methodNames, i));
+		}
 
-			ArrayList<ComparableList<String>> combinations = new ArrayList<ComparableList<String>>();
-			for (int i = 1; i <= Math.min(maxSizeCombinations, Math.min(methodNames.size(), rootNode.getMaxTreeDepth() - 1)); i++) {
-				combinations.addAll(generateCombinations(methodNames, i));
+		Long initialTime = System.currentTimeMillis();
+
+		Collections.sort(combinations);
+
+
+		for (int i = 0; i < combinations.size(); i++) {
+			Collection<Suggestion> methodSug = LerArvore.searchNodeInTree(combinations.get(i), rootNode);
+			if (methodSug != null)
+				suggestions.addAll(methodSug);
+			else
+				poda(combinations, combinations.get(i), i + 1);
+		}
+
+		Collections.sort(suggestions);
+		System.out.println("Tempo total: " + (System.currentTimeMillis() - initialTime) / 1000 + " segundos");
+		
+		return suggestions;
+	}
+
+	public static void querySingleMethodCalls(ComparableList<String> methodNames, ArrayList<Suggestion> suggestions, MethodCallNode rootNode) {
+		for (int i = 0; i < methodNames.size();i++) {
+			String methodName = methodNames.get(i);
+			ComparableList<String> singleMethodQuery = new ComparableList<String>();
+			singleMethodQuery.add(methodName);
+			Collection<Suggestion> methodSug = LerArvore.searchNodeInTree(singleMethodQuery, rootNode);
+			if (methodSug != null){
+				suggestions.addAll(methodSug);
 			}
-
-			Long initialTime = System.currentTimeMillis();
-
-			Collections.sort(combinations);
-
-
-			for (int i = 0; i < combinations.size(); i++) {
-				Collection<Suggestion> methodSug = LerArvore.searchNodeInTree(combinations.get(i), rootNode);
-				if (methodSug != null)
-					suggestions.addAll(methodSug);
-				else
-					poda(combinations, combinations.get(i), i + 1);
-			}
-
-			Collections.sort(suggestions);
-			System.out.println("Tempo total: " + (System.currentTimeMillis() - initialTime) / 1000 + " segundos");
-		} catch (Exception e) {
-			e.printStackTrace();
-		}finally{
-			try {
-				ois.close();
-			} catch (Exception e) {
+			else{
+				methodNames.remove(i);
+				i--;
 			}
 		}
-		return suggestions;
 	}
 
 	private void printResults(ArrayList<Suggestion> suggestions) {
@@ -361,8 +367,10 @@ public class SearchPatternsHandler extends AbstractHandler {
 	private static void poda(ArrayList<ComparableList<String>> combinations,
 			ComparableList<String> nonFrequencyList, int initialIndex) {
 		for (int i = initialIndex; i < combinations.size(); i++) {
-			if (combinations.get(i).containsAll(nonFrequencyList))
+			if (combinations.get(i).containsAll(nonFrequencyList)){
 				combinations.remove(i);
+				i--;
+			}
 		}
 	}
 

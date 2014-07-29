@@ -2,6 +2,7 @@ package br.uff.vcc.util;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 
 public class Suggestion implements Comparable<Suggestion>
 {
@@ -11,9 +12,9 @@ public class Suggestion implements Comparable<Suggestion>
 
     private Collection<String> invocatedMethods = new ArrayList<String>();
 
-    private Collection<String> suggestedMethods = new ArrayList<String>();
+    private List<String> suggestedMethods = new ArrayList<String>();
 
-    public Suggestion(Collection<String> invocatedMethods, Collection<String> suggestedMethods, double support, double confidence)
+    public Suggestion(Collection<String> invocatedMethods, List<String> suggestedMethods, double support, double confidence)
     {
         this.invocatedMethods = invocatedMethods;
         this.suggestedMethods = suggestedMethods;
@@ -41,12 +42,12 @@ public class Suggestion implements Comparable<Suggestion>
         this.confidence = confidence;
     }
 
-    public Collection<String> getSuggestedMethods()
+    public List<String> getSuggestedMethods()
     {
         return suggestedMethods;
     }
 
-    public void setSuggestedMethods(Collection<String> suggestedMethods)
+    public void setSuggestedMethods(List<String> suggestedMethods)
     {
         this.suggestedMethods = suggestedMethods;
     }
