@@ -38,7 +38,7 @@ public class EvaluatedMethod {
 		this.addedMethods = addedMethods;
 	}
 
-	public Boolean getSuggestionsProvided() {
+	public Boolean isSuggestionsProvided() {
 		return suggestionsProvided;
 	}
 
@@ -46,7 +46,7 @@ public class EvaluatedMethod {
 		this.suggestionsProvided = suggestionsProvided;
 	}
 
-	public Boolean getSuggestionAccepted() {
+	public Boolean isSuggestionAccepted() {
 		return suggestionAccepted;
 	}
 

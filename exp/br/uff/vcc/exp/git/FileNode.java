@@ -32,36 +32,26 @@ public class FileNode { //extends PatchInfo {
 		//super(_newName, _oldName, _newObjId, _oldObjId, _changeType);
 	}
 	
-	public List<MethodCallsDiff> Parse(Repository _repo) throws Exception{
+	public List<MethodCallsDiff> extractAllMethodsDiff(Repository _repo, String eclipseProjectName, String unitName) throws Exception{
+		
+		FunctionNode functionNode = new FunctionNode(eclipseProjectName, unitName);
 		List<MethodCallsDiff> methodsDiff = new ArrayList<MethodCallsDiff>();
 		switch (changeType) {
 		case ADD: {
 			ObjectLoader newFile = _repo.open(newObjId);
 			String newData = readStream(newFile.openStream());
-
-			//resultClass.addAll(extractClasses(newData).values());
-
-			methodsDiff.addAll(FunctionNode.extractMethodCallsDiff(newData, null));
-			//for (ClassNode _class : resultClass) {
-				//_class.changeType = ChangeType.ADD;
-			//}
-
+			methodsDiff.addAll(functionNode.extractMethodCallsDiff(newData, null));
 		}
 		break;
 
 		case MODIFY: {
-			// Extract classes from all files in order to see if there is any
-			// modification on it
 			ObjectLoader oldFile = _repo.open(oldObjId);
 			String oldData = readStream(oldFile.openStream());
 
 			ObjectLoader newFile = _repo.open(newObjId);
 			String newData = readStream(newFile.openStream());
 
-			//Map<String, ClassNode> oldClasses = extractClasses(oldData);
-			//Map<String, ClassNode> newClasses = extractClasses(newData);
-
-			methodsDiff.addAll(FunctionNode.extractMethodCallsDiff(newData, oldData));
+			methodsDiff.addAll(functionNode.extractMethodCallsDiff(newData, oldData));
 		}
 		break;
 
@@ -72,10 +62,6 @@ public class FileNode { //extends PatchInfo {
 		return methodsDiff;
 	}
 	
-	public void Debug(){
-		System.out.println("Name: " + newName);
-		System.out.println("--Modification: " + changeType.toString());
-	}
 	
 	private static String readStream(InputStream iStream) throws IOException {
 		// build a Stream Reader, it can read char by char
