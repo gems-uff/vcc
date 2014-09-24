@@ -27,6 +27,8 @@ import br.uff.vcc.util.Suggestion;
 
 public class RepositoryEvaluation {
 	
+	private static final String ALTERNATIVE_MASTER_LABEL = "trunk";
+	
 	private Repository gitRepository;
 	private String gitRepositoryPath;
 	private String headCommit;
@@ -70,6 +72,9 @@ public class RepositoryEvaluation {
 		
 		try {
 			headId = gitRepository.resolve(Constants.MASTER);
+			if(headId == null){
+				headId = gitRepository.resolve(ALTERNATIVE_MASTER_LABEL);
+			}
 			targetCommitId = gitRepository.resolve(headCommit);
 			RevCommit targetCommit = rw.parseCommit(targetCommitId);
 			RevCommit headCommit = rw.parseCommit(headId);
@@ -85,9 +90,7 @@ public class RepositoryEvaluation {
 				
 				List<EvaluatedMethod> evaluatedMethods = evaluateMethods(methodsDiff, c.getId().toString());
 				reportWriter.printFullReport(evaluatedMethods);
-				reportWriter.printMediumReport(evaluatedMethods);
-				reportWriter.printShortReport(evaluatedMethods);
-				reportWriter.printSuperShortReport(evaluatedMethods);
+				reportWriter.printPercRecommendationReport(evaluatedMethods);
 				if(i % periodicReportInterval == 0){
 					reportWriter.printTotalsPeriodicReport(i, commit.getId());
 				}
@@ -160,6 +163,9 @@ public class RepositoryEvaluation {
 	 * @return
 	 */
 	private ArrayList<Suggestion> filterTopSuggestions(ArrayList<Suggestion> suggestions) {
+		if(amountSuggestionsProvidedPerQuery == -1){
+			return suggestions;
+		}
 		ArrayList<Suggestion> filteredSuggestions = new ArrayList<Suggestion>();
 		for (int i = 0; i <Math.min(suggestions.size(), amountSuggestionsProvidedPerQuery); i++) {
 			filteredSuggestions.add(suggestions.get(i));

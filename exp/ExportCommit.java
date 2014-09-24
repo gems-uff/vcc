@@ -9,8 +9,8 @@ public class ExportCommit{
 
 	public static void main(String args[]){
 		// The name of the file to open.
-        String input = "C:\\Desenvolvimento\\repositorios\\spring-security\\log.csv";
-		String output = "C:\\Desenvolvimento\\repositorios\\spring-security\\output.csv";
+        String input = "C:\\Desenvolvimento\\repositorios\\commons-io\\log.csv";
+		String output = "C:\\Desenvolvimento\\repositorios\\commons-io\\output.csv";
 
         // This will reference one line at a time
         String line = null;

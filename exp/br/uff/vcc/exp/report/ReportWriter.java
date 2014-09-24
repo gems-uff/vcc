@@ -8,11 +8,8 @@ public interface ReportWriter {
 
 	public void printFullReport(List<EvaluatedMethod> evaluatedMethods);
 	
-	public void printMediumReport(List<EvaluatedMethod> evaluatedMethods);
-	
-	public void printShortReport(List<EvaluatedMethod> evaluatedMethods);
-	
-	public void printSuperShortReport(List<EvaluatedMethod> evaluatedMethods);
+	public void printPercRecommendationReport(List<EvaluatedMethod> evaluatedMethods);
 	
 	public void printTotalsPeriodicReport(Integer commitPosition, String commitId);
+	
 }
