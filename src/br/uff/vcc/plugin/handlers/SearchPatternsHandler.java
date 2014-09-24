@@ -4,8 +4,10 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
+import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Set;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -80,7 +82,7 @@ public class SearchPatternsHandler extends AbstractHandler {
 	}
 
 	public static ArrayList<Suggestion> searchInTree(ComparableList<String> methodNames) {
-		ArrayList<Suggestion> suggestions = new ArrayList<Suggestion>();
+		Set<Suggestion> suggestions = new HashSet<Suggestion>();
 		
 		MethodCallNode rootNode = GenerateTreeHandler.getRootNode();
 
@@ -105,13 +107,14 @@ public class SearchPatternsHandler extends AbstractHandler {
 				poda(combinations, combinations.get(i), i + 1);
 		}
 
-		Collections.sort(suggestions);
+		ArrayList<Suggestion> orderedSuggestions =  new ArrayList<Suggestion>(suggestions);
+		Collections.sort(orderedSuggestions);
 		System.out.println("Tempo total: " + (System.currentTimeMillis() - initialTime) / 1000 + " segundos");
 		
-		return suggestions;
+		return orderedSuggestions;
 	}
 
-	public static void querySingleMethodCalls(ComparableList<String> methodNames, ArrayList<Suggestion> suggestions, MethodCallNode rootNode) {
+	public static void querySingleMethodCalls(ComparableList<String> methodNames, Set<Suggestion> suggestions, MethodCallNode rootNode) {
 		for (int i = 0; i < methodNames.size();i++) {
 			String methodName = methodNames.get(i);
 			ComparableList<String> singleMethodQuery = new ComparableList<String>();
