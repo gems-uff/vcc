@@ -60,7 +60,7 @@ public class RepositoryEvaluation {
 	
 	public void evaluateRepository() throws Exception{
 		evaluateCommits();
-		reportWriter.printTotalsPeriodicReport(null, null);
+		
 	}
 	
 	private void evaluateCommits() throws Exception{
@@ -69,6 +69,7 @@ public class RepositoryEvaluation {
 			rw.setTreeFilter(AndTreeFilter.create(PathFilter.create(innerProjectName), TreeFilter.ANY_DIFF));
 		}
 		AnyObjectId headId, targetCommitId;
+		int validCommitIndex = 0;
 		
 		try {
 			headId = gitRepository.resolve(Constants.MASTER);
@@ -89,13 +90,20 @@ public class RepositoryEvaluation {
 				}
 				
 				List<EvaluatedMethod> evaluatedMethods = evaluateMethods(methodsDiff, c.getId().toString());
+				if(evaluatedMethods.size() == 0){
+					continue;
+				}
 				reportWriter.printFullReport(evaluatedMethods);
-				reportWriter.printPercRecommendationReport(evaluatedMethods);
-				if(i % periodicReportInterval == 0){
-					reportWriter.printTotalsPeriodicReport(i, commit.getId());
+				reportWriter.printAutomatizationPercAndCorrectnessReport(evaluatedMethods, validCommitIndex);
+				if((validCommitIndex+1 >= periodicReportInterval*10) && ((validCommitIndex+1) % periodicReportInterval == 0)){
+					reportWriter.printTotalsPeriodicReport(validCommitIndex, commit.getId(), periodicReportInterval*10, i);
 				}
 				evaluatedMethods = null;
+				validCommitIndex++;
 			}
+			
+			validCommitIndex--;
+			reportWriter.printTotalsPeriodicReport(validCommitIndex, null, periodicReportInterval*10, revCommits.size()-1);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

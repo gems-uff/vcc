@@ -3,12 +3,16 @@ package br.uff.vcc.exp.report;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.RandomAccessFile;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import br.uff.vcc.exp.entity.AddedMethod;
+import br.uff.vcc.exp.entity.CommitsEvaluationWindow;
 import br.uff.vcc.exp.entity.EvaluatedMethod;
 import br.uff.vcc.util.Suggestion;
 
@@ -27,27 +31,17 @@ public class TxtReportWriter implements ReportWriter {
 	private Integer totalEvaluatedMethods = 0;
 	
 	//Percentual de automatização
-	private Integer globalManualCodedMethods = 0;
-	private Integer globalAutomaticCodedMethods = 0;
-	private Integer totalCodedMethods = 0;
 	private List<Integer> acceptedSuggestionIndexes;
 	
-	//Precision e Recall
-	private List<Double> automatizationPercValues;
-	private List<Double> correctnessValues;
-	private List<Double> fMeasureValues;
+	//Percentual de automatização vs Corretude
+	private Map<Integer, CommitsEvaluationWindow> commitsEvaluationWindows;
 	
-	private Integer periodicReportInterval;
-	
-	public TxtReportWriter(String eclipseProjectName, String reportNamePrefix, Integer periodicReportInterval) {
+	public TxtReportWriter(String eclipseProjectName, String reportNamePrefix) {
 		this.eclipseProjectName = eclipseProjectName;
 		this.reportNamePrefix = reportNamePrefix;
-		this.periodicReportInterval = periodicReportInterval;
 		
 		acceptedSuggestionIndexes = new ArrayList<Integer>();
-		automatizationPercValues = new ArrayList<Double>();
-		correctnessValues = new ArrayList<Double>();
-		fMeasureValues = new ArrayList<Double>();
+		commitsEvaluationWindows = new HashMap<Integer, CommitsEvaluationWindow>();
 		
 		new File(reportPath + eclipseProjectName + "\\" + reportNamePrefix + "Completo.txt").delete();
 		new File(reportPath + eclipseProjectName + "\\" + reportNamePrefix + "Periodico.txt").delete();
@@ -58,7 +52,7 @@ public class TxtReportWriter implements ReportWriter {
 	/**
 	 * O primeiro experimento tem por objetivo avaliar os valores de precision, recall e f-measure para a execução do experimento
 	 */
-	public void executarPrimeiroExperimento(List<EvaluatedMethod> evaluatedMethods){
+	/*public void executarPrimeiroExperimento(List<EvaluatedMethod> evaluatedMethods){
 		FileWriter writer = null;
 		try {
 			writer = new FileWriter(new File(reportPath + eclipseProjectName + "\\" + reportNamePrefix + "PrimeiroExperimento.txt"), Boolean.TRUE);
@@ -86,37 +80,7 @@ public class TxtReportWriter implements ReportWriter {
 				}
 			}
 		}
-	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+	}*/
 	
 	@Override
 	public void printFullReport(List<EvaluatedMethod> evaluatedMethods) {
@@ -153,17 +117,21 @@ public class TxtReportWriter implements ReportWriter {
 	}
 	
 	@Override
-	public void printPercRecommendationReport(List<EvaluatedMethod> evaluatedMethods) {
+	public void printAutomatizationPercAndCorrectnessReport(List<EvaluatedMethod> evaluatedMethods, int commitIndex) {
 		FileWriter writer = null;
 		try {
 			writer = new FileWriter(new File(reportPath + eclipseProjectName + "\\" + reportNamePrefix + "PercRecomendacao.txt"), Boolean.TRUE);
 		
+			CommitsEvaluationWindow commitsEvaluationWindow = new CommitsEvaluationWindow();
+			
 			for (EvaluatedMethod evaluatedMethod : evaluatedMethods) {
 				printMethodReport(evaluatedMethod, writer);
 				printMethodCalls(evaluatedMethod.getMethodCallsDiff().getOldMethodCalls(), "antigas", writer);
 				printMethodCalls(evaluatedMethod.getMethodCallsDiff().getNewMethodCalls(), "novas", writer);
-				printAddedMethodCallsPercRecommendation(evaluatedMethod, writer);
+				printAddedMethodCallsAutomatizationPercAndCorrectness(evaluatedMethod, writer, commitsEvaluationWindow);
 			}
+			
+			commitsEvaluationWindows.put(commitIndex, commitsEvaluationWindow);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}finally{
@@ -178,42 +146,74 @@ public class TxtReportWriter implements ReportWriter {
 	}
 	
 	@Override
-	public void printTotalsPeriodicReport(Integer commitPosition, String commitId) {
+	public void printTotalsPeriodicReport(Integer validCommitIndex, String commitId, Integer evaluatedWindowSize, Integer realCommitIndex) {
 		if(totalEvaluatedMethods == 0){
 			return;
 		}
+		
 		FileWriter writer = null;
+		
 		try {
+		
+			//Extrai os dados que serão avaliados nesse relatorio periodico( Janela de avaliação)
+			List<Double> automatizationPercValues = new ArrayList<Double>();
+			List<Double> correctnessValues = new ArrayList<Double>();
+			List<Double> fMeasureValues = new ArrayList<Double>();
+			
+			Integer manualCodedMethods = 0;
+			Integer automaticCodedMethods = 0;
+			Integer usefulSuggestionCount = 0;
+			Integer uselessSuggestionCount = 0;
+			
+			int windowBegin = (validCommitIndex - evaluatedWindowSize) + 1;
+			int windowEnd = validCommitIndex+1;
+			if(windowBegin < 0){
+				windowBegin = 0;
+			}
+			for(int i = windowBegin; i < windowEnd; i++){
+				CommitsEvaluationWindow commitsEvaluationWindow = commitsEvaluationWindows.get(i);
+				if(commitsEvaluationWindow == null){
+					System.out.println("!!!");
+				}
+				automatizationPercValues.addAll(commitsEvaluationWindow.getAutomatizationPercValues());
+				correctnessValues.addAll(commitsEvaluationWindow.getCorrectnessValues());
+				fMeasureValues.addAll(commitsEvaluationWindow.getfMeasureValues());
+				
+				manualCodedMethods += commitsEvaluationWindow.getManualCodedMethods();
+				automaticCodedMethods += commitsEvaluationWindow.getAutomaticCodedMethods();
+				
+				usefulSuggestionCount += commitsEvaluationWindow.getUsefulSuggestionCount();
+				uselessSuggestionCount += commitsEvaluationWindow.getUselessSuggestionCount();
+			}
+			
+		
 			writer = new FileWriter(new File(reportPath + eclipseProjectName + "\\" + reportNamePrefix + "Periodico.txt"), Boolean.TRUE);
 			writer.write("**************************************************************************************************************\n");
-			if(commitPosition != null){
-				writer.write("TOTAIS APÓS " + commitPosition + " COMMITS (Commit ID: " + commitId + "):\n");
-			}else{
-				writer.write("RESULTADO FINAL:\n");
-			}
+			writer.write("TOTAIS APÓS " + validCommitIndex+1 + " COMMITS (Commit ID: " + commitId + "):\n");
 			writer.write("**************************************************************************************************************\n");
 			writer.write("*Métodos avaliados: " + totalEvaluatedMethods + "\n");
 			writer.write("*Métodos onde alguma sugestão foi fornecida: " + suggestionsProvided + "\n");
 			writer.write("*Métodos onde uma sugestão foi aceita: " + suggestionsAccepted + "\n");
-			BigDecimal correctness = new BigDecimal(calculateMeanPeriodic(correctnessValues)).setScale(3, RoundingMode.CEILING);
+			BigDecimal correctness = new BigDecimal(calculateMean(correctnessValues)).setScale(3, RoundingMode.CEILING);
 			writer.write("*Corretude Média: " + correctness + "\n");
-			BigDecimal stdDevCorrectness = new BigDecimal(calculateStdDevPeriod(correctnessValues, correctness.doubleValue())).setScale(3, RoundingMode.CEILING);
+			BigDecimal stdDevCorrectness = new BigDecimal(calculateStdDev(correctnessValues, correctness.doubleValue())).setScale(3, RoundingMode.CEILING);
 			writer.write("*Desvio Padrão Corretude: " + stdDevCorrectness + "\n");
-			BigDecimal automatizationPerc = new BigDecimal(calculateMeanPeriodic(automatizationPercValues)).setScale(3, RoundingMode.CEILING);
+			BigDecimal automatizationPerc = new BigDecimal(calculateMean(automatizationPercValues)).setScale(3, RoundingMode.CEILING);
 			writer.write("*Percentual de Automatização Médio: " + automatizationPerc + "\n");
-			BigDecimal stdDevAutomatizationPerc = new BigDecimal(calculateStdDevPeriod(automatizationPercValues, correctness.doubleValue())).setScale(3, RoundingMode.CEILING);
+			BigDecimal stdDevAutomatizationPerc = new BigDecimal(calculateStdDev(automatizationPercValues, correctness.doubleValue())).setScale(3, RoundingMode.CEILING);
 			writer.write("*Desvio Padrão Percentual de Automatização: " + stdDevAutomatizationPerc + "\n");
-			BigDecimal fMeasure = new BigDecimal(calculateMeanPeriodic(fMeasureValues)).setScale(3, RoundingMode.CEILING);
+			BigDecimal fMeasure = new BigDecimal(calculateMean(fMeasureValues)).setScale(3, RoundingMode.CEILING);
 			writer.write("*F-Measure Médio: " + fMeasure + "\n");
-			BigDecimal stdDevFMeasure = new BigDecimal(calculateStdDevPeriod(fMeasureValues, correctness.doubleValue())).setScale(3, RoundingMode.CEILING);
+			BigDecimal stdDevFMeasure = new BigDecimal(calculateStdDev(fMeasureValues, correctness.doubleValue())).setScale(3, RoundingMode.CEILING);
 			writer.write("*Desvio Padrão F-Measure: " + stdDevFMeasure + "\n");
 			//BigDecimal harmonicMean = new BigDecimal(2D*precision.doubleValue()*recall.doubleValue()/ (precision.doubleValue() + recall.doubleValue())).setScale(3, RoundingMode.CEILING);
 			//writer.write("*Média Harmônica(Precision e Recall): " + harmonicMean + "\n");
 			writer.write("**************************************************************************************************************\n");
 			
 			
-			printTotalsPercRecommendationPeriodicReport();
-			printInputGraphic(correctness, stdDevCorrectness, automatizationPerc, stdDevAutomatizationPerc, fMeasure, stdDevFMeasure);
+			printTotalsPercRecommendationPeriodicReport(manualCodedMethods, automaticCodedMethods);
+			printChartInput(correctness, stdDevCorrectness, automatizationPerc, stdDevAutomatizationPerc, fMeasure, stdDevFMeasure, 
+					manualCodedMethods, automaticCodedMethods, usefulSuggestionCount, uselessSuggestionCount, windowBegin, windowEnd, realCommitIndex);
 			
 			
 		} catch (Exception e) {
@@ -288,7 +288,7 @@ public class TxtReportWriter implements ReportWriter {
 		writer.write("**************************************************************************************************************\n");
 	}
 
-	private void printAddedMethodCallsPercRecommendation(EvaluatedMethod evaluatedMethod, FileWriter writer) throws IOException {
+	private void printAddedMethodCallsAutomatizationPercAndCorrectness(EvaluatedMethod evaluatedMethod, FileWriter writer, CommitsEvaluationWindow commitsEvaluationWindow) throws IOException {
 		/**
 		 * This array stores each method call situation from evaluated Method
 		 * 0 : methodCallName
@@ -351,7 +351,6 @@ public class TxtReportWriter implements ReportWriter {
 			writer.write("Situação: " + methodSituation[1] + "\n");
 			
 			if(j > 0){
-				totalCodedMethods++;
 				if(METHOD_CALL_STATUS_AUTOMATIC.equals(methodSituation[1])){
 					Integer suggestionIndex = Integer.valueOf(methodSituation[3]);
 					Integer methodCallPositionSuggestionCameFromIndex = Integer.valueOf(methodSituation[2]);
@@ -372,12 +371,15 @@ public class TxtReportWriter implements ReportWriter {
 			}
 		}
 		
-		globalAutomaticCodedMethods += automaticCodedMethods;
-		globalManualCodedMethods += manualCodedMethods;
+		commitsEvaluationWindow.setAutomaticCodedMethods(commitsEvaluationWindow.getAutomaticCodedMethods() + automaticCodedMethods);
+		commitsEvaluationWindow.setManualCodedMethods(commitsEvaluationWindow.getManualCodedMethods() + manualCodedMethods);
 		
-		Double recall = new Double(automaticCodedMethods) / new Double(methodReport.length-1);
-		automatizationPercValues.add(recall);
-		writer.write("Recall: " + recall + "\n");
+		Double automatizationPerc = new Double(automaticCodedMethods) / new Double(methodReport.length-1);
+		commitsEvaluationWindow.getAutomatizationPercValues().add(automatizationPerc);
+		writer.write("Percentual de Automatização: " + automatizationPerc + "\n");
+		
+		commitsEvaluationWindow.setUsefulSuggestionCount(commitsEvaluationWindow.getUsefulSuggestionCount() + usefulSuggestionCount);
+		commitsEvaluationWindow.setUselessSuggestionCount(commitsEvaluationWindow.getUselessSuggestionCount() + uselessSuggestionCount);
 		
 		Double correctness;
 		if(usefulSuggestionCount > 0 || uselessSuggestionCount > 0){
@@ -385,35 +387,33 @@ public class TxtReportWriter implements ReportWriter {
 		}else{
 			correctness = 0D;
 		}
-		correctnessValues.add(correctness);
-		writer.write("Precision: " + correctness + "\n");
+		commitsEvaluationWindow.getCorrectnessValues().add(correctness);
+		writer.write("Corretude: " + correctness + "\n");
 		
 		Double fMeasure;
-		if(correctness.doubleValue() + recall.doubleValue() != 0d){
-			fMeasure = (2D*correctness.doubleValue()*recall.doubleValue())/ (correctness.doubleValue() + recall.doubleValue());
+		if(correctness.doubleValue() + automatizationPerc.doubleValue() != 0d){
+			fMeasure = (2D*correctness.doubleValue()*automatizationPerc.doubleValue())/ (correctness.doubleValue() + automatizationPerc.doubleValue());
 		}else{
 			fMeasure = 0D;
 		}
-		fMeasureValues.add(fMeasure);
+		commitsEvaluationWindow.getfMeasureValues().add(fMeasure);
 		writer.write("F-Measure: " + fMeasure + "\n");
 	}
 	
-	private void printTotalsPercRecommendationPeriodicReport() {
-		if(totalCodedMethods == 0){
-			return;
-		}
+	private void printTotalsPercRecommendationPeriodicReport(Integer manualCodedMethods, Integer automaticCodedMethods) {
+		Integer totalCodedMethods = automaticCodedMethods + manualCodedMethods;
 		
 		FileWriter writer = null;
 		try {
 			writer = new FileWriter(new File(reportPath + eclipseProjectName + "\\" + reportNamePrefix + "Periodico.txt"), Boolean.TRUE);
 			writer.write("**************************************************************************************************************\n");
 			writer.write("*Métodos codificados: " + totalCodedMethods + "\n");
-			writer.write("*Métodos codificados automaticamente: " + globalAutomaticCodedMethods + "\n");
-			writer.write("*Métodos codificados manualmente: " + globalManualCodedMethods + "\n");
-			BigDecimal automatizationRate = new BigDecimal(globalAutomaticCodedMethods.doubleValue()/totalCodedMethods.doubleValue());
+			writer.write("*Métodos codificados automaticamente: " + automaticCodedMethods + "\n");
+			writer.write("*Métodos codificados manualmente: " + manualCodedMethods + "\n");
+			BigDecimal automatizationRate = new BigDecimal(automaticCodedMethods.doubleValue()/totalCodedMethods.doubleValue());
 			writer.write("*Percentual de Automatização: " + automatizationRate.setScale(3, RoundingMode.CEILING)+ "\n");
 			
-			BigDecimal averageSugIndex = new BigDecimal(calculateMeanPeriodic(acceptedSuggestionIndexes));
+			BigDecimal averageSugIndex = new BigDecimal(calculateMean(acceptedSuggestionIndexes));
 			writer.write("*Posição média da sugestão: " + averageSugIndex.setScale(3, RoundingMode.CEILING).toString() + "\n");
 			writer.write("**************************************************************************************************************\n");
 		} catch (Exception e) {
@@ -429,18 +429,57 @@ public class TxtReportWriter implements ReportWriter {
 		}
 	}
 	
-	private void printInputGraphic(BigDecimal correctness, BigDecimal stdDevCorrectness, BigDecimal automatizationPerc, BigDecimal stdDevAutomatizationPerc, BigDecimal fMeasure, BigDecimal stdDevFMeasure) {
+	private void printChartInput(BigDecimal correctness, BigDecimal stdDevCorrectness, BigDecimal automatizationPerc, BigDecimal stdDevAutomatizationPerc, 
+			BigDecimal fMeasure, BigDecimal stdDevFMeasure, Integer manualCodedMethods, Integer automaticCodedMethods,
+			Integer usefulSuggestionCount, Integer uselessSuggestionCount, int windowBegin, int windowEnd, Integer realCommitIndex) {
+		
 		FileWriter writer = null;
 		try {
-			printHeaderInputGraphic();
-			writer = new FileWriter(new File(reportPath + eclipseProjectName + "\\" + reportNamePrefix + "Grafico.txt"), Boolean.TRUE);
-			writer.write(globalAutomaticCodedMethods + "\t\t");
-			writer.write(globalManualCodedMethods + "\t\t");
-			writer.write(correctness + "\t\t");
-			writer.write(stdDevCorrectness + "\t\t");
-			writer.write(automatizationPerc + "\t\t");
-			writer.write(stdDevAutomatizationPerc + "\t\t");
-			writer.write(fMeasure + "\t\t");
+			printChartInputHeader();
+			writer = new FileWriter(new File(reportPath + eclipseProjectName + "\\" + reportNamePrefix + "Grafico.csv"), Boolean.TRUE);
+			
+			writer.write(windowBegin + " a " + windowEnd + ";");
+			writer.write(realCommitIndex + ";");
+			writer.write(usefulSuggestionCount + ";");
+			writer.write(uselessSuggestionCount + ";");
+			
+			BigDecimal globalCorrectness = new BigDecimal(usefulSuggestionCount.doubleValue()/(uselessSuggestionCount+usefulSuggestionCount)).setScale(3, RoundingMode.CEILING);
+			writer.write(globalCorrectness + ";");
+			
+			printSingleDataChartInputCSV("globalCorrectness", globalCorrectness.toString());
+			
+			writer.write(automaticCodedMethods + ";");
+			writer.write(manualCodedMethods + ";");
+			
+			BigDecimal globalAutomatizationPerc =  new BigDecimal(automaticCodedMethods.doubleValue()/(automaticCodedMethods+manualCodedMethods)).setScale(3, RoundingMode.CEILING);
+			writer.write(globalAutomatizationPerc + ";");
+			
+			printSingleDataChartInputCSV("globalAutomatizationPerc", globalAutomatizationPerc.toString());
+			
+			BigDecimal globalFfMeasure;
+			if(globalCorrectness.doubleValue() + globalAutomatizationPerc.doubleValue() != 0d){
+				globalFfMeasure = new BigDecimal((2D*globalCorrectness.doubleValue()*globalAutomatizationPerc.doubleValue())/ (globalCorrectness.doubleValue() + globalAutomatizationPerc.doubleValue())).setScale(3, RoundingMode.CEILING);;
+			}else{
+				globalFfMeasure = BigDecimal.ZERO;
+			}
+			writer.write(globalFfMeasure + ";");
+			
+			printSingleDataChartInputCSV("globalFfMeasure", globalFfMeasure.toString());
+			
+			writer.write(correctness + ";");
+			
+			printSingleDataChartInputCSV("correctness", correctness.toString());
+			
+			writer.write(stdDevCorrectness + ";");
+			writer.write(automatizationPerc + ";");
+			
+			printSingleDataChartInputCSV("automatizationPerc", automatizationPerc.toString());
+			
+			writer.write(stdDevAutomatizationPerc + ";");
+			writer.write(fMeasure + ";");
+			
+			printSingleDataChartInputCSV("fMeasure", fMeasure.toString());
+			
 			writer.write(stdDevFMeasure.toString());
 			writer.write("\n");
 		} catch (Exception e) {
@@ -456,22 +495,55 @@ public class TxtReportWriter implements ReportWriter {
 		}
 		
 	}
+	
+	private void printSingleDataChartInputCSV(String fileName, String data){
+		File singleDataChartInputFile = new File(reportPath + eclipseProjectName + "\\" +  fileName + ".csv");
+		String lastLine = tail(singleDataChartInputFile);
+		
+		FileWriter writer = null;
+		try {
+			writer = new FileWriter(singleDataChartInputFile, Boolean.TRUE);
+			if(lastLine == null || !lastLine.startsWith(reportNamePrefix)){
+				writer.write("\n");
+				writer.write(reportNamePrefix + ";");
+			}
+			writer.write(data + ";");
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally{
+			if(writer != null){
+				try {
+					writer.close();
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+			}
+		}
+		
+		
+	}
 
-	private void printHeaderInputGraphic() {
-		File graphicFile = new File(reportPath + eclipseProjectName + "\\" + reportNamePrefix + "Grafico.txt");
-		if(!graphicFile.exists()){
+	private void printChartInputHeader() {
+		File chartInputFile = new File(reportPath + eclipseProjectName + "\\" + reportNamePrefix + "Grafico.csv");
+		if(!chartInputFile.exists()){
 			FileWriter writer = null;
 			try {
-				printHeaderInputGraphic();
-				writer = new FileWriter(graphicFile);
-				writer.write("Métodos Codif. Automaticamente \t\t");
-				writer.write("Métodos Codif. Manualmente \t\t");
-				writer.write("Correture \t\t");
-				writer.write("StdDev Corretude \t\t");
-				writer.write("Perc. de Automatização \t\t");
-				writer.write("StdDev Perc. de Automatização \t\t");
-				writer.write("F-Measure \t\t");
-				writer.write("StdDev F-Measure \t\t");
+				writer = new FileWriter(chartInputFile);
+				writer.write("Janela de Commits;");
+				writer.write("Índice real Commits;");
+				writer.write("Sugestões Úteis;");
+				writer.write("Sugestões Inúteis;");
+				writer.write("Corretude Geral;");
+				writer.write("Métodos Codif. Automaticamente;");
+				writer.write("Métodos Codif. Manualmente;");
+				writer.write("Perc. de Automatização Geral;");
+				writer.write("F-Measure Geral;");
+				writer.write("Corretude;");
+				writer.write("StdDev Corretude;");
+				writer.write("Perc. de Automatização;");
+				writer.write("StdDev Perc. de Automatização;");
+				writer.write("F-Measure;");
+				writer.write("StdDev F-Measure");
 				
 				writer.write("\n");
 			} catch (Exception e) {
@@ -486,10 +558,9 @@ public class TxtReportWriter implements ReportWriter {
 				}
 			}
 		}
-		
 	}
 
-	private double calculateMeanPeriodic(List<? extends Number> numbersList) {
+	private double calculateMean(List<? extends Number> numbersList) {
 		Double sum = 0D;
 		if (!numbersList.isEmpty()) {
 			for (Number value : numbersList) {
@@ -509,8 +580,53 @@ public class TxtReportWriter implements ReportWriter {
         return temp/numbersList.size();
     }
 
-    double calculateStdDevPeriod(List<? extends Number> numbersList, double mean)
+    double calculateStdDev(List<? extends Number> numbersList, double mean)
     {
         return Math.sqrt(calculateVariance(numbersList, mean));
+    }
+    
+    public String tail( File file ) {
+        RandomAccessFile fileHandler = null;
+        try {
+            fileHandler = new RandomAccessFile( file, "r" );
+            long fileLength = fileHandler.length() - 1;
+            StringBuilder sb = new StringBuilder();
+
+            for(long filePointer = fileLength; filePointer != -1; filePointer--){
+                fileHandler.seek( filePointer );
+                int readByte = fileHandler.readByte();
+
+                if( readByte == 0xA ) {
+                    if( filePointer == fileLength ) {
+                        continue;
+                    }
+                    break;
+
+                } else if( readByte == 0xD ) {
+                    if( filePointer == fileLength - 1 ) {
+                        continue;
+                    }
+                    break;
+                }
+
+                sb.append( ( char ) readByte );
+            }
+
+            String lastLine = sb.reverse().toString();
+            return lastLine;
+        } catch( java.io.FileNotFoundException e ) {
+            e.printStackTrace();
+            return null;
+        } catch( java.io.IOException e ) {
+            e.printStackTrace();
+            return null;
+        } finally {
+            if (fileHandler != null )
+                try {
+                    fileHandler.close();
+                } catch (IOException e) {
+                    /* ignore */
+                }
+        }
     }
 }

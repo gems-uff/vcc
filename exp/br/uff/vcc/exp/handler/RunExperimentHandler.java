@@ -19,7 +19,7 @@ public class RunExperimentHandler extends AbstractHandler {
 		String eclipseProjectName = "slf4j-api";
 		String innerProjectName = "slf4j-api";
 		Boolean evaluateOnlyNewMethods = Boolean.TRUE;
-		Integer periodicReportInterval = 50;
+		Integer periodicReportInterval = 5;
 		
 		//Integer[] amountSuggestionsProvidedPerQueryArray = {1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50};
 		
@@ -47,7 +47,7 @@ public class RunExperimentHandler extends AbstractHandler {
 		String eclipseProjectName = "junit";
 		String innerProjectName = "";
 		Boolean evaluateOnlyNewMethods = Boolean.TRUE;
-		Integer periodicReportInterval = 50;
+		Integer periodicReportInterval = 5;
 		
 		//Integer[] amountSuggestionsProvidedPerQueryArray = {1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50};
 		
@@ -75,7 +75,7 @@ public class RunExperimentHandler extends AbstractHandler {
 		String eclipseProjectName = "spring-security";
 		String innerProjectName = "";
 		Boolean evaluateOnlyNewMethods = Boolean.TRUE;
-		Integer periodicReportInterval = 50;
+		Integer periodicReportInterval = 5;
 		
 		//Integer[] amountSuggestionsProvidedPerQueryArray = {1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50};
 		
@@ -103,7 +103,7 @@ public class RunExperimentHandler extends AbstractHandler {
 		String eclipseProjectName = "commons-io";
 		String innerProjectName = "";
 		Boolean evaluateOnlyNewMethods = Boolean.TRUE;
-		Integer periodicReportInterval = 50;
+		Integer periodicReportInterval = 5;
 		
 		//Integer[] amountSuggestionsProvidedPerQueryArray = {1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50};
 		
@@ -125,9 +125,9 @@ public class RunExperimentHandler extends AbstractHandler {
 	@Override
 	public Object execute(ExecutionEvent arg0) throws ExecutionException {
 		//sl4j();
-		springSecurity();
+		//springSecurity();
 		//junit();
-		//commonsIo();
+		commonsIo();
 
 		return null;
 
