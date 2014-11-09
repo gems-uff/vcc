@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.Random;
 
 import org.eclipse.jgit.internal.storage.file.FileRepository;
 import org.eclipse.jgit.lib.AnyObjectId;
@@ -13,6 +14,7 @@ import org.eclipse.jgit.lib.Repository;
 import org.eclipse.jgit.revwalk.RevCommit;
 import org.eclipse.jgit.revwalk.RevWalk;
 import org.eclipse.jgit.revwalk.RevWalkUtils;
+import org.eclipse.jgit.revwalk.filter.RevFilter;
 import org.eclipse.jgit.treewalk.filter.AndTreeFilter;
 import org.eclipse.jgit.treewalk.filter.PathFilter;
 import org.eclipse.jgit.treewalk.filter.TreeFilter;
@@ -39,8 +41,10 @@ public class RepositoryEvaluation {
 	private Boolean evaluateOnlyNewMethods;
 	private Integer periodicReportInterval;
 	private Integer amountSuggestionsProvidedPerQuery;
+	private Double confidenceThreshold;
+	private Integer[] fixedCommitEvaluationWindow;
 	
-	public RepositoryEvaluation(String location, String headCommit, String innerProjectName, String unitName, String eclipseProjectName, ReportWriter reportWriter, Boolean evaluateOnlyNewMethods, Integer periodicReportInterval, Integer amountSuggestionsProvidedPerQuery) {
+	public RepositoryEvaluation(String location, String headCommit, String innerProjectName, String unitName, String eclipseProjectName, ReportWriter reportWriter, Boolean evaluateOnlyNewMethods, Integer periodicReportInterval, Integer amountSuggestionsProvidedPerQuery, Double confidenceThreshold, Integer[] fixedCommitEvaluationWindow) {
 		this.gitRepositoryPath = location;
 		this.headCommit = headCommit;
 		this.innerProjectName = innerProjectName;
@@ -50,6 +54,8 @@ public class RepositoryEvaluation {
 		this.evaluateOnlyNewMethods = evaluateOnlyNewMethods;
 		this.periodicReportInterval = periodicReportInterval;
 		this.amountSuggestionsProvidedPerQuery = amountSuggestionsProvidedPerQuery;
+		this.confidenceThreshold = confidenceThreshold;
+		this.fixedCommitEvaluationWindow = fixedCommitEvaluationWindow;
 		
 		try {
 			gitRepository = new FileRepository(new File(gitRepositoryPath + ".git"));
@@ -68,8 +74,14 @@ public class RepositoryEvaluation {
 		if(innerProjectName != null && !"".equals(innerProjectName)){
 			rw.setTreeFilter(AndTreeFilter.create(PathFilter.create(innerProjectName), TreeFilter.ANY_DIFF));
 		}
+		
+		rw.setRevFilter(RevFilter.NO_MERGES);
+		
 		AnyObjectId headId, targetCommitId;
 		int validCommitIndex = 0;
+		int validMethodsCount = 0;
+		
+		int fixedCommitEvaluationWindowIndex = 0;
 		
 		try {
 			headId = gitRepository.resolve(Constants.MASTER);
@@ -90,20 +102,38 @@ public class RepositoryEvaluation {
 				}
 				
 				List<EvaluatedMethod> evaluatedMethods = evaluateMethods(methodsDiff, c.getId().toString());
+				
+				for (int j = 0; j < evaluatedMethods.size(); j++) {
+					validMethodsCount++;
+					if(!evaluatedMethods.get(j).isSuggestionsProvided()){
+						evaluatedMethods.remove(j);
+						j--;
+					}
+				}
+				
 				if(evaluatedMethods.size() == 0){
 					continue;
 				}
+				
 				reportWriter.printFullReport(evaluatedMethods);
 				reportWriter.printAutomatizationPercAndCorrectnessReport(evaluatedMethods, validCommitIndex);
-				if((validCommitIndex+1 >= periodicReportInterval*10) && ((validCommitIndex+1) % periodicReportInterval == 0)){
-					reportWriter.printTotalsPeriodicReport(validCommitIndex, commit.getId(), periodicReportInterval*10, i);
+				
+				if(fixedCommitEvaluationWindow == null){
+					if((validCommitIndex+1 >= periodicReportInterval*10) && ((validCommitIndex+1) % periodicReportInterval == 0)){
+						reportWriter.printTotalsPeriodicReport(validCommitIndex, commit, periodicReportInterval*10, i, validMethodsCount);
+					}
+				}else{
+					if(fixedCommitEvaluationWindow.length < fixedCommitEvaluationWindowIndex &&
+							fixedCommitEvaluationWindow[fixedCommitEvaluationWindowIndex] == i){
+						reportWriter.printTotalsPeriodicReport(validCommitIndex, commit, periodicReportInterval*10, i, validMethodsCount);
+					}
 				}
 				evaluatedMethods = null;
 				validCommitIndex++;
 			}
 			
 			validCommitIndex--;
-			reportWriter.printTotalsPeriodicReport(validCommitIndex, null, periodicReportInterval*10, revCommits.size()-1);
+			reportWriter.printTotalsPeriodicReport(validCommitIndex, null, periodicReportInterval*10, revCommits.size()-1, validMethodsCount);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -142,7 +172,7 @@ public class RepositoryEvaluation {
 				ComparableList<String> queryInput = new ComparableList<String>();
 				for (int j = 0; j < i; j++) {
 					queryInput.add(methodCallsDiff.getNewMethodCalls().get(j));
-				}
+				} 
 				ArrayList<Suggestion> suggestions = SearchPatternsHandler.searchInTree(queryInput);
 				suggestions = filterTopSuggestions(suggestions);
 				e.getAddedMethods().add(createAddedMethod(newMethodCall, suggestions));
@@ -171,14 +201,29 @@ public class RepositoryEvaluation {
 	 * @return
 	 */
 	private ArrayList<Suggestion> filterTopSuggestions(ArrayList<Suggestion> suggestions) {
-		if(amountSuggestionsProvidedPerQuery == -1){
+		ArrayList<Suggestion> filteredSuggestions = new ArrayList<Suggestion>();
+		
+		if(amountSuggestionsProvidedPerQuery == -1 && confidenceThreshold == null){
 			return suggestions;
 		}
-		ArrayList<Suggestion> filteredSuggestions = new ArrayList<Suggestion>();
-		for (int i = 0; i <Math.min(suggestions.size(), amountSuggestionsProvidedPerQuery); i++) {
-			filteredSuggestions.add(suggestions.get(i));
-		}
 		
+		if(confidenceThreshold == null){
+			for (int i = 0; i <Math.min(suggestions.size(), amountSuggestionsProvidedPerQuery); i++) {
+				filteredSuggestions.add(suggestions.get(i));
+			}
+		}else if(amountSuggestionsProvidedPerQuery == -1){
+			for (Suggestion suggestion : suggestions) {
+				if(!(confidenceThreshold.compareTo(suggestion.getConfidence()) > 0)){
+					filteredSuggestions.add(suggestion);
+				}
+			}
+		}else{
+			for (int i = 0; i <Math.min(suggestions.size(), amountSuggestionsProvidedPerQuery); i++) {
+				if(!(confidenceThreshold.compareTo(suggestions.get(i).getConfidence()) > 0)){
+					filteredSuggestions.add(suggestions.get(i));
+				}
+			}
+		}
 		return filteredSuggestions;
 	}
 

@@ -14,6 +14,7 @@ import java.util.Map;
 import br.uff.vcc.exp.entity.AddedMethod;
 import br.uff.vcc.exp.entity.CommitsEvaluationWindow;
 import br.uff.vcc.exp.entity.EvaluatedMethod;
+import br.uff.vcc.exp.git.CommitNode;
 import br.uff.vcc.util.Suggestion;
 
 public class TxtReportWriter implements ReportWriter {
@@ -146,7 +147,7 @@ public class TxtReportWriter implements ReportWriter {
 	}
 	
 	@Override
-	public void printTotalsPeriodicReport(Integer validCommitIndex, String commitId, Integer evaluatedWindowSize, Integer realCommitIndex) {
+	public void printTotalsPeriodicReport(Integer validCommitIndex, CommitNode commit, Integer evaluatedWindowSize, Integer realCommitIndex, Integer validMethodsCount) {
 		if(totalEvaluatedMethods == 0){
 			return;
 		}
@@ -172,9 +173,7 @@ public class TxtReportWriter implements ReportWriter {
 			}
 			for(int i = windowBegin; i < windowEnd; i++){
 				CommitsEvaluationWindow commitsEvaluationWindow = commitsEvaluationWindows.get(i);
-				if(commitsEvaluationWindow == null){
-					System.out.println("!!!");
-				}
+				
 				automatizationPercValues.addAll(commitsEvaluationWindow.getAutomatizationPercValues());
 				correctnessValues.addAll(commitsEvaluationWindow.getCorrectnessValues());
 				fMeasureValues.addAll(commitsEvaluationWindow.getfMeasureValues());
@@ -189,9 +188,10 @@ public class TxtReportWriter implements ReportWriter {
 		
 			writer = new FileWriter(new File(reportPath + eclipseProjectName + "\\" + reportNamePrefix + "Periodico.txt"), Boolean.TRUE);
 			writer.write("**************************************************************************************************************\n");
-			writer.write("TOTAIS APÓS " + validCommitIndex+1 + " COMMITS (Commit ID: " + commitId + "):\n");
+			writer.write("TOTAIS APÓS " + (validCommitIndex+1) + " COMMITS (Commit Date: " + (commit != null ? commit.getDate() : "ULTIMO") + "):\n");
 			writer.write("**************************************************************************************************************\n");
-			writer.write("*Métodos avaliados: " + totalEvaluatedMethods + "\n");
+			writer.write("*Métodos válidos: " + validMethodsCount + "\n");
+			writer.write("*Métodos avaliados(alguma sugestão fornecida): " + totalEvaluatedMethods + "\n");
 			writer.write("*Métodos onde alguma sugestão foi fornecida: " + suggestionsProvided + "\n");
 			writer.write("*Métodos onde uma sugestão foi aceita: " + suggestionsAccepted + "\n");
 			BigDecimal correctness = new BigDecimal(calculateMean(correctnessValues)).setScale(3, RoundingMode.CEILING);
@@ -213,7 +213,8 @@ public class TxtReportWriter implements ReportWriter {
 			
 			printTotalsPercRecommendationPeriodicReport(manualCodedMethods, automaticCodedMethods);
 			printChartInput(correctness, stdDevCorrectness, automatizationPerc, stdDevAutomatizationPerc, fMeasure, stdDevFMeasure, 
-					manualCodedMethods, automaticCodedMethods, usefulSuggestionCount, uselessSuggestionCount, windowBegin, windowEnd, realCommitIndex);
+					manualCodedMethods, automaticCodedMethods, usefulSuggestionCount, uselessSuggestionCount, windowBegin, windowEnd, realCommitIndex,
+					validMethodsCount, commit);
 			
 			
 		} catch (Exception e) {
@@ -297,8 +298,7 @@ public class TxtReportWriter implements ReportWriter {
 		 * 3 : suggestion index
 		 */
 		
-		int usefulSuggestionCount = 0;
-		int uselessSuggestionCount = 0;
+		HashMap<String, Boolean> methodsUsefulness = new HashMap<String, Boolean>();
 		
 		String[][] methodReport = new String[evaluatedMethod.getAddedMethods().size() + 1][4];
 		methodReport[0][0] = evaluatedMethod.getMethodCallsDiff().getNewMethodCalls().get(0);
@@ -320,11 +320,11 @@ public class TxtReportWriter implements ReportWriter {
 				
 				for(int k = 0; k < suggestion.getSuggestedMethods().size(); k++){
 					String suggestedMethod = suggestion.getSuggestedMethods().get(k);
-					boolean usefulSuggestion = false;
 					
+					boolean usefulMethod = false;
 					for (int j = i+1; j < methodReport.length; j++){
 						if(suggestedMethod.equals(methodReport[j][0])){
-							usefulSuggestion = true;
+							usefulMethod = true;
 							if(!METHOD_CALL_STATUS_AUTOMATIC.equals(methodReport[j][1])){
 								methodReport[j][1] = METHOD_CALL_STATUS_AUTOMATIC;
 								methodReport[j][2] = String.valueOf(i);
@@ -334,15 +334,17 @@ public class TxtReportWriter implements ReportWriter {
 						}
 					}
 					
-					if(usefulSuggestion){
-						usefulSuggestionCount++;
-					}else{
-						uselessSuggestionCount++;
+					//Analisa corretude
+					Boolean usefulness = methodsUsefulness.get(suggestedMethod);
+					if(usefulness == null){
+						methodsUsefulness.put(suggestedMethod, usefulMethod);
 					}
 				}
 			}
 		}
 		
+		
+		//Conta os métodos automatizados e exibe o suporte, a confiança, e a f-measure de cada sugestão aceita
 		int automaticCodedMethods = 0;
 		int manualCodedMethods = 0;
 		for (int j = 0; j < methodReport.length; j++) {
@@ -369,6 +371,26 @@ public class TxtReportWriter implements ReportWriter {
 					manualCodedMethods++;
 				}
 			}
+		}
+		
+		writer.write("Corretude/Utilidade dos Métodos\n");
+		
+		
+		int usefulSuggestionCount = 0;
+		int uselessSuggestionCount = 0;
+		//Conta a corretude das sugestões, de acordo com cada diferente método sugerido
+		for (String method : methodsUsefulness.keySet()) {
+			Boolean useful = methodsUsefulness.get(method);
+			writer.write("Método: " + method + "\n");
+			if(useful){
+				writer.write("Útil\n");
+				usefulSuggestionCount++;
+			}else{
+				writer.write("Inútil\n");
+				uselessSuggestionCount++;
+			}
+			
+			
 		}
 		
 		commitsEvaluationWindow.setAutomaticCodedMethods(commitsEvaluationWindow.getAutomaticCodedMethods() + automaticCodedMethods);
@@ -431,7 +453,7 @@ public class TxtReportWriter implements ReportWriter {
 	
 	private void printChartInput(BigDecimal correctness, BigDecimal stdDevCorrectness, BigDecimal automatizationPerc, BigDecimal stdDevAutomatizationPerc, 
 			BigDecimal fMeasure, BigDecimal stdDevFMeasure, Integer manualCodedMethods, Integer automaticCodedMethods,
-			Integer usefulSuggestionCount, Integer uselessSuggestionCount, int windowBegin, int windowEnd, Integer realCommitIndex) {
+			Integer usefulSuggestionCount, Integer uselessSuggestionCount, int windowBegin, int windowEnd, Integer realCommitIndex, Integer validMethodsCount, CommitNode commit) {
 		
 		FileWriter writer = null;
 		try {
@@ -439,11 +461,18 @@ public class TxtReportWriter implements ReportWriter {
 			writer = new FileWriter(new File(reportPath + eclipseProjectName + "\\" + reportNamePrefix + "Grafico.csv"), Boolean.TRUE);
 			
 			writer.write(windowBegin + " a " + windowEnd + ";");
-			writer.write(realCommitIndex + ";");
+			writer.write(validMethodsCount + ";");
+			writer.write(totalEvaluatedMethods + ";");
+			writer.write(realCommitIndex + " ("+ (commit != null ? commit.getDate() + "[" + commit.getId()  + "]": "ULTIMO") + ");");
 			writer.write(usefulSuggestionCount + ";");
 			writer.write(uselessSuggestionCount + ";");
 			
-			BigDecimal globalCorrectness = new BigDecimal(usefulSuggestionCount.doubleValue()/(uselessSuggestionCount+usefulSuggestionCount)).setScale(3, RoundingMode.CEILING);
+			BigDecimal globalCorrectness;
+			if(uselessSuggestionCount+usefulSuggestionCount == 0){
+				globalCorrectness = BigDecimal.ZERO;
+			}else{
+				globalCorrectness = new BigDecimal(usefulSuggestionCount.doubleValue()/(uselessSuggestionCount+usefulSuggestionCount)).setScale(3, RoundingMode.CEILING);
+			}
 			writer.write(globalCorrectness + ";");
 			
 			printSingleDataChartInputCSV("globalCorrectness", globalCorrectness.toString());
@@ -530,6 +559,8 @@ public class TxtReportWriter implements ReportWriter {
 			try {
 				writer = new FileWriter(chartInputFile);
 				writer.write("Janela de Commits;");
+				writer.write("Métodos Válidos;");
+				writer.write("Métodos Avaliados(Alguma Sugestão);");
 				writer.write("Índice real Commits;");
 				writer.write("Sugestões Úteis;");
 				writer.write("Sugestões Inúteis;");
