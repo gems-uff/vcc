@@ -10,11 +10,11 @@ public class Suggestion implements Comparable<Suggestion>
 
     private double             confidence;
 
-    private Collection<String> invocatedMethods = new ArrayList<String>();
+    private List<String> invocatedMethods = new ArrayList<String>();
 
     private List<String> suggestedMethods = new ArrayList<String>();
 
-    public Suggestion(Collection<String> invocatedMethods, List<String> suggestedMethods, double support, double confidence)
+    public Suggestion(List<String> invocatedMethods, List<String> suggestedMethods, double support, double confidence)
     {
         this.invocatedMethods = invocatedMethods;
         this.suggestedMethods = suggestedMethods;
@@ -64,12 +64,12 @@ public class Suggestion implements Comparable<Suggestion>
         }
     }
 
-    public Collection<String> getInvocatedMethods()
+    public List<String> getInvocatedMethods()
     {
         return invocatedMethods;
     }
 
-    public void setInvocatedMethods(Collection<String> invocatedMethods)
+    public void setInvocatedMethods(List<String> invocatedMethods)
     {
         this.invocatedMethods = invocatedMethods;
     }

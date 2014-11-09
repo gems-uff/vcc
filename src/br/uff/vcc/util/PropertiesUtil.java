@@ -64,4 +64,17 @@ public class PropertiesUtil {
 		}
 	}
 
+	public static Boolean readUseLastMethodAllSuggestionQueries() {
+		try {
+			Properties prop = loadProperties();
+			Boolean useLastMethodAllSuggestionQueries = Boolean.parseBoolean((String) prop.get("useLastMethodAllSuggestionQueries"));
+			return useLastMethodAllSuggestionQueries;
+		} catch (Exception e) {
+			e.printStackTrace();
+			System.out.println("Use Last Method All Suggestion Queries couldn't be read, using default value of false");
+			return Boolean.FALSE;
+		} finally {
+			closeProperties();
+		}
+	}
 }

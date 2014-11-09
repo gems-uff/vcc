@@ -62,6 +62,7 @@ import br.uff.vcc.util.Suggestion;
 
 public class SearchPatternsHandler extends AbstractHandler {
 	private static Integer maxSizeCombinations = PropertiesUtil.readMaxSizeCombinations();
+	private static Boolean useLastMethodAllSuggestionQueries = PropertiesUtil.readUseLastMethodAllSuggestionQueries();
 
 	private void searchPatterns() {
 
@@ -84,21 +85,38 @@ public class SearchPatternsHandler extends AbstractHandler {
 	public static ArrayList<Suggestion> searchInTree(ComparableList<String> methodNames) {
 		Set<Suggestion> suggestions = new HashSet<Suggestion>();
 		
+		String lastMethodCall = methodNames.get(methodNames.size()-1);
+		
 		MethodCallNode rootNode = GenerateTreeHandler.getRootNode();
 
 		//Query single methods before generate combinations in order to avoid generation of combinations with non frequent patterns
 		querySingleMethodCalls(methodNames, suggestions, rootNode);
 		
+		if(useLastMethodAllSuggestionQueries){
+			if(!methodNames.contains(lastMethodCall)){
+				return new ArrayList<Suggestion>();
+			}else{
+				List<Suggestion> suggestionList = new ArrayList<Suggestion>(suggestions);
+				for (int i = 0; i < suggestionList.size(); i++) {
+					List<String> invocatedMethods = suggestionList.get(i).getInvocatedMethods(); 
+					if (!lastMethodCall.equals(invocatedMethods.get(invocatedMethods.size()-1))){
+						suggestionList.remove(i);
+						i--;
+					}
+				}
+				suggestions = new HashSet<Suggestion>(suggestionList);
+			}
+		}
+		
 		ArrayList<ComparableList<String>> combinations = new ArrayList<ComparableList<String>>();
 		for (int i = 2; i <= Math.min(maxSizeCombinations, Math.min(methodNames.size(), rootNode.getMaxTreeDepth() - 1)); i++) {
-			combinations.addAll(generateCombinations(methodNames, i));
+			combinations.addAll(generateCombinations(methodNames, i, lastMethodCall));
 		}
 
 		Long initialTime = System.currentTimeMillis();
 
 		Collections.sort(combinations);
-
-
+		
 		for (int i = 0; i < combinations.size(); i++) {
 			Collection<Suggestion> methodSug = LerArvore.searchNodeInTree(combinations.get(i), rootNode);
 			if (methodSug != null)
@@ -106,9 +124,20 @@ public class SearchPatternsHandler extends AbstractHandler {
 			else
 				poda(combinations, combinations.get(i), i + 1);
 		}
-
+		
 		ArrayList<Suggestion> orderedSuggestions =  new ArrayList<Suggestion>(suggestions);
 		Collections.sort(orderedSuggestions);
+		
+		/*if(useLastMethodAllSuggestionQueries){
+			for (int i = 0; i < orderedSuggestions.size(); i++) {
+				List<String> invocatedMethods = orderedSuggestions.get(i).getInvocatedMethods(); 
+				if (!lastMethodCall.equals(invocatedMethods.get(invocatedMethods.size()-1))){
+					orderedSuggestions.remove(i);
+					i--;
+				}
+			}
+		}*/
+		
 		System.out.println("Tempo total: " + (System.currentTimeMillis() - initialTime) / 1000 + " segundos");
 		
 		return orderedSuggestions;
@@ -367,47 +396,89 @@ public class SearchPatternsHandler extends AbstractHandler {
 		return 0;
 	}
 
-	private static void poda(ArrayList<ComparableList<String>> combinations,
-			ComparableList<String> nonFrequencyList, int initialIndex) {
+	private static void poda(ArrayList<ComparableList<String>> combinations, ComparableList<String> nonFrequencyList, int initialIndex) {
 		for (int i = initialIndex; i < combinations.size(); i++) {
-			if (combinations.get(i).containsAll(nonFrequencyList)){
+			ComparableList<String> combination = combinations.get(i);
+			int index = -1;
+			for (Iterator<String> iterator = nonFrequencyList.iterator(); iterator.hasNext();) {
+				String methodName = (String) iterator.next();
+				index = combination.indexOf(methodName);
+				if(index == -1){
+					break;
+				}else{
+					combination = combination.subList(index+1, combination.size());
+				}
+			}
+			if(index != -1){
 				combinations.remove(i);
 				i--;
 			}
+			
 		}
 	}
 
-	private static Collection<ComparableList<String>> generateCombinations(
-			ComparableList<String> methodNames, int size) {
-		Collection<ComparableList<String>> combinations = new ArrayList<ComparableList<String>>();
+	private static ArrayList<ComparableList<String>> generateCombinations(
+			ComparableList<String> methodNames, int size, String lastMethodCall) {
+		Set<ComparableList<String>> combinations = new HashSet<ComparableList<String>>();
 
 		if (methodNames.size() == size) {
 			combinations.add(methodNames);
-			return combinations;
+			return new ArrayList<ComparableList<String>>(combinations);
 		}
 
 		if (size == 1) {
-			for (int i = 0; i < methodNames.size(); i++) {
+			if(useLastMethodAllSuggestionQueries){
+				//retorna apenas a combinacao com a ultima chamada de metodo
 				ComparableList<String> combination = new ComparableList<String>();
-				combination.add(methodNames.get(i));
+				combination.add(methodNames.get(methodNames.size()-1));
 				combinations.add(combination);
+			}else{
+				for (int i = 0; i < methodNames.size(); i++) {
+					ComparableList<String> combination = new ComparableList<String>();
+					combination.add(methodNames.get(i));
+					combinations.add(combination);
+				}
 			}
-			return combinations;
+			return new ArrayList<ComparableList<String>>(combinations);
 		}
 
-		for (int i = 0; i <= methodNames.size() - size; i++) {
-			ComparableList<String> methodsClone = (ComparableList<String>) methodNames.clone();
-			methodsClone.removeAll(methodNames.subList(0, i + 1));
-			Collection<ComparableList<String>> elementCombinations = generateCombinations(
-					methodsClone, size - 1);
-			for (Iterator<ComparableList<String>> iterator = elementCombinations
-					.iterator(); iterator.hasNext();) {
-				iterator.next().add(0, methodNames.get(i));
+		ComparableList<String> otherMethods = (ComparableList<String>) methodNames.clone();
+		
+		if(useLastMethodAllSuggestionQueries && lastMethodCall != null){
+			String fixElement = otherMethods.remove(otherMethods.size()-1);
+			
+			ArrayList<ComparableList<String>> otherMethodsCombination = generateCombinations(otherMethods, size - 1, null);
+			
+			for (ComparableList<String> combination : otherMethodsCombination) {
+				combination.add(fixElement);
 			}
-			combinations.addAll(elementCombinations);
+			
+			combinations.addAll(otherMethodsCombination);
+		}else{
+			for(int i = 0; i <= methodNames.size() - size; i++){
+	
+				String fixElement = otherMethods.remove(0);
+				//gera as combinacoes com os demais elementos da lista
+				ArrayList<ComparableList<String>> otherMethodsCombination = generateCombinations(otherMethods, size - 1, null);
+				
+				for (ComparableList<String> combination : otherMethodsCombination) {
+						combination.add(0, fixElement);
+				}
+				
+				combinations.addAll(otherMethodsCombination);
+			}
+			
 		}
+	/*		for (int i = 0; i < methodNames.size() - size; i++) {
+				ComparableList<String> otherMethodsClone = (ComparableList<String>) otherMethods.clone();
+				otherMethodsClone.remove(i);
+				
+				combinations.addAll(generateCombinations(otherMethodsClone, size - 1));
+			}
+		*/
+		
 
-		return combinations;
+		return new ArrayList<ComparableList<String>>(combinations);
 	}
 
 	private static CompilationUnit parse(ICompilationUnit unit) {
