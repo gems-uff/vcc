@@ -13,6 +13,10 @@ import org.eclipse.jgit.lib.Repository;
 import org.eclipse.jgit.revwalk.RevCommit;
 import org.eclipse.jgit.revwalk.RevWalk;
 import org.eclipse.jgit.treewalk.TreeWalk;
+import org.eclipse.jgit.treewalk.filter.AndTreeFilter;
+import org.eclipse.jgit.treewalk.filter.OrTreeFilter;
+import org.eclipse.jgit.treewalk.filter.PathFilter;
+import org.eclipse.jgit.treewalk.filter.TreeFilter;
 import org.eclipse.jgit.util.io.DisabledOutputStream;
 
  public class CommitNode {
@@ -81,7 +85,15 @@ import org.eclipse.jgit.util.io.DisabledOutputStream;
 				
 				for (DiffEntry diff : diffs) {
 					
-					if(!diff.getNewPath().startsWith(innerProjectName)){
+					Boolean pathFromSelectedProjects = Boolean.FALSE; 
+					String[] projectNames = innerProjectName.split(";");
+					for (int i = 0; i < projectNames.length; i++) {
+						pathFromSelectedProjects = diff.getNewPath().startsWith(projectNames[i]);
+						if(pathFromSelectedProjects){
+							break;
+						}
+					}
+					if(!pathFromSelectedProjects){
 						continue;
 					}
 					

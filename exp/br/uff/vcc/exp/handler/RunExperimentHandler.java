@@ -1,5 +1,7 @@
 package br.uff.vcc.exp.handler;
 
+import java.util.List;
+
 import org.eclipse.core.commands.AbstractHandler;
 import org.eclipse.core.commands.ExecutionEvent;
 import org.eclipse.core.commands.ExecutionException;
@@ -10,34 +12,6 @@ import br.uff.vcc.exp.report.TxtReportWriter;
 
 public class RunExperimentHandler extends AbstractHandler {
 
-	private void sl4j() {
-
-		Long timeIni = System.currentTimeMillis();
-		String repositoryPath = "C:\\Users\\Luiz\\git\\commons-codec\\";
-		String headCommit = "c84250ad41a943c2d998f0f774d6044a4a1e1b45";
-		String unitName = "/commons-codec/src/java/org/slf4j/helpers/BasicMarker.java";
-		String eclipseProjectName = "slf4j-api";
-		String innerProjectName = "slf4j-api";
-		Boolean evaluateOnlyNewMethods = Boolean.TRUE;
-		Integer periodicReportInterval = 5;
-		
-		//Integer[] amountSuggestionsProvidedPerQueryArray = {1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50};
-		
-		for(int i = 1; i <= 20; i++){
-			Integer amountSuggestionsProvidedPerQuery = i;
-			
-			ReportWriter writer = new TxtReportWriter(eclipseProjectName, amountSuggestionsProvidedPerQuery + "_");
-		
-			RepositoryEvaluation r= new RepositoryEvaluation(repositoryPath, headCommit, innerProjectName, unitName, eclipseProjectName, writer, evaluateOnlyNewMethods, periodicReportInterval, amountSuggestionsProvidedPerQuery, null, null);
-			try {
-				r.evaluateRepository();
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-		}
-		System.out.println(System.currentTimeMillis() - timeIni);
-	}
-	
 	private void junit() {
 
 		Long timeIni = System.currentTimeMillis();
@@ -49,36 +23,34 @@ public class RunExperimentHandler extends AbstractHandler {
 		Boolean evaluateOnlyNewMethods = Boolean.TRUE;
 		Integer periodicReportInterval = 5;
 		
-		Integer[] fixedCommitEvaluationWindow = {321,375,407,422,441,460,514,543,633,659,680,694,711};
+		List<Integer> fixedEvaluatedCommitIndexes = null;
 		
-		//Integer[] amountSuggestionsProvidedPerQueryArray = {1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50};
-		
-		Double[] confidenceThresholds = {0D, .1D, .2D, .3D, .4D, .5D, .6D, .7D, .8D, .9D, 1D};
+		/*Double[] confidenceThresholds = {0D, .1D, .2D, .3D, .4D, .5D, .6D, .7D, .8D, .9D, 1D};
 		for(int i = 0; i < confidenceThresholds.length; i++){
 			Double confidenceThreshold = confidenceThresholds[i];
 			
 			ReportWriter writer = new TxtReportWriter(eclipseProjectName, confidenceThreshold + "_");
 		
-			RepositoryEvaluation r= new RepositoryEvaluation(repositoryPath, headCommit, innerProjectName, unitName, eclipseProjectName, writer, evaluateOnlyNewMethods, periodicReportInterval, -1, confidenceThreshold, fixedCommitEvaluationWindow);
+			RepositoryEvaluation r= new RepositoryEvaluation(repositoryPath, headCommit, innerProjectName, unitName, eclipseProjectName, writer, evaluateOnlyNewMethods, periodicReportInterval, 20, confidenceThreshold, fixedEvaluatedCommitIndexes);
 			try {
-				r.evaluateRepository();
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-		}
-		
-		/*for(int i = 1; i <= 20; i++){
-			Integer amountSuggestionsProvidedPerQuery = i;
-			
-			ReportWriter writer = new TxtReportWriter(eclipseProjectName, amountSuggestionsProvidedPerQuery + "_");
-		
-			RepositoryEvaluation r= new RepositoryEvaluation(repositoryPath, headCommit, innerProjectName, unitName, eclipseProjectName, writer, evaluateOnlyNewMethods, periodicReportInterval, amountSuggestionsProvidedPerQuery, null, null);
-			try {
-				r.evaluateRepository();
+				fixedEvaluatedCommitIndexes = r.evaluateRepository();
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
 		}*/
+		
+		for(int i = 1; i <= 20; i++){
+			Integer amountSuggestionsProvidedPerQuery = i;
+			
+			ReportWriter writer = new TxtReportWriter(eclipseProjectName, amountSuggestionsProvidedPerQuery + "_");
+		
+			RepositoryEvaluation r= new RepositoryEvaluation(repositoryPath, headCommit, innerProjectName, unitName, eclipseProjectName, writer, evaluateOnlyNewMethods, periodicReportInterval, amountSuggestionsProvidedPerQuery, 0.1, fixedEvaluatedCommitIndexes);
+			try {
+				fixedEvaluatedCommitIndexes = r.evaluateRepository();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
 		System.out.println(System.currentTimeMillis() - timeIni);
 	}
 	
@@ -93,7 +65,7 @@ public class RunExperimentHandler extends AbstractHandler {
 		Boolean evaluateOnlyNewMethods = Boolean.TRUE;
 		Integer periodicReportInterval = 5;
 		
-		//Integer[] amountSuggestionsProvidedPerQueryArray = {1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50};
+		List<Integer> fixedEvaluatedCommitIndexes = null;
 		
 		Double[] confidenceThresholds = {0D, .1D, .2D, .3D, .4D, .5D, .6D, .7D, .8D, .9D, 1D};
 		for(int i = 0; i < confidenceThresholds.length; i++){
@@ -101,9 +73,9 @@ public class RunExperimentHandler extends AbstractHandler {
 			
 			ReportWriter writer = new TxtReportWriter(eclipseProjectName, confidenceThreshold + "_");
 		
-			RepositoryEvaluation r= new RepositoryEvaluation(repositoryPath, headCommit, innerProjectName, unitName, eclipseProjectName, writer, evaluateOnlyNewMethods, periodicReportInterval, -1, confidenceThreshold, null);
+			RepositoryEvaluation r= new RepositoryEvaluation(repositoryPath, headCommit, innerProjectName, unitName, eclipseProjectName, writer, evaluateOnlyNewMethods, periodicReportInterval, -1, confidenceThreshold, fixedEvaluatedCommitIndexes);
 			try {
-				r.evaluateRepository();
+				fixedEvaluatedCommitIndexes = r.evaluateRepository();
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
@@ -135,6 +107,7 @@ public class RunExperimentHandler extends AbstractHandler {
 		Boolean evaluateOnlyNewMethods = Boolean.TRUE;
 		Integer periodicReportInterval = 5;
 		
+		List<Integer> fixedEvaluatedCommitIndexes = null;
 
 		Double[] confidenceThresholds = {0D, .1D, .2D, .3D, .4D, .5D, .6D, .7D, .8D, .9D, 1D};
 		for(int i = 0; i < confidenceThresholds.length; i++){
@@ -142,9 +115,9 @@ public class RunExperimentHandler extends AbstractHandler {
 			
 			ReportWriter writer = new TxtReportWriter(eclipseProjectName, confidenceThreshold + "_");
 		
-			RepositoryEvaluation r= new RepositoryEvaluation(repositoryPath, headCommit, innerProjectName, unitName, eclipseProjectName, writer, evaluateOnlyNewMethods, periodicReportInterval, 1, confidenceThreshold, null);
+			RepositoryEvaluation r= new RepositoryEvaluation(repositoryPath, headCommit, innerProjectName, unitName, eclipseProjectName, writer, evaluateOnlyNewMethods, periodicReportInterval, 1, confidenceThreshold, fixedEvaluatedCommitIndexes);
 			try {
-				r.evaluateRepository();
+				fixedEvaluatedCommitIndexes = r.evaluateRepository();
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
@@ -166,37 +139,51 @@ public class RunExperimentHandler extends AbstractHandler {
 		System.out.println(System.currentTimeMillis() - timeIni);
 	}
 	
-	private void commonsCodec() {
+	private void rxjava() {
 
 		Long timeIni = System.currentTimeMillis();
-		String repositoryPath = "C:\\Users\\Luiz\\git\\commons-codec\\";
-		String headCommit = "c84250ad41a943c2d998f0f774d6044a4a1e1b45";
-		String unitName = "/commons-codec/src/java/org/apache/commons/codec/BinaryDecoder.java";
-		String eclipseProjectName = "commons-codec";
-		String innerProjectName = "";
+		String repositoryPath = "C:\\Users\\Luiz\\git\\RxJava\\";
+		String headCommit = "68d7600c39f75982ae9074c8deff7f3779ea2e58";
+		String unitName = "/rxjava-core/src/main/java/rx/Notification.java";
+		String eclipseProjectName = "rxjava-core";
+		String innerProjectName = "rxjava-core/src/main";
 		Boolean evaluateOnlyNewMethods = Boolean.TRUE;
 		Integer periodicReportInterval = 5;
 		
-
+		List<Integer> fixedEvaluatedCommitIndexes = null;
+		
 		Double[] confidenceThresholds = {0D, .1D, .2D, .3D, .4D, .5D, .6D, .7D, .8D, .9D, 1D};
 		for(int i = 0; i < confidenceThresholds.length; i++){
 			Double confidenceThreshold = confidenceThresholds[i];
 			
-			ReportWriter writer = new TxtReportWriter(eclipseProjectName, confidenceThreshold + "_");
+			ReportWriter writer = new TxtReportWriter(eclipseProjectName + "\\limite confiança", confidenceThreshold + "_");
 		
-			RepositoryEvaluation r= new RepositoryEvaluation(repositoryPath, headCommit, innerProjectName, unitName, eclipseProjectName, writer, evaluateOnlyNewMethods, periodicReportInterval, 1, confidenceThreshold, null);
+			RepositoryEvaluation r= new RepositoryEvaluation(repositoryPath, headCommit, innerProjectName, unitName, eclipseProjectName, writer, evaluateOnlyNewMethods, periodicReportInterval, -1, confidenceThreshold, fixedEvaluatedCommitIndexes);
 			try {
-				r.evaluateRepository();
+				fixedEvaluatedCommitIndexes = r.evaluateRepository();
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
 		}
-		//Integer[] amountSuggestionsProvidedPerQueryArray = {1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50};
 		
-		/*for(int i = 1; i <= 20; i++){
+		
+		for(int i = 0; i < confidenceThresholds.length; i++){
+			Double confidenceThreshold = confidenceThresholds[i];
+			
+			ReportWriter writer = new TxtReportWriter(eclipseProjectName + "\\limite de confiança com 20 sugestões", confidenceThreshold + "_");
+		
+			RepositoryEvaluation r= new RepositoryEvaluation(repositoryPath, headCommit, innerProjectName, unitName, eclipseProjectName, writer, evaluateOnlyNewMethods, periodicReportInterval, 20, confidenceThreshold, fixedEvaluatedCommitIndexes);
+			try {
+				fixedEvaluatedCommitIndexes = r.evaluateRepository();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		
+		for(int i = 1; i <= 20; i++){
 			Integer amountSuggestionsProvidedPerQuery = i;
 			
-			ReportWriter writer = new TxtReportWriter(eclipseProjectName, amountSuggestionsProvidedPerQuery + "_");
+			ReportWriter writer = new TxtReportWriter(eclipseProjectName + "\\limite de quantidade de sugestoes", amountSuggestionsProvidedPerQuery + "_");
 		
 			RepositoryEvaluation r= new RepositoryEvaluation(repositoryPath, headCommit, innerProjectName, unitName, eclipseProjectName, writer, evaluateOnlyNewMethods, periodicReportInterval, amountSuggestionsProvidedPerQuery, null, null);
 			try {
@@ -204,17 +191,113 @@ public class RunExperimentHandler extends AbstractHandler {
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-		}*/
+		}
+		
+		for(int i = 1; i <= 20; i++){
+			Integer amountSuggestionsProvidedPerQuery = i;
+			
+			ReportWriter writer = new TxtReportWriter(eclipseProjectName + "\\limite de quantidade de sugestoes com confiança 0.2",  amountSuggestionsProvidedPerQuery + "_");
+		
+			RepositoryEvaluation r= new RepositoryEvaluation(repositoryPath, headCommit, innerProjectName, unitName, eclipseProjectName, writer, evaluateOnlyNewMethods, periodicReportInterval, amountSuggestionsProvidedPerQuery, .2D, null);
+			try {
+				r.evaluateRepository();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
 		System.out.println(System.currentTimeMillis() - timeIni);
+	}
+	
+	private void guava() {
+
+		Long timeIni = System.currentTimeMillis();
+		String repositoryPath = "C:\\Users\\Luiz\\git\\guava\\";
+		String headCommit = "8e98c0f9af588a9a6458a68c2d9ddba5452d4f64";
+		String unitName = "/guava/src/com/google/common/annotations/Beta.java";
+		String eclipseProjectName = "guava";
+		String innerProjectName = "guava/;guava-gwt/";
+		Boolean evaluateOnlyNewMethods = Boolean.TRUE;
+		Integer periodicReportInterval = 5;
+		
+		List<Integer> fixedEvaluatedCommitIndexes = null;
+		
+		Double[] confidenceThresholds = {0D, .1D, .2D, .3D, .4D, .5D, .6D, .7D, .8D, .9D, 1D};
+		
+		for(int i = 0; i < confidenceThresholds.length; i++){
+			Double confidenceThreshold = confidenceThresholds[i];
+			
+			ReportWriter writer = new TxtReportWriter(eclipseProjectName + "\\limite de confiança com 2 sugestões", confidenceThreshold + "_");
+		
+			RepositoryEvaluation r= new RepositoryEvaluation(repositoryPath, headCommit, innerProjectName, unitName, eclipseProjectName, writer, evaluateOnlyNewMethods, periodicReportInterval, 2, confidenceThreshold, fixedEvaluatedCommitIndexes);
+			try {
+				fixedEvaluatedCommitIndexes = r.evaluateRepository();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		
+		/*for(int i = 0; i < confidenceThresholds.length; i++){
+			Double confidenceThreshold = confidenceThresholds[i];
+			
+			ReportWriter writer = new TxtReportWriter(eclipseProjectName + "\\limite confiança", confidenceThreshold + "_");
+		
+			RepositoryEvaluation r= new RepositoryEvaluation(repositoryPath, headCommit, innerProjectName, unitName, eclipseProjectName, writer, evaluateOnlyNewMethods, periodicReportInterval, -1, confidenceThreshold, fixedEvaluatedCommitIndexes);
+			try {
+				fixedEvaluatedCommitIndexes = r.evaluateRepository();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		
+		
+		for(int i = 0; i < confidenceThresholds.length; i++){
+			Double confidenceThreshold = confidenceThresholds[i];
+			
+			ReportWriter writer = new TxtReportWriter(eclipseProjectName + "\\limite de confiança com 20 sugestões", confidenceThreshold + "_");
+		
+			RepositoryEvaluation r= new RepositoryEvaluation(repositoryPath, headCommit, innerProjectName, unitName, eclipseProjectName, writer, evaluateOnlyNewMethods, periodicReportInterval, 20, confidenceThreshold, fixedEvaluatedCommitIndexes);
+			try {
+				fixedEvaluatedCommitIndexes = r.evaluateRepository();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		
+		for(int i = 1; i <= 20; i++){
+			Integer amountSuggestionsProvidedPerQuery = i;
+			
+			ReportWriter writer = new TxtReportWriter(eclipseProjectName + "\\limite de quantidade de sugestoes", amountSuggestionsProvidedPerQuery + "_");
+		
+			RepositoryEvaluation r= new RepositoryEvaluation(repositoryPath, headCommit, innerProjectName, unitName, eclipseProjectName, writer, evaluateOnlyNewMethods, periodicReportInterval, amountSuggestionsProvidedPerQuery, null, null);
+			try {
+				r.evaluateRepository();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		
+		for(int i = 1; i <= 20; i++){
+			Integer amountSuggestionsProvidedPerQuery = i;
+			
+			ReportWriter writer = new TxtReportWriter(eclipseProjectName + "\\limite de quantidade de sugestoes com confiança 1",  amountSuggestionsProvidedPerQuery + "_");
+		
+			RepositoryEvaluation r= new RepositoryEvaluation(repositoryPath, headCommit, innerProjectName, unitName, eclipseProjectName, writer, evaluateOnlyNewMethods, periodicReportInterval, amountSuggestionsProvidedPerQuery, 1D, null);
+			try {
+				r.evaluateRepository();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		System.out.println(System.currentTimeMillis() - timeIni);*/
 	}
 
 	@Override
 	public Object execute(ExecutionEvent arg0) throws ExecutionException {
-		//sl4j();
 		//springSecurity();
-		junit();
+		//junit();
 		//commonsIo();
-		//commonsCodec();
+		rxjava();
+		//guava();
 		
 		return null;
 

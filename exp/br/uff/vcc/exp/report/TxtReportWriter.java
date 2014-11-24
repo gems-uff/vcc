@@ -25,7 +25,7 @@ public class TxtReportWriter implements ReportWriter {
 
 	protected static final String reportPath = "C:\\VCC\\relatorios\\";
 	protected String reportNamePrefix;
-	protected String eclipseProjectName;
+	protected String projectEvaluationFolder;
 	
 	private Integer suggestionsProvided = 0;
 	private Integer suggestionsAccepted = 0;
@@ -37,17 +37,17 @@ public class TxtReportWriter implements ReportWriter {
 	//Percentual de automatização vs Corretude
 	private Map<Integer, CommitsEvaluationWindow> commitsEvaluationWindows;
 	
-	public TxtReportWriter(String eclipseProjectName, String reportNamePrefix) {
-		this.eclipseProjectName = eclipseProjectName;
+	public TxtReportWriter(String projectEvaluationFolder, String reportNamePrefix) {
+		this.projectEvaluationFolder = projectEvaluationFolder;
 		this.reportNamePrefix = reportNamePrefix;
 		
 		acceptedSuggestionIndexes = new ArrayList<Integer>();
 		commitsEvaluationWindows = new HashMap<Integer, CommitsEvaluationWindow>();
 		
-		new File(reportPath + eclipseProjectName + "\\" + reportNamePrefix + "Completo.txt").delete();
-		new File(reportPath + eclipseProjectName + "\\" + reportNamePrefix + "Periodico.txt").delete();
-		new File(reportPath + eclipseProjectName + "\\" + reportNamePrefix + "PercRecomendacao.txt").delete();
-		new File(reportPath + eclipseProjectName + "\\" + reportNamePrefix + "Grafico.txt").delete();
+		new File(reportPath + projectEvaluationFolder + "\\" + reportNamePrefix + "Completo.txt").delete();
+		new File(reportPath + projectEvaluationFolder + "\\" + reportNamePrefix + "Periodico.txt").delete();
+		new File(reportPath + projectEvaluationFolder + "\\" + reportNamePrefix + "PercRecomendacao.txt").delete();
+		new File(reportPath + projectEvaluationFolder + "\\" + reportNamePrefix + "Grafico.txt").delete();
 	}
 
 	/**
@@ -87,7 +87,7 @@ public class TxtReportWriter implements ReportWriter {
 	public void printFullReport(List<EvaluatedMethod> evaluatedMethods) {
 		FileWriter writer = null;
 		try {
-			writer = new FileWriter(new File(reportPath + eclipseProjectName + "\\" + reportNamePrefix + "Completo.txt"), Boolean.TRUE);
+			writer = new FileWriter(new File(reportPath + projectEvaluationFolder + "\\" + reportNamePrefix + "Completo.txt"), Boolean.TRUE);
 		
 			for (EvaluatedMethod evaluatedMethod : evaluatedMethods) {
 				totalEvaluatedMethods++;
@@ -121,7 +121,7 @@ public class TxtReportWriter implements ReportWriter {
 	public void printAutomatizationPercAndCorrectnessReport(List<EvaluatedMethod> evaluatedMethods, int commitIndex) {
 		FileWriter writer = null;
 		try {
-			writer = new FileWriter(new File(reportPath + eclipseProjectName + "\\" + reportNamePrefix + "PercRecomendacao.txt"), Boolean.TRUE);
+			writer = new FileWriter(new File(reportPath + projectEvaluationFolder + "\\" + reportNamePrefix + "PercRecomendacao.txt"), Boolean.TRUE);
 		
 			CommitsEvaluationWindow commitsEvaluationWindow = new CommitsEvaluationWindow();
 			
@@ -186,7 +186,7 @@ public class TxtReportWriter implements ReportWriter {
 			}
 			
 		
-			writer = new FileWriter(new File(reportPath + eclipseProjectName + "\\" + reportNamePrefix + "Periodico.txt"), Boolean.TRUE);
+			writer = new FileWriter(new File(reportPath + projectEvaluationFolder + "\\" + reportNamePrefix + "Periodico.txt"), Boolean.TRUE);
 			writer.write("**************************************************************************************************************\n");
 			writer.write("TOTAIS APÓS " + (validCommitIndex+1) + " COMMITS (Commit Date: " + (commit != null ? commit.getDate() : "ULTIMO") + "):\n");
 			writer.write("**************************************************************************************************************\n");
@@ -427,7 +427,7 @@ public class TxtReportWriter implements ReportWriter {
 		
 		FileWriter writer = null;
 		try {
-			writer = new FileWriter(new File(reportPath + eclipseProjectName + "\\" + reportNamePrefix + "Periodico.txt"), Boolean.TRUE);
+			writer = new FileWriter(new File(reportPath + projectEvaluationFolder + "\\" + reportNamePrefix + "Periodico.txt"), Boolean.TRUE);
 			writer.write("**************************************************************************************************************\n");
 			writer.write("*Métodos codificados: " + totalCodedMethods + "\n");
 			writer.write("*Métodos codificados automaticamente: " + automaticCodedMethods + "\n");
@@ -458,7 +458,7 @@ public class TxtReportWriter implements ReportWriter {
 		FileWriter writer = null;
 		try {
 			printChartInputHeader();
-			writer = new FileWriter(new File(reportPath + eclipseProjectName + "\\" + reportNamePrefix + "Grafico.csv"), Boolean.TRUE);
+			writer = new FileWriter(new File(reportPath + projectEvaluationFolder + "\\" + reportNamePrefix + "Grafico.csv"), Boolean.TRUE);
 			
 			writer.write(windowBegin + " a " + windowEnd + ";");
 			writer.write(validMethodsCount + ";");
@@ -526,7 +526,7 @@ public class TxtReportWriter implements ReportWriter {
 	}
 	
 	private void printSingleDataChartInputCSV(String fileName, String data){
-		File singleDataChartInputFile = new File(reportPath + eclipseProjectName + "\\" +  fileName + ".csv");
+		File singleDataChartInputFile = new File(reportPath + projectEvaluationFolder + "\\" +  fileName + ".csv");
 		String lastLine = tail(singleDataChartInputFile);
 		
 		FileWriter writer = null;
@@ -553,7 +553,7 @@ public class TxtReportWriter implements ReportWriter {
 	}
 
 	private void printChartInputHeader() {
-		File chartInputFile = new File(reportPath + eclipseProjectName + "\\" + reportNamePrefix + "Grafico.csv");
+		File chartInputFile = new File(reportPath + projectEvaluationFolder + "\\" + reportNamePrefix + "Grafico.csv");
 		if(!chartInputFile.exists()){
 			FileWriter writer = null;
 			try {

@@ -16,6 +16,7 @@ import org.eclipse.jgit.revwalk.RevWalk;
 import org.eclipse.jgit.revwalk.RevWalkUtils;
 import org.eclipse.jgit.revwalk.filter.RevFilter;
 import org.eclipse.jgit.treewalk.filter.AndTreeFilter;
+import org.eclipse.jgit.treewalk.filter.OrTreeFilter;
 import org.eclipse.jgit.treewalk.filter.PathFilter;
 import org.eclipse.jgit.treewalk.filter.TreeFilter;
 
@@ -42,9 +43,9 @@ public class RepositoryEvaluation {
 	private Integer periodicReportInterval;
 	private Integer amountSuggestionsProvidedPerQuery;
 	private Double confidenceThreshold;
-	private Integer[] fixedCommitEvaluationWindow;
+	private List<Integer> fixedEvaluatedCommitIndexes;
 	
-	public RepositoryEvaluation(String location, String headCommit, String innerProjectName, String unitName, String eclipseProjectName, ReportWriter reportWriter, Boolean evaluateOnlyNewMethods, Integer periodicReportInterval, Integer amountSuggestionsProvidedPerQuery, Double confidenceThreshold, Integer[] fixedCommitEvaluationWindow) {
+	public RepositoryEvaluation(String location, String headCommit, String innerProjectName, String unitName, String eclipseProjectName, ReportWriter reportWriter, Boolean evaluateOnlyNewMethods, Integer periodicReportInterval, Integer amountSuggestionsProvidedPerQuery, Double confidenceThreshold, List<Integer> fixedEvaluatedCommitIndexes) {
 		this.gitRepositoryPath = location;
 		this.headCommit = headCommit;
 		this.innerProjectName = innerProjectName;
@@ -55,7 +56,7 @@ public class RepositoryEvaluation {
 		this.periodicReportInterval = periodicReportInterval;
 		this.amountSuggestionsProvidedPerQuery = amountSuggestionsProvidedPerQuery;
 		this.confidenceThreshold = confidenceThreshold;
-		this.fixedCommitEvaluationWindow = fixedCommitEvaluationWindow;
+		this.fixedEvaluatedCommitIndexes = fixedEvaluatedCommitIndexes;
 		
 		try {
 			gitRepository = new FileRepository(new File(gitRepositoryPath + ".git"));
@@ -64,24 +65,39 @@ public class RepositoryEvaluation {
 		}
 	}
 	
-	public void evaluateRepository() throws Exception{
-		evaluateCommits();
+	public List<Integer> evaluateRepository() throws Exception{
+		return evaluateCommits();
 		
 	}
 	
-	private void evaluateCommits() throws Exception{
+	private List<Integer> evaluateCommits() throws Exception{
 		RevWalk rw = new RevWalk(gitRepository);
 		if(innerProjectName != null && !"".equals(innerProjectName)){
-			rw.setTreeFilter(AndTreeFilter.create(PathFilter.create(innerProjectName), TreeFilter.ANY_DIFF));
+			if(innerProjectName.indexOf(";") == -1){
+				rw.setTreeFilter(AndTreeFilter.create(PathFilter.create(innerProjectName), TreeFilter.ANY_DIFF));
+			}else{
+				String[] projectNames = innerProjectName.split(";");
+				TreeFilter t = null;
+				
+				for (int i = 0; i < projectNames.length; i++) {
+					if(t == null){
+						t = PathFilter.create(projectNames[i]);
+					}else{
+						t = OrTreeFilter.create(PathFilter.create(projectNames[i]), t);
+					}
+				}
+				
+				rw.setTreeFilter(AndTreeFilter.create(t, TreeFilter.ANY_DIFF));
+			}
 		}
 		
 		rw.setRevFilter(RevFilter.NO_MERGES);
 		
+		List<Integer> fixedEvaluatedCommitIndexesReturn = new ArrayList<Integer>();
+		
 		AnyObjectId headId, targetCommitId;
 		int validCommitIndex = 0;
 		int validMethodsCount = 0;
-		
-		int fixedCommitEvaluationWindowIndex = 0;
 		
 		try {
 			headId = gitRepository.resolve(Constants.MASTER);
@@ -111,23 +127,22 @@ public class RepositoryEvaluation {
 					}
 				}
 				
-				if(evaluatedMethods.size() == 0){
+				if(evaluatedMethods.size() == 0 &&
+						(fixedEvaluatedCommitIndexes == null || !fixedEvaluatedCommitIndexes.contains(Integer.valueOf(i)))){
 					continue;
+				}
+				
+				if(fixedEvaluatedCommitIndexes == null){
+					fixedEvaluatedCommitIndexesReturn.add(Integer.valueOf(i));
 				}
 				
 				reportWriter.printFullReport(evaluatedMethods);
 				reportWriter.printAutomatizationPercAndCorrectnessReport(evaluatedMethods, validCommitIndex);
 				
-				if(fixedCommitEvaluationWindow == null){
-					if((validCommitIndex+1 >= periodicReportInterval*10) && ((validCommitIndex+1) % periodicReportInterval == 0)){
-						reportWriter.printTotalsPeriodicReport(validCommitIndex, commit, periodicReportInterval*10, i, validMethodsCount);
-					}
-				}else{
-					if(fixedCommitEvaluationWindow.length < fixedCommitEvaluationWindowIndex &&
-							fixedCommitEvaluationWindow[fixedCommitEvaluationWindowIndex] == i){
-						reportWriter.printTotalsPeriodicReport(validCommitIndex, commit, periodicReportInterval*10, i, validMethodsCount);
-					}
+				if((validCommitIndex+1 >= periodicReportInterval*10) && ((validCommitIndex+1) % periodicReportInterval == 0)){
+					reportWriter.printTotalsPeriodicReport(validCommitIndex, commit, periodicReportInterval*10, i, validMethodsCount);
 				}
+				
 				evaluatedMethods = null;
 				validCommitIndex++;
 			}
@@ -137,6 +152,8 @@ public class RepositoryEvaluation {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+		
+		return fixedEvaluatedCommitIndexes == null ? fixedEvaluatedCommitIndexesReturn : fixedEvaluatedCommitIndexes;
 
 	}
 	
