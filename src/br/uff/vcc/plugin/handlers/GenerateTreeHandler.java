@@ -314,10 +314,18 @@ public class GenerateTreeHandler extends AbstractHandler {
 								continue;
 							
 							out.write("Métodos invocados: \n");
+							//Imprimindo lista de métodos chamados
+							MethodInvocationVisitor methodInvocationVisitor = new MethodInvocationVisitor();
+							methodBody.accept(methodInvocationVisitor);
+							List<MethodInvocation> methodInvocations = methodInvocationVisitor.getMethods();
+							for (MethodInvocation methodInvocation : methodInvocations) {
+								out.write(getCompleteMethodName(methodInvocation.resolveMethodBinding()) + "\n");
+							}
+							
 							List<List<Integer>> methodsList = new ArrayList<List<Integer>>();
 							methodsList.add(new ArrayList<Integer>());
 							visitMethodInvocations(methodBody, methodsList, 0);
-							
+
 							for (int j = 0; j < methodsList.size(); j++) {
 								List<Integer> transaction = methodsList.get(j);
 								// imprime o numero da transação
@@ -391,7 +399,6 @@ public class GenerateTreeHandler extends AbstractHandler {
 		if(tryStatements.size() > 0){
 			nextTryStatement = tryStatements.get(indTryStatements);
 		}
-		
 		int indSwitchStatements = 0;
 		CustomSwitchStatement nextSwitchStatement = null;
 		if(switchStatements.size() > 0){
@@ -405,7 +412,7 @@ public class GenerateTreeHandler extends AbstractHandler {
 			Integer methodId = getMethodCallId(methodInvocation);
 			if((nextIfStatement == null || (methodInvocation.getStartPosition() < nextIfStatement.getThenStatement().getStartPosition()))
 				&& (nextTryStatement == null || (methodInvocation.getStartPosition() < nextTryStatement.getStartPosition()))
-				&& (nextSwitchStatement == null || (methodInvocation.getStartPosition() < nextSwitchStatement.getSwitchStatement().getStartPosition()))){
+				&& (nextSwitchStatement == null || (methodInvocation.getStartPosition() < nextSwitchStatement.getCaseStatements().get(0).getStatements().get(0).getStartPosition()))){
 				for (int j = methodListIndex; j < methodsList.size(); j++) {
 					List<Integer> list = methodsList.get(j);
 					list.add(methodId);
@@ -414,7 +421,7 @@ public class GenerateTreeHandler extends AbstractHandler {
 				i--;
 				if(nextTryStatement != null && 
 						(nextIfStatement == null || nextTryStatement.getStartPosition() < nextIfStatement.getStartPosition()) &&
-						(nextSwitchStatement == null || nextTryStatement.getStartPosition() < nextSwitchStatement.getSwitchStatement().getStartPosition())){
+						(nextSwitchStatement == null || nextTryStatement.getStartPosition() < nextSwitchStatement.getCaseStatements().get(0).getStatements().get(0).getStartPosition())){
 					parsedMethods = visitMethodInvocations(nextTryStatement.getBody(), methodsList, methodListIndex);
 					
 					List<List<Integer>> latestCatchesMethodsList = new ArrayList<List<Integer>>();
@@ -456,7 +463,7 @@ public class GenerateTreeHandler extends AbstractHandler {
 						nextTryStatement = null;
 					}
 				}else if(nextIfStatement != null && 
-						(nextSwitchStatement == null || nextIfStatement.getStartPosition() < nextSwitchStatement.getSwitchStatement().getStartPosition())){
+						(nextSwitchStatement == null || nextIfStatement.getStartPosition() < nextSwitchStatement.getCaseStatements().get(0).getStatements().get(0).getStartPosition())){
 					List<List<Integer>> elseMethodsList = new ArrayList<List<Integer>>();
 					for (int j = methodListIndex; j < methodsList.size(); j++){
 						//cloning object
@@ -475,6 +482,8 @@ public class GenerateTreeHandler extends AbstractHandler {
 						nextIfStatement = null;
 					}
 				}else{
+					
+					parsedMethods = 0;
 					
 					List<List<Integer>> latestCasesMethodsList = new ArrayList<List<Integer>>();
 					for (int k = methodListIndex; k < methodsList.size(); k++){
@@ -570,7 +579,7 @@ public class GenerateTreeHandler extends AbstractHandler {
 					for(int j = indSwitchStatements; j < switchStatements.size(); j++){
 						CustomSwitchStatement switchStatement = switchStatements.get(j);
 						MethodInvocation nextMethodInvocation = methodInvocations.get(i+1);
-						if(switchStatement != null && (nextMethodInvocation.getStartPosition() > switchStatement.getSwitchStatement().getStartPosition())){
+						if(switchStatement != null && (nextMethodInvocation.getStartPosition() > switchStatement.getCaseStatements().get(0).getStatements().get(0).getStartPosition())){
 							methodInvocationVisitor = new MethodInvocationVisitor();
 							switchStatement.getSwitchStatement().accept(methodInvocationVisitor);
 							List<MethodInvocation> statementMethods = methodInvocationVisitor.getMethods();
@@ -612,7 +621,9 @@ public class GenerateTreeHandler extends AbstractHandler {
 					caseStatement.getStatements().add((Statement)s);
 				}
 			}
-			customSwitchStatement.getCaseStatements().add(caseStatement);
+			if(caseStatement.getStatements().size() > 0){
+				customSwitchStatement.getCaseStatements().add(caseStatement);
+			}
 			
 			if(customSwitchStatement.getCaseStatements().size() > 1){
 				customSwitchStatement.setSwitchStatement(switchStatement);
@@ -656,8 +667,6 @@ public class GenerateTreeHandler extends AbstractHandler {
 			throws IOException {
 		String completeMethodInvocation = getCompleteMethodName(methodInvocation
 				.resolveMethodBinding());
-		
-		out.write(completeMethodInvocation + "\n");
 
 		if (!(hash.containsKey(completeMethodInvocation))) {
 			hash.put(completeMethodInvocation, ++idMethod);
