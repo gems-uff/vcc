@@ -15,6 +15,8 @@ public class CommitsEvaluationWindow {
 	private Integer usefulSuggestionCount;
 	private Integer uselessSuggestionCount;
 	
+	private String commitId;
+	
 	public CommitsEvaluationWindow() {
 		automatizationPercValues = new ArrayList<Double>();
 		correctnessValues = new ArrayList<Double>();
@@ -68,5 +70,13 @@ public class CommitsEvaluationWindow {
 	}
 	public void setUselessSuggestionCount(Integer uselessSuggestionCount) {
 		this.uselessSuggestionCount = uselessSuggestionCount;
+	}
+
+	public String getCommitId() {
+		return commitId;
+	}
+
+	public void setCommitId(String commitId) {
+		this.commitId = commitId;
 	}
 }

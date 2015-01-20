@@ -5,7 +5,6 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-import java.util.Random;
 
 import org.eclipse.jgit.internal.storage.file.FileRepository;
 import org.eclipse.jgit.lib.AnyObjectId;
@@ -40,12 +39,13 @@ public class RepositoryEvaluation {
 	private String eclipseProjectName;
 	private ReportWriter reportWriter;
 	private Boolean evaluateOnlyNewMethods;
-	private Integer periodicReportInterval;
+	private Float periodicReportInterval;
 	private Integer amountSuggestionsProvidedPerQuery;
 	private Double confidenceThreshold;
 	private List<Integer> fixedEvaluatedCommitIndexes;
+	private Boolean singleReportInterval;
 	
-	public RepositoryEvaluation(String location, String headCommit, String innerProjectName, String unitName, String eclipseProjectName, ReportWriter reportWriter, Boolean evaluateOnlyNewMethods, Integer periodicReportInterval, Integer amountSuggestionsProvidedPerQuery, Double confidenceThreshold, List<Integer> fixedEvaluatedCommitIndexes) {
+	public RepositoryEvaluation(String location, String headCommit, String innerProjectName, String unitName, String eclipseProjectName, ReportWriter reportWriter, Boolean evaluateOnlyNewMethods, Float periodicReportInterval, Integer amountSuggestionsProvidedPerQuery, Double confidenceThreshold, List<Integer> fixedEvaluatedCommitIndexes) {
 		this.gitRepositoryPath = location;
 		this.headCommit = headCommit;
 		this.innerProjectName = innerProjectName;
@@ -57,6 +57,7 @@ public class RepositoryEvaluation {
 		this.amountSuggestionsProvidedPerQuery = amountSuggestionsProvidedPerQuery;
 		this.confidenceThreshold = confidenceThreshold;
 		this.fixedEvaluatedCommitIndexes = fixedEvaluatedCommitIndexes;
+		this.singleReportInterval = Boolean.FALSE;
 		
 		try {
 			gitRepository = new FileRepository(new File(gitRepositoryPath + ".git"));
@@ -127,8 +128,8 @@ public class RepositoryEvaluation {
 					}
 				}
 				
-				if(evaluatedMethods.size() == 0 &&
-						(fixedEvaluatedCommitIndexes == null || !fixedEvaluatedCommitIndexes.contains(Integer.valueOf(i)))){
+				if(evaluatedMethods.size() == 0 
+						&& (fixedEvaluatedCommitIndexes == null || !fixedEvaluatedCommitIndexes.contains(Integer.valueOf(i)))){
 					continue;
 				}
 				
@@ -140,7 +141,12 @@ public class RepositoryEvaluation {
 				reportWriter.printAutomatizationPercAndCorrectnessReport(evaluatedMethods, validCommitIndex);
 				
 				if((validCommitIndex+1 >= periodicReportInterval*10) && ((validCommitIndex+1) % periodicReportInterval == 0)){
-					reportWriter.printTotalsPeriodicReport(validCommitIndex, commit, periodicReportInterval*10, i, validMethodsCount);
+					reportWriter.printTotalsPeriodicReport(validCommitIndex, commit, new Float(periodicReportInterval*10).intValue(), i, validMethodsCount);
+					
+					if(singleReportInterval){
+						validCommitIndex++;
+						break;
+					}
 				}
 				
 				evaluatedMethods = null;
@@ -148,7 +154,7 @@ public class RepositoryEvaluation {
 			}
 			
 			validCommitIndex--;
-			reportWriter.printTotalsPeriodicReport(validCommitIndex, null, periodicReportInterval*10, revCommits.size()-1, validMethodsCount);
+			reportWriter.printTotalsPeriodicReport(validCommitIndex, null, new Float(periodicReportInterval*10).intValue(), revCommits.size()-1, validMethodsCount);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -192,7 +198,7 @@ public class RepositoryEvaluation {
 				} 
 				ArrayList<Suggestion> suggestions = SearchPatternsHandler.searchInTree(queryInput);
 				suggestions = filterTopSuggestions(suggestions);
-				e.getAddedMethods().add(createAddedMethod(newMethodCall, suggestions));
+				e.getAddedMethods().add(createAddedMethod(methodCallsDiff.getNewMethodCalls(), i, suggestions));
 			}
 			if(e.getAddedMethods().size() > 0){
 				for (AddedMethod addedMethod : e.getAddedMethods()) {
@@ -263,19 +269,30 @@ public class RepositoryEvaluation {
 		return count;
 		
 	}
-	private static AddedMethod createAddedMethod(String newMethodCall, ArrayList<Suggestion> suggestions) {
+	private static AddedMethod createAddedMethod(List<String> newMethodCalls, Integer methodCallPivot,  ArrayList<Suggestion> suggestions) {
 		if(suggestions.size() == 0){
-			return new AddedMethod(newMethodCall, new ArrayList<Suggestion>(), -1, 0D);
+			return new AddedMethod(newMethodCalls.get(methodCallPivot), new ArrayList<Suggestion>(), -1, 0D);
 		}else{
 			for (int i = 0; i < suggestions.size(); i++) {
 				Suggestion suggestion = suggestions.get(i);
 				for (String suggestedMethod : suggestion.getSuggestedMethods()) {
-					if(suggestedMethod.equals(newMethodCall)){
-						return new AddedMethod(newMethodCall, suggestions, i, suggestion.getConfidence());
+					for(int j = methodCallPivot; j < newMethodCalls.size(); j++){
+						if(suggestedMethod.equals(newMethodCalls.get(j))){
+							return new AddedMethod(newMethodCalls.get(methodCallPivot), suggestions, i, suggestion.getConfidence());
+						}
 					}
 				}
 			}
-			return new AddedMethod(newMethodCall, suggestions, -1, 0D);
+			return new AddedMethod(newMethodCalls.get(methodCallPivot), suggestions, -1, 0D);
 		}
 	}
+	
+	public Boolean getSingleReportInterval() {
+		return singleReportInterval;
+	}
+
+	public void setSingleReportInterval(Boolean singleReportInterval) {
+		this.singleReportInterval = singleReportInterval;
+	}
+
 }

@@ -22,6 +22,7 @@ import org.eclipse.jdt.core.dom.MethodInvocation;
 
 import br.uff.vcc.exp.entity.MethodCallsDiff;
 import br.uff.vcc.plugin.handlers.GenerateTreeHandler;
+import br.uff.vcc.plugin.visitors.MethodInvocationVisitor;
 
 public class FunctionNode {
 
@@ -129,33 +130,32 @@ public class FunctionNode {
 	}
 	
 	private List<String> extractInvokedMethods(MethodDeclaration methodDeclaration){
-		final List<String> methodInvocatons = new ArrayList<String >();
+		final List<String> fullNameMethodInvocations = new ArrayList<String >();
 		
 		if(methodDeclaration.getBody() == null){
-			return methodInvocatons;
+			return fullNameMethodInvocations;
 		}
 		
-		methodDeclaration.getBody().accept(new ASTVisitor() {
-			
-			public boolean visit(MethodInvocation node){
-				String methodName = "";
-				try {
-					IMethodBinding imb = node.resolveMethodBinding();
-					if(imb == null){
-						methodName = node.getName().toString();
-					}else{
-						methodName = GenerateTreeHandler.getCompleteMethodName(imb);
-					}
-				} catch (IOException e) {
-					e.printStackTrace();
+		MethodInvocationVisitor methodInvocationVisitor = new MethodInvocationVisitor();
+		methodDeclaration.getBody().accept(methodInvocationVisitor);
+		List<MethodInvocation> methodInvocations = methodInvocationVisitor.getMethods();
+		for (MethodInvocation methodInvocation : methodInvocations) {
+			String methodName = "";
+			try {
+				IMethodBinding imb = methodInvocation.resolveMethodBinding();
+				if(imb == null){
+					methodName = methodInvocation.getName().toString();
+				}else{
+					methodName = GenerateTreeHandler.getCompleteMethodName(imb);
 				}
-				methodInvocatons.add(methodName);
-				return false;
+			} catch (IOException e) {
+				e.printStackTrace();
 			}
-		});
-
+			fullNameMethodInvocations.add(methodName);
+			
+		}
 		
-		return methodInvocatons;
+		return fullNameMethodInvocations;
 		
 	}
 }

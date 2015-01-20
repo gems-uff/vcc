@@ -132,6 +132,10 @@ public class TxtReportWriter implements ReportWriter {
 				printAddedMethodCallsAutomatizationPercAndCorrectness(evaluatedMethod, writer, commitsEvaluationWindow);
 			}
 			
+			if(evaluatedMethods.size() > 0){
+				commitsEvaluationWindow.setCommitId(evaluatedMethods.get(0).getCommitId());
+			}
+			
 			commitsEvaluationWindows.put(commitIndex, commitsEvaluationWindow);
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -255,12 +259,12 @@ public class TxtReportWriter implements ReportWriter {
 				writer.write("**************************\n");
 				continue;
 			}
-			writer.write("Sugestão Aprovada: " + (addedMethod.getAcceptedSugestionPosition() != -1 ? "Sim" : "Não") + "\n");
+			//writer.write("Sugestão Aprovada: " + (addedMethod.getAcceptedSugestionPosition() != -1 ? "Sim" : "Não") + "\n");
 			writer.write("** Sugestões fornecidas **\n");
 			for (int i = 0; i < addedMethod.getSuggestionsProvided().size(); i++) {
-				if(addedMethod.getAcceptedSugestionPosition() == i){
+				/*if(addedMethod.getAcceptedSugestionPosition() == i){
 					writer.write("SUGESTÃO APROVADA!\n");
-				}
+				}*/
 				Suggestion suggestion = addedMethod.getSuggestionsProvided().get(i);
 				printSuggestion(addedMethod, suggestion, writer);
 				if(addedMethod.getAcceptedSugestionPosition() == i ||
