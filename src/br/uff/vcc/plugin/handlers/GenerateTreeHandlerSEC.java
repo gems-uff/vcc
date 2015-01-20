@@ -332,10 +332,10 @@ public class GenerateTreeHandlerSEC extends AbstractHandler {
 
 								if (!(hash
 										.containsKey(completeMethodInvocation))) {
-									nameToHash.write(idMethod + " - "
+									nameToHash.write(++idMethod + " - "
 											+ completeMethodInvocation + "\n");
 									hash.put(completeMethodInvocation,
-											++idMethod);
+											idMethod);
 									invertedHash.put(idMethod,
 											completeMethodInvocation);
 								}

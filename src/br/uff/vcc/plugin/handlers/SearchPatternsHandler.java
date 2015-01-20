@@ -427,7 +427,7 @@ public class SearchPatternsHandler extends AbstractHandler {
 		}
 
 		if (size == 1) {
-			if(useLastMethodAllSuggestionQueries){
+			if(useLastMethodAllSuggestionQueries && lastMethodCall != null){
 				//retorna apenas a combinacao com a ultima chamada de metodo
 				ComparableList<String> combination = new ComparableList<String>();
 				combination.add(methodNames.get(methodNames.size()-1));
