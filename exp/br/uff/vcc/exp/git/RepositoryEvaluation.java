@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Date;
 import java.util.List;
 
 import org.eclipse.jgit.internal.storage.file.FileRepository;
@@ -44,10 +45,12 @@ public class RepositoryEvaluation {
 	private Double confidenceThreshold;
 	private List<Integer> fixedEvaluatedCommitIndexes;
 	private Boolean singleReportInterval;
+	private Date headCommitDate;
 	
-	public RepositoryEvaluation(String location, String headCommit, String innerProjectName, String unitName, String eclipseProjectName, ReportWriter reportWriter, Boolean evaluateOnlyNewMethods, Float periodicReportInterval, Integer amountSuggestionsProvidedPerQuery, Double confidenceThreshold, List<Integer> fixedEvaluatedCommitIndexes) {
+	public RepositoryEvaluation(String location, String headCommit, Date headCommitDate, String innerProjectName, String unitName, String eclipseProjectName, ReportWriter reportWriter, Boolean evaluateOnlyNewMethods, Float periodicReportInterval, Integer amountSuggestionsProvidedPerQuery, Double confidenceThreshold, List<Integer> fixedEvaluatedCommitIndexes) {
 		this.gitRepositoryPath = location;
 		this.headCommit = headCommit;
+		this.headCommitDate = headCommitDate;
 		this.innerProjectName = innerProjectName;
 		this.unitName = unitName;
 		this.eclipseProjectName = eclipseProjectName;
@@ -113,6 +116,9 @@ public class RepositoryEvaluation {
 			for (int i = 0; i < revCommits.size(); i++) {
 				RevCommit c = revCommits.get(i);
 				CommitNode commit = CommitNode.Parse(c, gitRepository, null, innerProjectName);
+				if(headCommitDate.after(commit.getDate())){
+					continue;
+				}
 				List<MethodCallsDiff> methodsDiff = new ArrayList<MethodCallsDiff>();
 				for (FileNode f : commit.getFiles()){
 					methodsDiff.addAll(f.extractAllMethodsDiff(gitRepository, eclipseProjectName, unitName));
