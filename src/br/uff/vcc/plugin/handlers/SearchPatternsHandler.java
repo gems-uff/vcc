@@ -76,10 +76,10 @@ public class SearchPatternsHandler extends AbstractHandler {
 		
 		System.out.println("Total de sugestões: " + suggestions.size());
 		
+		System.out.println(System.currentTimeMillis() - timeIni);
 		
 		printResults(suggestions);
 		
-		System.out.println(System.currentTimeMillis() - timeIni);
 	}
 
 	public static ArrayList<Suggestion> searchInTree(ComparableList<String> methodNames) {
@@ -353,7 +353,7 @@ public class SearchPatternsHandler extends AbstractHandler {
 										.getMethods()) {
 									if (methodInvocation.getStartPosition() < textSelectionOffset)
 										methodNames
-												.add(getCompleteMethodName(methodInvocation
+												.add(GenerateTreeHandler.getCompleteMethodName(methodInvocation
 														.resolveMethodBinding()));
 									else
 										break;
@@ -489,34 +489,6 @@ public class SearchPatternsHandler extends AbstractHandler {
 		return (CompilationUnit) parser.createAST(null); // parse
 	}
 
-	private String getParametersType(ITypeBinding[] parametersType)
-			throws IOException {
-		String parametersTypes = "";
-		for (int i = 0; i < parametersType.length; i++) {
-			if (i != 0)
-				parametersTypes += ", ";
-			parametersTypes += parametersType[i].getBinaryName();
-		}
-
-		return parametersTypes;
-	}
-
-	private String getCompleteMethodName(IMethodBinding methodBinding)
-			throws IOException {
-		methodBinding.getDeclaringClass().getBinaryName();
-
-		String methodNameSpace = methodBinding.getDeclaringClass().getPackage()
-				.getName()
-				+ "."
-				+ methodBinding.getDeclaringClass().getName()
-				+ "."
-				+ methodBinding.getName();
-
-		String parametersTypes = getParametersType(methodBinding
-				.getParameterTypes());
-
-		return methodNameSpace + "(" + parametersTypes + ")";
-	}
 
 	@Override
 	public Object execute(ExecutionEvent arg0) throws ExecutionException {
