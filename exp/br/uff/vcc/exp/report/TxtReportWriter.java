@@ -177,6 +177,9 @@ public class TxtReportWriter implements ReportWriter {
 			}
 			for(int i = windowBegin; i < windowEnd; i++){
 				CommitsEvaluationWindow commitsEvaluationWindow = commitsEvaluationWindows.get(i);
+				if(commitsEvaluationWindow == null){
+					continue;
+				}
 				
 				automatizationPercValues.addAll(commitsEvaluationWindow.getAutomatizationPercValues());
 				correctnessValues.addAll(commitsEvaluationWindow.getCorrectnessValues());
@@ -344,6 +347,18 @@ public class TxtReportWriter implements ReportWriter {
 						methodsUsefulness.put(suggestedMethod, usefulMethod);
 					}
 				}
+			}
+			
+			boolean allMethodsAlreadyAutomated = true;
+			for (int j = i+1; j < methodReport.length; j++){
+				if(!METHOD_CALL_STATUS_AUTOMATIC.equals(methodReport[j][1])){
+					allMethodsAlreadyAutomated = false;
+					break;
+				}
+			}
+			
+			if(allMethodsAlreadyAutomated){
+				break;
 			}
 		}
 		
@@ -664,4 +679,12 @@ public class TxtReportWriter implements ReportWriter {
                 }
         }
     }
+
+	public Integer getTotalEvaluatedMethods() {
+		return totalEvaluatedMethods;
+	}
+
+	public void setTotalEvaluatedMethods(Integer totalEvaluatedMethods) {
+		this.totalEvaluatedMethods = totalEvaluatedMethods;
+	}
 }
