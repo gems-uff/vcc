@@ -76,20 +76,15 @@ The run time is displayed on the screen with start time, end time
 and total seconds for running the program.
 */
 
-#include "stdafx.h"
-
 #include <iostream>
 #include <map>
 #include <fstream>
 #include <list>
 #include <queue>
-#include <unordered_set>
 
 #define min(a, b) ((a) < (b) ? (a) : (b))  // simple inline function
 
 using namespace std;
-
-typedef std::unordered_set<int> set;
 
 struct positionCode
 {
@@ -98,13 +93,6 @@ struct positionCode
         positionCode *next;		
 	//if the length of position code is longer than 32
 	//we use a link to next 32 bits
-};
-
-//struct that represents the method from which a node came from. a method can generate multiple transactions 
-struct methodSource
-{
-	int methodId;
-	methodSource *next;
 };
 
 struct node
@@ -119,7 +107,6 @@ struct node
   	node *lSon;	//	the pointer to its left Son
   	node *rSibling;	//	the pointer to its right sibling
   	node *parent;	//	the poniter to its parent
-	set methodSources;
 };
 
 struct linkheader
@@ -155,7 +142,6 @@ int checkPosition(positionCode*, int, positionCode*, int);
 			// Check the position between two nodes
 void MiningProcess(list<node*>, queue<int>, int );			
 			// Mine sequential pattern from PLWAP tree
-methodSource* makeMethodSource(int);	//make a method source node
 
 
 int main(int argc, const char* argv[])
@@ -272,8 +258,6 @@ Called in Parameters:
                 int count = 0;
                 int emptySon = 0;
                 int RootCount = Count;
-				set elementMethodSources;
-
 
                 node * linkBrow = pnt -> link;
                 list<node*>::iterator rootBrow = rootSet.begin();
@@ -302,8 +286,7 @@ Called in Parameters:
 
                                 if ( !DescSave)
                                 {
-										elementMethodSources.insert(linkBrow->methodSources.begin(), linkBrow->methodSources.end());
-										count = count + linkBrow->occur;
+                                        count = count + linkBrow->occur;
                                         totalSon = totalSon + linkBrow->CountSon;
                                         RootUsed = true;
                                         SavePoint = linkBrow;
@@ -327,7 +310,7 @@ Called in Parameters:
                         }
                 }
 
-				if ( elementMethodSources.size() >= frequency)
+                if ( count >= frequency)
                 {
                         queue<int> tempPattern = basePattern;
 
@@ -344,7 +327,7 @@ Called in Parameters:
                                 result<<tempPattern.front()<<";";
                                 tempPattern.pop();
                         }
-                        result<<(float)elementMethodSources.size()/(float)seqNumber;
+                        result<<(float)count/(float)seqNumber;
                         result<<endl;
 
                         if ( totalSon >= frequency)
@@ -370,8 +353,7 @@ void BuildTree(char *sourceFile)
 	}
 
 	sequence::iterator point, eflag;
-	int event, cid, number, methodId, prevMethodId;
-	prevMethodId = -1;
+	int event, cid, number;
 	seqNumber = 0;
 
 	// next while loop is going to read sequences from file into the sequence data structure
@@ -379,20 +361,10 @@ void BuildTree(char *sourceFile)
 	{
 		 
 		ins >> cid;
-		//cout <<" cid " << cid;
-		ins >> methodId;
-		//cout <<" MethodId " << methodId;
-        ins >> number;
+         ins >> number;
+         seqNumber++;
 
-		if(ins.eof()){
-			break;
-		}
-
-		if(prevMethodId != methodId){
-			duplicate.clear();
-			seqNumber++;
-		}
-		prevMethodId = methodId;
+         duplicate.clear();
 
 		for(int i=0; i< number; i++)
         {
@@ -414,7 +386,6 @@ void BuildTree(char *sourceFile)
 	}
 
 	// next is going to filter out the event that does not meet the minimum support
-		cout <<" seqnumber " << seqNumber;
         frequency = (int)(minSupp* seqNumber);
 
         sequence::iterator i, bi;
@@ -441,7 +412,6 @@ void BuildTree(char *sourceFile)
 // Next is build the PLWAP tree
 
         node *Tranversal, *newNode, *Parent;
-//		methodSource *newMethodSource, *nextMethodSource;
 
         root = new node;
         root->event = -1;
@@ -466,12 +436,7 @@ void BuildTree(char *sourceFile)
 		while (inFile && !inFile.eof())
 		{
 			inFile >> cid;
-			inFile >> methodId;
 			inFile >> number;
-
-			if(inFile.eof()){
-				break;
-			}
 
 			Tranversal = root;
 
@@ -496,7 +461,6 @@ void BuildTree(char *sourceFile)
                                 newNode->parent = Parent;
                                 newNode->pcLength = Tranversal->pcLength + 1;
                                 newNode->pcCode = makeCode(Tranversal->pcLength,Tranversal->pcCode,true);
-								newNode->methodSources.insert(methodId);
                                 Tranversal->lSon = newNode;
                                 Tranversal = newNode;
                         }
@@ -507,11 +471,6 @@ void BuildTree(char *sourceFile)
                                 {
                                         (Tranversal->parent)->CountSon++;
                                         Tranversal->occur++;
-										Tranversal->methodSources.insert(methodId);
-										/*while(nextMethodSource->next != NULL){
-											nextMethodSource = nextMethodSource->next;
-										}
-										nextMethodSource->next = makeMethodSource(methodId);*/
                                 }
                                 else
                                 {
@@ -523,12 +482,6 @@ void BuildTree(char *sourceFile)
                                                 {
                                                         Tranversal->occur ++;
                                                         (Tranversal->parent)->CountSon++;
-														Tranversal->methodSources.insert(methodId);
-														/*nextMethodSource = Tranversal->methodSources;
-														while(nextMethodSource->next != NULL){
-															nextMethodSource = nextMethodSource->next;
-														}
-														nextMethodSource->next = makeMethodSource(methodId);*/
                                                         find = true;
                                                 }
                                         }
@@ -545,7 +498,6 @@ void BuildTree(char *sourceFile)
                                                 newNode->parent = Parent;
                                                 newNode->pcLength = Tranversal->pcLength + 1;
                                                 newNode->pcCode = makeCode(Tranversal->pcLength,Tranversal->pcCode, false);
-												newNode->methodSources.insert(methodId);
                                                 Tranversal->rSibling = newNode;
                                                 Tranversal = newNode;
                                         }
@@ -606,15 +558,6 @@ Called in paremeter: the current node to be linked.
         else return;
 }
 
-methodSource * makeMethodSource(int methodId){
-	methodSource *newMethodSource;
-
-	newMethodSource = new methodSource;
-	newMethodSource->methodId = methodId;
-	newMethodSource->next = NULL;
-
-	return newMethodSource;
-}
 
 positionCode * makeCode(int length, positionCode *pCode, bool addOne)
 {
