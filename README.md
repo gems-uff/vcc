@@ -1,13 +1,12 @@
 # vcc
 Vertical Code Completion
 
-Primeiramente é necessário importar o código fonte como plugin no Eclipse.
+First of all, it's necessary to import the source code as an Eclipse Plugin. After that, a menu will be added to Eclipse menu bar called 'Vertical Code Completion'. This menu contains three actions: "Generate Tree",  "Search for Patterns" and "Run Experiment".
 
-Também é necessário gerar um EXE para o PLWAP através do arquivo PLWAP/plwap.cpp (caso a análise a ser executada seja a das estruturas de controle, utilizar o arquivo PLWAP/plwap-estruturas-controle.cpp)
-Esse EXE será chamado pela action do Eclipse que constrói a árvore de padrões - Comando "Generate Tree"
+The next step is to setup the PLWAP, the data mining software we use to identify source code patterns. We need to generate an EXE from its source file PLWAP/plwap.cpp (if you want to analyse the control structures influence over the patterns, you must use PLWAP/plwap-estruturas-controle.cpp file). The generated EXE file will be called by the action "Generate Tree". This action is responsible for analyzing the code and generate the source code pattern tree.
 
-Para testar a árvore de padrões, abrir um arquivo Java no editor do eclipse, posicionar o cursor após uma linha de código fonte e acionar o comando "Search for Patterns" no menu da IDE.
+In order to query the pattern tree, the user should open a Java file, using Eclipse editor, place the mouse cursor after a line of code, inside a method body, and call the action "Search for Patterns". If any pattern is detected by VCC, they will be shown in a popup window.
 
-Para executar os experimentos, consultando a árvore de padres diversas vezes, utilizar o comando 'Run Experiment'.
+The last action available is "Run Experiment". This action will call the pattern tree multiple times, validating the commits of a Git repository.
 
 
