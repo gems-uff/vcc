@@ -1,0 +1,3 @@
+Total de métodos novos:3858
+Total de métodos modificados:2134
+167200

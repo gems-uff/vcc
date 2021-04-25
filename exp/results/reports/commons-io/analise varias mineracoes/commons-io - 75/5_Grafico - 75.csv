@@ -1,0 +1,9 @@
+Janela de Commits;Métodos Válidos;Métodos Avaliados(Alguma Sugestão);Índice real Commits;Sugestões Úteis;Sugestões Inúteis;Corretude Geral;Métodos Codif. Automaticamente;Métodos Codif. Manualmente;Perc. de Automatização Geral;F-Measure Geral;Corretude;StdDev Corretude;Perc. de Automatização;StdDev Perc. de Automatização;F-Measure;StdDev F-Measure
+0 a 50;116;75;229 (Thu Nov 29 14:04:51 BRST 2012[null]);102;282;0.266;262;463;0.362;0.307;0.274;0.311;0.241;0.269;0.235;0.247
+5 a 55;154;111;239 (Fri Nov 30 12:18:47 BRST 2012[null]);153;383;0.286;333;616;0.351;0.316;0.301;0.291;0.272;0.263;0.262;0.233
+10 a 60;162;109;257 (Wed Dec 19 14:17:26 BRST 2012[null]);154;380;0.289;339;621;0.354;0.319;0.314;0.319;0.264;0.270;0.256;0.239
+15 a 65;163;112;298 (Tue Apr 16 20:24:48 BRT 2013[null]);151;430;0.260;334;679;0.330;0.291;0.297;0.323;0.243;0.264;0.241;0.242
+20 a 70;146;109;327 (Sat Apr 20 20:23:36 BRT 2013[null]);154;425;0.266;340;686;0.332;0.296;0.306;0.323;0.248;0.265;0.244;0.241
+25 a 75;156;124;367 (Thu May 16 11:29:26 BRT 2013[null]);162;461;0.261;351;768;0.314;0.286;0.293;0.326;0.230;0.259;0.229;0.238
+30 a 80;154;123;387 (Wed Jul 10 09:11:50 BRT 2013[null]);159;456;0.259;312;697;0.310;0.283;0.288;0.320;0.233;0.257;0.227;0.233
+35 a 85;159;123;427 (ULTIMO);156;441;0.262;304;673;0.312;0.285;0.286;0.321;0.232;0.258;0.226;0.234

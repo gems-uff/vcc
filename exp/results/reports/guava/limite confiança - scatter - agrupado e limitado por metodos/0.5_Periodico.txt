@@ -1,0 +1,21 @@
+**************************************************************************************************************
+*Métodos codificados: 989
+*Métodos codificados automaticamente: 167
+*Métodos codificados manualmente: 822
+*Percentual de Automatização: 0.169
+*Posição média da sugestão: 1.575
+**************************************************************************************************************
+**************************************************************************************************************
+TOTAIS APÓS 69 COMMITS (Commit Date: Wed Jan 23 20:26:00 BRST 2013):
+**************************************************************************************************************
+*Métodos válidos: 728
+*Métodos avaliados(alguma sugestão fornecida): 134
+*Métodos onde alguma sugestão foi fornecida: 134
+*Métodos onde uma sugestão foi aceita: 94
+*Corretude Média: 0.604
+*Desvio Padrão Corretude: 0.438
+*Percentual de Automatização Médio: 0.223
+*Desvio Padrão Percentual de Automatização: 0.445
+*F-Measure Médio: 0.297
+*Desvio Padrão F-Measure: 0.401
+**************************************************************************************************************

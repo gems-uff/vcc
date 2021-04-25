@@ -1,0 +1,99 @@
+As chamadas isDebugEnabled() -> debug() são muito comuns no sistema. Em um cenário de confiança 1, somente um padrão envolvendo somenete esses dois
+métodos foi encontrado, todavia, quando filtrada as estruturas de controle, um único método fez com que esse padrão se perdesse, impactando no resultado
+
+
+
+
+Usuários que chamam:
+org.apache.commons.logging.Log.debug(java.lang.Object)
+org.apache.commons.logging.Log.isDebugEnabled()
+Também chamam:
+org.apache.commons.logging.Log.debug(java.lang.Object)
+Confiança: 1.0
+Suporte: 0.0168712
+
+public void doFilterHttp(HttpServletRequest request, HttpServletResponse response, FilterChain chain)
+        throws IOException, ServletException {
+
+	if (SecurityContextHolder.getContext().getAuthentication() == null) {
+		Authentication rememberMeAuth = rememberMeServices.autoLogin(request, response);
+
+		if (rememberMeAuth != null) {
+			// Attempt authenticaton via AuthenticationManager
+			try {
+				rememberMeAuth = authenticationManager.authenticate(rememberMeAuth);
+
+				// Store to SecurityContextHolder
+				SecurityContextHolder.getContext().setAuthentication(rememberMeAuth);
+
+				onSuccessfulAuthentication(request, response, rememberMeAuth);                    
+
+				if (logger.isDebugEnabled()) {
+					logger.debug("SecurityContextHolder populated with remember-me token: '"
+						+ SecurityContextHolder.getContext().getAuthentication() + "'");
+				}
+
+				// Fire event
+				if (this.eventPublisher != null) {
+					eventPublisher.publishEvent(new InteractiveAuthenticationSuccessEvent(
+							SecurityContextHolder.getContext().getAuthentication(), this.getClass()));
+				}
+			} catch (AuthenticationException authenticationException) {
+				if (logger.isDebugEnabled()) {
+					logger.debug("SecurityContextHolder not populated with remember-me token, as "
+							+ "AuthenticationManager rejected Authentication returned by RememberMeServices: '"
+							+ rememberMeAuth + "'; invalidating remember-me token", authenticationException);
+				}
+
+				rememberMeServices.loginFail(request, response);
+
+				onUnsuccessfulAuthentication(request, response, authenticationException);
+			}
+		}
+
+		chain.doFilter(request, response);
+	} else {
+		if (logger.isDebugEnabled()) {
+			logger.debug("SecurityContextHolder not populated with remember-me token, as it already contained: '"
+				+ SecurityContextHolder.getContext().getAuthentication() + "'");
+		}
+
+		chain.doFilter(request, response);
+	}
+}
+
+	
+
+private static final String[] getWebSphereGroups(final String securityName) {
+	Context ic = null;
+	try {
+		// TODO: Cache UserRegistry object
+		ic = new InitialContext();
+		Object objRef = ic.lookup(USER_REGISTRY);
+		Object userReg = PortableRemoteObject.narrow(objRef, Class.forName ("com.ibm.websphere.security.UserRegistry"));
+		if (logger.isDebugEnabled()) {
+			logger.debug("Determining WebSphere groups for user " + securityName + " using WebSphere UserRegistry " + userReg);
+		}
+		final Collection groups = (Collection) invokeMethod(getGroupsForUserMethod(), userReg, new Object[]{ securityName });
+		if (logger.isDebugEnabled()) {
+			logger.debug("Groups for user " + securityName + ": " + groups.toString());
+		}
+		String[] result = new String[groups.size()];
+		return (String[]) groups.toArray(result);
+	} catch (Exception e) {
+		logger.error("Exception occured while looking up groups for user", e);
+		throw new RuntimeException("Exception occured while looking up groups for user", e);
+	} finally {
+		try {
+			ic.close();
+		} catch (NamingException e) {
+			logger.debug("Exception occured while closing context", e);
+		}
+	}
+}
+	
+	
+	
+	
+	
+	

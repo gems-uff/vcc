@@ -1,0 +1,4463 @@
+************************ Método Avaliado: call ************************
+*Commit: commit 1d1066b1fa68afc60711ebc000dd33f7e7ca795f 1390283326 ----sp
+*Alguma Sugestão Fornecida: Sim
+*Alguma Sugestão Aprovada: Sim
+**************************************************************************************************************
+----------------Chamadas de método antigas:---------------
+----------------Chamadas de método novas:---------------
+rx.operators.OperationReplay$BaseState.lock()
+rx.util.functions.Action0.call()
+rx.operators.OperationReplay$ReplayState.addReplayer(rx.Observer)
+add
+rx.operators.OperationReplay$BaseState.unlock()
+rx.operators.OperationReplay$VirtualList.start()
+rx.operators.OperationReplay$VirtualList.end()
+rx.operators.OperationReplay$VirtualList.get(I)
+rx.util.functions.Func1.call(null)
+rx.Observer.onNext(null)
+rx.Observer.onError(java.lang.Throwable)
+rx.Observer.onError(java.lang.Throwable)
+rx.Observer.onCompleted()
+Chamada: rx.operators.OperationReplay$BaseState.lock()
+Situação: Primeira Chamada
+Chamada: rx.util.functions.Action0.call()
+Situação: Manual
+Chamada: rx.operators.OperationReplay$ReplayState.addReplayer(rx.Observer)
+Situação: Manual
+Chamada: add
+Situação: Manual
+Chamada: rx.operators.OperationReplay$BaseState.unlock()
+Situação: Automatizada
+Índice da Sugestão: 1
+Confiança: 1.0
+Suporte: 0.00401606
+F-Measure Suporte e Confiança: 0.008
+Chamada: rx.operators.OperationReplay$VirtualList.start()
+Situação: Manual
+Chamada: rx.operators.OperationReplay$VirtualList.end()
+Situação: Manual
+Chamada: rx.operators.OperationReplay$VirtualList.get(I)
+Situação: Manual
+Chamada: rx.util.functions.Func1.call(null)
+Situação: Manual
+Chamada: rx.Observer.onNext(null)
+Situação: Manual
+Chamada: rx.Observer.onError(java.lang.Throwable)
+Situação: Manual
+Chamada: rx.Observer.onError(java.lang.Throwable)
+Situação: Manual
+Chamada: rx.Observer.onCompleted()
+Situação: Automatizada
+Índice da Sugestão: 1
+Confiança: 1.0
+Suporte: 0.00267738
+F-Measure Suporte e Confiança: 0.006
+Corretude/Utilidade dos Métodos
+Método: rx.Observer.onCompleted()
+Útil
+Método: rx.operators.OperationReplay$BaseState.unlock()
+Útil
+Percentual de Automatização: 0.16666666666666666
+Corretude: 1.0
+F-Measure: 0.2857142857142857
+************************ Método Avaliado: getOnSubscribeFunc ************************
+*Commit: commit 1d1066b1fa68afc60711ebc000dd33f7e7ca795f 1390283326 ----sp
+*Alguma Sugestão Fornecida: Sim
+*Alguma Sugestão Aprovada: Sim
+**************************************************************************************************************
+----------------Chamadas de método antigas:---------------
+----------------Chamadas de método novas:---------------
+rx.util.functions.Action1.call(rx.subjects.SubjectSubscriptionManager$SubjectObserver)
+java.util.concurrent.atomic.AtomicReference.get()
+java.util.concurrent.CountDownLatch.await()
+java.lang.Thread.currentThread()
+java.lang.Thread.interrupt()
+add
+rx.operators.SafeObservableSubscription.wrap(rx.Subscription)
+java.util.concurrent.atomic.AtomicReference.get()
+rx.subjects.SubjectSubscriptionManager$State.removeObserver(rx.Subscription)
+java.util.concurrent.atomic.AtomicReference.compareAndSet(rx.subjects.SubjectSubscriptionManager$State, rx.subjects.SubjectSubscriptionManager$State)
+rx.subjects.SubjectSubscriptionManager$State.addObserver(rx.Subscription, rx.subjects.SubjectSubscriptionManager$SubjectObserver)
+java.util.concurrent.atomic.AtomicReference.compareAndSet(rx.subjects.SubjectSubscriptionManager$State, rx.subjects.SubjectSubscriptionManager$State)
+rx.util.functions.Action1.call(rx.subjects.SubjectSubscriptionManager$SubjectObserver)
+Chamada: rx.util.functions.Action1.call(rx.subjects.SubjectSubscriptionManager$SubjectObserver)
+Situação: Primeira Chamada
+Chamada: java.util.concurrent.atomic.AtomicReference.get()
+Situação: Manual
+Chamada: java.util.concurrent.CountDownLatch.await()
+Situação: Manual
+Chamada: java.lang.Thread.currentThread()
+Situação: Manual
+Chamada: java.lang.Thread.interrupt()
+Situação: Automatizada
+Índice da Sugestão: 1
+Confiança: 1.0
+Suporte: 0.00401606
+F-Measure Suporte e Confiança: 0.008
+Chamada: add
+Situação: Manual
+Chamada: rx.operators.SafeObservableSubscription.wrap(rx.Subscription)
+Situação: Manual
+Chamada: java.util.concurrent.atomic.AtomicReference.get()
+Situação: Manual
+Chamada: rx.subjects.SubjectSubscriptionManager$State.removeObserver(rx.Subscription)
+Situação: Manual
+Chamada: java.util.concurrent.atomic.AtomicReference.compareAndSet(rx.subjects.SubjectSubscriptionManager$State, rx.subjects.SubjectSubscriptionManager$State)
+Situação: Manual
+Chamada: rx.subjects.SubjectSubscriptionManager$State.addObserver(rx.Subscription, rx.subjects.SubjectSubscriptionManager$SubjectObserver)
+Situação: Manual
+Chamada: java.util.concurrent.atomic.AtomicReference.compareAndSet(rx.subjects.SubjectSubscriptionManager$State, rx.subjects.SubjectSubscriptionManager$State)
+Situação: Manual
+Chamada: rx.util.functions.Action1.call(rx.subjects.SubjectSubscriptionManager$SubjectObserver)
+Situação: Manual
+Corretude/Utilidade dos Métodos
+Método: java.lang.Thread.interrupt()
+Útil
+Percentual de Automatização: 0.08333333333333333
+Corretude: 1.0
+F-Measure: 0.15384615384615385
+************************ Método Avaliado: rx.operators.OperationReplay$CustomReplaySubjectSubscribeFunc.onSubscribe(rx.Observer) ************************
+*Commit: commit 00f448819641f63fedb1eb5be64155e9bc574863 1390283349 ----sp
+*Alguma Sugestão Fornecida: Sim
+*Alguma Sugestão Aprovada: Sim
+**************************************************************************************************************
+----------------Chamadas de método antigas:---------------
+----------------Chamadas de método novas:---------------
+rx.operators.OperationReplay$BaseState.lock()
+rx.util.functions.Action0.call()
+rx.operators.OperationReplay$ReplayState.addReplayer(rx.Observer)
+rx.operators.OperationReplay$BaseState.unlock()
+rx.operators.OperationReplay$VirtualList.start()
+rx.operators.OperationReplay$VirtualList.end()
+rx.operators.OperationReplay$VirtualList.get(I)
+rx.util.functions.Func1.call(null)
+rx.Observer.onNext(null)
+rx.Observer.onError(java.lang.Throwable)
+rx.subscriptions.Subscriptions.empty()
+rx.Observer.onError(java.lang.Throwable)
+rx.Observer.onCompleted()
+rx.subscriptions.Subscriptions.empty()
+Chamada: rx.operators.OperationReplay$BaseState.lock()
+Situação: Primeira Chamada
+Chamada: rx.util.functions.Action0.call()
+Situação: Manual
+Chamada: rx.operators.OperationReplay$ReplayState.addReplayer(rx.Observer)
+Situação: Manual
+Chamada: rx.operators.OperationReplay$BaseState.unlock()
+Situação: Automatizada
+Índice da Sugestão: 1
+Confiança: 1.0
+Suporte: 0.00401606
+F-Measure Suporte e Confiança: 0.008
+Chamada: rx.operators.OperationReplay$VirtualList.start()
+Situação: Manual
+Chamada: rx.operators.OperationReplay$VirtualList.end()
+Situação: Manual
+Chamada: rx.operators.OperationReplay$VirtualList.get(I)
+Situação: Manual
+Chamada: rx.util.functions.Func1.call(null)
+Situação: Manual
+Chamada: rx.Observer.onNext(null)
+Situação: Manual
+Chamada: rx.Observer.onError(java.lang.Throwable)
+Situação: Manual
+Chamada: rx.subscriptions.Subscriptions.empty()
+Situação: Manual
+Chamada: rx.Observer.onError(java.lang.Throwable)
+Situação: Manual
+Chamada: rx.Observer.onCompleted()
+Situação: Automatizada
+Índice da Sugestão: 1
+Confiança: 1.0
+Suporte: 0.00267738
+F-Measure Suporte e Confiança: 0.006
+Chamada: rx.subscriptions.Subscriptions.empty()
+Situação: Manual
+Corretude/Utilidade dos Métodos
+Método: rx.Observer.onCompleted()
+Útil
+Método: rx.operators.OperationReplay$BaseState.unlock()
+Útil
+Percentual de Automatização: 0.15384615384615385
+Corretude: 1.0
+F-Measure: 0.2666666666666667
+************************ Método Avaliado: rx.operators.OperatorGroupBy.call(rx.Observer) ************************
+*Commit: commit 5478e30caefe14b12a12c4e1e9c27ebaa40e2004 1390458827 ----sp
+*Alguma Sugestão Fornecida: Sim
+*Alguma Sugestão Aprovada: Não
+**************************************************************************************************************
+----------------Chamadas de método antigas:---------------
+----------------Chamadas de método novas:---------------
+java.util.Map.values()
+rx.subjects.PublishSubject.onCompleted()
+java.util.concurrent.atomic.AtomicInteger.get()
+rx.Observer.onCompleted()
+rx.Observer.onError(java.lang.Throwable)
+rx.util.functions.Func1.call(null)
+java.util.Map.get(java.lang.Object)
+isUnsubscribed
+rx.subjects.PublishSubject.create()
+java.util.concurrent.atomic.AtomicInteger.incrementAndGet()
+rx.subscriptions.Subscriptions.create(rx.util.functions.Action0)
+add
+null.completeInner()
+toObservable
+subscribe
+rx.Observer.onCompleted()
+null.completeInner()
+rx.Observer.onError(java.lang.Throwable)
+rx.Observer.onNext(null)
+java.util.Map.put(rx.operators.OperatorGroupBy$K, rx.subjects.PublishSubject)
+rx.Observer.onNext(null)
+rx.subjects.PublishSubject.onNext(rx.operators.OperatorGroupBy$T)
+null.onError(java.lang.Throwable)
+java.util.concurrent.atomic.AtomicInteger.decrementAndGet()
+unsubscribe
+java.util.Map.values()
+rx.subjects.PublishSubject.onCompleted()
+rx.Observer.onCompleted()
+Chamada: java.util.Map.values()
+Situação: Primeira Chamada
+Chamada: rx.subjects.PublishSubject.onCompleted()
+Situação: Manual
+Chamada: java.util.concurrent.atomic.AtomicInteger.get()
+Situação: Manual
+Chamada: rx.Observer.onCompleted()
+Situação: Manual
+Chamada: rx.Observer.onError(java.lang.Throwable)
+Situação: Manual
+Chamada: rx.util.functions.Func1.call(null)
+Situação: Manual
+Chamada: java.util.Map.get(java.lang.Object)
+Situação: Manual
+Chamada: isUnsubscribed
+Situação: Manual
+Chamada: rx.subjects.PublishSubject.create()
+Situação: Manual
+Chamada: java.util.concurrent.atomic.AtomicInteger.incrementAndGet()
+Situação: Manual
+Chamada: rx.subscriptions.Subscriptions.create(rx.util.functions.Action0)
+Situação: Manual
+Chamada: add
+Situação: Manual
+Chamada: null.completeInner()
+Situação: Manual
+Chamada: toObservable
+Situação: Manual
+Chamada: subscribe
+Situação: Manual
+Chamada: rx.Observer.onCompleted()
+Situação: Manual
+Chamada: null.completeInner()
+Situação: Manual
+Chamada: rx.Observer.onError(java.lang.Throwable)
+Situação: Manual
+Chamada: rx.Observer.onNext(null)
+Situação: Manual
+Chamada: java.util.Map.put(rx.operators.OperatorGroupBy$K, rx.subjects.PublishSubject)
+Situação: Manual
+Chamada: rx.Observer.onNext(null)
+Situação: Manual
+Chamada: rx.subjects.PublishSubject.onNext(rx.operators.OperatorGroupBy$T)
+Situação: Manual
+Chamada: null.onError(java.lang.Throwable)
+Situação: Manual
+Chamada: java.util.concurrent.atomic.AtomicInteger.decrementAndGet()
+Situação: Manual
+Chamada: unsubscribe
+Situação: Manual
+Chamada: java.util.Map.values()
+Situação: Manual
+Chamada: rx.subjects.PublishSubject.onCompleted()
+Situação: Manual
+Chamada: rx.Observer.onCompleted()
+Situação: Manual
+Corretude/Utilidade dos Métodos
+Método: rx.Subscription.unsubscribe()
+Inútil
+Percentual de Automatização: 0.0
+Corretude: 0.0
+F-Measure: 0.0
+************************ Método Avaliado: doOnEach ************************
+*Commit: commit 47a0e1b719d7fe28a3e0dec276b914e52d1270bb 1391037689 ----sp
+*Alguma Sugestão Fornecida: Sim
+*Alguma Sugestão Aprovada: Não
+**************************************************************************************************************
+----------------Chamadas de método antigas:---------------
+----------------Chamadas de método novas:---------------
+rx.operators.OperationDoOnEach.doOnEach(rx.Observable, rx.Observer)
+rx.Observable.create(rx.Observable$OnSubscribe)
+Chamada: rx.operators.OperationDoOnEach.doOnEach(rx.Observable, rx.Observer)
+Situação: Primeira Chamada
+Chamada: rx.Observable.create(rx.Observable$OnSubscribe)
+Situação: Manual
+Corretude/Utilidade dos Métodos
+Método: rx.Observable.create(rx.Observable$OnSubscribeFunc)
+Inútil
+Percentual de Automatização: 0.0
+Corretude: 0.0
+F-Measure: 0.0
+************************ Método Avaliado: activate ************************
+*Commit: commit 47a0e1b719d7fe28a3e0dec276b914e52d1270bb 1391037689 ----sp
+*Alguma Sugestão Fornecida: Sim
+*Alguma Sugestão Aprovada: Sim
+**************************************************************************************************************
+----------------Chamadas de método antigas:---------------
+----------------Chamadas de método novas:---------------
+rx.util.functions.Actions.onErrorFrom(rx.Observer)
+rx.joins.Pattern1.first()
+rx.joins.Plan0.createObserver(java.util.Map, rx.Observable, rx.util.functions.Action1)
+rx.util.functions.Func1.call(rx.joins.Plan1$T1)
+onError
+onNext
+java.util.concurrent.atomic.AtomicReference.get()
+rx.joins.JoinObserver1.removeActivePlan(rx.joins.ActivePlan0)
+java.util.concurrent.atomic.AtomicReference.get()
+rx.util.functions.Action1.call(rx.joins.ActivePlan0)
+java.util.concurrent.atomic.AtomicReference.set(rx.joins.ActivePlan1)
+rx.joins.JoinObserver1.addActivePlan(rx.joins.ActivePlan0)
+Chamada: rx.util.functions.Actions.onErrorFrom(rx.Observer)
+Situação: Primeira Chamada
+Chamada: rx.joins.Pattern1.first()
+Situação: Manual
+Chamada: rx.joins.Plan0.createObserver(java.util.Map, rx.Observable, rx.util.functions.Action1)
+Situação: Manual
+Chamada: rx.util.functions.Func1.call(rx.joins.Plan1$T1)
+Situação: Manual
+Chamada: onError
+Situação: Manual
+Chamada: onNext
+Situação: Manual
+Chamada: java.util.concurrent.atomic.AtomicReference.get()
+Situação: Manual
+Chamada: rx.joins.JoinObserver1.removeActivePlan(rx.joins.ActivePlan0)
+Situação: Manual
+Chamada: java.util.concurrent.atomic.AtomicReference.get()
+Situação: Automatizada
+Índice da Sugestão: 2
+Confiança: 1.0
+Suporte: 0.00401606
+F-Measure Suporte e Confiança: 0.008
+Chamada: rx.util.functions.Action1.call(rx.joins.ActivePlan0)
+Situação: Automatizada
+Índice da Sugestão: 1
+Confiança: 1.0
+Suporte: 0.00401606
+F-Measure Suporte e Confiança: 0.008
+Chamada: java.util.concurrent.atomic.AtomicReference.set(rx.joins.ActivePlan1)
+Situação: Manual
+Chamada: rx.joins.JoinObserver1.addActivePlan(rx.joins.ActivePlan0)
+Situação: Manual
+Corretude/Utilidade dos Métodos
+Método: java.util.concurrent.atomic.AtomicReference.get()
+Útil
+Método: rx.util.functions.Action1.call(rx.joins.ActivePlan0)
+Útil
+Percentual de Automatização: 0.18181818181818182
+Corretude: 1.0
+F-Measure: 0.3076923076923077
+************************ Método Avaliado: activate ************************
+*Commit: commit 47a0e1b719d7fe28a3e0dec276b914e52d1270bb 1391037689 ----sp
+*Alguma Sugestão Fornecida: Sim
+*Alguma Sugestão Aprovada: Sim
+**************************************************************************************************************
+----------------Chamadas de método antigas:---------------
+----------------Chamadas de método novas:---------------
+rx.util.functions.Actions.onErrorFrom(rx.Observer)
+rx.joins.Pattern2.first()
+rx.joins.Plan0.createObserver(java.util.Map, rx.Observable, rx.util.functions.Action1)
+rx.joins.Pattern2.second()
+rx.joins.Plan0.createObserver(java.util.Map, rx.Observable, rx.util.functions.Action1)
+rx.util.functions.Func2.call(rx.joins.Plan2$T1, rx.joins.Plan2$T2)
+onError
+onNext
+java.util.concurrent.atomic.AtomicReference.get()
+rx.joins.JoinObserver1.removeActivePlan(rx.joins.ActivePlan0)
+java.util.concurrent.atomic.AtomicReference.get()
+rx.joins.JoinObserver1.removeActivePlan(rx.joins.ActivePlan0)
+java.util.concurrent.atomic.AtomicReference.get()
+rx.util.functions.Action1.call(rx.joins.ActivePlan0)
+java.util.concurrent.atomic.AtomicReference.set(rx.joins.ActivePlan2)
+rx.joins.JoinObserver1.addActivePlan(rx.joins.ActivePlan0)
+rx.joins.JoinObserver1.addActivePlan(rx.joins.ActivePlan0)
+Chamada: rx.util.functions.Actions.onErrorFrom(rx.Observer)
+Situação: Primeira Chamada
+Chamada: rx.joins.Pattern2.first()
+Situação: Manual
+Chamada: rx.joins.Plan0.createObserver(java.util.Map, rx.Observable, rx.util.functions.Action1)
+Situação: Manual
+Chamada: rx.joins.Pattern2.second()
+Situação: Manual
+Chamada: rx.joins.Plan0.createObserver(java.util.Map, rx.Observable, rx.util.functions.Action1)
+Situação: Manual
+Chamada: rx.util.functions.Func2.call(rx.joins.Plan2$T1, rx.joins.Plan2$T2)
+Situação: Manual
+Chamada: onError
+Situação: Manual
+Chamada: onNext
+Situação: Manual
+Chamada: java.util.concurrent.atomic.AtomicReference.get()
+Situação: Manual
+Chamada: rx.joins.JoinObserver1.removeActivePlan(rx.joins.ActivePlan0)
+Situação: Manual
+Chamada: java.util.concurrent.atomic.AtomicReference.get()
+Situação: Automatizada
+Índice da Sugestão: 2
+Confiança: 1.0
+Suporte: 0.00401606
+F-Measure Suporte e Confiança: 0.008
+Chamada: rx.joins.JoinObserver1.removeActivePlan(rx.joins.ActivePlan0)
+Situação: Manual
+Chamada: java.util.concurrent.atomic.AtomicReference.get()
+Situação: Automatizada
+Índice da Sugestão: 1
+Confiança: 1.0
+Suporte: 0.00267738
+F-Measure Suporte e Confiança: 0.006
+Chamada: rx.util.functions.Action1.call(rx.joins.ActivePlan0)
+Situação: Automatizada
+Índice da Sugestão: 1
+Confiança: 1.0
+Suporte: 0.00401606
+F-Measure Suporte e Confiança: 0.008
+Chamada: java.util.concurrent.atomic.AtomicReference.set(rx.joins.ActivePlan2)
+Situação: Manual
+Chamada: rx.joins.JoinObserver1.addActivePlan(rx.joins.ActivePlan0)
+Situação: Manual
+Chamada: rx.joins.JoinObserver1.addActivePlan(rx.joins.ActivePlan0)
+Situação: Manual
+Corretude/Utilidade dos Métodos
+Método: java.util.concurrent.atomic.AtomicReference.get()
+Útil
+Método: rx.util.functions.Action1.call(rx.joins.ActivePlan0)
+Útil
+Percentual de Automatização: 0.1875
+Corretude: 1.0
+F-Measure: 0.3157894736842105
+************************ Método Avaliado: activate ************************
+*Commit: commit 47a0e1b719d7fe28a3e0dec276b914e52d1270bb 1391037689 ----sp
+*Alguma Sugestão Fornecida: Sim
+*Alguma Sugestão Aprovada: Sim
+**************************************************************************************************************
+----------------Chamadas de método antigas:---------------
+----------------Chamadas de método novas:---------------
+rx.util.functions.Actions.onErrorFrom(rx.Observer)
+rx.joins.Pattern3.first()
+rx.joins.Plan0.createObserver(java.util.Map, rx.Observable, rx.util.functions.Action1)
+rx.joins.Pattern3.second()
+rx.joins.Plan0.createObserver(java.util.Map, rx.Observable, rx.util.functions.Action1)
+rx.joins.Pattern3.third()
+rx.joins.Plan0.createObserver(java.util.Map, rx.Observable, rx.util.functions.Action1)
+rx.util.functions.Func3.call(rx.joins.Plan3$T1, rx.joins.Plan3$T2, rx.joins.Plan3$T3)
+onError
+onNext
+java.util.concurrent.atomic.AtomicReference.get()
+rx.joins.JoinObserver1.removeActivePlan(rx.joins.ActivePlan0)
+java.util.concurrent.atomic.AtomicReference.get()
+rx.joins.JoinObserver1.removeActivePlan(rx.joins.ActivePlan0)
+java.util.concurrent.atomic.AtomicReference.get()
+rx.joins.JoinObserver1.removeActivePlan(rx.joins.ActivePlan0)
+java.util.concurrent.atomic.AtomicReference.get()
+rx.util.functions.Action1.call(rx.joins.ActivePlan0)
+java.util.concurrent.atomic.AtomicReference.set(rx.joins.ActivePlan3)
+rx.joins.JoinObserver1.addActivePlan(rx.joins.ActivePlan0)
+rx.joins.JoinObserver1.addActivePlan(rx.joins.ActivePlan0)
+rx.joins.JoinObserver1.addActivePlan(rx.joins.ActivePlan0)
+Chamada: rx.util.functions.Actions.onErrorFrom(rx.Observer)
+Situação: Primeira Chamada
+Chamada: rx.joins.Pattern3.first()
+Situação: Manual
+Chamada: rx.joins.Plan0.createObserver(java.util.Map, rx.Observable, rx.util.functions.Action1)
+Situação: Manual
+Chamada: rx.joins.Pattern3.second()
+Situação: Manual
+Chamada: rx.joins.Plan0.createObserver(java.util.Map, rx.Observable, rx.util.functions.Action1)
+Situação: Manual
+Chamada: rx.joins.Pattern3.third()
+Situação: Manual
+Chamada: rx.joins.Plan0.createObserver(java.util.Map, rx.Observable, rx.util.functions.Action1)
+Situação: Manual
+Chamada: rx.util.functions.Func3.call(rx.joins.Plan3$T1, rx.joins.Plan3$T2, rx.joins.Plan3$T3)
+Situação: Manual
+Chamada: onError
+Situação: Manual
+Chamada: onNext
+Situação: Manual
+Chamada: java.util.concurrent.atomic.AtomicReference.get()
+Situação: Manual
+Chamada: rx.joins.JoinObserver1.removeActivePlan(rx.joins.ActivePlan0)
+Situação: Manual
+Chamada: java.util.concurrent.atomic.AtomicReference.get()
+Situação: Automatizada
+Índice da Sugestão: 2
+Confiança: 1.0
+Suporte: 0.00401606
+F-Measure Suporte e Confiança: 0.008
+Chamada: rx.joins.JoinObserver1.removeActivePlan(rx.joins.ActivePlan0)
+Situação: Manual
+Chamada: java.util.concurrent.atomic.AtomicReference.get()
+Situação: Automatizada
+Índice da Sugestão: 1
+Confiança: 1.0
+Suporte: 0.00267738
+F-Measure Suporte e Confiança: 0.006
+Chamada: rx.joins.JoinObserver1.removeActivePlan(rx.joins.ActivePlan0)
+Situação: Manual
+Chamada: java.util.concurrent.atomic.AtomicReference.get()
+Situação: Automatizada
+Índice da Sugestão: 1
+Confiança: 1.0
+Suporte: 0.00267738
+F-Measure Suporte e Confiança: 0.006
+Chamada: rx.util.functions.Action1.call(rx.joins.ActivePlan0)
+Situação: Automatizada
+Índice da Sugestão: 1
+Confiança: 1.0
+Suporte: 0.00401606
+F-Measure Suporte e Confiança: 0.008
+Chamada: java.util.concurrent.atomic.AtomicReference.set(rx.joins.ActivePlan3)
+Situação: Manual
+Chamada: rx.joins.JoinObserver1.addActivePlan(rx.joins.ActivePlan0)
+Situação: Manual
+Chamada: rx.joins.JoinObserver1.addActivePlan(rx.joins.ActivePlan0)
+Situação: Manual
+Chamada: rx.joins.JoinObserver1.addActivePlan(rx.joins.ActivePlan0)
+Situação: Manual
+Corretude/Utilidade dos Métodos
+Método: java.util.concurrent.atomic.AtomicReference.get()
+Útil
+Método: rx.util.functions.Action1.call(rx.joins.ActivePlan0)
+Útil
+Percentual de Automatização: 0.19047619047619047
+Corretude: 1.0
+F-Measure: 0.32
+************************ Método Avaliado: onSubscribe ************************
+*Commit: commit 47a0e1b719d7fe28a3e0dec276b914e52d1270bb 1391037689 ----sp
+*Alguma Sugestão Fornecida: Sim
+*Alguma Sugestão Aprovada: Não
+**************************************************************************************************************
+----------------Chamadas de método antigas:---------------
+----------------Chamadas de método novas:---------------
+rx.Observable.subscribe(rx.Observer)
+java.util.concurrent.atomic.AtomicBoolean.get()
+rx.util.functions.Func1.call(null)
+java.util.concurrent.atomic.AtomicBoolean.getAndSet(Z)
+onNext
+onCompleted
+unsubscribe
+onError
+unsubscribe
+onError
+java.util.concurrent.atomic.AtomicBoolean.get()
+onNext
+onCompleted
+Chamada: rx.Observable.subscribe(rx.Observer)
+Situação: Primeira Chamada
+Chamada: java.util.concurrent.atomic.AtomicBoolean.get()
+Situação: Manual
+Chamada: rx.util.functions.Func1.call(null)
+Situação: Manual
+Chamada: java.util.concurrent.atomic.AtomicBoolean.getAndSet(Z)
+Situação: Manual
+Chamada: onNext
+Situação: Manual
+Chamada: onCompleted
+Situação: Manual
+Chamada: unsubscribe
+Situação: Manual
+Chamada: onError
+Situação: Manual
+Chamada: unsubscribe
+Situação: Manual
+Chamada: onError
+Situação: Manual
+Chamada: java.util.concurrent.atomic.AtomicBoolean.get()
+Situação: Manual
+Chamada: onNext
+Situação: Manual
+Chamada: onCompleted
+Situação: Manual
+Corretude/Utilidade dos Métodos
+Método: rx.Observer.onNext(null)
+Inútil
+Percentual de Automatização: 0.0
+Corretude: 0.0
+F-Measure: 0.0
+************************ Método Avaliado: onSubscribe ************************
+*Commit: commit 47a0e1b719d7fe28a3e0dec276b914e52d1270bb 1391037689 ----sp
+*Alguma Sugestão Fornecida: Sim
+*Alguma Sugestão Aprovada: Sim
+**************************************************************************************************************
+----------------Chamadas de método antigas:---------------
+----------------Chamadas de método novas:---------------
+onNext
+java.util.concurrent.atomic.AtomicBoolean.compareAndSet(Z, Z)
+rx.operators.SafeObservableSubscription.unsubscribe()
+onError
+java.util.Collection.isEmpty()
+java.util.concurrent.atomic.AtomicBoolean.get()
+java.util.concurrent.atomic.AtomicBoolean.compareAndSet(Z, Z)
+onCompleted
+java.util.Queue.poll()
+rx.Observable.subscribe(rx.Observer)
+rx.operators.SafeObservableSubscription.wrap(rx.Subscription)
+rx.Observable.subscribe(rx.Observer)
+rx.operators.SafeObservableSubscription.wrap(rx.Subscription)
+rx.Observable.subscribe(rx.Observer)
+rx.operators.SafeObservableSubscription.wrap(rx.Subscription)
+java.util.Queue.add(rx.Observable)
+java.util.concurrent.atomic.AtomicBoolean.compareAndSet(Z, Z)
+rx.Subscription.unsubscribe()
+onError
+java.util.concurrent.atomic.AtomicBoolean.set(Z)
+java.util.concurrent.atomic.AtomicBoolean.compareAndSet(Z, Z)
+onCompleted
+rx.Subscription.unsubscribe()
+rx.operators.SafeObservableSubscription.unsubscribe()
+Chamada: onNext
+Situação: Primeira Chamada
+Chamada: java.util.concurrent.atomic.AtomicBoolean.compareAndSet(Z, Z)
+Situação: Manual
+Chamada: rx.operators.SafeObservableSubscription.unsubscribe()
+Situação: Manual
+Chamada: onError
+Situação: Manual
+Chamada: java.util.Collection.isEmpty()
+Situação: Manual
+Chamada: java.util.concurrent.atomic.AtomicBoolean.get()
+Situação: Manual
+Chamada: java.util.concurrent.atomic.AtomicBoolean.compareAndSet(Z, Z)
+Situação: Manual
+Chamada: onCompleted
+Situação: Manual
+Chamada: java.util.Queue.poll()
+Situação: Manual
+Chamada: rx.Observable.subscribe(rx.Observer)
+Situação: Manual
+Chamada: rx.operators.SafeObservableSubscription.wrap(rx.Subscription)
+Situação: Manual
+Chamada: rx.Observable.subscribe(rx.Observer)
+Situação: Manual
+Chamada: rx.operators.SafeObservableSubscription.wrap(rx.Subscription)
+Situação: Manual
+Chamada: rx.Observable.subscribe(rx.Observer)
+Situação: Manual
+Chamada: rx.operators.SafeObservableSubscription.wrap(rx.Subscription)
+Situação: Manual
+Chamada: java.util.Queue.add(rx.Observable)
+Situação: Manual
+Chamada: java.util.concurrent.atomic.AtomicBoolean.compareAndSet(Z, Z)
+Situação: Manual
+Chamada: rx.Subscription.unsubscribe()
+Situação: Manual
+Chamada: onError
+Situação: Manual
+Chamada: java.util.concurrent.atomic.AtomicBoolean.set(Z)
+Situação: Manual
+Chamada: java.util.concurrent.atomic.AtomicBoolean.compareAndSet(Z, Z)
+Situação: Manual
+Chamada: onCompleted
+Situação: Manual
+Chamada: rx.Subscription.unsubscribe()
+Situação: Automatizada
+Índice da Sugestão: 1
+Confiança: 1.0
+Suporte: 0.00267738
+F-Measure Suporte e Confiança: 0.006
+Chamada: rx.operators.SafeObservableSubscription.unsubscribe()
+Situação: Manual
+Corretude/Utilidade dos Métodos
+Método: rx.Subscription.unsubscribe()
+Útil
+Percentual de Automatização: 0.043478260869565216
+Corretude: 1.0
+F-Measure: 0.08333333333333333
+************************ Método Avaliado: onSubscribe ************************
+*Commit: commit 47a0e1b719d7fe28a3e0dec276b914e52d1270bb 1391037689 ----sp
+*Alguma Sugestão Fornecida: Sim
+*Alguma Sugestão Aprovada: Sim
+**************************************************************************************************************
+----------------Chamadas de método antigas:---------------
+----------------Chamadas de método novas:---------------
+rx.subscriptions.CompositeSubscription.add(rx.Subscription)
+rx.Observable.subscribe(rx.Observer)
+rx.subscriptions.SerialSubscription.set(rx.Subscription)
+rx.util.functions.Func0.call()
+onError
+rx.subscriptions.Subscriptions.empty()
+rx.subscriptions.CompositeSubscription.add(rx.Subscription)
+rx.Observable.subscribe(rx.Observer)
+rx.subscriptions.SerialSubscription.set(rx.Subscription)
+Chamada: rx.subscriptions.CompositeSubscription.add(rx.Subscription)
+Situação: Primeira Chamada
+Chamada: rx.Observable.subscribe(rx.Observer)
+Situação: Manual
+Chamada: rx.subscriptions.SerialSubscription.set(rx.Subscription)
+Situação: Manual
+Chamada: rx.util.functions.Func0.call()
+Situação: Manual
+Chamada: onError
+Situação: Manual
+Chamada: rx.subscriptions.Subscriptions.empty()
+Situação: Manual
+Chamada: rx.subscriptions.CompositeSubscription.add(rx.Subscription)
+Situação: Manual
+Chamada: rx.Observable.subscribe(rx.Observer)
+Situação: Automatizada
+Índice da Sugestão: 1
+Confiança: 1.0
+Suporte: 0.00334672
+F-Measure Suporte e Confiança: 0.007
+Chamada: rx.subscriptions.SerialSubscription.set(rx.Subscription)
+Situação: Manual
+Corretude/Utilidade dos Métodos
+Método: rx.Observable.subscribe(rx.Observer)
+Útil
+Percentual de Automatização: 0.125
+Corretude: 1.0
+F-Measure: 0.2222222222222222
+************************ Método Avaliado: onSubscribe ************************
+*Commit: commit 47a0e1b719d7fe28a3e0dec276b914e52d1270bb 1391037689 ----sp
+*Alguma Sugestão Fornecida: Sim
+*Alguma Sugestão Aprovada: Sim
+**************************************************************************************************************
+----------------Chamadas de método antigas:---------------
+----------------Chamadas de método novas:---------------
+rx.Observable.subscribe(rx.Observer)
+rx.Notification.getKind()
+rx.Notification.getValue()
+onNext
+rx.Notification.getThrowable()
+onError
+onCompleted
+Chamada: rx.Observable.subscribe(rx.Observer)
+Situação: Primeira Chamada
+Chamada: rx.Notification.getKind()
+Situação: Manual
+Chamada: rx.Notification.getValue()
+Situação: Manual
+Chamada: onNext
+Situação: Manual
+Chamada: rx.Notification.getThrowable()
+Situação: Automatizada
+Índice da Sugestão: 1
+Confiança: 1.0
+Suporte: 0.00334672
+F-Measure Suporte e Confiança: 0.007
+Chamada: onError
+Situação: Manual
+Chamada: onCompleted
+Situação: Manual
+Corretude/Utilidade dos Métodos
+Método: rx.Notification.getThrowable()
+Útil
+Percentual de Automatização: 0.16666666666666666
+Corretude: 1.0
+F-Measure: 0.2857142857142857
+************************ Método Avaliado: onSubscribe ************************
+*Commit: commit 47a0e1b719d7fe28a3e0dec276b914e52d1270bb 1391037689 ----sp
+*Alguma Sugestão Fornecida: Sim
+*Alguma Sugestão Aprovada: Não
+**************************************************************************************************************
+----------------Chamadas de método antigas:---------------
+----------------Chamadas de método novas:---------------
+rx.Observable.subscribe(rx.Observer)
+onCompleted
+onError
+rx.util.functions.Func1.call(null)
+null.alreadyEmitted(rx.operators.OperationDistinct$DistinctWithComparator$U)
+java.util.List.add(rx.operators.OperationDistinct$DistinctWithComparator$U)
+onNext
+java.util.Comparator.compare(rx.operators.OperationDistinct$DistinctWithComparator$U, rx.operators.OperationDistinct$DistinctWithComparator$U)
+Chamada: rx.Observable.subscribe(rx.Observer)
+Situação: Primeira Chamada
+Chamada: onCompleted
+Situação: Manual
+Chamada: onError
+Situação: Manual
+Chamada: rx.util.functions.Func1.call(null)
+Situação: Manual
+Chamada: null.alreadyEmitted(rx.operators.OperationDistinct$DistinctWithComparator$U)
+Situação: Manual
+Chamada: java.util.List.add(rx.operators.OperationDistinct$DistinctWithComparator$U)
+Situação: Manual
+Chamada: onNext
+Situação: Manual
+Chamada: java.util.Comparator.compare(rx.operators.OperationDistinct$DistinctWithComparator$U, rx.operators.OperationDistinct$DistinctWithComparator$U)
+Situação: Manual
+Corretude/Utilidade dos Métodos
+Método: rx.Observer.onNext(null)
+Inútil
+Percentual de Automatização: 0.0
+Corretude: 0.0
+F-Measure: 0.0
+************************ Método Avaliado: onSubscribe ************************
+*Commit: commit 47a0e1b719d7fe28a3e0dec276b914e52d1270bb 1391037689 ----sp
+*Alguma Sugestão Fornecida: Sim
+*Alguma Sugestão Aprovada: Não
+**************************************************************************************************************
+----------------Chamadas de método antigas:---------------
+----------------Chamadas de método novas:---------------
+rx.Observable.subscribe(rx.Observer)
+onCompleted
+onError
+rx.util.functions.Func1.call(null)
+onNext
+java.util.Comparator.compare(rx.operators.OperationDistinctUntilChanged$DistinctUntilChanged$U, rx.operators.OperationDistinctUntilChanged$DistinctUntilChanged$U)
+onNext
+Chamada: rx.Observable.subscribe(rx.Observer)
+Situação: Primeira Chamada
+Chamada: onCompleted
+Situação: Manual
+Chamada: onError
+Situação: Manual
+Chamada: rx.util.functions.Func1.call(null)
+Situação: Manual
+Chamada: onNext
+Situação: Manual
+Chamada: java.util.Comparator.compare(rx.operators.OperationDistinctUntilChanged$DistinctUntilChanged$U, rx.operators.OperationDistinctUntilChanged$DistinctUntilChanged$U)
+Situação: Manual
+Chamada: onNext
+Situação: Manual
+Corretude/Utilidade dos Métodos
+Método: rx.Observer.onNext(null)
+Inútil
+Percentual de Automatização: 0.0
+Corretude: 0.0
+F-Measure: 0.0
+************************ Método Avaliado: onSubscribe ************************
+*Commit: commit 47a0e1b719d7fe28a3e0dec276b914e52d1270bb 1391037689 ----sp
+*Alguma Sugestão Fornecida: Sim
+*Alguma Sugestão Aprovada: Não
+**************************************************************************************************************
+----------------Chamadas de método antigas:---------------
+----------------Chamadas de método novas:---------------
+rx.Observable.subscribe(rx.Observer)
+rx.util.functions.Func1.call(null)
+onNext
+onError
+unsubscribe
+onError
+onCompleted
+Chamada: rx.Observable.subscribe(rx.Observer)
+Situação: Primeira Chamada
+Chamada: rx.util.functions.Func1.call(null)
+Situação: Manual
+Chamada: onNext
+Situação: Manual
+Chamada: onError
+Situação: Manual
+Chamada: unsubscribe
+Situação: Manual
+Chamada: onError
+Situação: Manual
+Chamada: onCompleted
+Situação: Manual
+Corretude/Utilidade dos Métodos
+Método: rx.Observer.onNext(null)
+Inútil
+Percentual de Automatização: 0.0
+Corretude: 0.0
+F-Measure: 0.0
+************************ Método Avaliado: onSubscribe ************************
+*Commit: commit 47a0e1b719d7fe28a3e0dec276b914e52d1270bb 1391037689 ----sp
+*Alguma Sugestão Fornecida: Sim
+*Alguma Sugestão Aprovada: Sim
+**************************************************************************************************************
+----------------Chamadas de método antigas:---------------
+----------------Chamadas de método novas:---------------
+rx.util.functions.Func0.call()
+rx.util.functions.Func1.call(null)
+onError
+rx.subscriptions.Subscriptions.empty()
+rx.Observable.subscribe(rx.Observer)
+rx.subscriptions.CompositeSubscription.add(rx.Subscription)
+rx.observables.ConnectableObservable.connect()
+rx.subscriptions.CompositeSubscription.add(rx.Subscription)
+Chamada: rx.util.functions.Func0.call()
+Situação: Primeira Chamada
+Chamada: rx.util.functions.Func1.call(null)
+Situação: Manual
+Chamada: onError
+Situação: Manual
+Chamada: rx.subscriptions.Subscriptions.empty()
+Situação: Manual
+Chamada: rx.Observable.subscribe(rx.Observer)
+Situação: Automatizada
+Índice da Sugestão: 1
+Confiança: 1.0
+Suporte: 0.00334672
+F-Measure Suporte e Confiança: 0.007
+Chamada: rx.subscriptions.CompositeSubscription.add(rx.Subscription)
+Situação: Manual
+Chamada: rx.observables.ConnectableObservable.connect()
+Situação: Manual
+Chamada: rx.subscriptions.CompositeSubscription.add(rx.Subscription)
+Situação: Manual
+Corretude/Utilidade dos Métodos
+Método: rx.Observable.subscribe(rx.Observer)
+Útil
+Percentual de Automatização: 0.14285714285714285
+Corretude: 1.0
+F-Measure: 0.25
+************************ Método Avaliado: onSubscribe ************************
+*Commit: commit 47a0e1b719d7fe28a3e0dec276b914e52d1270bb 1391037689 ----sp
+*Alguma Sugestão Fornecida: Sim
+*Alguma Sugestão Aprovada: Sim
+**************************************************************************************************************
+----------------Chamadas de método antigas:---------------
+----------------Chamadas de método novas:---------------
+java.util.concurrent.atomic.AtomicReference.get()
+rx.Observable.subscribe(rx.Observer)
+rx.operators.SafeObservableSubscription.wrap(rx.Subscription)
+onNext
+java.util.concurrent.atomic.AtomicReference.get()
+rx.util.functions.Func1.call(java.lang.Throwable)
+rx.Observable.subscribe(rx.Observer)
+java.util.concurrent.atomic.AtomicReference.compareAndSet(rx.operators.SafeObservableSubscription, rx.operators.SafeObservableSubscription)
+rx.operators.SafeObservableSubscription.unsubscribe()
+java.util.Arrays.asList([Ljava.lang.Throwable;)
+onError
+onCompleted
+java.util.concurrent.atomic.AtomicReference.getAndSet(rx.operators.SafeObservableSubscription)
+rx.Subscription.unsubscribe()
+Chamada: java.util.concurrent.atomic.AtomicReference.get()
+Situação: Primeira Chamada
+Chamada: rx.Observable.subscribe(rx.Observer)
+Situação: Manual
+Chamada: rx.operators.SafeObservableSubscription.wrap(rx.Subscription)
+Situação: Manual
+Chamada: onNext
+Situação: Manual
+Chamada: java.util.concurrent.atomic.AtomicReference.get()
+Situação: Manual
+Chamada: rx.util.functions.Func1.call(java.lang.Throwable)
+Situação: Manual
+Chamada: rx.Observable.subscribe(rx.Observer)
+Situação: Manual
+Chamada: java.util.concurrent.atomic.AtomicReference.compareAndSet(rx.operators.SafeObservableSubscription, rx.operators.SafeObservableSubscription)
+Situação: Manual
+Chamada: rx.operators.SafeObservableSubscription.unsubscribe()
+Situação: Automatizada
+Índice da Sugestão: 1
+Confiança: 1.0
+Suporte: 0.00267738
+F-Measure Suporte e Confiança: 0.006
+Chamada: java.util.Arrays.asList([Ljava.lang.Throwable;)
+Situação: Automatizada
+Índice da Sugestão: 3
+Confiança: 1.0
+Suporte: 0.00267738
+F-Measure Suporte e Confiança: 0.006
+Chamada: onError
+Situação: Manual
+Chamada: onCompleted
+Situação: Manual
+Chamada: java.util.concurrent.atomic.AtomicReference.getAndSet(rx.operators.SafeObservableSubscription)
+Situação: Automatizada
+Índice da Sugestão: 3
+Confiança: 1.0
+Suporte: 0.00267738
+F-Measure Suporte e Confiança: 0.006
+Chamada: rx.Subscription.unsubscribe()
+Situação: Automatizada
+Índice da Sugestão: 2
+Confiança: 1.0
+Suporte: 0.00267738
+F-Measure Suporte e Confiança: 0.006
+Corretude/Utilidade dos Métodos
+Método: rx.Subscription.unsubscribe()
+Útil
+Método: rx.Observer.onCompleted()
+Inútil
+Método: java.util.concurrent.atomic.AtomicReference.getAndSet(rx.operators.SafeObservableSubscription)
+Útil
+Método: rx.operators.SafeObservableSubscription.unsubscribe()
+Útil
+Método: rx.Observer.onError(java.lang.Throwable)
+Inútil
+Método: java.util.Arrays.asList([Ljava.lang.Throwable;)
+Útil
+Percentual de Automatização: 0.3076923076923077
+Corretude: 0.6666666666666666
+F-Measure: 0.42105263157894735
+************************ Método Avaliado: onSubscribe ************************
+*Commit: commit 47a0e1b719d7fe28a3e0dec276b914e52d1270bb 1391037689 ----sp
+*Alguma Sugestão Fornecida: Sim
+*Alguma Sugestão Aprovada: Sim
+**************************************************************************************************************
+----------------Chamadas de método antigas:---------------
+----------------Chamadas de método novas:---------------
+rx.Observable.subscribe(rx.Observer)
+rx.operators.SafeObservableSubscription.wrap(rx.Subscription)
+java.util.concurrent.atomic.AtomicReference.get()
+onNext
+java.util.concurrent.atomic.AtomicReference.get()
+rx.Observable.subscribe(rx.Observer)
+java.util.concurrent.atomic.AtomicReference.compareAndSet(rx.operators.SafeObservableSubscription, rx.operators.SafeObservableSubscription)
+rx.operators.SafeObservableSubscription.unsubscribe()
+java.util.concurrent.atomic.AtomicReference.get()
+onCompleted
+java.util.concurrent.atomic.AtomicReference.getAndSet(rx.operators.SafeObservableSubscription)
+rx.Subscription.unsubscribe()
+Chamada: rx.Observable.subscribe(rx.Observer)
+Situação: Primeira Chamada
+Chamada: rx.operators.SafeObservableSubscription.wrap(rx.Subscription)
+Situação: Manual
+Chamada: java.util.concurrent.atomic.AtomicReference.get()
+Situação: Manual
+Chamada: onNext
+Situação: Manual
+Chamada: java.util.concurrent.atomic.AtomicReference.get()
+Situação: Manual
+Chamada: rx.Observable.subscribe(rx.Observer)
+Situação: Manual
+Chamada: java.util.concurrent.atomic.AtomicReference.compareAndSet(rx.operators.SafeObservableSubscription, rx.operators.SafeObservableSubscription)
+Situação: Manual
+Chamada: rx.operators.SafeObservableSubscription.unsubscribe()
+Situação: Automatizada
+Índice da Sugestão: 1
+Confiança: 1.0
+Suporte: 0.00267738
+F-Measure Suporte e Confiança: 0.006
+Chamada: java.util.concurrent.atomic.AtomicReference.get()
+Situação: Manual
+Chamada: onCompleted
+Situação: Manual
+Chamada: java.util.concurrent.atomic.AtomicReference.getAndSet(rx.operators.SafeObservableSubscription)
+Situação: Automatizada
+Índice da Sugestão: 3
+Confiança: 1.0
+Suporte: 0.00267738
+F-Measure Suporte e Confiança: 0.006
+Chamada: rx.Subscription.unsubscribe()
+Situação: Automatizada
+Índice da Sugestão: 2
+Confiança: 1.0
+Suporte: 0.00267738
+F-Measure Suporte e Confiança: 0.006
+Corretude/Utilidade dos Métodos
+Método: rx.Subscription.unsubscribe()
+Útil
+Método: rx.Observer.onCompleted()
+Inútil
+Método: java.util.concurrent.atomic.AtomicReference.getAndSet(rx.operators.SafeObservableSubscription)
+Útil
+Método: rx.operators.SafeObservableSubscription.unsubscribe()
+Útil
+Percentual de Automatização: 0.2727272727272727
+Corretude: 0.75
+F-Measure: 0.39999999999999997
+************************ Método Avaliado: onSubscribe ************************
+*Commit: commit 47a0e1b719d7fe28a3e0dec276b914e52d1270bb 1391037689 ----sp
+*Alguma Sugestão Fornecida: Sim
+*Alguma Sugestão Aprovada: Sim
+**************************************************************************************************************
+----------------Chamadas de método antigas:---------------
+----------------Chamadas de método novas:---------------
+rx.Observable.subscribe(rx.Observer)
+rx.operators.SafeObservableSubscription.wrap(rx.Subscription)
+onNext
+java.util.concurrent.atomic.AtomicReference.get()
+rx.util.functions.Func1.call(java.lang.Throwable)
+null.onNext(rx.operators.OperationOnErrorReturn$OnErrorReturn$T)
+null.onCompleted()
+rx.operators.SafeObservableSubscription.unsubscribe()
+java.util.Arrays.asList([Ljava.lang.Throwable;)
+onError
+onCompleted
+java.util.concurrent.atomic.AtomicReference.getAndSet(rx.operators.SafeObservableSubscription)
+rx.Subscription.unsubscribe()
+Chamada: rx.Observable.subscribe(rx.Observer)
+Situação: Primeira Chamada
+Chamada: rx.operators.SafeObservableSubscription.wrap(rx.Subscription)
+Situação: Manual
+Chamada: onNext
+Situação: Manual
+Chamada: java.util.concurrent.atomic.AtomicReference.get()
+Situação: Manual
+Chamada: rx.util.functions.Func1.call(java.lang.Throwable)
+Situação: Manual
+Chamada: null.onNext(rx.operators.OperationOnErrorReturn$OnErrorReturn$T)
+Situação: Manual
+Chamada: null.onCompleted()
+Situação: Manual
+Chamada: rx.operators.SafeObservableSubscription.unsubscribe()
+Situação: Automatizada
+Índice da Sugestão: 1
+Confiança: 1.0
+Suporte: 0.00267738
+F-Measure Suporte e Confiança: 0.006
+Chamada: java.util.Arrays.asList([Ljava.lang.Throwable;)
+Situação: Automatizada
+Índice da Sugestão: 3
+Confiança: 1.0
+Suporte: 0.00267738
+F-Measure Suporte e Confiança: 0.006
+Chamada: onError
+Situação: Manual
+Chamada: onCompleted
+Situação: Manual
+Chamada: java.util.concurrent.atomic.AtomicReference.getAndSet(rx.operators.SafeObservableSubscription)
+Situação: Automatizada
+Índice da Sugestão: 3
+Confiança: 1.0
+Suporte: 0.00267738
+F-Measure Suporte e Confiança: 0.006
+Chamada: rx.Subscription.unsubscribe()
+Situação: Automatizada
+Índice da Sugestão: 2
+Confiança: 1.0
+Suporte: 0.00267738
+F-Measure Suporte e Confiança: 0.006
+Corretude/Utilidade dos Métodos
+Método: rx.Subscription.unsubscribe()
+Útil
+Método: rx.Observer.onCompleted()
+Inútil
+Método: java.util.concurrent.atomic.AtomicReference.getAndSet(rx.operators.SafeObservableSubscription)
+Útil
+Método: rx.operators.SafeObservableSubscription.unsubscribe()
+Útil
+Método: rx.Observer.onError(java.lang.Throwable)
+Inútil
+Método: java.util.Arrays.asList([Ljava.lang.Throwable;)
+Útil
+Percentual de Automatização: 0.3333333333333333
+Corretude: 0.6666666666666666
+F-Measure: 0.4444444444444444
+************************ Método Avaliado: onSubscribe ************************
+*Commit: commit 47a0e1b719d7fe28a3e0dec276b914e52d1270bb 1391037689 ----sp
+*Alguma Sugestão Fornecida: Sim
+*Alguma Sugestão Aprovada: Sim
+**************************************************************************************************************
+----------------Chamadas de método antigas:---------------
+----------------Chamadas de método novas:---------------
+rx.Observable.subscribe(rx.Observer)
+rx.operators.SafeObservableSubscription.wrap(rx.Subscription)
+java.util.concurrent.atomic.AtomicReference.get()
+onNext
+java.util.concurrent.atomic.AtomicReference.get()
+rx.Observable.subscribe(rx.Observer)
+java.util.concurrent.atomic.AtomicReference.compareAndSet(rx.operators.SafeObservableSubscription, rx.operators.SafeObservableSubscription)
+rx.operators.SafeObservableSubscription.unsubscribe()
+onError
+java.util.concurrent.atomic.AtomicReference.get()
+onCompleted
+java.util.concurrent.atomic.AtomicReference.getAndSet(rx.operators.SafeObservableSubscription)
+rx.Subscription.unsubscribe()
+Chamada: rx.Observable.subscribe(rx.Observer)
+Situação: Primeira Chamada
+Chamada: rx.operators.SafeObservableSubscription.wrap(rx.Subscription)
+Situação: Manual
+Chamada: java.util.concurrent.atomic.AtomicReference.get()
+Situação: Manual
+Chamada: onNext
+Situação: Manual
+Chamada: java.util.concurrent.atomic.AtomicReference.get()
+Situação: Manual
+Chamada: rx.Observable.subscribe(rx.Observer)
+Situação: Manual
+Chamada: java.util.concurrent.atomic.AtomicReference.compareAndSet(rx.operators.SafeObservableSubscription, rx.operators.SafeObservableSubscription)
+Situação: Manual
+Chamada: rx.operators.SafeObservableSubscription.unsubscribe()
+Situação: Automatizada
+Índice da Sugestão: 1
+Confiança: 1.0
+Suporte: 0.00267738
+F-Measure Suporte e Confiança: 0.006
+Chamada: onError
+Situação: Manual
+Chamada: java.util.concurrent.atomic.AtomicReference.get()
+Situação: Manual
+Chamada: onCompleted
+Situação: Manual
+Chamada: java.util.concurrent.atomic.AtomicReference.getAndSet(rx.operators.SafeObservableSubscription)
+Situação: Automatizada
+Índice da Sugestão: 3
+Confiança: 1.0
+Suporte: 0.00267738
+F-Measure Suporte e Confiança: 0.006
+Chamada: rx.Subscription.unsubscribe()
+Situação: Automatizada
+Índice da Sugestão: 2
+Confiança: 1.0
+Suporte: 0.00267738
+F-Measure Suporte e Confiança: 0.006
+Corretude/Utilidade dos Métodos
+Método: rx.Subscription.unsubscribe()
+Útil
+Método: rx.Observer.onCompleted()
+Inútil
+Método: java.util.concurrent.atomic.AtomicReference.getAndSet(rx.operators.SafeObservableSubscription)
+Útil
+Método: rx.operators.SafeObservableSubscription.unsubscribe()
+Útil
+Percentual de Automatização: 0.25
+Corretude: 0.75
+F-Measure: 0.375
+************************ Método Avaliado: onSubscribe ************************
+*Commit: commit 47a0e1b719d7fe28a3e0dec276b914e52d1270bb 1391037689 ----sp
+*Alguma Sugestão Fornecida: Sim
+*Alguma Sugestão Aprovada: Sim
+**************************************************************************************************************
+----------------Chamadas de método antigas:---------------
+----------------Chamadas de método novas:---------------
+rx.Observable.subscribe(rx.Observer)
+rx.observables.ConnectableObservable.connect()
+rx.subscriptions.Subscriptions.create(rx.util.functions.Action0)
+rx.Subscription.unsubscribe()
+rx.Subscription.unsubscribe()
+Chamada: rx.Observable.subscribe(rx.Observer)
+Situação: Primeira Chamada
+Chamada: rx.observables.ConnectableObservable.connect()
+Situação: Manual
+Chamada: rx.subscriptions.Subscriptions.create(rx.util.functions.Action0)
+Situação: Manual
+Chamada: rx.Subscription.unsubscribe()
+Situação: Automatizada
+Índice da Sugestão: 1
+Confiança: 1.0
+Suporte: 0.00334672
+F-Measure Suporte e Confiança: 0.007
+Chamada: rx.Subscription.unsubscribe()
+Situação: Manual
+Corretude/Utilidade dos Métodos
+Método: rx.Subscription.unsubscribe()
+Útil
+Percentual de Automatização: 0.25
+Corretude: 1.0
+F-Measure: 0.4
+************************ Método Avaliado: onSubscribe ************************
+*Commit: commit 47a0e1b719d7fe28a3e0dec276b914e52d1270bb 1391037689 ----sp
+*Alguma Sugestão Fornecida: Sim
+*Alguma Sugestão Aprovada: Sim
+**************************************************************************************************************
+----------------Chamadas de método antigas:---------------
+----------------Chamadas de método novas:---------------
+rx.operators.OperationReplay$BaseState.lock()
+rx.util.functions.Action0.call()
+addReplayer
+rx.operators.OperationReplay$BaseState.unlock()
+rx.operators.OperationReplay$VirtualList.start()
+rx.operators.OperationReplay$VirtualList.end()
+rx.operators.OperationReplay$VirtualList.get(I)
+rx.util.functions.Func1.call(null)
+onNext
+onError
+rx.subscriptions.Subscriptions.empty()
+onError
+onCompleted
+rx.subscriptions.Subscriptions.empty()
+Chamada: rx.operators.OperationReplay$BaseState.lock()
+Situação: Primeira Chamada
+Chamada: rx.util.functions.Action0.call()
+Situação: Manual
+Chamada: addReplayer
+Situação: Manual
+Chamada: rx.operators.OperationReplay$BaseState.unlock()
+Situação: Automatizada
+Índice da Sugestão: 1
+Confiança: 1.0
+Suporte: 0.00401606
+F-Measure Suporte e Confiança: 0.008
+Chamada: rx.operators.OperationReplay$VirtualList.start()
+Situação: Manual
+Chamada: rx.operators.OperationReplay$VirtualList.end()
+Situação: Manual
+Chamada: rx.operators.OperationReplay$VirtualList.get(I)
+Situação: Manual
+Chamada: rx.util.functions.Func1.call(null)
+Situação: Manual
+Chamada: onNext
+Situação: Manual
+Chamada: onError
+Situação: Manual
+Chamada: rx.subscriptions.Subscriptions.empty()
+Situação: Manual
+Chamada: onError
+Situação: Manual
+Chamada: onCompleted
+Situação: Manual
+Chamada: rx.subscriptions.Subscriptions.empty()
+Situação: Manual
+Corretude/Utilidade dos Métodos
+Método: rx.operators.OperationReplay$BaseState.unlock()
+Útil
+Percentual de Automatização: 0.07692307692307693
+Corretude: 1.0
+F-Measure: 0.14285714285714288
+************************ Método Avaliado: onSubscribe ************************
+*Commit: commit 47a0e1b719d7fe28a3e0dec276b914e52d1270bb 1391037689 ----sp
+*Alguma Sugestão Fornecida: Sim
+*Alguma Sugestão Aprovada: Não
+**************************************************************************************************************
+----------------Chamadas de método antigas:---------------
+----------------Chamadas de método novas:---------------
+rx.Observable.subscribe(rx.Observer)
+onError
+rx.operators.OperationTakeUntil$Notification.halt()
+onNext
+Chamada: rx.Observable.subscribe(rx.Observer)
+Situação: Primeira Chamada
+Chamada: onError
+Situação: Manual
+Chamada: rx.operators.OperationTakeUntil$Notification.halt()
+Situação: Manual
+Chamada: onNext
+Situação: Manual
+Corretude/Utilidade dos Métodos
+Método: rx.Observer.onNext(null)
+Inútil
+Percentual de Automatização: 0.0
+Corretude: 0.0
+F-Measure: 0.0
+************************ Método Avaliado: onSubscribe ************************
+*Commit: commit 47a0e1b719d7fe28a3e0dec276b914e52d1270bb 1391037689 ----sp
+*Alguma Sugestão Fornecida: Sim
+*Alguma Sugestão Aprovada: Sim
+**************************************************************************************************************
+----------------Chamadas de método antigas:---------------
+----------------Chamadas de método novas:---------------
+rx.util.functions.Func0.call()
+onError
+rx.subscriptions.Subscriptions.empty()
+rx.Observable.subscribe(rx.Observer)
+rx.subscriptions.CompositeSubscription.add(rx.Subscription)
+rx.Observable.subscribe(rx.Observer)
+rx.subscriptions.CompositeSubscription.add(rx.Subscription)
+Chamada: rx.util.functions.Func0.call()
+Situação: Primeira Chamada
+Chamada: onError
+Situação: Manual
+Chamada: rx.subscriptions.Subscriptions.empty()
+Situação: Manual
+Chamada: rx.Observable.subscribe(rx.Observer)
+Situação: Automatizada
+Índice da Sugestão: 1
+Confiança: 1.0
+Suporte: 0.00334672
+F-Measure Suporte e Confiança: 0.007
+Chamada: rx.subscriptions.CompositeSubscription.add(rx.Subscription)
+Situação: Manual
+Chamada: rx.Observable.subscribe(rx.Observer)
+Situação: Manual
+Chamada: rx.subscriptions.CompositeSubscription.add(rx.Subscription)
+Situação: Manual
+Corretude/Utilidade dos Métodos
+Método: rx.Observable.subscribe(rx.Observer)
+Útil
+Percentual de Automatização: 0.16666666666666666
+Corretude: 1.0
+F-Measure: 0.2857142857142857
+************************ Método Avaliado: onSubscribe ************************
+*Commit: commit 47a0e1b719d7fe28a3e0dec276b914e52d1270bb 1391037689 ----sp
+*Alguma Sugestão Fornecida: Sim
+*Alguma Sugestão Aprovada: Sim
+**************************************************************************************************************
+----------------Chamadas de método antigas:---------------
+----------------Chamadas de método novas:---------------
+rx.util.functions.Func0.call()
+onError
+rx.subscriptions.Subscriptions.empty()
+rx.Observable.subscribe(rx.Observer)
+Chamada: rx.util.functions.Func0.call()
+Situação: Primeira Chamada
+Chamada: onError
+Situação: Manual
+Chamada: rx.subscriptions.Subscriptions.empty()
+Situação: Manual
+Chamada: rx.Observable.subscribe(rx.Observer)
+Situação: Automatizada
+Índice da Sugestão: 1
+Confiança: 1.0
+Suporte: 0.00334672
+F-Measure Suporte e Confiança: 0.007
+Corretude/Utilidade dos Métodos
+Método: rx.Observable.subscribe(rx.Observer)
+Útil
+Percentual de Automatização: 0.3333333333333333
+Corretude: 1.0
+F-Measure: 0.5
+************************ Método Avaliado: onSubscribe ************************
+*Commit: commit 47a0e1b719d7fe28a3e0dec276b914e52d1270bb 1391037689 ----sp
+*Alguma Sugestão Fornecida: Sim
+*Alguma Sugestão Aprovada: Sim
+**************************************************************************************************************
+----------------Chamadas de método antigas:---------------
+----------------Chamadas de método novas:---------------
+rx.util.functions.Func0.call()
+onError
+rx.subscriptions.Subscriptions.empty()
+rx.Observable.subscribe(rx.Observer)
+Chamada: rx.util.functions.Func0.call()
+Situação: Primeira Chamada
+Chamada: onError
+Situação: Manual
+Chamada: rx.subscriptions.Subscriptions.empty()
+Situação: Manual
+Chamada: rx.Observable.subscribe(rx.Observer)
+Situação: Automatizada
+Índice da Sugestão: 1
+Confiança: 1.0
+Suporte: 0.00334672
+F-Measure Suporte e Confiança: 0.007
+Corretude/Utilidade dos Métodos
+Método: rx.Observable.subscribe(rx.Observer)
+Útil
+Percentual de Automatização: 0.3333333333333333
+Corretude: 1.0
+F-Measure: 0.5
+************************ Método Avaliado: onSubscribe ************************
+*Commit: commit 47a0e1b719d7fe28a3e0dec276b914e52d1270bb 1391037689 ----sp
+*Alguma Sugestão Fornecida: Sim
+*Alguma Sugestão Aprovada: Não
+**************************************************************************************************************
+----------------Chamadas de método antigas:---------------
+----------------Chamadas de método novas:---------------
+java.lang.Iterable.iterator()
+java.util.Iterator.hasNext()
+onError
+rx.subscriptions.Subscriptions.empty()
+onCompleted
+rx.subscriptions.Subscriptions.empty()
+rx.Observable.subscribe(rx.Observer)
+rx.subscriptions.SerialSubscription.set(rx.Subscription)
+Chamada: java.lang.Iterable.iterator()
+Situação: Primeira Chamada
+Chamada: java.util.Iterator.hasNext()
+Situação: Manual
+Chamada: onError
+Situação: Manual
+Chamada: rx.subscriptions.Subscriptions.empty()
+Situação: Manual
+Chamada: onCompleted
+Situação: Manual
+Chamada: rx.subscriptions.Subscriptions.empty()
+Situação: Manual
+Chamada: rx.Observable.subscribe(rx.Observer)
+Situação: Manual
+Chamada: rx.subscriptions.SerialSubscription.set(rx.Subscription)
+Situação: Manual
+Corretude/Utilidade dos Métodos
+Método: java.util.Iterator.next()
+Inútil
+Percentual de Automatização: 0.0
+Corretude: 0.0
+F-Measure: 0.0
+************************ Método Avaliado: rx.Observable.doOnEach(rx.Observer) ************************
+*Commit: commit 60af29e59b2a3353fb8727cd7028de15b435b1a5 1391060913 ----sp
+*Alguma Sugestão Fornecida: Sim
+*Alguma Sugestão Aprovada: Sim
+**************************************************************************************************************
+----------------Chamadas de método antigas:---------------
+----------------Chamadas de método novas:---------------
+rx.operators.OperationDoOnEach.doOnEach(rx.Observable, rx.Observer)
+rx.Observable.create(rx.Observable$OnSubscribeFunc)
+Chamada: rx.operators.OperationDoOnEach.doOnEach(rx.Observable, rx.Observer)
+Situação: Primeira Chamada
+Chamada: rx.Observable.create(rx.Observable$OnSubscribeFunc)
+Situação: Automatizada
+Índice da Sugestão: 1
+Confiança: 1.0
+Suporte: 0.00334672
+F-Measure Suporte e Confiança: 0.007
+Corretude/Utilidade dos Métodos
+Método: rx.Observable.create(rx.Observable$OnSubscribeFunc)
+Útil
+Percentual de Automatização: 1.0
+Corretude: 1.0
+F-Measure: 1.0
+************************ Método Avaliado: rx.operators.OperationAny$Any.onSubscribe(rx.Observer) ************************
+*Commit: commit cac2118c0a8b99deac1c1268c7e870c5e2e9f5e8 1391146421 ----sp
+*Alguma Sugestão Fornecida: Sim
+*Alguma Sugestão Aprovada: Sim
+**************************************************************************************************************
+----------------Chamadas de método antigas:---------------
+----------------Chamadas de método novas:---------------
+rx.Observable.subscribe(rx.Observer)
+java.util.concurrent.atomic.AtomicBoolean.get()
+rx.util.functions.Func1.call(null)
+java.util.concurrent.atomic.AtomicBoolean.getAndSet(Z)
+rx.Observer.onNext(null)
+rx.Observer.onCompleted()
+unsubscribe
+rx.Observer.onError(java.lang.Throwable)
+unsubscribe
+rx.Observer.onError(java.lang.Throwable)
+java.util.concurrent.atomic.AtomicBoolean.get()
+rx.Observer.onNext(null)
+rx.Observer.onCompleted()
+Chamada: rx.Observable.subscribe(rx.Observer)
+Situação: Primeira Chamada
+Chamada: java.util.concurrent.atomic.AtomicBoolean.get()
+Situação: Manual
+Chamada: rx.util.functions.Func1.call(null)
+Situação: Manual
+Chamada: java.util.concurrent.atomic.AtomicBoolean.getAndSet(Z)
+Situação: Manual
+Chamada: rx.Observer.onNext(null)
+Situação: Automatizada
+Índice da Sugestão: 1
+Confiança: 1.0
+Suporte: 0.00267738
+F-Measure Suporte e Confiança: 0.006
+Chamada: rx.Observer.onCompleted()
+Situação: Manual
+Chamada: unsubscribe
+Situação: Manual
+Chamada: rx.Observer.onError(java.lang.Throwable)
+Situação: Manual
+Chamada: unsubscribe
+Situação: Manual
+Chamada: rx.Observer.onError(java.lang.Throwable)
+Situação: Manual
+Chamada: java.util.concurrent.atomic.AtomicBoolean.get()
+Situação: Manual
+Chamada: rx.Observer.onNext(null)
+Situação: Automatizada
+Índice da Sugestão: 1
+Confiança: 1.0
+Suporte: 0.00267738
+F-Measure Suporte e Confiança: 0.006
+Chamada: rx.Observer.onCompleted()
+Situação: Automatizada
+Índice da Sugestão: 1
+Confiança: 1.0
+Suporte: 0.00267738
+F-Measure Suporte e Confiança: 0.006
+Corretude/Utilidade dos Métodos
+Método: rx.Observer.onCompleted()
+Útil
+Método: rx.Observer.onNext(null)
+Útil
+Percentual de Automatização: 0.25
+Corretude: 1.0
+F-Measure: 0.4
+************************ Método Avaliado: rx.operators.OperationConcat$Concat.onSubscribe(rx.Observer) ************************
+*Commit: commit cac2118c0a8b99deac1c1268c7e870c5e2e9f5e8 1391146421 ----sp
+*Alguma Sugestão Fornecida: Sim
+*Alguma Sugestão Aprovada: Sim
+**************************************************************************************************************
+----------------Chamadas de método antigas:---------------
+----------------Chamadas de método novas:---------------
+rx.Observer.onNext(null)
+java.util.concurrent.atomic.AtomicBoolean.compareAndSet(Z, Z)
+rx.operators.SafeObservableSubscription.unsubscribe()
+rx.Observer.onError(java.lang.Throwable)
+java.util.Collection.isEmpty()
+java.util.concurrent.atomic.AtomicBoolean.get()
+java.util.concurrent.atomic.AtomicBoolean.compareAndSet(Z, Z)
+rx.Observer.onCompleted()
+java.util.Queue.poll()
+rx.Observable.subscribe(rx.Observer)
+rx.operators.SafeObservableSubscription.wrap(rx.Subscription)
+rx.Observable.subscribe(rx.Observer)
+rx.operators.SafeObservableSubscription.wrap(rx.Subscription)
+rx.Observable.subscribe(rx.Observer)
+rx.operators.SafeObservableSubscription.wrap(rx.Subscription)
+java.util.Queue.add(rx.Observable)
+java.util.concurrent.atomic.AtomicBoolean.compareAndSet(Z, Z)
+rx.Subscription.unsubscribe()
+rx.Observer.onError(java.lang.Throwable)
+java.util.concurrent.atomic.AtomicBoolean.set(Z)
+java.util.concurrent.atomic.AtomicBoolean.compareAndSet(Z, Z)
+rx.Observer.onCompleted()
+rx.Subscription.unsubscribe()
+rx.operators.SafeObservableSubscription.unsubscribe()
+Chamada: rx.Observer.onNext(null)
+Situação: Primeira Chamada
+Chamada: java.util.concurrent.atomic.AtomicBoolean.compareAndSet(Z, Z)
+Situação: Manual
+Chamada: rx.operators.SafeObservableSubscription.unsubscribe()
+Situação: Manual
+Chamada: rx.Observer.onError(java.lang.Throwable)
+Situação: Manual
+Chamada: java.util.Collection.isEmpty()
+Situação: Manual
+Chamada: java.util.concurrent.atomic.AtomicBoolean.get()
+Situação: Manual
+Chamada: java.util.concurrent.atomic.AtomicBoolean.compareAndSet(Z, Z)
+Situação: Manual
+Chamada: rx.Observer.onCompleted()
+Situação: Manual
+Chamada: java.util.Queue.poll()
+Situação: Manual
+Chamada: rx.Observable.subscribe(rx.Observer)
+Situação: Manual
+Chamada: rx.operators.SafeObservableSubscription.wrap(rx.Subscription)
+Situação: Manual
+Chamada: rx.Observable.subscribe(rx.Observer)
+Situação: Manual
+Chamada: rx.operators.SafeObservableSubscription.wrap(rx.Subscription)
+Situação: Manual
+Chamada: rx.Observable.subscribe(rx.Observer)
+Situação: Manual
+Chamada: rx.operators.SafeObservableSubscription.wrap(rx.Subscription)
+Situação: Manual
+Chamada: java.util.Queue.add(rx.Observable)
+Situação: Manual
+Chamada: java.util.concurrent.atomic.AtomicBoolean.compareAndSet(Z, Z)
+Situação: Manual
+Chamada: rx.Subscription.unsubscribe()
+Situação: Manual
+Chamada: rx.Observer.onError(java.lang.Throwable)
+Situação: Manual
+Chamada: java.util.concurrent.atomic.AtomicBoolean.set(Z)
+Situação: Manual
+Chamada: java.util.concurrent.atomic.AtomicBoolean.compareAndSet(Z, Z)
+Situação: Manual
+Chamada: rx.Observer.onCompleted()
+Situação: Manual
+Chamada: rx.Subscription.unsubscribe()
+Situação: Automatizada
+Índice da Sugestão: 1
+Confiança: 1.0
+Suporte: 0.00267738
+F-Measure Suporte e Confiança: 0.006
+Chamada: rx.operators.SafeObservableSubscription.unsubscribe()
+Situação: Manual
+Corretude/Utilidade dos Métodos
+Método: rx.Subscription.unsubscribe()
+Útil
+Percentual de Automatização: 0.043478260869565216
+Corretude: 1.0
+F-Measure: 0.08333333333333333
+************************ Método Avaliado: rx.operators.OperationDefaultIfEmpty$DefaultIfEmpty.onSubscribe(rx.Observer) ************************
+*Commit: commit cac2118c0a8b99deac1c1268c7e870c5e2e9f5e8 1391146421 ----sp
+*Alguma Sugestão Fornecida: Sim
+*Alguma Sugestão Aprovada: Sim
+**************************************************************************************************************
+----------------Chamadas de método antigas:---------------
+----------------Chamadas de método novas:---------------
+rx.Observable.subscribe(rx.Observer)
+rx.Observer.onNext(null)
+rx.Observer.onError(java.lang.Throwable)
+unsubscribe
+rx.Observer.onError(java.lang.Throwable)
+rx.Observer.onCompleted()
+rx.Observer.onNext(null)
+rx.Observer.onCompleted()
+Chamada: rx.Observable.subscribe(rx.Observer)
+Situação: Primeira Chamada
+Chamada: rx.Observer.onNext(null)
+Situação: Manual
+Chamada: rx.Observer.onError(java.lang.Throwable)
+Situação: Manual
+Chamada: unsubscribe
+Situação: Manual
+Chamada: rx.Observer.onError(java.lang.Throwable)
+Situação: Manual
+Chamada: rx.Observer.onCompleted()
+Situação: Manual
+Chamada: rx.Observer.onNext(null)
+Situação: Manual
+Chamada: rx.Observer.onCompleted()
+Situação: Automatizada
+Índice da Sugestão: 1
+Confiança: 1.0
+Suporte: 0.00401606
+F-Measure Suporte e Confiança: 0.008
+Corretude/Utilidade dos Métodos
+Método: rx.Observer.onCompleted()
+Útil
+Percentual de Automatização: 0.14285714285714285
+Corretude: 1.0
+F-Measure: 0.25
+************************ Método Avaliado: rx.operators.OperationDelay$DelayViaObservable.onSubscribe(rx.Observer) ************************
+*Commit: commit cac2118c0a8b99deac1c1268c7e870c5e2e9f5e8 1391146421 ----sp
+*Alguma Sugestão Fornecida: Sim
+*Alguma Sugestão Aprovada: Sim
+**************************************************************************************************************
+----------------Chamadas de método antigas:---------------
+----------------Chamadas de método novas:---------------
+rx.subscriptions.CompositeSubscription.add(rx.Subscription)
+rx.Observable.subscribe(rx.Observer)
+rx.subscriptions.SerialSubscription.set(rx.Subscription)
+rx.util.functions.Func0.call()
+rx.Observer.onError(java.lang.Throwable)
+rx.subscriptions.Subscriptions.empty()
+rx.subscriptions.CompositeSubscription.add(rx.Subscription)
+rx.Observable.subscribe(rx.Observer)
+rx.subscriptions.SerialSubscription.set(rx.Subscription)
+Chamada: rx.subscriptions.CompositeSubscription.add(rx.Subscription)
+Situação: Primeira Chamada
+Chamada: rx.Observable.subscribe(rx.Observer)
+Situação: Manual
+Chamada: rx.subscriptions.SerialSubscription.set(rx.Subscription)
+Situação: Manual
+Chamada: rx.util.functions.Func0.call()
+Situação: Manual
+Chamada: rx.Observer.onError(java.lang.Throwable)
+Situação: Manual
+Chamada: rx.subscriptions.Subscriptions.empty()
+Situação: Manual
+Chamada: rx.subscriptions.CompositeSubscription.add(rx.Subscription)
+Situação: Manual
+Chamada: rx.Observable.subscribe(rx.Observer)
+Situação: Automatizada
+Índice da Sugestão: 1
+Confiança: 1.0
+Suporte: 0.00334672
+F-Measure Suporte e Confiança: 0.007
+Chamada: rx.subscriptions.SerialSubscription.set(rx.Subscription)
+Situação: Manual
+Corretude/Utilidade dos Métodos
+Método: rx.Observable.subscribe(rx.Observer)
+Útil
+Percentual de Automatização: 0.125
+Corretude: 1.0
+F-Measure: 0.2222222222222222
+************************ Método Avaliado: rx.operators.OperationDelay$DelaySubscribeFunc.onSubscribe(rx.Observer) ************************
+*Commit: commit cac2118c0a8b99deac1c1268c7e870c5e2e9f5e8 1391146421 ----sp
+*Alguma Sugestão Fornecida: Sim
+*Alguma Sugestão Aprovada: Sim
+**************************************************************************************************************
+----------------Chamadas de método antigas:---------------
+----------------Chamadas de método novas:---------------
+rx.Scheduler.schedule(rx.util.functions.Action0, J, java.util.concurrent.TimeUnit)
+rx.subscriptions.SerialSubscription.setSubscription(rx.Subscription)
+rx.subscriptions.SerialSubscription.isUnsubscribed()
+rx.Observable.subscribe(rx.Observer)
+rx.subscriptions.SerialSubscription.setSubscription(rx.Subscription)
+Chamada: rx.Scheduler.schedule(rx.util.functions.Action0, J, java.util.concurrent.TimeUnit)
+Situação: Primeira Chamada
+Chamada: rx.subscriptions.SerialSubscription.setSubscription(rx.Subscription)
+Situação: Manual
+Chamada: rx.subscriptions.SerialSubscription.isUnsubscribed()
+Situação: Manual
+Chamada: rx.Observable.subscribe(rx.Observer)
+Situação: Manual
+Chamada: rx.subscriptions.SerialSubscription.setSubscription(rx.Subscription)
+Situação: Automatizada
+Índice da Sugestão: 1
+Confiança: 1.0
+Suporte: 0.00334672
+F-Measure Suporte e Confiança: 0.007
+Corretude/Utilidade dos Métodos
+Método: rx.subscriptions.SerialSubscription.setSubscription(rx.Subscription)
+Útil
+Percentual de Automatização: 0.25
+Corretude: 1.0
+F-Measure: 0.4
+************************ Método Avaliado: rx.operators.OperationDematerialize$DematerializeObservable.onSubscribe(rx.Observer) ************************
+*Commit: commit cac2118c0a8b99deac1c1268c7e870c5e2e9f5e8 1391146421 ----sp
+*Alguma Sugestão Fornecida: Sim
+*Alguma Sugestão Aprovada: Sim
+**************************************************************************************************************
+----------------Chamadas de método antigas:---------------
+----------------Chamadas de método novas:---------------
+rx.Observable.subscribe(rx.Observer)
+rx.Notification.getKind()
+rx.Notification.getValue()
+rx.Observer.onNext(null)
+rx.Notification.getThrowable()
+rx.Observer.onError(java.lang.Throwable)
+rx.Observer.onCompleted()
+Chamada: rx.Observable.subscribe(rx.Observer)
+Situação: Primeira Chamada
+Chamada: rx.Notification.getKind()
+Situação: Manual
+Chamada: rx.Notification.getValue()
+Situação: Manual
+Chamada: rx.Observer.onNext(null)
+Situação: Manual
+Chamada: rx.Notification.getThrowable()
+Situação: Automatizada
+Índice da Sugestão: 1
+Confiança: 1.0
+Suporte: 0.00334672
+F-Measure Suporte e Confiança: 0.007
+Chamada: rx.Observer.onError(java.lang.Throwable)
+Situação: Manual
+Chamada: rx.Observer.onCompleted()
+Situação: Manual
+Corretude/Utilidade dos Métodos
+Método: rx.Notification.getThrowable()
+Útil
+Percentual de Automatização: 0.16666666666666666
+Corretude: 1.0
+F-Measure: 0.2857142857142857
+************************ Método Avaliado: rx.operators.OperationDistinct$DistinctWithComparator.onSubscribe(rx.Observer) ************************
+*Commit: commit cac2118c0a8b99deac1c1268c7e870c5e2e9f5e8 1391146421 ----sp
+*Alguma Sugestão Fornecida: Sim
+*Alguma Sugestão Aprovada: Sim
+**************************************************************************************************************
+----------------Chamadas de método antigas:---------------
+----------------Chamadas de método novas:---------------
+rx.Observable.subscribe(rx.Observer)
+rx.Observer.onCompleted()
+rx.Observer.onError(java.lang.Throwable)
+rx.util.functions.Func1.call(null)
+null.alreadyEmitted(rx.operators.OperationDistinct$DistinctWithComparator$U)
+java.util.List.add(rx.operators.OperationDistinct$DistinctWithComparator$U)
+rx.Observer.onNext(null)
+java.util.Comparator.compare(rx.operators.OperationDistinct$DistinctWithComparator$U, rx.operators.OperationDistinct$DistinctWithComparator$U)
+Chamada: rx.Observable.subscribe(rx.Observer)
+Situação: Primeira Chamada
+Chamada: rx.Observer.onCompleted()
+Situação: Manual
+Chamada: rx.Observer.onError(java.lang.Throwable)
+Situação: Manual
+Chamada: rx.util.functions.Func1.call(null)
+Situação: Manual
+Chamada: null.alreadyEmitted(rx.operators.OperationDistinct$DistinctWithComparator$U)
+Situação: Manual
+Chamada: java.util.List.add(rx.operators.OperationDistinct$DistinctWithComparator$U)
+Situação: Manual
+Chamada: rx.Observer.onNext(null)
+Situação: Automatizada
+Índice da Sugestão: 1
+Confiança: 1.0
+Suporte: 0.00334672
+F-Measure Suporte e Confiança: 0.007
+Chamada: java.util.Comparator.compare(rx.operators.OperationDistinct$DistinctWithComparator$U, rx.operators.OperationDistinct$DistinctWithComparator$U)
+Situação: Manual
+Corretude/Utilidade dos Métodos
+Método: rx.Observer.onNext(null)
+Útil
+Percentual de Automatização: 0.14285714285714285
+Corretude: 1.0
+F-Measure: 0.25
+************************ Método Avaliado: rx.operators.OperationDistinct$Distinct.onSubscribe(rx.Observer) ************************
+*Commit: commit cac2118c0a8b99deac1c1268c7e870c5e2e9f5e8 1391146421 ----sp
+*Alguma Sugestão Fornecida: Sim
+*Alguma Sugestão Aprovada: Sim
+**************************************************************************************************************
+----------------Chamadas de método antigas:---------------
+----------------Chamadas de método novas:---------------
+rx.Observable.subscribe(rx.Observer)
+rx.Observer.onCompleted()
+rx.Observer.onError(java.lang.Throwable)
+rx.util.functions.Func1.call(null)
+java.util.Set.contains(java.lang.Object)
+java.util.Set.add(rx.operators.OperationDistinct$Distinct$U)
+rx.Observer.onNext(null)
+Chamada: rx.Observable.subscribe(rx.Observer)
+Situação: Primeira Chamada
+Chamada: rx.Observer.onCompleted()
+Situação: Manual
+Chamada: rx.Observer.onError(java.lang.Throwable)
+Situação: Manual
+Chamada: rx.util.functions.Func1.call(null)
+Situação: Manual
+Chamada: java.util.Set.contains(java.lang.Object)
+Situação: Manual
+Chamada: java.util.Set.add(rx.operators.OperationDistinct$Distinct$U)
+Situação: Manual
+Chamada: rx.Observer.onNext(null)
+Situação: Automatizada
+Índice da Sugestão: 1
+Confiança: 1.0
+Suporte: 0.00334672
+F-Measure Suporte e Confiança: 0.007
+Corretude/Utilidade dos Métodos
+Método: rx.Observer.onNext(null)
+Útil
+Percentual de Automatização: 0.16666666666666666
+Corretude: 1.0
+F-Measure: 0.2857142857142857
+************************ Método Avaliado: rx.operators.OperationDistinctUntilChanged$DistinctUntilChanged.onSubscribe(rx.Observer) ************************
+*Commit: commit cac2118c0a8b99deac1c1268c7e870c5e2e9f5e8 1391146421 ----sp
+*Alguma Sugestão Fornecida: Sim
+*Alguma Sugestão Aprovada: Sim
+**************************************************************************************************************
+----------------Chamadas de método antigas:---------------
+----------------Chamadas de método novas:---------------
+rx.Observable.subscribe(rx.Observer)
+rx.Observer.onCompleted()
+rx.Observer.onError(java.lang.Throwable)
+rx.util.functions.Func1.call(null)
+rx.Observer.onNext(null)
+java.util.Comparator.compare(rx.operators.OperationDistinctUntilChanged$DistinctUntilChanged$U, rx.operators.OperationDistinctUntilChanged$DistinctUntilChanged$U)
+rx.Observer.onNext(null)
+Chamada: rx.Observable.subscribe(rx.Observer)
+Situação: Primeira Chamada
+Chamada: rx.Observer.onCompleted()
+Situação: Manual
+Chamada: rx.Observer.onError(java.lang.Throwable)
+Situação: Manual
+Chamada: rx.util.functions.Func1.call(null)
+Situação: Manual
+Chamada: rx.Observer.onNext(null)
+Situação: Automatizada
+Índice da Sugestão: 1
+Confiança: 1.0
+Suporte: 0.00334672
+F-Measure Suporte e Confiança: 0.007
+Chamada: java.util.Comparator.compare(rx.operators.OperationDistinctUntilChanged$DistinctUntilChanged$U, rx.operators.OperationDistinctUntilChanged$DistinctUntilChanged$U)
+Situação: Manual
+Chamada: rx.Observer.onNext(null)
+Situação: Manual
+Corretude/Utilidade dos Métodos
+Método: rx.Observer.onNext(null)
+Útil
+Percentual de Automatização: 0.16666666666666666
+Corretude: 1.0
+F-Measure: 0.2857142857142857
+************************ Método Avaliado: rx.operators.OperationElementAt$ElementAt.onSubscribe(rx.Observer) ************************
+*Commit: commit cac2118c0a8b99deac1c1268c7e870c5e2e9f5e8 1391146421 ----sp
+*Alguma Sugestão Fornecida: Sim
+*Alguma Sugestão Aprovada: Sim
+**************************************************************************************************************
+----------------Chamadas de método antigas:---------------
+----------------Chamadas de método novas:---------------
+rx.Observable.subscribe(rx.Observer)
+rx.operators.SafeObservableSubscription.wrap(rx.Subscription)
+java.util.concurrent.atomic.AtomicInteger.getAndIncrement()
+rx.Observer.onNext(null)
+rx.Observer.onCompleted()
+rx.operators.SafeObservableSubscription.unsubscribe()
+rx.Observer.onError(java.lang.Throwable)
+rx.operators.SafeObservableSubscription.unsubscribe()
+rx.Observer.onError(java.lang.Throwable)
+rx.Observer.onError(java.lang.Throwable)
+java.util.concurrent.atomic.AtomicInteger.get()
+rx.Observer.onNext(null)
+rx.Observer.onCompleted()
+rx.Observer.onError(java.lang.Throwable)
+Chamada: rx.Observable.subscribe(rx.Observer)
+Situação: Primeira Chamada
+Chamada: rx.operators.SafeObservableSubscription.wrap(rx.Subscription)
+Situação: Manual
+Chamada: java.util.concurrent.atomic.AtomicInteger.getAndIncrement()
+Situação: Manual
+Chamada: rx.Observer.onNext(null)
+Situação: Manual
+Chamada: rx.Observer.onCompleted()
+Situação: Manual
+Chamada: rx.operators.SafeObservableSubscription.unsubscribe()
+Situação: Manual
+Chamada: rx.Observer.onError(java.lang.Throwable)
+Situação: Manual
+Chamada: rx.operators.SafeObservableSubscription.unsubscribe()
+Situação: Automatizada
+Índice da Sugestão: 1
+Confiança: 1.0
+Suporte: 0.00267738
+F-Measure Suporte e Confiança: 0.006
+Chamada: rx.Observer.onError(java.lang.Throwable)
+Situação: Automatizada
+Índice da Sugestão: 3
+Confiança: 1.0
+Suporte: 0.00267738
+F-Measure Suporte e Confiança: 0.006
+Chamada: rx.Observer.onError(java.lang.Throwable)
+Situação: Automatizada
+Índice da Sugestão: 3
+Confiança: 1.0
+Suporte: 0.00267738
+F-Measure Suporte e Confiança: 0.006
+Chamada: java.util.concurrent.atomic.AtomicInteger.get()
+Situação: Manual
+Chamada: rx.Observer.onNext(null)
+Situação: Automatizada
+Índice da Sugestão: 4
+Confiança: 1.0
+Suporte: 0.00267738
+F-Measure Suporte e Confiança: 0.006
+Chamada: rx.Observer.onCompleted()
+Situação: Automatizada
+Índice da Sugestão: 2
+Confiança: 1.0
+Suporte: 0.00267738
+F-Measure Suporte e Confiança: 0.006
+Chamada: rx.Observer.onError(java.lang.Throwable)
+Situação: Automatizada
+Índice da Sugestão: 3
+Confiança: 1.0
+Suporte: 0.00267738
+F-Measure Suporte e Confiança: 0.006
+Corretude/Utilidade dos Métodos
+Método: rx.Observer.onCompleted()
+Útil
+Método: rx.Observer.onNext(null)
+Útil
+Método: rx.operators.SafeObservableSubscription.unsubscribe()
+Útil
+Método: rx.Observer.onError(java.lang.Throwable)
+Útil
+Percentual de Automatização: 0.46153846153846156
+Corretude: 1.0
+F-Measure: 0.631578947368421
+************************ Método Avaliado: rx.operators.OperationFilter$Filter.onSubscribe(rx.Observer) ************************
+*Commit: commit cac2118c0a8b99deac1c1268c7e870c5e2e9f5e8 1391146421 ----sp
+*Alguma Sugestão Fornecida: Sim
+*Alguma Sugestão Aprovada: Sim
+**************************************************************************************************************
+----------------Chamadas de método antigas:---------------
+----------------Chamadas de método novas:---------------
+rx.Observable.subscribe(rx.Observer)
+rx.util.functions.Func1.call(null)
+rx.Observer.onNext(null)
+rx.Observer.onError(java.lang.Throwable)
+unsubscribe
+rx.Observer.onError(java.lang.Throwable)
+rx.Observer.onCompleted()
+Chamada: rx.Observable.subscribe(rx.Observer)
+Situação: Primeira Chamada
+Chamada: rx.util.functions.Func1.call(null)
+Situação: Manual
+Chamada: rx.Observer.onNext(null)
+Situação: Automatizada
+Índice da Sugestão: 1
+Confiança: 1.0
+Suporte: 0.00334672
+F-Measure Suporte e Confiança: 0.007
+Chamada: rx.Observer.onError(java.lang.Throwable)
+Situação: Manual
+Chamada: unsubscribe
+Situação: Manual
+Chamada: rx.Observer.onError(java.lang.Throwable)
+Situação: Manual
+Chamada: rx.Observer.onCompleted()
+Situação: Automatizada
+Índice da Sugestão: 1
+Confiança: 1.0
+Suporte: 0.00267738
+F-Measure Suporte e Confiança: 0.006
+Corretude/Utilidade dos Métodos
+Método: rx.Observer.onCompleted()
+Útil
+Método: rx.Observer.onNext(null)
+Útil
+Percentual de Automatização: 0.3333333333333333
+Corretude: 1.0
+F-Measure: 0.5
+************************ Método Avaliado: rx.operators.OperationInterval$Interval.onSubscribe(rx.Observer) ************************
+*Commit: commit cac2118c0a8b99deac1c1268c7e870c5e2e9f5e8 1391146421 ----sp
+*Alguma Sugestão Fornecida: Sim
+*Alguma Sugestão Aprovada: Sim
+**************************************************************************************************************
+----------------Chamadas de método antigas:---------------
+----------------Chamadas de método novas:---------------
+rx.Scheduler.schedulePeriodically(rx.util.functions.Action0, J, J, java.util.concurrent.TimeUnit)
+rx.Observer.onNext(null)
+rx.subscriptions.Subscriptions.create(rx.util.functions.Action0)
+rx.Subscription.unsubscribe()
+Chamada: rx.Scheduler.schedulePeriodically(rx.util.functions.Action0, J, J, java.util.concurrent.TimeUnit)
+Situação: Primeira Chamada
+Chamada: rx.Observer.onNext(null)
+Situação: Manual
+Chamada: rx.subscriptions.Subscriptions.create(rx.util.functions.Action0)
+Situação: Manual
+Chamada: rx.Subscription.unsubscribe()
+Situação: Automatizada
+Índice da Sugestão: 1
+Confiança: 1.0
+Suporte: 0.00334672
+F-Measure Suporte e Confiança: 0.007
+Corretude/Utilidade dos Métodos
+Método: rx.Subscription.unsubscribe()
+Útil
+Percentual de Automatização: 0.3333333333333333
+Corretude: 1.0
+F-Measure: 0.5
+************************ Método Avaliado: rx.operators.OperationMaterialize$MaterializeObservable.onSubscribe(rx.Observer) ************************
+*Commit: commit cac2118c0a8b99deac1c1268c7e870c5e2e9f5e8 1391146421 ----sp
+*Alguma Sugestão Fornecida: Sim
+*Alguma Sugestão Aprovada: Sim
+**************************************************************************************************************
+----------------Chamadas de método antigas:---------------
+----------------Chamadas de método novas:---------------
+rx.Observable.subscribe(rx.Observer)
+createOnCompleted
+rx.Observer.onNext(null)
+rx.Observer.onCompleted()
+createOnError
+rx.Observer.onNext(null)
+rx.Observer.onCompleted()
+createOnNext
+rx.Observer.onNext(null)
+Chamada: rx.Observable.subscribe(rx.Observer)
+Situação: Primeira Chamada
+Chamada: createOnCompleted
+Situação: Manual
+Chamada: rx.Observer.onNext(null)
+Situação: Manual
+Chamada: rx.Observer.onCompleted()
+Situação: Manual
+Chamada: createOnError
+Situação: Manual
+Chamada: rx.Observer.onNext(null)
+Situação: Manual
+Chamada: rx.Observer.onCompleted()
+Situação: Automatizada
+Índice da Sugestão: 1
+Confiança: 1.0
+Suporte: 0.00401606
+F-Measure Suporte e Confiança: 0.008
+Chamada: createOnNext
+Situação: Manual
+Chamada: rx.Observer.onNext(null)
+Situação: Manual
+Corretude/Utilidade dos Métodos
+Método: rx.Observer.onCompleted()
+Útil
+Percentual de Automatização: 0.125
+Corretude: 1.0
+F-Measure: 0.2222222222222222
+************************ Método Avaliado: rx.operators.OperationMulticast$MulticastSubscribeFunc.onSubscribe(rx.Observer) ************************
+*Commit: commit cac2118c0a8b99deac1c1268c7e870c5e2e9f5e8 1391146421 ----sp
+*Alguma Sugestão Fornecida: Sim
+*Alguma Sugestão Aprovada: Sim
+**************************************************************************************************************
+----------------Chamadas de método antigas:---------------
+----------------Chamadas de método novas:---------------
+rx.util.functions.Func0.call()
+rx.util.functions.Func1.call(null)
+rx.Observer.onError(java.lang.Throwable)
+rx.subscriptions.Subscriptions.empty()
+rx.Observable.subscribe(rx.Observer)
+rx.subscriptions.CompositeSubscription.add(rx.Subscription)
+rx.observables.ConnectableObservable.connect()
+rx.subscriptions.CompositeSubscription.add(rx.Subscription)
+Chamada: rx.util.functions.Func0.call()
+Situação: Primeira Chamada
+Chamada: rx.util.functions.Func1.call(null)
+Situação: Manual
+Chamada: rx.Observer.onError(java.lang.Throwable)
+Situação: Manual
+Chamada: rx.subscriptions.Subscriptions.empty()
+Situação: Manual
+Chamada: rx.Observable.subscribe(rx.Observer)
+Situação: Automatizada
+Índice da Sugestão: 1
+Confiança: 1.0
+Suporte: 0.00334672
+F-Measure Suporte e Confiança: 0.007
+Chamada: rx.subscriptions.CompositeSubscription.add(rx.Subscription)
+Situação: Manual
+Chamada: rx.observables.ConnectableObservable.connect()
+Situação: Manual
+Chamada: rx.subscriptions.CompositeSubscription.add(rx.Subscription)
+Situação: Manual
+Corretude/Utilidade dos Métodos
+Método: rx.Observable.subscribe(rx.Observer)
+Útil
+Percentual de Automatização: 0.14285714285714285
+Corretude: 1.0
+F-Measure: 0.25
+************************ Método Avaliado: rx.operators.OperationOnErrorResumeNextViaFunction$OnErrorResumeNextViaFunction.onSubscribe(rx.Observer) ************************
+*Commit: commit cac2118c0a8b99deac1c1268c7e870c5e2e9f5e8 1391146421 ----sp
+*Alguma Sugestão Fornecida: Sim
+*Alguma Sugestão Aprovada: Sim
+**************************************************************************************************************
+----------------Chamadas de método antigas:---------------
+----------------Chamadas de método novas:---------------
+java.util.concurrent.atomic.AtomicReference.get()
+rx.Observable.subscribe(rx.Observer)
+rx.operators.SafeObservableSubscription.wrap(rx.Subscription)
+rx.Observer.onNext(null)
+java.util.concurrent.atomic.AtomicReference.get()
+rx.util.functions.Func1.call(java.lang.Throwable)
+rx.Observable.subscribe(rx.Observer)
+java.util.concurrent.atomic.AtomicReference.compareAndSet(rx.operators.SafeObservableSubscription, rx.operators.SafeObservableSubscription)
+rx.operators.SafeObservableSubscription.unsubscribe()
+java.util.Arrays.asList([Ljava.lang.Throwable;)
+rx.Observer.onError(java.lang.Throwable)
+rx.Observer.onCompleted()
+java.util.concurrent.atomic.AtomicReference.getAndSet(rx.operators.SafeObservableSubscription)
+rx.Subscription.unsubscribe()
+Chamada: java.util.concurrent.atomic.AtomicReference.get()
+Situação: Primeira Chamada
+Chamada: rx.Observable.subscribe(rx.Observer)
+Situação: Manual
+Chamada: rx.operators.SafeObservableSubscription.wrap(rx.Subscription)
+Situação: Manual
+Chamada: rx.Observer.onNext(null)
+Situação: Manual
+Chamada: java.util.concurrent.atomic.AtomicReference.get()
+Situação: Manual
+Chamada: rx.util.functions.Func1.call(java.lang.Throwable)
+Situação: Manual
+Chamada: rx.Observable.subscribe(rx.Observer)
+Situação: Manual
+Chamada: java.util.concurrent.atomic.AtomicReference.compareAndSet(rx.operators.SafeObservableSubscription, rx.operators.SafeObservableSubscription)
+Situação: Manual
+Chamada: rx.operators.SafeObservableSubscription.unsubscribe()
+Situação: Automatizada
+Índice da Sugestão: 3
+Confiança: 1.0
+Suporte: 0.00267738
+F-Measure Suporte e Confiança: 0.006
+Chamada: java.util.Arrays.asList([Ljava.lang.Throwable;)
+Situação: Automatizada
+Índice da Sugestão: 3
+Confiança: 1.0
+Suporte: 0.00267738
+F-Measure Suporte e Confiança: 0.006
+Chamada: rx.Observer.onError(java.lang.Throwable)
+Situação: Automatizada
+Índice da Sugestão: 2
+Confiança: 1.0
+Suporte: 0.00267738
+F-Measure Suporte e Confiança: 0.006
+Chamada: rx.Observer.onCompleted()
+Situação: Automatizada
+Índice da Sugestão: 4
+Confiança: 1.0
+Suporte: 0.00267738
+F-Measure Suporte e Confiança: 0.006
+Chamada: java.util.concurrent.atomic.AtomicReference.getAndSet(rx.operators.SafeObservableSubscription)
+Situação: Automatizada
+Índice da Sugestão: 1
+Confiança: 1.0
+Suporte: 0.00267738
+F-Measure Suporte e Confiança: 0.006
+Chamada: rx.Subscription.unsubscribe()
+Situação: Automatizada
+Índice da Sugestão: 6
+Confiança: 1.0
+Suporte: 0.00267738
+F-Measure Suporte e Confiança: 0.006
+Corretude/Utilidade dos Métodos
+Método: rx.Subscription.unsubscribe()
+Útil
+Método: rx.Observer.onCompleted()
+Útil
+Método: java.util.concurrent.atomic.AtomicReference.getAndSet(rx.operators.SafeObservableSubscription)
+Útil
+Método: rx.operators.SafeObservableSubscription.unsubscribe()
+Útil
+Método: rx.Observer.onError(java.lang.Throwable)
+Útil
+Método: java.util.Arrays.asList([Ljava.lang.Throwable;)
+Útil
+Percentual de Automatização: 0.46153846153846156
+Corretude: 1.0
+F-Measure: 0.631578947368421
+************************ Método Avaliado: rx.operators.OperationOnErrorResumeNextViaObservable$OnErrorResumeNextViaObservable.onSubscribe(rx.Observer) ************************
+*Commit: commit cac2118c0a8b99deac1c1268c7e870c5e2e9f5e8 1391146421 ----sp
+*Alguma Sugestão Fornecida: Sim
+*Alguma Sugestão Aprovada: Sim
+**************************************************************************************************************
+----------------Chamadas de método antigas:---------------
+----------------Chamadas de método novas:---------------
+rx.Observable.subscribe(rx.Observer)
+rx.operators.SafeObservableSubscription.wrap(rx.Subscription)
+java.util.concurrent.atomic.AtomicReference.get()
+rx.Observer.onNext(null)
+java.util.concurrent.atomic.AtomicReference.get()
+rx.Observable.subscribe(rx.Observer)
+java.util.concurrent.atomic.AtomicReference.compareAndSet(rx.operators.SafeObservableSubscription, rx.operators.SafeObservableSubscription)
+rx.operators.SafeObservableSubscription.unsubscribe()
+java.util.concurrent.atomic.AtomicReference.get()
+rx.Observer.onCompleted()
+java.util.concurrent.atomic.AtomicReference.getAndSet(rx.operators.SafeObservableSubscription)
+rx.Subscription.unsubscribe()
+Chamada: rx.Observable.subscribe(rx.Observer)
+Situação: Primeira Chamada
+Chamada: rx.operators.SafeObservableSubscription.wrap(rx.Subscription)
+Situação: Manual
+Chamada: java.util.concurrent.atomic.AtomicReference.get()
+Situação: Manual
+Chamada: rx.Observer.onNext(null)
+Situação: Manual
+Chamada: java.util.concurrent.atomic.AtomicReference.get()
+Situação: Manual
+Chamada: rx.Observable.subscribe(rx.Observer)
+Situação: Manual
+Chamada: java.util.concurrent.atomic.AtomicReference.compareAndSet(rx.operators.SafeObservableSubscription, rx.operators.SafeObservableSubscription)
+Situação: Manual
+Chamada: rx.operators.SafeObservableSubscription.unsubscribe()
+Situação: Automatizada
+Índice da Sugestão: 1
+Confiança: 1.0
+Suporte: 0.00267738
+F-Measure Suporte e Confiança: 0.006
+Chamada: java.util.concurrent.atomic.AtomicReference.get()
+Situação: Manual
+Chamada: rx.Observer.onCompleted()
+Situação: Automatizada
+Índice da Sugestão: 4
+Confiança: 1.0
+Suporte: 0.00267738
+F-Measure Suporte e Confiança: 0.006
+Chamada: java.util.concurrent.atomic.AtomicReference.getAndSet(rx.operators.SafeObservableSubscription)
+Situação: Automatizada
+Índice da Sugestão: 3
+Confiança: 1.0
+Suporte: 0.00267738
+F-Measure Suporte e Confiança: 0.006
+Chamada: rx.Subscription.unsubscribe()
+Situação: Automatizada
+Índice da Sugestão: 2
+Confiança: 1.0
+Suporte: 0.00267738
+F-Measure Suporte e Confiança: 0.006
+Corretude/Utilidade dos Métodos
+Método: rx.Subscription.unsubscribe()
+Útil
+Método: rx.Observer.onCompleted()
+Útil
+Método: java.util.concurrent.atomic.AtomicReference.getAndSet(rx.operators.SafeObservableSubscription)
+Útil
+Método: rx.operators.SafeObservableSubscription.unsubscribe()
+Útil
+Percentual de Automatização: 0.36363636363636365
+Corretude: 1.0
+F-Measure: 0.5333333333333333
+************************ Método Avaliado: rx.operators.OperationOnErrorReturn$OnErrorReturn.onSubscribe(rx.Observer) ************************
+*Commit: commit cac2118c0a8b99deac1c1268c7e870c5e2e9f5e8 1391146421 ----sp
+*Alguma Sugestão Fornecida: Sim
+*Alguma Sugestão Aprovada: Sim
+**************************************************************************************************************
+----------------Chamadas de método antigas:---------------
+----------------Chamadas de método novas:---------------
+rx.Observable.subscribe(rx.Observer)
+rx.operators.SafeObservableSubscription.wrap(rx.Subscription)
+rx.Observer.onNext(null)
+java.util.concurrent.atomic.AtomicReference.get()
+rx.util.functions.Func1.call(java.lang.Throwable)
+null.onNext(rx.operators.OperationOnErrorReturn$OnErrorReturn$T)
+null.onCompleted()
+rx.operators.SafeObservableSubscription.unsubscribe()
+java.util.Arrays.asList([Ljava.lang.Throwable;)
+rx.Observer.onError(java.lang.Throwable)
+rx.Observer.onCompleted()
+java.util.concurrent.atomic.AtomicReference.getAndSet(rx.operators.SafeObservableSubscription)
+rx.Subscription.unsubscribe()
+Chamada: rx.Observable.subscribe(rx.Observer)
+Situação: Primeira Chamada
+Chamada: rx.operators.SafeObservableSubscription.wrap(rx.Subscription)
+Situação: Manual
+Chamada: rx.Observer.onNext(null)
+Situação: Manual
+Chamada: java.util.concurrent.atomic.AtomicReference.get()
+Situação: Manual
+Chamada: rx.util.functions.Func1.call(java.lang.Throwable)
+Situação: Manual
+Chamada: null.onNext(rx.operators.OperationOnErrorReturn$OnErrorReturn$T)
+Situação: Manual
+Chamada: null.onCompleted()
+Situação: Manual
+Chamada: rx.operators.SafeObservableSubscription.unsubscribe()
+Situação: Automatizada
+Índice da Sugestão: 3
+Confiança: 1.0
+Suporte: 0.00267738
+F-Measure Suporte e Confiança: 0.006
+Chamada: java.util.Arrays.asList([Ljava.lang.Throwable;)
+Situação: Automatizada
+Índice da Sugestão: 3
+Confiança: 1.0
+Suporte: 0.00267738
+F-Measure Suporte e Confiança: 0.006
+Chamada: rx.Observer.onError(java.lang.Throwable)
+Situação: Automatizada
+Índice da Sugestão: 2
+Confiança: 1.0
+Suporte: 0.00267738
+F-Measure Suporte e Confiança: 0.006
+Chamada: rx.Observer.onCompleted()
+Situação: Automatizada
+Índice da Sugestão: 7
+Confiança: 1.0
+Suporte: 0.00267738
+F-Measure Suporte e Confiança: 0.006
+Chamada: java.util.concurrent.atomic.AtomicReference.getAndSet(rx.operators.SafeObservableSubscription)
+Situação: Automatizada
+Índice da Sugestão: 1
+Confiança: 1.0
+Suporte: 0.00267738
+F-Measure Suporte e Confiança: 0.006
+Chamada: rx.Subscription.unsubscribe()
+Situação: Automatizada
+Índice da Sugestão: 6
+Confiança: 1.0
+Suporte: 0.00267738
+F-Measure Suporte e Confiança: 0.006
+Corretude/Utilidade dos Métodos
+Método: rx.Subscription.unsubscribe()
+Útil
+Método: rx.Observer.onCompleted()
+Útil
+Método: java.util.concurrent.atomic.AtomicReference.getAndSet(rx.operators.SafeObservableSubscription)
+Útil
+Método: rx.operators.SafeObservableSubscription.unsubscribe()
+Útil
+Método: rx.Observer.onError(java.lang.Throwable)
+Útil
+Método: java.util.Arrays.asList([Ljava.lang.Throwable;)
+Útil
+Percentual de Automatização: 0.5
+Corretude: 1.0
+F-Measure: 0.6666666666666666
+************************ Método Avaliado: rx.operators.OperationOnExceptionResumeNextViaObservable$OnExceptionResumeNextViaObservable.onSubscribe(rx.Observer) ************************
+*Commit: commit cac2118c0a8b99deac1c1268c7e870c5e2e9f5e8 1391146421 ----sp
+*Alguma Sugestão Fornecida: Sim
+*Alguma Sugestão Aprovada: Sim
+**************************************************************************************************************
+----------------Chamadas de método antigas:---------------
+----------------Chamadas de método novas:---------------
+rx.Observable.subscribe(rx.Observer)
+rx.operators.SafeObservableSubscription.wrap(rx.Subscription)
+java.util.concurrent.atomic.AtomicReference.get()
+rx.Observer.onNext(null)
+java.util.concurrent.atomic.AtomicReference.get()
+rx.Observable.subscribe(rx.Observer)
+java.util.concurrent.atomic.AtomicReference.compareAndSet(rx.operators.SafeObservableSubscription, rx.operators.SafeObservableSubscription)
+rx.operators.SafeObservableSubscription.unsubscribe()
+rx.Observer.onError(java.lang.Throwable)
+java.util.concurrent.atomic.AtomicReference.get()
+rx.Observer.onCompleted()
+java.util.concurrent.atomic.AtomicReference.getAndSet(rx.operators.SafeObservableSubscription)
+rx.Subscription.unsubscribe()
+Chamada: rx.Observable.subscribe(rx.Observer)
+Situação: Primeira Chamada
+Chamada: rx.operators.SafeObservableSubscription.wrap(rx.Subscription)
+Situação: Manual
+Chamada: java.util.concurrent.atomic.AtomicReference.get()
+Situação: Manual
+Chamada: rx.Observer.onNext(null)
+Situação: Manual
+Chamada: java.util.concurrent.atomic.AtomicReference.get()
+Situação: Manual
+Chamada: rx.Observable.subscribe(rx.Observer)
+Situação: Manual
+Chamada: java.util.concurrent.atomic.AtomicReference.compareAndSet(rx.operators.SafeObservableSubscription, rx.operators.SafeObservableSubscription)
+Situação: Manual
+Chamada: rx.operators.SafeObservableSubscription.unsubscribe()
+Situação: Automatizada
+Índice da Sugestão: 1
+Confiança: 1.0
+Suporte: 0.00267738
+F-Measure Suporte e Confiança: 0.006
+Chamada: rx.Observer.onError(java.lang.Throwable)
+Situação: Manual
+Chamada: java.util.concurrent.atomic.AtomicReference.get()
+Situação: Manual
+Chamada: rx.Observer.onCompleted()
+Situação: Automatizada
+Índice da Sugestão: 4
+Confiança: 1.0
+Suporte: 0.00267738
+F-Measure Suporte e Confiança: 0.006
+Chamada: java.util.concurrent.atomic.AtomicReference.getAndSet(rx.operators.SafeObservableSubscription)
+Situação: Automatizada
+Índice da Sugestão: 3
+Confiança: 1.0
+Suporte: 0.00267738
+F-Measure Suporte e Confiança: 0.006
+Chamada: rx.Subscription.unsubscribe()
+Situação: Automatizada
+Índice da Sugestão: 2
+Confiança: 1.0
+Suporte: 0.00267738
+F-Measure Suporte e Confiança: 0.006
+Corretude/Utilidade dos Métodos
+Método: rx.Subscription.unsubscribe()
+Útil
+Método: rx.Observer.onCompleted()
+Útil
+Método: java.util.concurrent.atomic.AtomicReference.getAndSet(rx.operators.SafeObservableSubscription)
+Útil
+Método: rx.operators.SafeObservableSubscription.unsubscribe()
+Útil
+Percentual de Automatização: 0.3333333333333333
+Corretude: 1.0
+F-Measure: 0.5
+************************ Método Avaliado: rx.operators.OperationRefCount$RefCount.onSubscribe(rx.Observer) ************************
+*Commit: commit cac2118c0a8b99deac1c1268c7e870c5e2e9f5e8 1391146421 ----sp
+*Alguma Sugestão Fornecida: Sim
+*Alguma Sugestão Aprovada: Sim
+**************************************************************************************************************
+----------------Chamadas de método antigas:---------------
+----------------Chamadas de método novas:---------------
+rx.Observable.subscribe(rx.Observer)
+rx.observables.ConnectableObservable.connect()
+rx.subscriptions.Subscriptions.create(rx.util.functions.Action0)
+rx.Subscription.unsubscribe()
+rx.Subscription.unsubscribe()
+Chamada: rx.Observable.subscribe(rx.Observer)
+Situação: Primeira Chamada
+Chamada: rx.observables.ConnectableObservable.connect()
+Situação: Manual
+Chamada: rx.subscriptions.Subscriptions.create(rx.util.functions.Action0)
+Situação: Manual
+Chamada: rx.Subscription.unsubscribe()
+Situação: Automatizada
+Índice da Sugestão: 1
+Confiança: 1.0
+Suporte: 0.00334672
+F-Measure Suporte e Confiança: 0.007
+Chamada: rx.Subscription.unsubscribe()
+Situação: Manual
+Corretude/Utilidade dos Métodos
+Método: rx.Subscription.unsubscribe()
+Útil
+Percentual de Automatização: 0.25
+Corretude: 1.0
+F-Measure: 0.4
+************************ Método Avaliado: rx.operators.OperationReplay$CustomReplaySubjectSubscribeFunc.onSubscribe(rx.Observer) ************************
+*Commit: commit cac2118c0a8b99deac1c1268c7e870c5e2e9f5e8 1391146421 ----sp
+*Alguma Sugestão Fornecida: Sim
+*Alguma Sugestão Aprovada: Sim
+**************************************************************************************************************
+----------------Chamadas de método antigas:---------------
+----------------Chamadas de método novas:---------------
+rx.operators.OperationReplay$BaseState.lock()
+rx.util.functions.Action0.call()
+rx.operators.OperationReplay$ReplayState.addReplayer(rx.Observer)
+rx.operators.OperationReplay$BaseState.unlock()
+rx.operators.OperationReplay$VirtualList.start()
+rx.operators.OperationReplay$VirtualList.end()
+rx.operators.OperationReplay$VirtualList.get(I)
+rx.util.functions.Func1.call(null)
+rx.Observer.onNext(null)
+rx.Observer.onError(java.lang.Throwable)
+rx.subscriptions.Subscriptions.empty()
+rx.Observer.onError(java.lang.Throwable)
+rx.Observer.onCompleted()
+rx.subscriptions.Subscriptions.empty()
+Chamada: rx.operators.OperationReplay$BaseState.lock()
+Situação: Primeira Chamada
+Chamada: rx.util.functions.Action0.call()
+Situação: Manual
+Chamada: rx.operators.OperationReplay$ReplayState.addReplayer(rx.Observer)
+Situação: Manual
+Chamada: rx.operators.OperationReplay$BaseState.unlock()
+Situação: Automatizada
+Índice da Sugestão: 1
+Confiança: 1.0
+Suporte: 0.00401606
+F-Measure Suporte e Confiança: 0.008
+Chamada: rx.operators.OperationReplay$VirtualList.start()
+Situação: Manual
+Chamada: rx.operators.OperationReplay$VirtualList.end()
+Situação: Manual
+Chamada: rx.operators.OperationReplay$VirtualList.get(I)
+Situação: Manual
+Chamada: rx.util.functions.Func1.call(null)
+Situação: Manual
+Chamada: rx.Observer.onNext(null)
+Situação: Manual
+Chamada: rx.Observer.onError(java.lang.Throwable)
+Situação: Manual
+Chamada: rx.subscriptions.Subscriptions.empty()
+Situação: Manual
+Chamada: rx.Observer.onError(java.lang.Throwable)
+Situação: Manual
+Chamada: rx.Observer.onCompleted()
+Situação: Automatizada
+Índice da Sugestão: 1
+Confiança: 1.0
+Suporte: 0.00267738
+F-Measure Suporte e Confiança: 0.006
+Chamada: rx.subscriptions.Subscriptions.empty()
+Situação: Manual
+Corretude/Utilidade dos Métodos
+Método: rx.Observer.onCompleted()
+Útil
+Método: rx.operators.OperationReplay$BaseState.unlock()
+Útil
+Percentual de Automatização: 0.15384615384615385
+Corretude: 1.0
+F-Measure: 0.2666666666666667
+************************ Método Avaliado: rx.operators.OperationRetry$Retry.attemptSubscription(rx.Observer) ************************
+*Commit: commit cac2118c0a8b99deac1c1268c7e870c5e2e9f5e8 1391146421 ----sp
+*Alguma Sugestão Fornecida: Sim
+*Alguma Sugestão Aprovada: Sim
+**************************************************************************************************************
+----------------Chamadas de método antigas:---------------
+----------------Chamadas de método novas:---------------
+java.util.concurrent.atomic.AtomicInteger.incrementAndGet()
+rx.Observable.subscribe(rx.Observer)
+rx.Observer.onCompleted()
+java.util.concurrent.atomic.AtomicInteger.get()
+rx.subscriptions.CompositeSubscription.isUnsubscribed()
+rx.operators.OperationRetry$Retry.attemptSubscription(rx.Observer)
+rx.Scheduler.schedule(rx.subscriptions.MultipleAssignmentSubscription, rx.util.functions.Func2)
+rx.subscriptions.MultipleAssignmentSubscription.set(rx.Subscription)
+rx.Observer.onError(java.lang.Throwable)
+rx.Observer.onNext(null)
+Chamada: java.util.concurrent.atomic.AtomicInteger.incrementAndGet()
+Situação: Primeira Chamada
+Chamada: rx.Observable.subscribe(rx.Observer)
+Situação: Manual
+Chamada: rx.Observer.onCompleted()
+Situação: Manual
+Chamada: java.util.concurrent.atomic.AtomicInteger.get()
+Situação: Manual
+Chamada: rx.subscriptions.CompositeSubscription.isUnsubscribed()
+Situação: Manual
+Chamada: rx.operators.OperationRetry$Retry.attemptSubscription(rx.Observer)
+Situação: Manual
+Chamada: rx.Scheduler.schedule(rx.subscriptions.MultipleAssignmentSubscription, rx.util.functions.Func2)
+Situação: Automatizada
+Índice da Sugestão: 1
+Confiança: 1.0
+Suporte: 0.00267738
+F-Measure Suporte e Confiança: 0.006
+Chamada: rx.subscriptions.MultipleAssignmentSubscription.set(rx.Subscription)
+Situação: Manual
+Chamada: rx.Observer.onError(java.lang.Throwable)
+Situação: Manual
+Chamada: rx.Observer.onNext(null)
+Situação: Manual
+Corretude/Utilidade dos Métodos
+Método: rx.Scheduler.schedule(rx.subscriptions.MultipleAssignmentSubscription, rx.util.functions.Func2)
+Útil
+Percentual de Automatização: 0.1111111111111111
+Corretude: 1.0
+F-Measure: 0.19999999999999998
+************************ Método Avaliado: rx.operators.OperationRetry$Retry.onSubscribe(rx.Observer) ************************
+*Commit: commit cac2118c0a8b99deac1c1268c7e870c5e2e9f5e8 1391146421 ----sp
+*Alguma Sugestão Fornecida: Sim
+*Alguma Sugestão Aprovada: Sim
+**************************************************************************************************************
+----------------Chamadas de método antigas:---------------
+----------------Chamadas de método novas:---------------
+rx.schedulers.Schedulers.currentThread()
+rx.operators.OperationRetry$Retry.attemptSubscription(rx.Observer)
+rx.Scheduler.schedule(rx.subscriptions.MultipleAssignmentSubscription, rx.util.functions.Func2)
+rx.subscriptions.CompositeSubscription.add(rx.Subscription)
+rx.subscriptions.CompositeSubscription.add(rx.Subscription)
+Chamada: rx.schedulers.Schedulers.currentThread()
+Situação: Primeira Chamada
+Chamada: rx.operators.OperationRetry$Retry.attemptSubscription(rx.Observer)
+Situação: Manual
+Chamada: rx.Scheduler.schedule(rx.subscriptions.MultipleAssignmentSubscription, rx.util.functions.Func2)
+Situação: Automatizada
+Índice da Sugestão: 1
+Confiança: 1.0
+Suporte: 0.00267738
+F-Measure Suporte e Confiança: 0.006
+Chamada: rx.subscriptions.CompositeSubscription.add(rx.Subscription)
+Situação: Manual
+Chamada: rx.subscriptions.CompositeSubscription.add(rx.Subscription)
+Situação: Manual
+Corretude/Utilidade dos Métodos
+Método: rx.Scheduler.schedule(rx.subscriptions.MultipleAssignmentSubscription, rx.util.functions.Func2)
+Útil
+Percentual de Automatização: 0.25
+Corretude: 1.0
+F-Measure: 0.4
+************************ Método Avaliado: rx.operators.OperationSample$Sample.onSubscribe(rx.Observer) ************************
+*Commit: commit cac2118c0a8b99deac1c1268c7e870c5e2e9f5e8 1391146421 ----sp
+*Alguma Sugestão Fornecida: Sim
+*Alguma Sugestão Aprovada: Sim
+**************************************************************************************************************
+----------------Chamadas de método antigas:---------------
+----------------Chamadas de método novas:---------------
+rx.operators.OperationInterval.interval(J, java.util.concurrent.TimeUnit, rx.Scheduler)
+rx.Observable.create(rx.Observable$OnSubscribeFunc)
+rx.Observable.subscribe(rx.Observer)
+java.util.concurrent.atomic.AtomicBoolean.get()
+java.util.concurrent.atomic.AtomicReference.get()
+rx.Observer.onNext(null)
+rx.Observable.subscribe(rx.Observer)
+rx.Subscription.unsubscribe()
+rx.Observer.onCompleted()
+rx.Subscription.unsubscribe()
+rx.Observer.onError(java.lang.Throwable)
+java.util.concurrent.atomic.AtomicReference.set(rx.operators.OperationSample$Sample$T)
+java.util.concurrent.atomic.AtomicBoolean.set(Z)
+rx.subscriptions.Subscriptions.create(rx.util.functions.Action0)
+add
+rx.Subscription.unsubscribe()
+rx.Subscription.unsubscribe()
+Chamada: rx.operators.OperationInterval.interval(J, java.util.concurrent.TimeUnit, rx.Scheduler)
+Situação: Primeira Chamada
+Chamada: rx.Observable.create(rx.Observable$OnSubscribeFunc)
+Situação: Manual
+Chamada: rx.Observable.subscribe(rx.Observer)
+Situação: Manual
+Chamada: java.util.concurrent.atomic.AtomicBoolean.get()
+Situação: Manual
+Chamada: java.util.concurrent.atomic.AtomicReference.get()
+Situação: Manual
+Chamada: rx.Observer.onNext(null)
+Situação: Automatizada
+Índice da Sugestão: 1
+Confiança: 1.0
+Suporte: 0.00267738
+F-Measure Suporte e Confiança: 0.006
+Chamada: rx.Observable.subscribe(rx.Observer)
+Situação: Manual
+Chamada: rx.Subscription.unsubscribe()
+Situação: Automatizada
+Índice da Sugestão: 1
+Confiança: 1.0
+Suporte: 0.00267738
+F-Measure Suporte e Confiança: 0.006
+Chamada: rx.Observer.onCompleted()
+Situação: Automatizada
+Índice da Sugestão: 4
+Confiança: 1.0
+Suporte: 0.00267738
+F-Measure Suporte e Confiança: 0.006
+Chamada: rx.Subscription.unsubscribe()
+Situação: Automatizada
+Índice da Sugestão: 1
+Confiança: 1.0
+Suporte: 0.00267738
+F-Measure Suporte e Confiança: 0.006
+Chamada: rx.Observer.onError(java.lang.Throwable)
+Situação: Manual
+Chamada: java.util.concurrent.atomic.AtomicReference.set(rx.operators.OperationSample$Sample$T)
+Situação: Manual
+Chamada: java.util.concurrent.atomic.AtomicBoolean.set(Z)
+Situação: Manual
+Chamada: rx.subscriptions.Subscriptions.create(rx.util.functions.Action0)
+Situação: Manual
+Chamada: add
+Situação: Manual
+Chamada: rx.Subscription.unsubscribe()
+Situação: Automatizada
+Índice da Sugestão: 1
+Confiança: 1.0
+Suporte: 0.00267738
+F-Measure Suporte e Confiança: 0.006
+Chamada: rx.Subscription.unsubscribe()
+Situação: Automatizada
+Índice da Sugestão: 1
+Confiança: 1.0
+Suporte: 0.00267738
+F-Measure Suporte e Confiança: 0.006
+Corretude/Utilidade dos Métodos
+Método: rx.Subscription.unsubscribe()
+Útil
+Método: rx.Observer.onCompleted()
+Útil
+Método: rx.Observer.onNext(null)
+Útil
+Percentual de Automatização: 0.375
+Corretude: 1.0
+F-Measure: 0.5454545454545454
+************************ Método Avaliado: rx.operators.OperationTakeUntil$OtherObservable.onSubscribe(rx.Observer) ************************
+*Commit: commit cac2118c0a8b99deac1c1268c7e870c5e2e9f5e8 1391146421 ----sp
+*Alguma Sugestão Fornecida: Sim
+*Alguma Sugestão Aprovada: Sim
+**************************************************************************************************************
+----------------Chamadas de método antigas:---------------
+----------------Chamadas de método novas:---------------
+rx.Observable.subscribe(rx.Observer)
+rx.Observer.onError(java.lang.Throwable)
+rx.operators.OperationTakeUntil$Notification.halt()
+rx.Observer.onNext(null)
+Chamada: rx.Observable.subscribe(rx.Observer)
+Situação: Primeira Chamada
+Chamada: rx.Observer.onError(java.lang.Throwable)
+Situação: Manual
+Chamada: rx.operators.OperationTakeUntil$Notification.halt()
+Situação: Manual
+Chamada: rx.Observer.onNext(null)
+Situação: Automatizada
+Índice da Sugestão: 1
+Confiança: 1.0
+Suporte: 0.00267738
+F-Measure Suporte e Confiança: 0.006
+Corretude/Utilidade dos Métodos
+Método: rx.Observer.onNext(null)
+Útil
+Percentual de Automatização: 0.3333333333333333
+Corretude: 1.0
+F-Measure: 0.5
+************************ Método Avaliado: rx.operators.OperationTakeUntil$SourceObservable.onSubscribe(rx.Observer) ************************
+*Commit: commit cac2118c0a8b99deac1c1268c7e870c5e2e9f5e8 1391146421 ----sp
+*Alguma Sugestão Fornecida: Sim
+*Alguma Sugestão Aprovada: Sim
+**************************************************************************************************************
+----------------Chamadas de método antigas:---------------
+----------------Chamadas de método novas:---------------
+rx.Observable.subscribe(rx.Observer)
+rx.operators.OperationTakeUntil$Notification.halt()
+rx.Observer.onNext(null)
+rx.Observer.onError(java.lang.Throwable)
+rx.operators.OperationTakeUntil$Notification.value(rx.operators.OperationTakeUntil$SourceObservable$T)
+rx.Observer.onNext(null)
+Chamada: rx.Observable.subscribe(rx.Observer)
+Situação: Primeira Chamada
+Chamada: rx.operators.OperationTakeUntil$Notification.halt()
+Situação: Manual
+Chamada: rx.Observer.onNext(null)
+Situação: Automatizada
+Índice da Sugestão: 1
+Confiança: 1.0
+Suporte: 0.00267738
+F-Measure Suporte e Confiança: 0.006
+Chamada: rx.Observer.onError(java.lang.Throwable)
+Situação: Manual
+Chamada: rx.operators.OperationTakeUntil$Notification.value(rx.operators.OperationTakeUntil$SourceObservable$T)
+Situação: Manual
+Chamada: rx.Observer.onNext(null)
+Situação: Manual
+Corretude/Utilidade dos Métodos
+Método: rx.Observer.onNext(null)
+Útil
+Percentual de Automatização: 0.2
+Corretude: 1.0
+F-Measure: 0.33333333333333337
+************************ Método Avaliado: rx.operators.OperationTimeout$TimeoutSelector.onSubscribe(rx.Observer) ************************
+*Commit: commit cac2118c0a8b99deac1c1268c7e870c5e2e9f5e8 1391146421 ----sp
+*Alguma Sugestão Fornecida: Sim
+*Alguma Sugestão Aprovada: Sim
+**************************************************************************************************************
+----------------Chamadas de método antigas:---------------
+----------------Chamadas de método novas:---------------
+rx.util.functions.Func0.call()
+rx.Observer.onError(java.lang.Throwable)
+rx.subscriptions.Subscriptions.empty()
+rx.Observable.subscribe(rx.Observer)
+rx.subscriptions.CompositeSubscription.add(rx.Subscription)
+rx.Observable.subscribe(rx.Observer)
+rx.subscriptions.CompositeSubscription.add(rx.Subscription)
+Chamada: rx.util.functions.Func0.call()
+Situação: Primeira Chamada
+Chamada: rx.Observer.onError(java.lang.Throwable)
+Situação: Manual
+Chamada: rx.subscriptions.Subscriptions.empty()
+Situação: Manual
+Chamada: rx.Observable.subscribe(rx.Observer)
+Situação: Automatizada
+Índice da Sugestão: 1
+Confiança: 1.0
+Suporte: 0.00334672
+F-Measure Suporte e Confiança: 0.007
+Chamada: rx.subscriptions.CompositeSubscription.add(rx.Subscription)
+Situação: Manual
+Chamada: rx.Observable.subscribe(rx.Observer)
+Situação: Manual
+Chamada: rx.subscriptions.CompositeSubscription.add(rx.Subscription)
+Situação: Manual
+Corretude/Utilidade dos Métodos
+Método: rx.Observable.subscribe(rx.Observer)
+Útil
+Percentual de Automatização: 0.16666666666666666
+Corretude: 1.0
+F-Measure: 0.2857142857142857
+************************ Método Avaliado: rx.operators.OperationTimeout$Timeout.onSubscribe(rx.Observer) ************************
+*Commit: commit cac2118c0a8b99deac1c1268c7e870c5e2e9f5e8 1391146421 ----sp
+*Alguma Sugestão Fornecida: Sim
+*Alguma Sugestão Aprovada: Sim
+**************************************************************************************************************
+----------------Chamadas de método antigas:---------------
+----------------Chamadas de método novas:---------------
+java.util.concurrent.atomic.AtomicLong.get()
+rx.Scheduler.schedule(rx.util.functions.Action0, J, java.util.concurrent.TimeUnit)
+java.util.concurrent.atomic.AtomicLong.get()
+java.util.concurrent.atomic.AtomicBoolean.getAndSet(Z)
+rx.Observer.onError(java.lang.Throwable)
+rx.Observable.subscribe(rx.Observer)
+rx.subscriptions.SerialSubscription.setSubscription(rx.Subscription)
+rx.Observable.subscribe(rx.Observer)
+rx.operators.SafeObservableSubscription.wrap(rx.Subscription)
+rx.subscriptions.CompositeSubscription.add(rx.Subscription)
+java.util.concurrent.atomic.AtomicBoolean.get()
+java.util.concurrent.atomic.AtomicLong.incrementAndGet()
+rx.util.functions.Func0.call()
+rx.subscriptions.SerialSubscription.setSubscription(rx.Subscription)
+rx.Observer.onNext(null)
+java.util.concurrent.atomic.AtomicBoolean.getAndSet(Z)
+rx.subscriptions.SerialSubscription.unsubscribe()
+rx.Observer.onError(java.lang.Throwable)
+java.util.concurrent.atomic.AtomicBoolean.getAndSet(Z)
+rx.subscriptions.SerialSubscription.unsubscribe()
+rx.Observer.onCompleted()
+rx.subscriptions.CompositeSubscription.add(rx.Subscription)
+rx.util.functions.Func0.call()
+rx.subscriptions.SerialSubscription.setSubscription(rx.Subscription)
+Chamada: java.util.concurrent.atomic.AtomicLong.get()
+Situação: Primeira Chamada
+Chamada: rx.Scheduler.schedule(rx.util.functions.Action0, J, java.util.concurrent.TimeUnit)
+Situação: Manual
+Chamada: java.util.concurrent.atomic.AtomicLong.get()
+Situação: Manual
+Chamada: java.util.concurrent.atomic.AtomicBoolean.getAndSet(Z)
+Situação: Manual
+Chamada: rx.Observer.onError(java.lang.Throwable)
+Situação: Manual
+Chamada: rx.Observable.subscribe(rx.Observer)
+Situação: Manual
+Chamada: rx.subscriptions.SerialSubscription.setSubscription(rx.Subscription)
+Situação: Manual
+Chamada: rx.Observable.subscribe(rx.Observer)
+Situação: Manual
+Chamada: rx.operators.SafeObservableSubscription.wrap(rx.Subscription)
+Situação: Manual
+Chamada: rx.subscriptions.CompositeSubscription.add(rx.Subscription)
+Situação: Manual
+Chamada: java.util.concurrent.atomic.AtomicBoolean.get()
+Situação: Manual
+Chamada: java.util.concurrent.atomic.AtomicLong.incrementAndGet()
+Situação: Manual
+Chamada: rx.util.functions.Func0.call()
+Situação: Manual
+Chamada: rx.subscriptions.SerialSubscription.setSubscription(rx.Subscription)
+Situação: Automatizada
+Índice da Sugestão: 1
+Confiança: 1.0
+Suporte: 0.00267738
+F-Measure Suporte e Confiança: 0.006
+Chamada: rx.Observer.onNext(null)
+Situação: Automatizada
+Índice da Sugestão: 1
+Confiança: 1.0
+Suporte: 0.00267738
+F-Measure Suporte e Confiança: 0.006
+Chamada: java.util.concurrent.atomic.AtomicBoolean.getAndSet(Z)
+Situação: Manual
+Chamada: rx.subscriptions.SerialSubscription.unsubscribe()
+Situação: Manual
+Chamada: rx.Observer.onError(java.lang.Throwable)
+Situação: Manual
+Chamada: java.util.concurrent.atomic.AtomicBoolean.getAndSet(Z)
+Situação: Manual
+Chamada: rx.subscriptions.SerialSubscription.unsubscribe()
+Situação: Manual
+Chamada: rx.Observer.onCompleted()
+Situação: Manual
+Chamada: rx.subscriptions.CompositeSubscription.add(rx.Subscription)
+Situação: Manual
+Chamada: rx.util.functions.Func0.call()
+Situação: Manual
+Chamada: rx.subscriptions.SerialSubscription.setSubscription(rx.Subscription)
+Situação: Manual
+Corretude/Utilidade dos Métodos
+Método: rx.subscriptions.SerialSubscription.setSubscription(rx.Subscription)
+Útil
+Método: rx.Observer.onNext(null)
+Útil
+Percentual de Automatização: 0.08695652173913043
+Corretude: 1.0
+F-Measure: 0.16
+************************ Método Avaliado: rx.operators.OperationToMap$ToMap.onSubscribe(rx.Observer) ************************
+*Commit: commit cac2118c0a8b99deac1c1268c7e870c5e2e9f5e8 1391146421 ----sp
+*Alguma Sugestão Fornecida: Sim
+*Alguma Sugestão Aprovada: Sim
+**************************************************************************************************************
+----------------Chamadas de método antigas:---------------
+----------------Chamadas de método novas:---------------
+rx.util.functions.Func0.call()
+rx.Observer.onError(java.lang.Throwable)
+rx.subscriptions.Subscriptions.empty()
+rx.Observable.subscribe(rx.Observer)
+Chamada: rx.util.functions.Func0.call()
+Situação: Primeira Chamada
+Chamada: rx.Observer.onError(java.lang.Throwable)
+Situação: Manual
+Chamada: rx.subscriptions.Subscriptions.empty()
+Situação: Manual
+Chamada: rx.Observable.subscribe(rx.Observer)
+Situação: Automatizada
+Índice da Sugestão: 1
+Confiança: 1.0
+Suporte: 0.00334672
+F-Measure Suporte e Confiança: 0.007
+Corretude/Utilidade dos Métodos
+Método: rx.Observable.subscribe(rx.Observer)
+Útil
+Percentual de Automatização: 0.3333333333333333
+Corretude: 1.0
+F-Measure: 0.5
+************************ Método Avaliado: rx.operators.OperationToMultimap$ToMultimap.onSubscribe(rx.Observer) ************************
+*Commit: commit cac2118c0a8b99deac1c1268c7e870c5e2e9f5e8 1391146421 ----sp
+*Alguma Sugestão Fornecida: Sim
+*Alguma Sugestão Aprovada: Sim
+**************************************************************************************************************
+----------------Chamadas de método antigas:---------------
+----------------Chamadas de método novas:---------------
+rx.util.functions.Func0.call()
+rx.Observer.onError(java.lang.Throwable)
+rx.subscriptions.Subscriptions.empty()
+rx.Observable.subscribe(rx.Observer)
+Chamada: rx.util.functions.Func0.call()
+Situação: Primeira Chamada
+Chamada: rx.Observer.onError(java.lang.Throwable)
+Situação: Manual
+Chamada: rx.subscriptions.Subscriptions.empty()
+Situação: Manual
+Chamada: rx.Observable.subscribe(rx.Observer)
+Situação: Automatizada
+Índice da Sugestão: 1
+Confiança: 1.0
+Suporte: 0.00334672
+F-Measure Suporte e Confiança: 0.007
+Corretude/Utilidade dos Métodos
+Método: rx.Observable.subscribe(rx.Observer)
+Útil
+Percentual de Automatização: 0.3333333333333333
+Corretude: 1.0
+F-Measure: 0.5
+************************ Método Avaliado: rx.operators.OperationZip$ZipIterable.onSubscribe(rx.Observer) ************************
+*Commit: commit cac2118c0a8b99deac1c1268c7e870c5e2e9f5e8 1391146421 ----sp
+*Alguma Sugestão Fornecida: Sim
+*Alguma Sugestão Aprovada: Não
+**************************************************************************************************************
+----------------Chamadas de método antigas:---------------
+----------------Chamadas de método novas:---------------
+java.lang.Iterable.iterator()
+java.util.Iterator.hasNext()
+rx.Observer.onError(java.lang.Throwable)
+rx.subscriptions.Subscriptions.empty()
+rx.Observer.onCompleted()
+rx.subscriptions.Subscriptions.empty()
+rx.Observable.subscribe(rx.Observer)
+rx.subscriptions.SerialSubscription.set(rx.Subscription)
+Chamada: java.lang.Iterable.iterator()
+Situação: Primeira Chamada
+Chamada: java.util.Iterator.hasNext()
+Situação: Manual
+Chamada: rx.Observer.onError(java.lang.Throwable)
+Situação: Manual
+Chamada: rx.subscriptions.Subscriptions.empty()
+Situação: Manual
+Chamada: rx.Observer.onCompleted()
+Situação: Manual
+Chamada: rx.subscriptions.Subscriptions.empty()
+Situação: Manual
+Chamada: rx.Observable.subscribe(rx.Observer)
+Situação: Manual
+Chamada: rx.subscriptions.SerialSubscription.set(rx.Subscription)
+Situação: Manual
+Corretude/Utilidade dos Métodos
+Método: java.util.Iterator.next()
+Inútil
+Percentual de Automatização: 0.0
+Corretude: 0.0
+F-Measure: 0.0
+************************ Método Avaliado: rx.joins.Plan1.activate(java.util.Map, rx.Observer, rx.util.functions.Action1) ************************
+*Commit: commit 99f32abd5fde12dca47b14221c4a60843a8d03af 1391150178 ----sp
+*Alguma Sugestão Fornecida: Sim
+*Alguma Sugestão Aprovada: Sim
+**************************************************************************************************************
+----------------Chamadas de método antigas:---------------
+----------------Chamadas de método novas:---------------
+rx.util.functions.Actions.onErrorFrom(rx.Observer)
+rx.joins.Pattern1.first()
+rx.joins.Plan0.createObserver(java.util.Map, rx.Observable, rx.util.functions.Action1)
+rx.util.functions.Func1.call(rx.joins.Plan1$T1)
+rx.Observer.onError(java.lang.Throwable)
+rx.Observer.onNext(rx.joins.Plan1$R)
+java.util.concurrent.atomic.AtomicReference.get()
+rx.joins.JoinObserver1.removeActivePlan(rx.joins.ActivePlan0)
+java.util.concurrent.atomic.AtomicReference.get()
+rx.util.functions.Action1.call(rx.joins.ActivePlan0)
+java.util.concurrent.atomic.AtomicReference.set(rx.joins.ActivePlan1)
+rx.joins.JoinObserver1.addActivePlan(rx.joins.ActivePlan0)
+Chamada: rx.util.functions.Actions.onErrorFrom(rx.Observer)
+Situação: Primeira Chamada
+Chamada: rx.joins.Pattern1.first()
+Situação: Manual
+Chamada: rx.joins.Plan0.createObserver(java.util.Map, rx.Observable, rx.util.functions.Action1)
+Situação: Manual
+Chamada: rx.util.functions.Func1.call(rx.joins.Plan1$T1)
+Situação: Manual
+Chamada: rx.Observer.onError(java.lang.Throwable)
+Situação: Manual
+Chamada: rx.Observer.onNext(rx.joins.Plan1$R)
+Situação: Manual
+Chamada: java.util.concurrent.atomic.AtomicReference.get()
+Situação: Manual
+Chamada: rx.joins.JoinObserver1.removeActivePlan(rx.joins.ActivePlan0)
+Situação: Manual
+Chamada: java.util.concurrent.atomic.AtomicReference.get()
+Situação: Automatizada
+Índice da Sugestão: 2
+Confiança: 1.0
+Suporte: 0.00401606
+F-Measure Suporte e Confiança: 0.008
+Chamada: rx.util.functions.Action1.call(rx.joins.ActivePlan0)
+Situação: Automatizada
+Índice da Sugestão: 1
+Confiança: 1.0
+Suporte: 0.00401606
+F-Measure Suporte e Confiança: 0.008
+Chamada: java.util.concurrent.atomic.AtomicReference.set(rx.joins.ActivePlan1)
+Situação: Manual
+Chamada: rx.joins.JoinObserver1.addActivePlan(rx.joins.ActivePlan0)
+Situação: Manual
+Corretude/Utilidade dos Métodos
+Método: java.util.concurrent.atomic.AtomicReference.get()
+Útil
+Método: rx.util.functions.Action1.call(rx.joins.ActivePlan0)
+Útil
+Percentual de Automatização: 0.18181818181818182
+Corretude: 1.0
+F-Measure: 0.3076923076923077
+************************ Método Avaliado: rx.joins.Plan2.activate(java.util.Map, rx.Observer, rx.util.functions.Action1) ************************
+*Commit: commit 99f32abd5fde12dca47b14221c4a60843a8d03af 1391150178 ----sp
+*Alguma Sugestão Fornecida: Sim
+*Alguma Sugestão Aprovada: Sim
+**************************************************************************************************************
+----------------Chamadas de método antigas:---------------
+----------------Chamadas de método novas:---------------
+rx.util.functions.Actions.onErrorFrom(rx.Observer)
+rx.joins.Pattern2.first()
+rx.joins.Plan0.createObserver(java.util.Map, rx.Observable, rx.util.functions.Action1)
+rx.joins.Pattern2.second()
+rx.joins.Plan0.createObserver(java.util.Map, rx.Observable, rx.util.functions.Action1)
+rx.util.functions.Func2.call(rx.joins.Plan2$T1, rx.joins.Plan2$T2)
+rx.Observer.onError(java.lang.Throwable)
+rx.Observer.onNext(rx.joins.Plan2$R)
+java.util.concurrent.atomic.AtomicReference.get()
+rx.joins.JoinObserver1.removeActivePlan(rx.joins.ActivePlan0)
+java.util.concurrent.atomic.AtomicReference.get()
+rx.joins.JoinObserver1.removeActivePlan(rx.joins.ActivePlan0)
+java.util.concurrent.atomic.AtomicReference.get()
+rx.util.functions.Action1.call(rx.joins.ActivePlan0)
+java.util.concurrent.atomic.AtomicReference.set(rx.joins.ActivePlan2)
+rx.joins.JoinObserver1.addActivePlan(rx.joins.ActivePlan0)
+rx.joins.JoinObserver1.addActivePlan(rx.joins.ActivePlan0)
+Chamada: rx.util.functions.Actions.onErrorFrom(rx.Observer)
+Situação: Primeira Chamada
+Chamada: rx.joins.Pattern2.first()
+Situação: Manual
+Chamada: rx.joins.Plan0.createObserver(java.util.Map, rx.Observable, rx.util.functions.Action1)
+Situação: Manual
+Chamada: rx.joins.Pattern2.second()
+Situação: Manual
+Chamada: rx.joins.Plan0.createObserver(java.util.Map, rx.Observable, rx.util.functions.Action1)
+Situação: Manual
+Chamada: rx.util.functions.Func2.call(rx.joins.Plan2$T1, rx.joins.Plan2$T2)
+Situação: Manual
+Chamada: rx.Observer.onError(java.lang.Throwable)
+Situação: Manual
+Chamada: rx.Observer.onNext(rx.joins.Plan2$R)
+Situação: Manual
+Chamada: java.util.concurrent.atomic.AtomicReference.get()
+Situação: Manual
+Chamada: rx.joins.JoinObserver1.removeActivePlan(rx.joins.ActivePlan0)
+Situação: Manual
+Chamada: java.util.concurrent.atomic.AtomicReference.get()
+Situação: Automatizada
+Índice da Sugestão: 2
+Confiança: 1.0
+Suporte: 0.00401606
+F-Measure Suporte e Confiança: 0.008
+Chamada: rx.joins.JoinObserver1.removeActivePlan(rx.joins.ActivePlan0)
+Situação: Manual
+Chamada: java.util.concurrent.atomic.AtomicReference.get()
+Situação: Automatizada
+Índice da Sugestão: 1
+Confiança: 1.0
+Suporte: 0.00267738
+F-Measure Suporte e Confiança: 0.006
+Chamada: rx.util.functions.Action1.call(rx.joins.ActivePlan0)
+Situação: Automatizada
+Índice da Sugestão: 1
+Confiança: 1.0
+Suporte: 0.00401606
+F-Measure Suporte e Confiança: 0.008
+Chamada: java.util.concurrent.atomic.AtomicReference.set(rx.joins.ActivePlan2)
+Situação: Manual
+Chamada: rx.joins.JoinObserver1.addActivePlan(rx.joins.ActivePlan0)
+Situação: Manual
+Chamada: rx.joins.JoinObserver1.addActivePlan(rx.joins.ActivePlan0)
+Situação: Manual
+Corretude/Utilidade dos Métodos
+Método: java.util.concurrent.atomic.AtomicReference.get()
+Útil
+Método: rx.util.functions.Action1.call(rx.joins.ActivePlan0)
+Útil
+Percentual de Automatização: 0.1875
+Corretude: 1.0
+F-Measure: 0.3157894736842105
+************************ Método Avaliado: rx.joins.Plan3.activate(java.util.Map, rx.Observer, rx.util.functions.Action1) ************************
+*Commit: commit 99f32abd5fde12dca47b14221c4a60843a8d03af 1391150178 ----sp
+*Alguma Sugestão Fornecida: Sim
+*Alguma Sugestão Aprovada: Sim
+**************************************************************************************************************
+----------------Chamadas de método antigas:---------------
+----------------Chamadas de método novas:---------------
+rx.util.functions.Actions.onErrorFrom(rx.Observer)
+rx.joins.Pattern3.first()
+rx.joins.Plan0.createObserver(java.util.Map, rx.Observable, rx.util.functions.Action1)
+rx.joins.Pattern3.second()
+rx.joins.Plan0.createObserver(java.util.Map, rx.Observable, rx.util.functions.Action1)
+rx.joins.Pattern3.third()
+rx.joins.Plan0.createObserver(java.util.Map, rx.Observable, rx.util.functions.Action1)
+rx.util.functions.Func3.call(rx.joins.Plan3$T1, rx.joins.Plan3$T2, rx.joins.Plan3$T3)
+rx.Observer.onError(java.lang.Throwable)
+rx.Observer.onNext(rx.joins.Plan3$R)
+java.util.concurrent.atomic.AtomicReference.get()
+rx.joins.JoinObserver1.removeActivePlan(rx.joins.ActivePlan0)
+java.util.concurrent.atomic.AtomicReference.get()
+rx.joins.JoinObserver1.removeActivePlan(rx.joins.ActivePlan0)
+java.util.concurrent.atomic.AtomicReference.get()
+rx.joins.JoinObserver1.removeActivePlan(rx.joins.ActivePlan0)
+java.util.concurrent.atomic.AtomicReference.get()
+rx.util.functions.Action1.call(rx.joins.ActivePlan0)
+java.util.concurrent.atomic.AtomicReference.set(rx.joins.ActivePlan3)
+rx.joins.JoinObserver1.addActivePlan(rx.joins.ActivePlan0)
+rx.joins.JoinObserver1.addActivePlan(rx.joins.ActivePlan0)
+rx.joins.JoinObserver1.addActivePlan(rx.joins.ActivePlan0)
+Chamada: rx.util.functions.Actions.onErrorFrom(rx.Observer)
+Situação: Primeira Chamada
+Chamada: rx.joins.Pattern3.first()
+Situação: Manual
+Chamada: rx.joins.Plan0.createObserver(java.util.Map, rx.Observable, rx.util.functions.Action1)
+Situação: Manual
+Chamada: rx.joins.Pattern3.second()
+Situação: Manual
+Chamada: rx.joins.Plan0.createObserver(java.util.Map, rx.Observable, rx.util.functions.Action1)
+Situação: Manual
+Chamada: rx.joins.Pattern3.third()
+Situação: Manual
+Chamada: rx.joins.Plan0.createObserver(java.util.Map, rx.Observable, rx.util.functions.Action1)
+Situação: Manual
+Chamada: rx.util.functions.Func3.call(rx.joins.Plan3$T1, rx.joins.Plan3$T2, rx.joins.Plan3$T3)
+Situação: Manual
+Chamada: rx.Observer.onError(java.lang.Throwable)
+Situação: Manual
+Chamada: rx.Observer.onNext(rx.joins.Plan3$R)
+Situação: Manual
+Chamada: java.util.concurrent.atomic.AtomicReference.get()
+Situação: Manual
+Chamada: rx.joins.JoinObserver1.removeActivePlan(rx.joins.ActivePlan0)
+Situação: Manual
+Chamada: java.util.concurrent.atomic.AtomicReference.get()
+Situação: Automatizada
+Índice da Sugestão: 2
+Confiança: 1.0
+Suporte: 0.00401606
+F-Measure Suporte e Confiança: 0.008
+Chamada: rx.joins.JoinObserver1.removeActivePlan(rx.joins.ActivePlan0)
+Situação: Manual
+Chamada: java.util.concurrent.atomic.AtomicReference.get()
+Situação: Automatizada
+Índice da Sugestão: 1
+Confiança: 1.0
+Suporte: 0.00267738
+F-Measure Suporte e Confiança: 0.006
+Chamada: rx.joins.JoinObserver1.removeActivePlan(rx.joins.ActivePlan0)
+Situação: Manual
+Chamada: java.util.concurrent.atomic.AtomicReference.get()
+Situação: Automatizada
+Índice da Sugestão: 1
+Confiança: 1.0
+Suporte: 0.00267738
+F-Measure Suporte e Confiança: 0.006
+Chamada: rx.util.functions.Action1.call(rx.joins.ActivePlan0)
+Situação: Automatizada
+Índice da Sugestão: 1
+Confiança: 1.0
+Suporte: 0.00401606
+F-Measure Suporte e Confiança: 0.008
+Chamada: java.util.concurrent.atomic.AtomicReference.set(rx.joins.ActivePlan3)
+Situação: Manual
+Chamada: rx.joins.JoinObserver1.addActivePlan(rx.joins.ActivePlan0)
+Situação: Manual
+Chamada: rx.joins.JoinObserver1.addActivePlan(rx.joins.ActivePlan0)
+Situação: Manual
+Chamada: rx.joins.JoinObserver1.addActivePlan(rx.joins.ActivePlan0)
+Situação: Manual
+Corretude/Utilidade dos Métodos
+Método: java.util.concurrent.atomic.AtomicReference.get()
+Útil
+Método: rx.util.functions.Action1.call(rx.joins.ActivePlan0)
+Útil
+Percentual de Automatização: 0.19047619047619047
+Corretude: 1.0
+F-Measure: 0.32
+************************ Método Avaliado: schedule ************************
+*Commit: commit d91794b7123f58d5dfc85fa7edfd8c33ffd9655d 1391470558 ----sp
+*Alguma Sugestão Fornecida: Sim
+*Alguma Sugestão Aprovada: Não
+**************************************************************************************************************
+----------------Chamadas de método antigas:---------------
+----------------Chamadas de método novas:---------------
+rx.subscriptions.MultipleAssignmentSubscription.isUnsubscribed()
+rx.subscriptions.MultipleAssignmentSubscription.isUnsubscribed()
+call
+java.util.concurrent.ExecutorService.submit(java.lang.Runnable)
+rx.subscriptions.Subscriptions.from(java.util.concurrent.Future)
+rx.subscriptions.MultipleAssignmentSubscription.set(rx.Subscription)
+java.util.concurrent.Executor.execute(java.lang.Runnable)
+Chamada: rx.subscriptions.MultipleAssignmentSubscription.isUnsubscribed()
+Situação: Primeira Chamada
+Chamada: rx.subscriptions.MultipleAssignmentSubscription.isUnsubscribed()
+Situação: Manual
+Chamada: call
+Situação: Manual
+Chamada: java.util.concurrent.ExecutorService.submit(java.lang.Runnable)
+Situação: Manual
+Chamada: rx.subscriptions.Subscriptions.from(java.util.concurrent.Future)
+Situação: Manual
+Chamada: rx.subscriptions.MultipleAssignmentSubscription.set(rx.Subscription)
+Situação: Manual
+Chamada: java.util.concurrent.Executor.execute(java.lang.Runnable)
+Situação: Manual
+Corretude/Utilidade dos Métodos
+Método: rx.subscriptions.CompositeSubscription.add(rx.Subscription)
+Inútil
+Percentual de Automatização: 0.0
+Corretude: 0.0
+F-Measure: 0.0
+************************ Método Avaliado: schedule ************************
+*Commit: commit d91794b7123f58d5dfc85fa7edfd8c33ffd9655d 1391470558 ----sp
+*Alguma Sugestão Fornecida: Sim
+*Alguma Sugestão Aprovada: Sim
+**************************************************************************************************************
+----------------Chamadas de método antigas:---------------
+----------------Chamadas de método novas:---------------
+rx.schedulers.GenericScheduledExecutorService.getInstance()
+java.util.concurrent.ScheduledExecutorService.schedule(java.lang.Runnable, J, java.util.concurrent.TimeUnit)
+rx.subscriptions.CompositeSubscription.isUnsubscribed()
+rx.Scheduler.schedule(rx.util.functions.Action1)
+java.util.concurrent.atomic.AtomicReference.get()
+rx.subscriptions.CompositeSubscription.remove(rx.Subscription)
+rx.subscriptions.Subscriptions.from(java.util.concurrent.Future)
+java.util.concurrent.atomic.AtomicReference.set(rx.Subscription)
+rx.subscriptions.CompositeSubscription.add(rx.Subscription)
+Chamada: rx.schedulers.GenericScheduledExecutorService.getInstance()
+Situação: Primeira Chamada
+Chamada: java.util.concurrent.ScheduledExecutorService.schedule(java.lang.Runnable, J, java.util.concurrent.TimeUnit)
+Situação: Automatizada
+Índice da Sugestão: 1
+Confiança: 1.0
+Suporte: 0.00267738
+F-Measure Suporte e Confiança: 0.006
+Chamada: rx.subscriptions.CompositeSubscription.isUnsubscribed()
+Situação: Manual
+Chamada: rx.Scheduler.schedule(rx.util.functions.Action1)
+Situação: Manual
+Chamada: java.util.concurrent.atomic.AtomicReference.get()
+Situação: Manual
+Chamada: rx.subscriptions.CompositeSubscription.remove(rx.Subscription)
+Situação: Manual
+Chamada: rx.subscriptions.Subscriptions.from(java.util.concurrent.Future)
+Situação: Automatizada
+Índice da Sugestão: 2
+Confiança: 1.0
+Suporte: 0.00267738
+F-Measure Suporte e Confiança: 0.006
+Chamada: java.util.concurrent.atomic.AtomicReference.set(rx.Subscription)
+Situação: Manual
+Chamada: rx.subscriptions.CompositeSubscription.add(rx.Subscription)
+Situação: Manual
+Corretude/Utilidade dos Métodos
+Método: rx.subscriptions.Subscriptions.from(java.util.concurrent.Future)
+Útil
+Método: java.util.concurrent.ScheduledExecutorService.schedule(java.lang.Runnable, J, java.util.concurrent.TimeUnit)
+Útil
+Percentual de Automatização: 0.25
+Corretude: 1.0
+F-Measure: 0.4
+************************ Método Avaliado: call ************************
+*Commit: commit d91794b7123f58d5dfc85fa7edfd8c33ffd9655d 1391470558 ----sp
+*Alguma Sugestão Fornecida: Sim
+*Alguma Sugestão Aprovada: Sim
+**************************************************************************************************************
+----------------Chamadas de método antigas:---------------
+----------------Chamadas de método novas:---------------
+isUnsubscribed
+rx.Scheduler.now()
+rx.Scheduler.now()
+java.lang.Thread.sleep(J)
+java.lang.Thread.currentThread()
+java.lang.Thread.interrupt()
+isUnsubscribed
+call
+Chamada: isUnsubscribed
+Situação: Primeira Chamada
+Chamada: rx.Scheduler.now()
+Situação: Manual
+Chamada: rx.Scheduler.now()
+Situação: Manual
+Chamada: java.lang.Thread.sleep(J)
+Situação: Manual
+Chamada: java.lang.Thread.currentThread()
+Situação: Manual
+Chamada: java.lang.Thread.interrupt()
+Situação: Automatizada
+Índice da Sugestão: 1
+Confiança: 1.0
+Suporte: 0.00401606
+F-Measure Suporte e Confiança: 0.008
+Chamada: isUnsubscribed
+Situação: Manual
+Chamada: call
+Situação: Manual
+Corretude/Utilidade dos Métodos
+Método: java.lang.Thread.interrupt()
+Útil
+Percentual de Automatização: 0.14285714285714285
+Corretude: 1.0
+F-Measure: 0.25
+************************ Método Avaliado: call ************************
+*Commit: commit cf28bce52ea15dba3e6be587ba5b4d43b1029ea9 1391559955 ----sp
+*Alguma Sugestão Fornecida: Sim
+*Alguma Sugestão Aprovada: Sim
+**************************************************************************************************************
+----------------Chamadas de método antigas:---------------
+----------------Chamadas de método novas:---------------
+java.lang.Iterable.iterator()
+java.util.Iterator.hasNext()
+onCompleted
+create
+onError
+onCompleted
+onError
+java.util.Iterator.next()
+rx.util.functions.Func2.call(null, null)
+onNext
+java.util.Iterator.hasNext()
+null.onCompleted()
+null.onError(java.lang.Throwable)
+Chamada: java.lang.Iterable.iterator()
+Situação: Primeira Chamada
+Chamada: java.util.Iterator.hasNext()
+Situação: Manual
+Chamada: onCompleted
+Situação: Manual
+Chamada: create
+Situação: Manual
+Chamada: onError
+Situação: Manual
+Chamada: onCompleted
+Situação: Manual
+Chamada: onError
+Situação: Manual
+Chamada: java.util.Iterator.next()
+Situação: Automatizada
+Índice da Sugestão: 1
+Confiança: 1.0
+Suporte: 0.00267738
+F-Measure Suporte e Confiança: 0.006
+Chamada: rx.util.functions.Func2.call(null, null)
+Situação: Manual
+Chamada: onNext
+Situação: Manual
+Chamada: java.util.Iterator.hasNext()
+Situação: Manual
+Chamada: null.onCompleted()
+Situação: Manual
+Chamada: null.onError(java.lang.Throwable)
+Situação: Manual
+Corretude/Utilidade dos Métodos
+Método: java.util.Iterator.next()
+Útil
+Percentual de Automatização: 0.08333333333333333
+Corretude: 1.0
+F-Measure: 0.15384615384615385
+************************ Método Avaliado: rx.operators.OperatorTimeoutWithSelector.OperatorTimeoutWithSelector(rx.util.functions.Func0, rx.util.functions.Func1, rx.Observable) ************************
+*Commit: commit d947c408f26335426c47ee1b1ac96afe65256a01 1392125072 ----sp
+*Alguma Sugestão Fornecida: Sim
+*Alguma Sugestão Aprovada: Sim
+**************************************************************************************************************
+----------------Chamadas de método antigas:---------------
+----------------Chamadas de método novas:---------------
+rx.util.functions.Func0.call()
+throwIfFatal
+onError
+rx.subscriptions.Subscriptions.empty()
+rx.Observable.subscribe(rx.Observer)
+onTimeout
+onError
+onTimeout
+rx.subscriptions.Subscriptions.empty()
+rx.util.functions.Func1.call(null)
+throwIfFatal
+onError
+rx.subscriptions.Subscriptions.empty()
+rx.Observable.subscribe(rx.Observer)
+onTimeout
+onError
+onTimeout
+Chamada: rx.util.functions.Func0.call()
+Situação: Primeira Chamada
+Chamada: throwIfFatal
+Situação: Manual
+Chamada: onError
+Situação: Manual
+Chamada: rx.subscriptions.Subscriptions.empty()
+Situação: Manual
+Chamada: rx.Observable.subscribe(rx.Observer)
+Situação: Automatizada
+Índice da Sugestão: 1
+Confiança: 1.0
+Suporte: 0.00334672
+F-Measure Suporte e Confiança: 0.007
+Chamada: onTimeout
+Situação: Manual
+Chamada: onError
+Situação: Manual
+Chamada: onTimeout
+Situação: Manual
+Chamada: rx.subscriptions.Subscriptions.empty()
+Situação: Manual
+Chamada: rx.util.functions.Func1.call(null)
+Situação: Manual
+Chamada: throwIfFatal
+Situação: Manual
+Chamada: onError
+Situação: Manual
+Chamada: rx.subscriptions.Subscriptions.empty()
+Situação: Manual
+Chamada: rx.Observable.subscribe(rx.Observer)
+Situação: Automatizada
+Índice da Sugestão: 1
+Confiança: 1.0
+Suporte: 0.00334672
+F-Measure Suporte e Confiança: 0.007
+Chamada: onTimeout
+Situação: Manual
+Chamada: onError
+Situação: Manual
+Chamada: onTimeout
+Situação: Manual
+Corretude/Utilidade dos Métodos
+Método: rx.Observer.onNext(null)
+Inútil
+Método: rx.Observable.subscribe(rx.Observer)
+Útil
+Percentual de Automatização: 0.125
+Corretude: 0.5
+F-Measure: 0.2
+************************ Método Avaliado: activate ************************
+*Commit: commit c20c01e866a7001826c942c631166606c052e9a7 1392670659 ----sp
+*Alguma Sugestão Fornecida: Sim
+*Alguma Sugestão Aprovada: Sim
+**************************************************************************************************************
+----------------Chamadas de método antigas:---------------
+----------------Chamadas de método novas:---------------
+onErrorFrom
+rx.joins.Pattern1.first()
+rx.joins.Plan0.createObserver(java.util.Map, rx.Observable, rx.util.functions.Action1)
+call
+rx.Observer.onError(java.lang.Throwable)
+rx.Observer.onNext(rx.joins.Plan1$R)
+java.util.concurrent.atomic.AtomicReference.get()
+rx.joins.JoinObserver1.removeActivePlan(rx.joins.ActivePlan0)
+java.util.concurrent.atomic.AtomicReference.get()
+call
+java.util.concurrent.atomic.AtomicReference.set(rx.joins.ActivePlan1)
+rx.joins.JoinObserver1.addActivePlan(rx.joins.ActivePlan0)
+Chamada: onErrorFrom
+Situação: Primeira Chamada
+Chamada: rx.joins.Pattern1.first()
+Situação: Manual
+Chamada: rx.joins.Plan0.createObserver(java.util.Map, rx.Observable, rx.util.functions.Action1)
+Situação: Manual
+Chamada: call
+Situação: Manual
+Chamada: rx.Observer.onError(java.lang.Throwable)
+Situação: Manual
+Chamada: rx.Observer.onNext(rx.joins.Plan1$R)
+Situação: Manual
+Chamada: java.util.concurrent.atomic.AtomicReference.get()
+Situação: Manual
+Chamada: rx.joins.JoinObserver1.removeActivePlan(rx.joins.ActivePlan0)
+Situação: Manual
+Chamada: java.util.concurrent.atomic.AtomicReference.get()
+Situação: Automatizada
+Índice da Sugestão: 2
+Confiança: 1.0
+Suporte: 0.00401606
+F-Measure Suporte e Confiança: 0.008
+Chamada: call
+Situação: Manual
+Chamada: java.util.concurrent.atomic.AtomicReference.set(rx.joins.ActivePlan1)
+Situação: Manual
+Chamada: rx.joins.JoinObserver1.addActivePlan(rx.joins.ActivePlan0)
+Situação: Manual
+Corretude/Utilidade dos Métodos
+Método: java.util.concurrent.atomic.AtomicReference.get()
+Útil
+Método: rx.util.functions.Action1.call(rx.joins.ActivePlan0)
+Inútil
+Percentual de Automatização: 0.09090909090909091
+Corretude: 0.5
+F-Measure: 0.15384615384615385
+************************ Método Avaliado: activate ************************
+*Commit: commit c20c01e866a7001826c942c631166606c052e9a7 1392670659 ----sp
+*Alguma Sugestão Fornecida: Sim
+*Alguma Sugestão Aprovada: Sim
+**************************************************************************************************************
+----------------Chamadas de método antigas:---------------
+----------------Chamadas de método novas:---------------
+onErrorFrom
+rx.joins.Pattern2.first()
+rx.joins.Plan0.createObserver(java.util.Map, rx.Observable, rx.util.functions.Action1)
+rx.joins.Pattern2.second()
+rx.joins.Plan0.createObserver(java.util.Map, rx.Observable, rx.util.functions.Action1)
+call
+rx.Observer.onError(java.lang.Throwable)
+rx.Observer.onNext(rx.joins.Plan2$R)
+java.util.concurrent.atomic.AtomicReference.get()
+rx.joins.JoinObserver1.removeActivePlan(rx.joins.ActivePlan0)
+java.util.concurrent.atomic.AtomicReference.get()
+rx.joins.JoinObserver1.removeActivePlan(rx.joins.ActivePlan0)
+java.util.concurrent.atomic.AtomicReference.get()
+call
+java.util.concurrent.atomic.AtomicReference.set(rx.joins.ActivePlan2)
+rx.joins.JoinObserver1.addActivePlan(rx.joins.ActivePlan0)
+rx.joins.JoinObserver1.addActivePlan(rx.joins.ActivePlan0)
+Chamada: onErrorFrom
+Situação: Primeira Chamada
+Chamada: rx.joins.Pattern2.first()
+Situação: Manual
+Chamada: rx.joins.Plan0.createObserver(java.util.Map, rx.Observable, rx.util.functions.Action1)
+Situação: Manual
+Chamada: rx.joins.Pattern2.second()
+Situação: Manual
+Chamada: rx.joins.Plan0.createObserver(java.util.Map, rx.Observable, rx.util.functions.Action1)
+Situação: Manual
+Chamada: call
+Situação: Manual
+Chamada: rx.Observer.onError(java.lang.Throwable)
+Situação: Manual
+Chamada: rx.Observer.onNext(rx.joins.Plan2$R)
+Situação: Manual
+Chamada: java.util.concurrent.atomic.AtomicReference.get()
+Situação: Manual
+Chamada: rx.joins.JoinObserver1.removeActivePlan(rx.joins.ActivePlan0)
+Situação: Manual
+Chamada: java.util.concurrent.atomic.AtomicReference.get()
+Situação: Automatizada
+Índice da Sugestão: 2
+Confiança: 1.0
+Suporte: 0.00401606
+F-Measure Suporte e Confiança: 0.008
+Chamada: rx.joins.JoinObserver1.removeActivePlan(rx.joins.ActivePlan0)
+Situação: Manual
+Chamada: java.util.concurrent.atomic.AtomicReference.get()
+Situação: Automatizada
+Índice da Sugestão: 1
+Confiança: 1.0
+Suporte: 0.00267738
+F-Measure Suporte e Confiança: 0.006
+Chamada: call
+Situação: Manual
+Chamada: java.util.concurrent.atomic.AtomicReference.set(rx.joins.ActivePlan2)
+Situação: Manual
+Chamada: rx.joins.JoinObserver1.addActivePlan(rx.joins.ActivePlan0)
+Situação: Manual
+Chamada: rx.joins.JoinObserver1.addActivePlan(rx.joins.ActivePlan0)
+Situação: Manual
+Corretude/Utilidade dos Métodos
+Método: java.util.concurrent.atomic.AtomicReference.get()
+Útil
+Método: rx.util.functions.Action1.call(rx.joins.ActivePlan0)
+Inútil
+Percentual de Automatização: 0.125
+Corretude: 0.5
+F-Measure: 0.2
+************************ Método Avaliado: activate ************************
+*Commit: commit c20c01e866a7001826c942c631166606c052e9a7 1392670659 ----sp
+*Alguma Sugestão Fornecida: Sim
+*Alguma Sugestão Aprovada: Sim
+**************************************************************************************************************
+----------------Chamadas de método antigas:---------------
+----------------Chamadas de método novas:---------------
+onErrorFrom
+rx.joins.Pattern3.first()
+rx.joins.Plan0.createObserver(java.util.Map, rx.Observable, rx.util.functions.Action1)
+rx.joins.Pattern3.second()
+rx.joins.Plan0.createObserver(java.util.Map, rx.Observable, rx.util.functions.Action1)
+rx.joins.Pattern3.third()
+rx.joins.Plan0.createObserver(java.util.Map, rx.Observable, rx.util.functions.Action1)
+call
+rx.Observer.onError(java.lang.Throwable)
+rx.Observer.onNext(rx.joins.Plan3$R)
+java.util.concurrent.atomic.AtomicReference.get()
+rx.joins.JoinObserver1.removeActivePlan(rx.joins.ActivePlan0)
+java.util.concurrent.atomic.AtomicReference.get()
+rx.joins.JoinObserver1.removeActivePlan(rx.joins.ActivePlan0)
+java.util.concurrent.atomic.AtomicReference.get()
+rx.joins.JoinObserver1.removeActivePlan(rx.joins.ActivePlan0)
+java.util.concurrent.atomic.AtomicReference.get()
+call
+java.util.concurrent.atomic.AtomicReference.set(rx.joins.ActivePlan3)
+rx.joins.JoinObserver1.addActivePlan(rx.joins.ActivePlan0)
+rx.joins.JoinObserver1.addActivePlan(rx.joins.ActivePlan0)
+rx.joins.JoinObserver1.addActivePlan(rx.joins.ActivePlan0)
+Chamada: onErrorFrom
+Situação: Primeira Chamada
+Chamada: rx.joins.Pattern3.first()
+Situação: Manual
+Chamada: rx.joins.Plan0.createObserver(java.util.Map, rx.Observable, rx.util.functions.Action1)
+Situação: Manual
+Chamada: rx.joins.Pattern3.second()
+Situação: Manual
+Chamada: rx.joins.Plan0.createObserver(java.util.Map, rx.Observable, rx.util.functions.Action1)
+Situação: Manual
+Chamada: rx.joins.Pattern3.third()
+Situação: Manual
+Chamada: rx.joins.Plan0.createObserver(java.util.Map, rx.Observable, rx.util.functions.Action1)
+Situação: Manual
+Chamada: call
+Situação: Manual
+Chamada: rx.Observer.onError(java.lang.Throwable)
+Situação: Manual
+Chamada: rx.Observer.onNext(rx.joins.Plan3$R)
+Situação: Manual
+Chamada: java.util.concurrent.atomic.AtomicReference.get()
+Situação: Manual
+Chamada: rx.joins.JoinObserver1.removeActivePlan(rx.joins.ActivePlan0)
+Situação: Manual
+Chamada: java.util.concurrent.atomic.AtomicReference.get()
+Situação: Automatizada
+Índice da Sugestão: 2
+Confiança: 1.0
+Suporte: 0.00401606
+F-Measure Suporte e Confiança: 0.008
+Chamada: rx.joins.JoinObserver1.removeActivePlan(rx.joins.ActivePlan0)
+Situação: Manual
+Chamada: java.util.concurrent.atomic.AtomicReference.get()
+Situação: Automatizada
+Índice da Sugestão: 1
+Confiança: 1.0
+Suporte: 0.00267738
+F-Measure Suporte e Confiança: 0.006
+Chamada: rx.joins.JoinObserver1.removeActivePlan(rx.joins.ActivePlan0)
+Situação: Manual
+Chamada: java.util.concurrent.atomic.AtomicReference.get()
+Situação: Automatizada
+Índice da Sugestão: 1
+Confiança: 1.0
+Suporte: 0.00267738
+F-Measure Suporte e Confiança: 0.006
+Chamada: call
+Situação: Manual
+Chamada: java.util.concurrent.atomic.AtomicReference.set(rx.joins.ActivePlan3)
+Situação: Manual
+Chamada: rx.joins.JoinObserver1.addActivePlan(rx.joins.ActivePlan0)
+Situação: Manual
+Chamada: rx.joins.JoinObserver1.addActivePlan(rx.joins.ActivePlan0)
+Situação: Manual
+Chamada: rx.joins.JoinObserver1.addActivePlan(rx.joins.ActivePlan0)
+Situação: Manual
+Corretude/Utilidade dos Métodos
+Método: java.util.concurrent.atomic.AtomicReference.get()
+Útil
+Método: rx.util.functions.Action1.call(rx.joins.ActivePlan0)
+Inútil
+Percentual de Automatização: 0.14285714285714285
+Corretude: 0.5
+F-Measure: 0.22222222222222224
+************************ Método Avaliado: forEach ************************
+*Commit: commit c20c01e866a7001826c942c631166606c052e9a7 1392670659 ----sp
+*Alguma Sugestão Fornecida: Sim
+*Alguma Sugestão Aprovada: Sim
+**************************************************************************************************************
+----------------Chamadas de método antigas:---------------
+----------------Chamadas de método novas:---------------
+protectivelyWrapAndSubscribe
+java.util.concurrent.CountDownLatch.countDown()
+java.util.concurrent.atomic.AtomicReference.set(java.lang.Throwable)
+java.util.concurrent.CountDownLatch.countDown()
+call
+java.util.concurrent.CountDownLatch.await()
+java.lang.Thread.currentThread()
+java.lang.Thread.interrupt()
+java.util.concurrent.atomic.AtomicReference.get()
+java.util.concurrent.atomic.AtomicReference.get()
+java.util.concurrent.atomic.AtomicReference.get()
+java.util.concurrent.atomic.AtomicReference.get()
+Chamada: protectivelyWrapAndSubscribe
+Situação: Primeira Chamada
+Chamada: java.util.concurrent.CountDownLatch.countDown()
+Situação: Manual
+Chamada: java.util.concurrent.atomic.AtomicReference.set(java.lang.Throwable)
+Situação: Manual
+Chamada: java.util.concurrent.CountDownLatch.countDown()
+Situação: Manual
+Chamada: call
+Situação: Manual
+Chamada: java.util.concurrent.CountDownLatch.await()
+Situação: Manual
+Chamada: java.lang.Thread.currentThread()
+Situação: Manual
+Chamada: java.lang.Thread.interrupt()
+Situação: Automatizada
+Índice da Sugestão: 1
+Confiança: 1.0
+Suporte: 0.00401606
+F-Measure Suporte e Confiança: 0.008
+Chamada: java.util.concurrent.atomic.AtomicReference.get()
+Situação: Manual
+Chamada: java.util.concurrent.atomic.AtomicReference.get()
+Situação: Manual
+Chamada: java.util.concurrent.atomic.AtomicReference.get()
+Situação: Manual
+Chamada: java.util.concurrent.atomic.AtomicReference.get()
+Situação: Manual
+Corretude/Utilidade dos Métodos
+Método: java.lang.Thread.interrupt()
+Útil
+Percentual de Automatização: 0.09090909090909091
+Corretude: 1.0
+F-Measure: 0.16666666666666669
+************************ Método Avaliado: minMaxBy ************************
+*Commit: commit c20c01e866a7001826c942c631166606c052e9a7 1392670659 ----sp
+*Alguma Sugestão Fornecida: Sim
+*Alguma Sugestão Aprovada: Sim
+**************************************************************************************************************
+----------------Chamadas de método antigas:---------------
+----------------Chamadas de método novas:---------------
+rx.Observable.reduce(rx.Observable$(Ljava/lang/Object;Lrx/util/functions/Func2;)Lrx/Observable;$R, rx.util.functions.Func2)
+java.util.List.isEmpty()
+java.util.List.add(rx.operators.OperationMinMax$(Lrx/Observable;LFunc1;Ljava/util/Comparator;J)Lrx/Observable;$T)
+java.util.List.get(I)
+call
+call
+java.util.Comparator.compare(null, null)
+java.util.List.add(rx.operators.OperationMinMax$(Lrx/Observable;LFunc1;Ljava/util/Comparator;J)Lrx/Observable;$T)
+java.util.List.clear()
+java.util.List.add(rx.operators.OperationMinMax$(Lrx/Observable;LFunc1;Ljava/util/Comparator;J)Lrx/Observable;$T)
+Chamada: rx.Observable.reduce(rx.Observable$(Ljava/lang/Object;Lrx/util/functions/Func2;)Lrx/Observable;$R, rx.util.functions.Func2)
+Situação: Primeira Chamada
+Chamada: java.util.List.isEmpty()
+Situação: Manual
+Chamada: java.util.List.add(rx.operators.OperationMinMax$(Lrx/Observable;LFunc1;Ljava/util/Comparator;J)Lrx/Observable;$T)
+Situação: Manual
+Chamada: java.util.List.get(I)
+Situação: Manual
+Chamada: call
+Situação: Manual
+Chamada: call
+Situação: Manual
+Chamada: java.util.Comparator.compare(null, null)
+Situação: Manual
+Chamada: java.util.List.add(rx.operators.OperationMinMax$(Lrx/Observable;LFunc1;Ljava/util/Comparator;J)Lrx/Observable;$T)
+Situação: Manual
+Chamada: java.util.List.clear()
+Situação: Automatizada
+Índice da Sugestão: 1
+Confiança: 1.0
+Suporte: 0.00267738
+F-Measure Suporte e Confiança: 0.006
+Chamada: java.util.List.add(rx.operators.OperationMinMax$(Lrx/Observable;LFunc1;Ljava/util/Comparator;J)Lrx/Observable;$T)
+Situação: Manual
+Corretude/Utilidade dos Métodos
+Método: java.util.List.clear()
+Útil
+Percentual de Automatização: 0.1111111111111111
+Corretude: 1.0
+F-Measure: 0.19999999999999998
+************************ Método Avaliado: sequenceEqual ************************
+*Commit: commit c20c01e866a7001826c942c631166606c052e9a7 1392670659 ----sp
+*Alguma Sugestão Fornecida: Sim
+*Alguma Sugestão Aprovada: Sim
+**************************************************************************************************************
+----------------Chamadas de método antigas:---------------
+----------------Chamadas de método novas:---------------
+rx.Observable.map(rx.util.functions.Func1)
+rx.Observable.from(rx.Notification)
+rx.Observable.concat(rx.Observable, rx.Observable)
+rx.Observable.map(rx.util.functions.Func1)
+rx.Observable.from(rx.Notification)
+rx.Observable.concat(rx.Observable, rx.Observable)
+rx.Observable.zip(rx.Observable, rx.Observable, rx.util.functions.Func2)
+identity
+all
+rx.Notification.isOnCompleted()
+rx.Notification.isOnCompleted()
+rx.Notification.isOnCompleted()
+rx.Notification.isOnCompleted()
+rx.Notification.getValue()
+rx.Notification.getValue()
+call
+Chamada: rx.Observable.map(rx.util.functions.Func1)
+Situação: Primeira Chamada
+Chamada: rx.Observable.from(rx.Notification)
+Situação: Manual
+Chamada: rx.Observable.concat(rx.Observable, rx.Observable)
+Situação: Manual
+Chamada: rx.Observable.map(rx.util.functions.Func1)
+Situação: Manual
+Chamada: rx.Observable.from(rx.Notification)
+Situação: Manual
+Chamada: rx.Observable.concat(rx.Observable, rx.Observable)
+Situação: Manual
+Chamada: rx.Observable.zip(rx.Observable, rx.Observable, rx.util.functions.Func2)
+Situação: Manual
+Chamada: identity
+Situação: Manual
+Chamada: all
+Situação: Manual
+Chamada: rx.Notification.isOnCompleted()
+Situação: Manual
+Chamada: rx.Notification.isOnCompleted()
+Situação: Manual
+Chamada: rx.Notification.isOnCompleted()
+Situação: Manual
+Chamada: rx.Notification.isOnCompleted()
+Situação: Manual
+Chamada: rx.Notification.getValue()
+Situação: Manual
+Chamada: rx.Notification.getValue()
+Situação: Automatizada
+Índice da Sugestão: 1
+Confiança: 1.0
+Suporte: 0.00267738
+F-Measure Suporte e Confiança: 0.006
+Chamada: call
+Situação: Manual
+Corretude/Utilidade dos Métodos
+Método: rx.Notification.getValue()
+Útil
+Percentual de Automatização: 0.06666666666666667
+Corretude: 1.0
+F-Measure: 0.125
+************************ Método Avaliado: using ************************
+*Commit: commit c20c01e866a7001826c942c631166606c052e9a7 1392670659 ----sp
+*Alguma Sugestão Fornecida: Sim
+*Alguma Sugestão Aprovada: Sim
+**************************************************************************************************************
+----------------Chamadas de método antigas:---------------
+----------------Chamadas de método novas:---------------
+rx.subscriptions.Subscriptions.empty()
+call
+call
+rx.Observable.subscribe(rx.Observer)
+rx.operators.SafeObservableSubscription.wrap(rx.Subscription)
+rx.Subscription.unsubscribe()
+rx.Observable.error(java.lang.Throwable)
+rx.Observable.subscribe(rx.Observer)
+Chamada: rx.subscriptions.Subscriptions.empty()
+Situação: Primeira Chamada
+Chamada: call
+Situação: Manual
+Chamada: call
+Situação: Manual
+Chamada: rx.Observable.subscribe(rx.Observer)
+Situação: Manual
+Chamada: rx.operators.SafeObservableSubscription.wrap(rx.Subscription)
+Situação: Manual
+Chamada: rx.Subscription.unsubscribe()
+Situação: Manual
+Chamada: rx.Observable.error(java.lang.Throwable)
+Situação: Manual
+Chamada: rx.Observable.subscribe(rx.Observer)
+Situação: Automatizada
+Índice da Sugestão: 1
+Confiança: 1.0
+Suporte: 0.00267738
+F-Measure Suporte e Confiança: 0.006
+Corretude/Utilidade dos Métodos
+Método: rx.Observable.subscribe(rx.Observer)
+Útil
+Percentual de Automatização: 0.14285714285714285
+Corretude: 1.0
+F-Measure: 0.25
+************************ Método Avaliado: rx.observers.SerializedObserver.doIt() ************************
+*Commit: commit 34a2561f9010bf81506da54ead6858e77ab5de40 1394728953 ----sp
+*Alguma Sugestão Fornecida: Sim
+*Alguma Sugestão Aprovada: Não
+**************************************************************************************************************
+----------------Chamadas de método antigas:---------------
+----------------Chamadas de método novas:---------------
+java.util.concurrent.atomic.AtomicInteger.getAndIncrement()
+java.util.concurrent.ConcurrentLinkedQueue.poll()
+rx.Observer.onNext(null)
+rx.Observer.onCompleted()
+rx.Observer.onError(java.lang.Throwable)
+rx.Observer.onNext(null)
+java.util.concurrent.atomic.AtomicInteger.decrementAndGet()
+Chamada: java.util.concurrent.atomic.AtomicInteger.getAndIncrement()
+Situação: Primeira Chamada
+Chamada: java.util.concurrent.ConcurrentLinkedQueue.poll()
+Situação: Manual
+Chamada: rx.Observer.onNext(null)
+Situação: Manual
+Chamada: rx.Observer.onCompleted()
+Situação: Manual
+Chamada: rx.Observer.onError(java.lang.Throwable)
+Situação: Manual
+Chamada: rx.Observer.onNext(null)
+Situação: Manual
+Chamada: java.util.concurrent.atomic.AtomicInteger.decrementAndGet()
+Situação: Manual
+Corretude/Utilidade dos Métodos
+Método: rx.Observer.onCompleted()
+Inútil
+Percentual de Automatização: 0.0
+Corretude: 0.0
+F-Measure: 0.0
+************************ Método Avaliado: rx.observers.SerializedObserverViaStateMachine.terminateIfNecessary(rx.observers.SerializedObserverViaStateMachine$State) ************************
+*Commit: commit 34a2561f9010bf81506da54ead6858e77ab5de40 1394728953 ----sp
+*Alguma Sugestão Fornecida: Sim
+*Alguma Sugestão Aprovada: Não
+**************************************************************************************************************
+----------------Chamadas de método antigas:---------------
+----------------Chamadas de método novas:---------------
+rx.observers.SerializedObserverViaStateMachine$State.isTerminated()
+java.util.concurrent.atomic.AtomicReference.get()
+rx.observers.SerializedObserverViaStateMachine$State.startTermination()
+java.util.concurrent.atomic.AtomicReference.compareAndSet(rx.observers.SerializedObserverViaStateMachine$State, rx.observers.SerializedObserverViaStateMachine$State)
+rx.observers.SerializedObserverViaStateMachine$State.shouldProcess()
+rx.Observer.onNext(null)
+rx.Observer.onCompleted()
+rx.Observer.onError(java.lang.Throwable)
+Chamada: rx.observers.SerializedObserverViaStateMachine$State.isTerminated()
+Situação: Primeira Chamada
+Chamada: java.util.concurrent.atomic.AtomicReference.get()
+Situação: Manual
+Chamada: rx.observers.SerializedObserverViaStateMachine$State.startTermination()
+Situação: Manual
+Chamada: java.util.concurrent.atomic.AtomicReference.compareAndSet(rx.observers.SerializedObserverViaStateMachine$State, rx.observers.SerializedObserverViaStateMachine$State)
+Situação: Manual
+Chamada: rx.observers.SerializedObserverViaStateMachine$State.shouldProcess()
+Situação: Manual
+Chamada: rx.Observer.onNext(null)
+Situação: Manual
+Chamada: rx.Observer.onCompleted()
+Situação: Manual
+Chamada: rx.Observer.onError(java.lang.Throwable)
+Situação: Manual
+Corretude/Utilidade dos Métodos
+Método: rx.Subscription.unsubscribe()
+Inútil
+Percentual de Automatização: 0.0
+Corretude: 0.0
+F-Measure: 0.0
+************************ Método Avaliado: rx.observers.SerializedObserverViaStateMachine.onNext(rx.observers.SerializedObserverViaStateMachine$T) ************************
+*Commit: commit 34a2561f9010bf81506da54ead6858e77ab5de40 1394728953 ----sp
+*Alguma Sugestão Fornecida: Sim
+*Alguma Sugestão Aprovada: Não
+**************************************************************************************************************
+----------------Chamadas de método antigas:---------------
+----------------Chamadas de método novas:---------------
+java.util.concurrent.atomic.AtomicReference.get()
+rx.observers.SerializedObserverViaStateMachine$State.isTerminated()
+rx.observers.SerializedObserverViaStateMachine$State.offerItem(java.lang.Object)
+java.util.concurrent.atomic.AtomicReference.compareAndSet(rx.observers.SerializedObserverViaStateMachine$State, rx.observers.SerializedObserverViaStateMachine$State)
+rx.observers.SerializedObserverViaStateMachine$State.shouldProcess()
+rx.Observer.onNext(null)
+java.util.concurrent.atomic.AtomicReference.get()
+rx.observers.SerializedObserverViaStateMachine$State.finishProcessing(I)
+java.util.concurrent.atomic.AtomicReference.compareAndSet(rx.observers.SerializedObserverViaStateMachine$State, rx.observers.SerializedObserverViaStateMachine$State)
+rx.Observer.onNext(null)
+java.util.concurrent.atomic.AtomicReference.get()
+rx.observers.SerializedObserverViaStateMachine$State.finishProcessing(I)
+java.util.concurrent.atomic.AtomicReference.compareAndSet(rx.observers.SerializedObserverViaStateMachine$State, rx.observers.SerializedObserverViaStateMachine$State)
+rx.observers.SerializedObserverViaStateMachine.terminateIfNecessary(rx.observers.SerializedObserverViaStateMachine$State)
+Chamada: java.util.concurrent.atomic.AtomicReference.get()
+Situação: Primeira Chamada
+Chamada: rx.observers.SerializedObserverViaStateMachine$State.isTerminated()
+Situação: Manual
+Chamada: rx.observers.SerializedObserverViaStateMachine$State.offerItem(java.lang.Object)
+Situação: Manual
+Chamada: java.util.concurrent.atomic.AtomicReference.compareAndSet(rx.observers.SerializedObserverViaStateMachine$State, rx.observers.SerializedObserverViaStateMachine$State)
+Situação: Manual
+Chamada: rx.observers.SerializedObserverViaStateMachine$State.shouldProcess()
+Situação: Manual
+Chamada: rx.Observer.onNext(null)
+Situação: Manual
+Chamada: java.util.concurrent.atomic.AtomicReference.get()
+Situação: Manual
+Chamada: rx.observers.SerializedObserverViaStateMachine$State.finishProcessing(I)
+Situação: Manual
+Chamada: java.util.concurrent.atomic.AtomicReference.compareAndSet(rx.observers.SerializedObserverViaStateMachine$State, rx.observers.SerializedObserverViaStateMachine$State)
+Situação: Manual
+Chamada: rx.Observer.onNext(null)
+Situação: Manual
+Chamada: java.util.concurrent.atomic.AtomicReference.get()
+Situação: Manual
+Chamada: rx.observers.SerializedObserverViaStateMachine$State.finishProcessing(I)
+Situação: Manual
+Chamada: java.util.concurrent.atomic.AtomicReference.compareAndSet(rx.observers.SerializedObserverViaStateMachine$State, rx.observers.SerializedObserverViaStateMachine$State)
+Situação: Manual
+Chamada: rx.observers.SerializedObserverViaStateMachine.terminateIfNecessary(rx.observers.SerializedObserverViaStateMachine$State)
+Situação: Manual
+Corretude/Utilidade dos Métodos
+Método: rx.Subscription.unsubscribe()
+Inútil
+Método: rx.Observer.onCompleted()
+Inútil
+Método: java.util.concurrent.atomic.AtomicReference.getAndSet(rx.operators.SafeObservableSubscription)
+Inútil
+Método: rx.operators.SafeObservableSubscription.unsubscribe()
+Inútil
+Percentual de Automatização: 0.0
+Corretude: 0.0
+F-Measure: 0.0
+************************ Método Avaliado: rx.schedulers.SleepingAction.call() ************************
+*Commit: commit cbc1c6b58f2148f47f5e4a1cc8d2d060909dc75c 1397791721 ----sp
+*Alguma Sugestão Fornecida: Sim
+*Alguma Sugestão Aprovada: Sim
+**************************************************************************************************************
+----------------Chamadas de método antigas:---------------
+----------------Chamadas de método novas:---------------
+isUnsubscribed
+now
+now
+java.lang.Thread.sleep(J)
+java.lang.Thread.currentThread()
+java.lang.Thread.interrupt()
+isUnsubscribed
+call
+Chamada: isUnsubscribed
+Situação: Primeira Chamada
+Chamada: now
+Situação: Manual
+Chamada: now
+Situação: Manual
+Chamada: java.lang.Thread.sleep(J)
+Situação: Manual
+Chamada: java.lang.Thread.currentThread()
+Situação: Manual
+Chamada: java.lang.Thread.interrupt()
+Situação: Automatizada
+Índice da Sugestão: 1
+Confiança: 1.0
+Suporte: 0.00401606
+F-Measure Suporte e Confiança: 0.008
+Chamada: isUnsubscribed
+Situação: Manual
+Chamada: call
+Situação: Manual
+Corretude/Utilidade dos Métodos
+Método: java.lang.Thread.interrupt()
+Útil
+Percentual de Automatização: 0.14285714285714285
+Corretude: 1.0
+F-Measure: 0.25
+************************ Método Avaliado: call ************************
+*Commit: commit 817fb3ad57ece39e3e9493f8bc1c0fc22757b297 1398333038 ----sp
+*Alguma Sugestão Fornecida: Sim
+*Alguma Sugestão Aprovada: Não
+**************************************************************************************************************
+----------------Chamadas de método antigas:---------------
+----------------Chamadas de método novas:---------------
+java.util.List.isEmpty()
+onCompleted
+java.util.List.size()
+java.util.List.get(I)
+unsafeSubscribe
+call
+onNext
+onError
+onCompleted
+java.util.List.size()
+java.util.List.size()
+java.util.List.size()
+add
+java.util.List.add(rx.operators.OperatorCombineLatest$SourceSubscriber)
+java.util.List.size()
+isUnsubscribed
+java.util.List.get(I)
+java.util.List.get(I)
+unsafeSubscribe
+Chamada: java.util.List.isEmpty()
+Situação: Primeira Chamada
+Chamada: onCompleted
+Situação: Manual
+Chamada: java.util.List.size()
+Situação: Manual
+Chamada: java.util.List.get(I)
+Situação: Manual
+Chamada: unsafeSubscribe
+Situação: Manual
+Chamada: call
+Situação: Manual
+Chamada: onNext
+Situação: Manual
+Chamada: onError
+Situação: Manual
+Chamada: onCompleted
+Situação: Manual
+Chamada: java.util.List.size()
+Situação: Manual
+Chamada: java.util.List.size()
+Situação: Manual
+Chamada: java.util.List.size()
+Situação: Manual
+Chamada: add
+Situação: Manual
+Chamada: java.util.List.add(rx.operators.OperatorCombineLatest$SourceSubscriber)
+Situação: Manual
+Chamada: java.util.List.size()
+Situação: Manual
+Chamada: isUnsubscribed
+Situação: Manual
+Chamada: java.util.List.get(I)
+Situação: Manual
+Chamada: java.util.List.get(I)
+Situação: Manual
+Chamada: unsafeSubscribe
+Situação: Manual
+Corretude/Utilidade dos Métodos
+Método: java.util.List.clear()
+Inútil
+Percentual de Automatização: 0.0
+Corretude: 0.0
+F-Measure: 0.0
+************************ Método Avaliado: call ************************
+*Commit: commit 08085ac4ebb4a2e5bb65abc016677e47d092b9b6 1398345306 ----sp
+*Alguma Sugestão Fornecida: Sim
+*Alguma Sugestão Aprovada: Sim
+**************************************************************************************************************
+----------------Chamadas de método antigas:---------------
+----------------Chamadas de método novas:---------------
+rx.Notification.getKind()
+rx.Notification.getValue()
+onNext
+rx.Notification.getThrowable()
+null.onError(java.lang.Throwable)
+null.onCompleted()
+onError
+onCompleted
+Chamada: rx.Notification.getKind()
+Situação: Primeira Chamada
+Chamada: rx.Notification.getValue()
+Situação: Manual
+Chamada: onNext
+Situação: Manual
+Chamada: rx.Notification.getThrowable()
+Situação: Automatizada
+Índice da Sugestão: 1
+Confiança: 1.0
+Suporte: 0.00334672
+F-Measure Suporte e Confiança: 0.007
+Chamada: null.onError(java.lang.Throwable)
+Situação: Manual
+Chamada: null.onCompleted()
+Situação: Manual
+Chamada: onError
+Situação: Manual
+Chamada: onCompleted
+Situação: Manual
+Corretude/Utilidade dos Métodos
+Método: rx.Notification.getThrowable()
+Útil
+Percentual de Automatização: 0.14285714285714285
+Corretude: 1.0
+F-Measure: 0.25
+************************ Método Avaliado: rx.operators.OperatorJoin$ResultSink$LeftSubscriber.onCompleted() ************************
+*Commit: commit cc1776de75dc18e8280f6c88b78e1898df311520 1398444772 ----sp
+*Alguma Sugestão Fornecida: Sim
+*Alguma Sugestão Aprovada: Não
+**************************************************************************************************************
+----------------Chamadas de método antigas:---------------
+----------------Chamadas de método novas:---------------
+java.util.Map.isEmpty()
+onCompleted
+unsubscribe
+rx.subscriptions.CompositeSubscription.remove(rx.Subscription)
+Chamada: java.util.Map.isEmpty()
+Situação: Primeira Chamada
+Chamada: onCompleted
+Situação: Manual
+Chamada: unsubscribe
+Situação: Manual
+Chamada: rx.subscriptions.CompositeSubscription.remove(rx.Subscription)
+Situação: Manual
+Corretude/Utilidade dos Métodos
+Método: rx.Subscription.unsubscribe()
+Inútil
+Método: rx.Observer.onCompleted()
+Inútil
+Percentual de Automatização: 0.0
+Corretude: 0.0
+F-Measure: 0.0
+************************ Método Avaliado: rx.operators.OperatorJoin$ResultSink$RightSubscriber.expire(I, rx.Subscription) ************************
+*Commit: commit cc1776de75dc18e8280f6c88b78e1898df311520 1398444772 ----sp
+*Alguma Sugestão Fornecida: Sim
+*Alguma Sugestão Aprovada: Não
+**************************************************************************************************************
+----------------Chamadas de método antigas:---------------
+----------------Chamadas de método novas:---------------
+java.util.Map.remove(java.lang.Object)
+java.util.Map.isEmpty()
+onCompleted
+unsubscribe
+rx.subscriptions.CompositeSubscription.remove(rx.Subscription)
+Chamada: java.util.Map.remove(java.lang.Object)
+Situação: Primeira Chamada
+Chamada: java.util.Map.isEmpty()
+Situação: Manual
+Chamada: onCompleted
+Situação: Manual
+Chamada: unsubscribe
+Situação: Manual
+Chamada: rx.subscriptions.CompositeSubscription.remove(rx.Subscription)
+Situação: Manual
+Corretude/Utilidade dos Métodos
+Método: rx.Subscription.unsubscribe()
+Inútil
+Método: rx.Observer.onCompleted()
+Inútil
+Percentual de Automatização: 0.0
+Corretude: 0.0
+F-Measure: 0.0
+************************ Método Avaliado: rx.operators.OperatorJoin$ResultSink$LeftSubscriber.expire(I, rx.Subscription) ************************
+*Commit: commit cc1776de75dc18e8280f6c88b78e1898df311520 1398444772 ----sp
+*Alguma Sugestão Fornecida: Sim
+*Alguma Sugestão Aprovada: Não
+**************************************************************************************************************
+----------------Chamadas de método antigas:---------------
+----------------Chamadas de método novas:---------------
+java.util.Map.remove(java.lang.Object)
+java.util.Map.isEmpty()
+onCompleted
+unsubscribe
+rx.subscriptions.CompositeSubscription.remove(rx.Subscription)
+Chamada: java.util.Map.remove(java.lang.Object)
+Situação: Primeira Chamada
+Chamada: java.util.Map.isEmpty()
+Situação: Manual
+Chamada: onCompleted
+Situação: Manual
+Chamada: unsubscribe
+Situação: Manual
+Chamada: rx.subscriptions.CompositeSubscription.remove(rx.Subscription)
+Situação: Manual
+Corretude/Utilidade dos Métodos
+Método: rx.Subscription.unsubscribe()
+Inútil
+Método: rx.Observer.onCompleted()
+Inútil
+Percentual de Automatização: 0.0
+Corretude: 0.0
+F-Measure: 0.0
+************************ Método Avaliado: rx.operators.OperatorJoin$ResultSink$RightSubscriber.onCompleted() ************************
+*Commit: commit cc1776de75dc18e8280f6c88b78e1898df311520 1398444772 ----sp
+*Alguma Sugestão Fornecida: Sim
+*Alguma Sugestão Aprovada: Não
+**************************************************************************************************************
+----------------Chamadas de método antigas:---------------
+----------------Chamadas de método novas:---------------
+java.util.Map.isEmpty()
+onCompleted
+unsubscribe
+rx.subscriptions.CompositeSubscription.remove(rx.Subscription)
+Chamada: java.util.Map.isEmpty()
+Situação: Primeira Chamada
+Chamada: onCompleted
+Situação: Manual
+Chamada: unsubscribe
+Situação: Manual
+Chamada: rx.subscriptions.CompositeSubscription.remove(rx.Subscription)
+Situação: Manual
+Corretude/Utilidade dos Métodos
+Método: rx.Subscription.unsubscribe()
+Inútil
+Método: rx.Observer.onCompleted()
+Inútil
+Percentual de Automatização: 0.0
+Corretude: 0.0
+F-Measure: 0.0
+************************ Método Avaliado: rx.operators.OperatorMulticast.connect() ************************
+*Commit: commit 96f4b664bdd0a42222bcacd73f7ee618ca006508 1398462165 ----sp
+*Alguma Sugestão Fornecida: Sim
+*Alguma Sugestão Aprovada: Sim
+**************************************************************************************************************
+----------------Chamadas de método antigas:---------------
+----------------Chamadas de método novas:---------------
+unsafeSubscribe
+rx.Observer.onCompleted()
+rx.Observer.onError(java.lang.Throwable)
+rx.Observer.onNext(null)
+rx.subscriptions.Subscriptions.create(rx.util.functions.Action0)
+rx.Subscription.unsubscribe()
+Chamada: unsafeSubscribe
+Situação: Primeira Chamada
+Chamada: rx.Observer.onCompleted()
+Situação: Manual
+Chamada: rx.Observer.onError(java.lang.Throwable)
+Situação: Manual
+Chamada: rx.Observer.onNext(null)
+Situação: Manual
+Chamada: rx.subscriptions.Subscriptions.create(rx.util.functions.Action0)
+Situação: Manual
+Chamada: rx.Subscription.unsubscribe()
+Situação: Automatizada
+Índice da Sugestão: 1
+Confiança: 1.0
+Suporte: 0.00267738
+F-Measure Suporte e Confiança: 0.006
+Corretude/Utilidade dos Métodos
+Método: rx.Subscription.unsubscribe()
+Útil
+Percentual de Automatização: 0.2
+Corretude: 1.0
+F-Measure: 0.33333333333333337
+************************ Método Avaliado: scheduleActual ************************
+*Commit: commit 8fa3a37420c3bcca5ed8355a09cd67b75ae6665e 1399363660 ----sp
+*Alguma Sugestão Fornecida: Sim
+*Alguma Sugestão Aprovada: Sim
+**************************************************************************************************************
+----------------Chamadas de método antigas:---------------
+----------------Chamadas de método novas:---------------
+java.util.concurrent.ExecutorService.submit(java.lang.Runnable)
+java.util.concurrent.ScheduledExecutorService.schedule(java.lang.Runnable, J, java.util.concurrent.TimeUnit)
+rx.subscriptions.Subscriptions.from(java.util.concurrent.Future)
+rx.schedulers.NewThreadScheduler$NewThreadWorker$ScheduledAction.add(rx.Subscription)
+Chamada: java.util.concurrent.ExecutorService.submit(java.lang.Runnable)
+Situação: Primeira Chamada
+Chamada: java.util.concurrent.ScheduledExecutorService.schedule(java.lang.Runnable, J, java.util.concurrent.TimeUnit)
+Situação: Manual
+Chamada: rx.subscriptions.Subscriptions.from(java.util.concurrent.Future)
+Situação: Automatizada
+Índice da Sugestão: 1
+Confiança: 1.0
+Suporte: 0.00267738
+F-Measure Suporte e Confiança: 0.006
+Chamada: rx.schedulers.NewThreadScheduler$NewThreadWorker$ScheduledAction.add(rx.Subscription)
+Situação: Manual
+Corretude/Utilidade dos Métodos
+Método: rx.subscriptions.Subscriptions.from(java.util.concurrent.Future)
+Útil
+Percentual de Automatização: 0.3333333333333333
+Corretude: 1.0
+F-Measure: 0.5
+************************ Método Avaliado: schedule ************************
+*Commit: commit 68b0ae67113f611f7427b3eb9ed22f706dc8b63e 1401269604 ----sp
+*Alguma Sugestão Fornecida: Sim
+*Alguma Sugestão Aprovada: Sim
+**************************************************************************************************************
+----------------Chamadas de método antigas:---------------
+----------------Chamadas de método novas:---------------
+schedule
+rx.schedulers.ExecutorScheduler$ExecutorSchedulerWorker.isUnsubscribed()
+rx.subscriptions.Subscriptions.empty()
+rx.schedulers.GenericScheduledExecutorService.getInstance()
+java.util.concurrent.ScheduledExecutorService.schedule(java.lang.Runnable, J, java.util.concurrent.TimeUnit)
+rx.subscriptions.MultipleAssignmentSubscription.isUnsubscribed()
+schedule
+rx.subscriptions.MultipleAssignmentSubscription.set(rx.Subscription)
+rx.subscriptions.Subscriptions.from(java.util.concurrent.Future)
+rx.subscriptions.MultipleAssignmentSubscription.set(rx.Subscription)
+rx.plugins.RxJavaPlugins.getInstance()
+rx.plugins.RxJavaPlugins.getErrorHandler()
+rx.plugins.RxJavaErrorHandler.handleError(java.lang.Throwable)
+Chamada: schedule
+Situação: Primeira Chamada
+Chamada: rx.schedulers.ExecutorScheduler$ExecutorSchedulerWorker.isUnsubscribed()
+Situação: Manual
+Chamada: rx.subscriptions.Subscriptions.empty()
+Situação: Manual
+Chamada: rx.schedulers.GenericScheduledExecutorService.getInstance()
+Situação: Manual
+Chamada: java.util.concurrent.ScheduledExecutorService.schedule(java.lang.Runnable, J, java.util.concurrent.TimeUnit)
+Situação: Automatizada
+Índice da Sugestão: 1
+Confiança: 1.0
+Suporte: 0.00267738
+F-Measure Suporte e Confiança: 0.006
+Chamada: rx.subscriptions.MultipleAssignmentSubscription.isUnsubscribed()
+Situação: Manual
+Chamada: schedule
+Situação: Manual
+Chamada: rx.subscriptions.MultipleAssignmentSubscription.set(rx.Subscription)
+Situação: Manual
+Chamada: rx.subscriptions.Subscriptions.from(java.util.concurrent.Future)
+Situação: Automatizada
+Índice da Sugestão: 2
+Confiança: 1.0
+Suporte: 0.00267738
+F-Measure Suporte e Confiança: 0.006
+Chamada: rx.subscriptions.MultipleAssignmentSubscription.set(rx.Subscription)
+Situação: Manual
+Chamada: rx.plugins.RxJavaPlugins.getInstance()
+Situação: Manual
+Chamada: rx.plugins.RxJavaPlugins.getErrorHandler()
+Situação: Manual
+Chamada: rx.plugins.RxJavaErrorHandler.handleError(java.lang.Throwable)
+Situação: Manual
+Corretude/Utilidade dos Métodos
+Método: rx.subscriptions.Subscriptions.from(java.util.concurrent.Future)
+Útil
+Método: rx.subscriptions.CompositeSubscription.add(rx.Subscription)
+Inútil
+Método: java.util.concurrent.ScheduledExecutorService.schedule(java.lang.Runnable, J, java.util.concurrent.TimeUnit)
+Útil
+Percentual de Automatização: 0.16666666666666666
+Corretude: 0.6666666666666666
+F-Measure: 0.26666666666666666

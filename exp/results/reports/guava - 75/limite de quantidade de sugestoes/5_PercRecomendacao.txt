@@ -1,0 +1,2803 @@
+************************ Método Avaliado: com.google.common.hash.HashingInputStream.HashingInputStream(com.google.common.hash.HashFunction, java.io.InputStream) ************************
+*Commit: commit 1b890d1bd2937634df2c5d57e5d649cca7f16ef3 1387492636 ----sp
+*Alguma Sugestão Fornecida: Sim
+*Alguma Sugestão Aprovada: Não
+**************************************************************************************************************
+----------------Chamadas de método antigas:---------------
+----------------Chamadas de método novas:---------------
+com.google.common.base.Preconditions.checkNotNull(java.io.InputStream)
+com.google.common.hash.HashFunction.newHasher()
+com.google.common.base.Preconditions.checkNotNull(com.google.common.hash.Hasher)
+Chamada: com.google.common.base.Preconditions.checkNotNull(java.io.InputStream)
+Situação: Primeira Chamada
+Chamada: com.google.common.hash.HashFunction.newHasher()
+Situação: Manual
+Chamada: com.google.common.base.Preconditions.checkNotNull(com.google.common.hash.Hasher)
+Situação: Manual
+Corretude/Utilidade dos Métodos
+Método: com.google.common.hash.Hasher.hash()
+Inútil
+Percentual de Automatização: 0.0
+Corretude: 0.0
+F-Measure: 0.0
+************************ Método Avaliado: com.google.common.hash.HashingOutputStream.HashingOutputStream(com.google.common.hash.HashFunction, java.io.OutputStream) ************************
+*Commit: commit 1b890d1bd2937634df2c5d57e5d649cca7f16ef3 1387492636 ----sp
+*Alguma Sugestão Fornecida: Sim
+*Alguma Sugestão Aprovada: Não
+**************************************************************************************************************
+----------------Chamadas de método antigas:---------------
+----------------Chamadas de método novas:---------------
+com.google.common.base.Preconditions.checkNotNull(java.io.OutputStream)
+com.google.common.hash.HashFunction.newHasher()
+com.google.common.base.Preconditions.checkNotNull(com.google.common.hash.Hasher)
+Chamada: com.google.common.base.Preconditions.checkNotNull(java.io.OutputStream)
+Situação: Primeira Chamada
+Chamada: com.google.common.hash.HashFunction.newHasher()
+Situação: Manual
+Chamada: com.google.common.base.Preconditions.checkNotNull(com.google.common.hash.Hasher)
+Situação: Manual
+Corretude/Utilidade dos Métodos
+Método: com.google.common.hash.Hasher.hash()
+Inútil
+Percentual de Automatização: 0.0
+Corretude: 0.0
+F-Measure: 0.0
+************************ Método Avaliado: com.google.common.base.Converter$FunctionBasedConverter.hashCode() ************************
+*Commit: commit 4ab391e4924ef436da8e3d1363bc5d57e3b75514 1388431714 ----sp
+*Alguma Sugestão Fornecida: Sim
+*Alguma Sugestão Aprovada: Sim
+**************************************************************************************************************
+----------------Chamadas de método antigas:---------------
+----------------Chamadas de método novas:---------------
+java.lang.Object.hashCode()
+java.lang.Object.hashCode()
+Chamada: java.lang.Object.hashCode()
+Situação: Primeira Chamada
+Chamada: java.lang.Object.hashCode()
+Situação: Automatizada
+Índice da Sugestão: 1
+Confiança: 0.21311491642028094
+Suporte: 0.00107616
+F-Measure Suporte e Confiança: 0.003
+Corretude/Utilidade dos Métodos
+Método: java.lang.Object.equals(java.lang.Object)
+Inútil
+Método: java.lang.Object.hashCode()
+Útil
+Método: com.google.common.collect.Hashing.smear(I)
+Inútil
+Percentual de Automatização: 1.0
+Corretude: 0.3333333333333333
+F-Measure: 0.5
+************************ Método Avaliado: com.google.common.base.Converter$FunctionBasedConverter.FunctionBasedConverter(com.google.common.base.Function, com.google.common.base.Function) ************************
+*Commit: commit 4ab391e4924ef436da8e3d1363bc5d57e3b75514 1388431714 ----sp
+*Alguma Sugestão Fornecida: Sim
+*Alguma Sugestão Aprovada: Não
+**************************************************************************************************************
+----------------Chamadas de método antigas:---------------
+----------------Chamadas de método novas:---------------
+com.google.common.base.Preconditions.checkNotNull(com.google.common.base.Function)
+com.google.common.base.Preconditions.checkNotNull(com.google.common.base.Function)
+Chamada: com.google.common.base.Preconditions.checkNotNull(com.google.common.base.Function)
+Situação: Primeira Chamada
+Chamada: com.google.common.base.Preconditions.checkNotNull(com.google.common.base.Function)
+Situação: Manual
+Corretude/Utilidade dos Métodos
+Método: com.google.common.base.Function.apply(null)
+Inútil
+Percentual de Automatização: 0.0
+Corretude: 0.0
+F-Measure: 0.0
+************************ Método Avaliado: com.google.common.util.concurrent.Striped$LargeLazyStriped.getAt(I) ************************
+*Commit: commit 6a122f12efebc6c79e539b2ede91514eb2e21103 1390610337 ----sp
+*Alguma Sugestão Fornecida: Sim
+*Alguma Sugestão Aprovada: Não
+**************************************************************************************************************
+----------------Chamadas de método antigas:---------------
+----------------Chamadas de método novas:---------------
+com.google.common.util.concurrent.Striped$LargeLazyStriped.size()
+com.google.common.base.Preconditions.checkElementIndex(I, I)
+java.util.Map.get(java.lang.Object)
+com.google.common.base.Supplier.get()
+java.util.concurrent.ConcurrentMap.putIfAbsent(java.lang.Integer, com.google.common.util.concurrent.Striped$LargeLazyStriped$L)
+com.google.common.base.Objects.firstNonNull(com.google.common.util.concurrent.Striped$LargeLazyStriped$L, com.google.common.util.concurrent.Striped$LargeLazyStriped$L)
+Chamada: com.google.common.util.concurrent.Striped$LargeLazyStriped.size()
+Situação: Primeira Chamada
+Chamada: com.google.common.base.Preconditions.checkElementIndex(I, I)
+Situação: Manual
+Chamada: java.util.Map.get(java.lang.Object)
+Situação: Manual
+Chamada: com.google.common.base.Supplier.get()
+Situação: Manual
+Chamada: java.util.concurrent.ConcurrentMap.putIfAbsent(java.lang.Integer, com.google.common.util.concurrent.Striped$LargeLazyStriped$L)
+Situação: Manual
+Chamada: com.google.common.base.Objects.firstNonNull(com.google.common.util.concurrent.Striped$LargeLazyStriped$L, com.google.common.util.concurrent.Striped$LargeLazyStriped$L)
+Situação: Manual
+Corretude/Utilidade dos Métodos
+Método: java.util.List.get(I)
+Inútil
+Percentual de Automatização: 0.0
+Corretude: 0.0
+F-Measure: 0.0
+************************ Método Avaliado: com.google.common.util.concurrent.Striped$SmallLazyStriped.getAt(I) ************************
+*Commit: commit 6a122f12efebc6c79e539b2ede91514eb2e21103 1390610337 ----sp
+*Alguma Sugestão Fornecida: Sim
+*Alguma Sugestão Aprovada: Não
+**************************************************************************************************************
+----------------Chamadas de método antigas:---------------
+----------------Chamadas de método novas:---------------
+com.google.common.util.concurrent.Striped$SmallLazyStriped.size()
+com.google.common.base.Preconditions.checkElementIndex(I, I)
+java.util.concurrent.atomic.AtomicReferenceArray.get(I)
+java.lang.ref.Reference.get()
+com.google.common.base.Supplier.get()
+java.util.concurrent.atomic.AtomicReferenceArray.compareAndSet(I, com.google.common.util.concurrent.Striped$SmallLazyStriped$ArrayReference, com.google.common.util.concurrent.Striped$SmallLazyStriped$ArrayReference)
+java.util.concurrent.atomic.AtomicReferenceArray.get(I)
+java.lang.ref.Reference.get()
+com.google.common.util.concurrent.Striped$SmallLazyStriped.drainQueue()
+Chamada: com.google.common.util.concurrent.Striped$SmallLazyStriped.size()
+Situação: Primeira Chamada
+Chamada: com.google.common.base.Preconditions.checkElementIndex(I, I)
+Situação: Manual
+Chamada: java.util.concurrent.atomic.AtomicReferenceArray.get(I)
+Situação: Manual
+Chamada: java.lang.ref.Reference.get()
+Situação: Manual
+Chamada: com.google.common.base.Supplier.get()
+Situação: Manual
+Chamada: java.util.concurrent.atomic.AtomicReferenceArray.compareAndSet(I, com.google.common.util.concurrent.Striped$SmallLazyStriped$ArrayReference, com.google.common.util.concurrent.Striped$SmallLazyStriped$ArrayReference)
+Situação: Manual
+Chamada: java.util.concurrent.atomic.AtomicReferenceArray.get(I)
+Situação: Manual
+Chamada: java.lang.ref.Reference.get()
+Situação: Manual
+Chamada: com.google.common.util.concurrent.Striped$SmallLazyStriped.drainQueue()
+Situação: Manual
+Corretude/Utilidade dos Métodos
+Método: com.google.common.base.Equivalence.equivalent(java.lang.Object, java.lang.Object)
+Inútil
+Método: com.google.common.cache.LocalCache$ReferenceEntry.getNext()
+Inútil
+Método: com.google.common.collect.MapMakerInternalMap$ReferenceEntry.getNext()
+Inútil
+Método: java.util.List.get(I)
+Inútil
+Método: java.util.concurrent.locks.ReentrantLock.unlock()
+Inútil
+Percentual de Automatização: 0.0
+Corretude: 0.0
+F-Measure: 0.0
+************************ Método Avaliado: com.google.common.primitives.Ints.tryParse(java.lang.String, I) ************************
+*Commit: commit af5afeffaddbd3de5b44d3f1b49c2462e19795f8 1391193115 ----sp
+*Alguma Sugestão Fornecida: Sim
+*Alguma Sugestão Aprovada: Sim
+**************************************************************************************************************
+----------------Chamadas de método antigas:---------------
+----------------Chamadas de método novas:---------------
+com.google.common.base.Preconditions.checkNotNull(java.lang.String)
+java.lang.String.isEmpty()
+java.lang.String.charAt(I)
+java.lang.String.length()
+java.lang.String.charAt(I)
+com.google.common.primitives.Ints.digit(C)
+java.lang.String.length()
+java.lang.String.charAt(I)
+com.google.common.primitives.Ints.digit(C)
+Chamada: com.google.common.base.Preconditions.checkNotNull(java.lang.String)
+Situação: Primeira Chamada
+Chamada: java.lang.String.isEmpty()
+Situação: Manual
+Chamada: java.lang.String.charAt(I)
+Situação: Automatizada
+Índice da Sugestão: 5
+Confiança: 0.14285717024944247
+Suporte: 7.45033E-4
+F-Measure Suporte e Confiança: 0.002
+Chamada: java.lang.String.length()
+Situação: Automatizada
+Índice da Sugestão: 1
+Confiança: 0.2539677061222611
+Suporte: 0.0013245
+F-Measure Suporte e Confiança: 0.003
+Chamada: java.lang.String.charAt(I)
+Situação: Automatizada
+Índice da Sugestão: 1
+Confiança: 0.5625013212533031
+Suporte: 7.45033E-4
+F-Measure Suporte e Confiança: 0.002
+Chamada: com.google.common.primitives.Ints.digit(C)
+Situação: Manual
+Chamada: java.lang.String.length()
+Situação: Automatizada
+Índice da Sugestão: 3
+Confiança: 0.31579047756297496
+Suporte: 0.00149007
+F-Measure Suporte e Confiança: 0.003
+Chamada: java.lang.String.charAt(I)
+Situação: Automatizada
+Índice da Sugestão: 1
+Confiança: 0.5625013212533031
+Suporte: 7.45033E-4
+F-Measure Suporte e Confiança: 0.002
+Chamada: com.google.common.primitives.Ints.digit(C)
+Situação: Manual
+Corretude/Utilidade dos Métodos
+Método: java.lang.StringBuilder.append(java.lang.String)
+Inútil
+Método: java.lang.StringBuilder.toString()
+Inútil
+Método: java.lang.String.length()
+Útil
+Método: java.lang.String.charAt(I)
+Útil
+Percentual de Automatização: 0.625
+Corretude: 0.5
+F-Measure: 0.5555555555555556
+************************ Método Avaliado: com.google.common.reflect.TypeResolver$TypeMappingIntrospector.map(com.google.common.reflect.TypeResolver$TypeVariableKey, java.lang.reflect.Type) ************************
+*Commit: commit 5f913f5e6411698a4e50a0593ea4db4632e2c912 1391449378 ----sp
+*Alguma Sugestão Fornecida: Sim
+*Alguma Sugestão Aprovada: Sim
+**************************************************************************************************************
+----------------Chamadas de método antigas:---------------
+----------------Chamadas de método novas:---------------
+java.util.Map.containsKey(java.lang.Object)
+com.google.common.reflect.TypeResolver$TypeVariableKey.forLookup(java.lang.reflect.Type)
+java.util.Map.get(java.lang.Object)
+com.google.common.reflect.TypeResolver$TypeVariableKey.equalsType(java.lang.reflect.Type)
+com.google.common.reflect.TypeResolver$TypeVariableKey.forLookup(java.lang.reflect.Type)
+java.util.Map.remove(java.lang.Object)
+java.util.Map.put(com.google.common.reflect.TypeResolver$TypeVariableKey, java.lang.reflect.Type)
+Chamada: java.util.Map.containsKey(java.lang.Object)
+Situação: Primeira Chamada
+Chamada: com.google.common.reflect.TypeResolver$TypeVariableKey.forLookup(java.lang.reflect.Type)
+Situação: Manual
+Chamada: java.util.Map.get(java.lang.Object)
+Situação: Automatizada
+Índice da Sugestão: 1
+Confiança: 0.21621660447091165
+Suporte: 6.62252E-4
+F-Measure Suporte e Confiança: 0.002
+Chamada: com.google.common.reflect.TypeResolver$TypeVariableKey.equalsType(java.lang.reflect.Type)
+Situação: Manual
+Chamada: com.google.common.reflect.TypeResolver$TypeVariableKey.forLookup(java.lang.reflect.Type)
+Situação: Manual
+Chamada: java.util.Map.remove(java.lang.Object)
+Situação: Automatizada
+Índice da Sugestão: 2
+Confiança: 0.16216245335318374
+Suporte: 4.96689E-4
+F-Measure Suporte e Confiança: 0.001
+Chamada: java.util.Map.put(com.google.common.reflect.TypeResolver$TypeVariableKey, java.lang.reflect.Type)
+Situação: Manual
+Corretude/Utilidade dos Métodos
+Método: java.util.Map.remove(java.lang.Object)
+Útil
+Método: java.util.Map.get(java.lang.Object)
+Útil
+Percentual de Automatização: 0.3333333333333333
+Corretude: 1.0
+F-Measure: 0.5
+************************ Método Avaliado: com.google.common.reflect.TypeResolver$TypeVariableKey.equalsTypeVariable(java.lang.reflect.TypeVariable) ************************
+*Commit: commit 5f913f5e6411698a4e50a0593ea4db4632e2c912 1391449378 ----sp
+*Alguma Sugestão Fornecida: Sim
+*Alguma Sugestão Aprovada: Não
+**************************************************************************************************************
+----------------Chamadas de método antigas:---------------
+----------------Chamadas de método novas:---------------
+java.lang.reflect.TypeVariable.getGenericDeclaration()
+java.lang.reflect.TypeVariable.getGenericDeclaration()
+java.lang.Object.equals(java.lang.Object)
+java.lang.reflect.TypeVariable.getName()
+java.lang.reflect.TypeVariable.getName()
+java.lang.String.equals(java.lang.Object)
+Chamada: java.lang.reflect.TypeVariable.getGenericDeclaration()
+Situação: Primeira Chamada
+Chamada: java.lang.reflect.TypeVariable.getGenericDeclaration()
+Situação: Manual
+Chamada: java.lang.Object.equals(java.lang.Object)
+Situação: Manual
+Chamada: java.lang.reflect.TypeVariable.getName()
+Situação: Manual
+Chamada: java.lang.reflect.TypeVariable.getName()
+Situação: Manual
+Chamada: java.lang.String.equals(java.lang.Object)
+Situação: Manual
+Corretude/Utilidade dos Métodos
+Método: java.lang.Object.equals(java.lang.Object)
+Inútil
+Percentual de Automatização: 0.0
+Corretude: 0.0
+F-Measure: 0.0
+************************ Método Avaliado: com.google.common.reflect.TypeResolver.resolveWildcardType(java.lang.reflect.WildcardType) ************************
+*Commit: commit 5f913f5e6411698a4e50a0593ea4db4632e2c912 1391449378 ----sp
+*Alguma Sugestão Fornecida: Sim
+*Alguma Sugestão Aprovada: Sim
+**************************************************************************************************************
+----------------Chamadas de método antigas:---------------
+----------------Chamadas de método novas:---------------
+java.lang.reflect.WildcardType.getLowerBounds()
+java.lang.reflect.WildcardType.getUpperBounds()
+com.google.common.reflect.TypeResolver.resolveTypes([Ljava.lang.reflect.Type;)
+com.google.common.reflect.TypeResolver.resolveTypes([Ljava.lang.reflect.Type;)
+Chamada: java.lang.reflect.WildcardType.getLowerBounds()
+Situação: Primeira Chamada
+Chamada: java.lang.reflect.WildcardType.getUpperBounds()
+Situação: Automatizada
+Índice da Sugestão: 1
+Confiança: 0.6000000000000001
+Suporte: 4.96689E-4
+F-Measure Suporte e Confiança: 0.001
+Chamada: com.google.common.reflect.TypeResolver.resolveTypes([Ljava.lang.reflect.Type;)
+Situação: Manual
+Chamada: com.google.common.reflect.TypeResolver.resolveTypes([Ljava.lang.reflect.Type;)
+Situação: Manual
+Corretude/Utilidade dos Métodos
+Método: java.lang.reflect.WildcardType.getUpperBounds()
+Útil
+Percentual de Automatização: 0.3333333333333333
+Corretude: 1.0
+F-Measure: 0.5
+************************ Método Avaliado: com.google.common.util.concurrent.MoreExecutors.shutdownAndAwaitTermination(java.util.concurrent.ExecutorService, J, java.util.concurrent.TimeUnit) ************************
+*Commit: commit ff9bf6d8eee80fcee46bdb3da4fdbd00d8381d44 1392320001 ----sp
+*Alguma Sugestão Fornecida: Sim
+*Alguma Sugestão Aprovada: Sim
+**************************************************************************************************************
+----------------Chamadas de método antigas:---------------
+----------------Chamadas de método novas:---------------
+com.google.common.base.Preconditions.checkNotNull(java.util.concurrent.TimeUnit)
+java.util.concurrent.ExecutorService.shutdown()
+java.util.concurrent.TimeUnit.convert(J, java.util.concurrent.TimeUnit)
+java.util.concurrent.ExecutorService.awaitTermination(J, java.util.concurrent.TimeUnit)
+java.util.concurrent.ExecutorService.shutdownNow()
+java.util.concurrent.ExecutorService.awaitTermination(J, java.util.concurrent.TimeUnit)
+java.lang.Thread.currentThread()
+java.lang.Thread.interrupt()
+java.util.concurrent.ExecutorService.shutdownNow()
+java.util.concurrent.ExecutorService.isTerminated()
+Chamada: com.google.common.base.Preconditions.checkNotNull(java.util.concurrent.TimeUnit)
+Situação: Primeira Chamada
+Chamada: java.util.concurrent.ExecutorService.shutdown()
+Situação: Manual
+Chamada: java.util.concurrent.TimeUnit.convert(J, java.util.concurrent.TimeUnit)
+Situação: Manual
+Chamada: java.util.concurrent.ExecutorService.awaitTermination(J, java.util.concurrent.TimeUnit)
+Situação: Manual
+Chamada: java.util.concurrent.ExecutorService.shutdownNow()
+Situação: Manual
+Chamada: java.util.concurrent.ExecutorService.awaitTermination(J, java.util.concurrent.TimeUnit)
+Situação: Manual
+Chamada: java.lang.Thread.currentThread()
+Situação: Manual
+Chamada: java.lang.Thread.interrupt()
+Situação: Automatizada
+Índice da Sugestão: 1
+Confiança: 0.7999990336016699
+Suporte: 0.00165563
+F-Measure Suporte e Confiança: 0.004
+Chamada: java.util.concurrent.ExecutorService.shutdownNow()
+Situação: Manual
+Chamada: java.util.concurrent.ExecutorService.isTerminated()
+Situação: Manual
+Corretude/Utilidade dos Métodos
+Método: java.lang.Thread.interrupt()
+Útil
+Percentual de Automatização: 0.1111111111111111
+Corretude: 1.0
+F-Measure: 0.19999999999999998
+************************ Método Avaliado: com.google.common.util.concurrent.Futures.inCompletionOrder(java.lang.Iterable) ************************
+*Commit: commit 1511c17c0621f3a21921aed4b655c5b1306eaf32 1394735814 ----sp
+*Alguma Sugestão Fornecida: Sim
+*Alguma Sugestão Aprovada: Sim
+**************************************************************************************************************
+----------------Chamadas de método antigas:---------------
+----------------Chamadas de método novas:---------------
+newConcurrentLinkedQueue
+com.google.common.collect.ImmutableList.builder()
+com.google.common.util.concurrent.MoreExecutors.sameThreadExecutor()
+create
+add
+com.google.common.util.concurrent.ListenableFuture.addListener(java.lang.Runnable, java.util.concurrent.Executor)
+remove
+setFuture
+com.google.common.collect.ImmutableList$Builder.add(com.google.common.util.concurrent.ListenableFuture)
+com.google.common.collect.ImmutableList$Builder.build()
+Chamada: newConcurrentLinkedQueue
+Situação: Primeira Chamada
+Chamada: com.google.common.collect.ImmutableList.builder()
+Situação: Manual
+Chamada: com.google.common.util.concurrent.MoreExecutors.sameThreadExecutor()
+Situação: Manual
+Chamada: create
+Situação: Manual
+Chamada: add
+Situação: Manual
+Chamada: com.google.common.util.concurrent.ListenableFuture.addListener(java.lang.Runnable, java.util.concurrent.Executor)
+Situação: Manual
+Chamada: remove
+Situação: Manual
+Chamada: setFuture
+Situação: Manual
+Chamada: com.google.common.collect.ImmutableList$Builder.add(com.google.common.util.concurrent.ListenableFuture)
+Situação: Manual
+Chamada: com.google.common.collect.ImmutableList$Builder.build()
+Situação: Automatizada
+Índice da Sugestão: 1
+Confiança: 1.0
+Suporte: 7.45033E-4
+F-Measure Suporte e Confiança: 0.002
+Corretude/Utilidade dos Métodos
+Método: com.google.common.collect.ImmutableList$Builder.build()
+Útil
+Percentual de Automatização: 0.1111111111111111
+Corretude: 1.0
+F-Measure: 0.19999999999999998
+************************ Método Avaliado: com.google.common.base.Converter$FunctionBasedConverter.hashCode() ************************
+*Commit: commit b0171601101a650bcfc1e53c88220f6e6a708558 1394735853 ----sp
+*Alguma Sugestão Fornecida: Sim
+*Alguma Sugestão Aprovada: Sim
+**************************************************************************************************************
+----------------Chamadas de método antigas:---------------
+----------------Chamadas de método novas:---------------
+java.lang.Object.hashCode()
+java.lang.Object.hashCode()
+Chamada: java.lang.Object.hashCode()
+Situação: Primeira Chamada
+Chamada: java.lang.Object.hashCode()
+Situação: Automatizada
+Índice da Sugestão: 1
+Confiança: 0.21311491642028094
+Suporte: 0.00107616
+F-Measure Suporte e Confiança: 0.003
+Corretude/Utilidade dos Métodos
+Método: java.lang.Object.equals(java.lang.Object)
+Inútil
+Método: java.lang.Object.hashCode()
+Útil
+Método: com.google.common.collect.Hashing.smear(I)
+Inútil
+Percentual de Automatização: 1.0
+Corretude: 0.3333333333333333
+F-Measure: 0.5
+************************ Método Avaliado: com.google.common.base.Converter$FunctionBasedConverter.FunctionBasedConverter(com.google.common.base.Function, com.google.common.base.Function) ************************
+*Commit: commit b0171601101a650bcfc1e53c88220f6e6a708558 1394735853 ----sp
+*Alguma Sugestão Fornecida: Sim
+*Alguma Sugestão Aprovada: Não
+**************************************************************************************************************
+----------------Chamadas de método antigas:---------------
+----------------Chamadas de método novas:---------------
+com.google.common.base.Preconditions.checkNotNull(com.google.common.base.Function)
+com.google.common.base.Preconditions.checkNotNull(com.google.common.base.Function)
+Chamada: com.google.common.base.Preconditions.checkNotNull(com.google.common.base.Function)
+Situação: Primeira Chamada
+Chamada: com.google.common.base.Preconditions.checkNotNull(com.google.common.base.Function)
+Situação: Manual
+Corretude/Utilidade dos Métodos
+Método: com.google.common.base.Function.apply(null)
+Inútil
+Percentual de Automatização: 0.0
+Corretude: 0.0
+F-Measure: 0.0
+************************ Método Avaliado: com.google.common.hash.BloomFilter.create(com.google.common.hash.Funnel, I, D, com.google.common.hash.BloomFilter$Strategy) ************************
+*Commit: commit 6de004aebed935dfa060e76e1c2db23041ae3df5 1395453072 ----sp
+*Alguma Sugestão Fornecida: Sim
+*Alguma Sugestão Aprovada: Sim
+**************************************************************************************************************
+----------------Chamadas de método antigas:---------------
+----------------Chamadas de método novas:---------------
+com.google.common.base.Preconditions.checkNotNull(com.google.common.hash.Funnel)
+com.google.common.base.Preconditions.checkArgument(Z, java.lang.String, [Ljava.lang.Object;)
+com.google.common.base.Preconditions.checkArgument(Z, java.lang.String, [Ljava.lang.Object;)
+com.google.common.base.Preconditions.checkArgument(Z, java.lang.String, [Ljava.lang.Object;)
+com.google.common.base.Preconditions.checkNotNull(com.google.common.hash.BloomFilter$Strategy)
+com.google.common.hash.BloomFilter.optimalNumOfBits(J, D)
+com.google.common.hash.BloomFilter.optimalNumOfHashFunctions(J, J)
+Chamada: com.google.common.base.Preconditions.checkNotNull(com.google.common.hash.Funnel)
+Situação: Primeira Chamada
+Chamada: com.google.common.base.Preconditions.checkArgument(Z, java.lang.String, [Ljava.lang.Object;)
+Situação: Manual
+Chamada: com.google.common.base.Preconditions.checkArgument(Z, java.lang.String, [Ljava.lang.Object;)
+Situação: Automatizada
+Índice da Sugestão: 1
+Confiança: 0.2845532846858703
+Suporte: 0.00289735
+F-Measure Suporte e Confiança: 0.006
+Chamada: com.google.common.base.Preconditions.checkArgument(Z, java.lang.String, [Ljava.lang.Object;)
+Situação: Automatizada
+Índice da Sugestão: 1
+Confiança: 0.2845532846858703
+Suporte: 0.00289735
+F-Measure Suporte e Confiança: 0.006
+Chamada: com.google.common.base.Preconditions.checkNotNull(com.google.common.hash.BloomFilter$Strategy)
+Situação: Manual
+Chamada: com.google.common.hash.BloomFilter.optimalNumOfBits(J, D)
+Situação: Manual
+Chamada: com.google.common.hash.BloomFilter.optimalNumOfHashFunctions(J, J)
+Situação: Manual
+Corretude/Utilidade dos Métodos
+Método: com.google.common.base.Preconditions.checkArgument(Z, java.lang.String, [Ljava.lang.Object;)
+Útil
+Método: java.lang.String.length()
+Inútil
+Percentual de Automatização: 0.3333333333333333
+Corretude: 0.5
+F-Measure: 0.4
+************************ Método Avaliado: com.google.common.reflect.Parameter.getDeclaredAnnotation(java.lang.Class) ************************
+*Commit: commit 2ec1b12a1af770e39d7a837858097a6470c4516a 1397083865 ----sp
+*Alguma Sugestão Fornecida: Sim
+*Alguma Sugestão Aprovada: Não
+**************************************************************************************************************
+----------------Chamadas de método antigas:---------------
+----------------Chamadas de método novas:---------------
+com.google.common.base.Preconditions.checkNotNull(java.lang.Class)
+com.google.common.collect.FluentIterable.from(java.lang.Iterable)
+com.google.common.collect.FluentIterable.filter(java.lang.Class)
+com.google.common.collect.FluentIterable.first()
+com.google.common.base.Optional.orNull()
+Chamada: com.google.common.base.Preconditions.checkNotNull(java.lang.Class)
+Situação: Primeira Chamada
+Chamada: com.google.common.collect.FluentIterable.from(java.lang.Iterable)
+Situação: Manual
+Chamada: com.google.common.collect.FluentIterable.filter(java.lang.Class)
+Situação: Manual
+Chamada: com.google.common.collect.FluentIterable.first()
+Situação: Manual
+Chamada: com.google.common.base.Optional.orNull()
+Situação: Manual
+Corretude/Utilidade dos Métodos
+Método: com.google.common.collect.FluentIterable.toSet()
+Inútil
+Percentual de Automatização: 0.0
+Corretude: 0.0
+F-Measure: 0.0
+************************ Método Avaliado: com.google.common.reflect.Parameter.getDeclaredAnnotationsByType(java.lang.Class) ************************
+*Commit: commit 2ec1b12a1af770e39d7a837858097a6470c4516a 1397083865 ----sp
+*Alguma Sugestão Fornecida: Sim
+*Alguma Sugestão Aprovada: Não
+**************************************************************************************************************
+----------------Chamadas de método antigas:---------------
+----------------Chamadas de método novas:---------------
+com.google.common.collect.FluentIterable.from(java.lang.Iterable)
+com.google.common.collect.FluentIterable.filter(java.lang.Class)
+com.google.common.collect.FluentIterable.toArray(java.lang.Class)
+Chamada: com.google.common.collect.FluentIterable.from(java.lang.Iterable)
+Situação: Primeira Chamada
+Chamada: com.google.common.collect.FluentIterable.filter(java.lang.Class)
+Situação: Manual
+Chamada: com.google.common.collect.FluentIterable.toArray(java.lang.Class)
+Situação: Manual
+Corretude/Utilidade dos Métodos
+Método: com.google.common.collect.FluentIterable.toSet()
+Inútil
+Percentual de Automatização: 0.0
+Corretude: 0.0
+F-Measure: 0.0
+************************ Método Avaliado: com.google.common.reflect.Parameter.getDeclaredAnnotation(java.lang.Class) ************************
+*Commit: commit 555e872a0b8341d95c62f9d8a21777de5d1f67a8 1397688112 ----sp
+*Alguma Sugestão Fornecida: Sim
+*Alguma Sugestão Aprovada: Não
+**************************************************************************************************************
+----------------Chamadas de método antigas:---------------
+----------------Chamadas de método novas:---------------
+com.google.common.base.Preconditions.checkNotNull(java.lang.Class)
+com.google.common.collect.FluentIterable.from(java.lang.Iterable)
+com.google.common.collect.FluentIterable.filter(java.lang.Class)
+com.google.common.collect.FluentIterable.first()
+com.google.common.base.Optional.orNull()
+Chamada: com.google.common.base.Preconditions.checkNotNull(java.lang.Class)
+Situação: Primeira Chamada
+Chamada: com.google.common.collect.FluentIterable.from(java.lang.Iterable)
+Situação: Manual
+Chamada: com.google.common.collect.FluentIterable.filter(java.lang.Class)
+Situação: Manual
+Chamada: com.google.common.collect.FluentIterable.first()
+Situação: Manual
+Chamada: com.google.common.base.Optional.orNull()
+Situação: Manual
+Corretude/Utilidade dos Métodos
+Método: com.google.common.collect.FluentIterable.toSet()
+Inútil
+Percentual de Automatização: 0.0
+Corretude: 0.0
+F-Measure: 0.0
+************************ Método Avaliado: com.google.common.reflect.Parameter.getDeclaredAnnotationsByType(java.lang.Class) ************************
+*Commit: commit 555e872a0b8341d95c62f9d8a21777de5d1f67a8 1397688112 ----sp
+*Alguma Sugestão Fornecida: Sim
+*Alguma Sugestão Aprovada: Não
+**************************************************************************************************************
+----------------Chamadas de método antigas:---------------
+----------------Chamadas de método novas:---------------
+com.google.common.collect.FluentIterable.from(java.lang.Iterable)
+com.google.common.collect.FluentIterable.filter(java.lang.Class)
+com.google.common.collect.FluentIterable.toArray(java.lang.Class)
+Chamada: com.google.common.collect.FluentIterable.from(java.lang.Iterable)
+Situação: Primeira Chamada
+Chamada: com.google.common.collect.FluentIterable.filter(java.lang.Class)
+Situação: Manual
+Chamada: com.google.common.collect.FluentIterable.toArray(java.lang.Class)
+Situação: Manual
+Corretude/Utilidade dos Métodos
+Método: com.google.common.collect.FluentIterable.toSet()
+Inútil
+Percentual de Automatização: 0.0
+Corretude: 0.0
+F-Measure: 0.0
+************************ Método Avaliado: com.google.common.util.concurrent.RateLimiter.createWithCapacity(com.google.common.util.concurrent.RateLimiter$SleepingStopwatch, D, J, java.util.concurrent.TimeUnit) ************************
+*Commit: commit 07f99e57570b6e81d89c86f4f36fb9a6784d34b3 1397768171 ----sp
+*Alguma Sugestão Fornecida: Sim
+*Alguma Sugestão Aprovada: Não
+**************************************************************************************************************
+----------------Chamadas de método antigas:---------------
+----------------Chamadas de método novas:---------------
+java.util.concurrent.TimeUnit.toNanos(J)
+com.google.common.util.concurrent.RateLimiter.setRate(D)
+Chamada: java.util.concurrent.TimeUnit.toNanos(J)
+Situação: Primeira Chamada
+Chamada: com.google.common.util.concurrent.RateLimiter.setRate(D)
+Situação: Manual
+Corretude/Utilidade dos Métodos
+Método: java.lang.Thread.currentThread()
+Inútil
+Método: java.lang.System.nanoTime()
+Inútil
+Método: java.lang.Thread.interrupt()
+Inútil
+Percentual de Automatização: 0.0
+Corretude: 0.0
+F-Measure: 0.0
+************************ Método Avaliado: com.google.common.primitives.Ints.tryParse(java.lang.String, I) ************************
+*Commit: commit 14d8ae4015e5e686f45d428c7e1879e689f818ff 1399500494 ----sp
+*Alguma Sugestão Fornecida: Sim
+*Alguma Sugestão Aprovada: Sim
+**************************************************************************************************************
+----------------Chamadas de método antigas:---------------
+----------------Chamadas de método novas:---------------
+com.google.common.base.Preconditions.checkNotNull(java.lang.String)
+java.lang.String.isEmpty()
+java.lang.String.charAt(I)
+java.lang.String.length()
+java.lang.String.charAt(I)
+com.google.common.primitives.Ints.digit(C)
+java.lang.String.length()
+java.lang.String.charAt(I)
+com.google.common.primitives.Ints.digit(C)
+Chamada: com.google.common.base.Preconditions.checkNotNull(java.lang.String)
+Situação: Primeira Chamada
+Chamada: java.lang.String.isEmpty()
+Situação: Manual
+Chamada: java.lang.String.charAt(I)
+Situação: Automatizada
+Índice da Sugestão: 5
+Confiança: 0.14285717024944247
+Suporte: 7.45033E-4
+F-Measure Suporte e Confiança: 0.002
+Chamada: java.lang.String.length()
+Situação: Automatizada
+Índice da Sugestão: 1
+Confiança: 0.2539677061222611
+Suporte: 0.0013245
+F-Measure Suporte e Confiança: 0.003
+Chamada: java.lang.String.charAt(I)
+Situação: Automatizada
+Índice da Sugestão: 1
+Confiança: 0.5625013212533031
+Suporte: 7.45033E-4
+F-Measure Suporte e Confiança: 0.002
+Chamada: com.google.common.primitives.Ints.digit(C)
+Situação: Manual
+Chamada: java.lang.String.length()
+Situação: Automatizada
+Índice da Sugestão: 3
+Confiança: 0.31579047756297496
+Suporte: 0.00149007
+F-Measure Suporte e Confiança: 0.003
+Chamada: java.lang.String.charAt(I)
+Situação: Automatizada
+Índice da Sugestão: 1
+Confiança: 0.5625013212533031
+Suporte: 7.45033E-4
+F-Measure Suporte e Confiança: 0.002
+Chamada: com.google.common.primitives.Ints.digit(C)
+Situação: Manual
+Corretude/Utilidade dos Métodos
+Método: java.lang.StringBuilder.append(java.lang.String)
+Inútil
+Método: java.lang.StringBuilder.toString()
+Inútil
+Método: java.lang.String.length()
+Útil
+Método: java.lang.String.charAt(I)
+Útil
+Percentual de Automatização: 0.625
+Corretude: 0.5
+F-Measure: 0.5555555555555556
+************************ Método Avaliado: com.google.common.util.concurrent.Uninterruptibles.tryAcquireUninterruptibly(java.util.concurrent.Semaphore, I, J, java.util.concurrent.TimeUnit) ************************
+*Commit: commit 7811f97b5dd9b75762f6868a8b0098d826139332 1400007956 ----sp
+*Alguma Sugestão Fornecida: Sim
+*Alguma Sugestão Aprovada: Sim
+**************************************************************************************************************
+----------------Chamadas de método antigas:---------------
+----------------Chamadas de método novas:---------------
+java.util.concurrent.TimeUnit.toNanos(J)
+java.lang.System.nanoTime()
+java.util.concurrent.Semaphore.tryAcquire(I, J, java.util.concurrent.TimeUnit)
+java.lang.System.nanoTime()
+java.lang.Thread.currentThread()
+java.lang.Thread.interrupt()
+Chamada: java.util.concurrent.TimeUnit.toNanos(J)
+Situação: Primeira Chamada
+Chamada: java.lang.System.nanoTime()
+Situação: Automatizada
+Índice da Sugestão: 1
+Confiança: 0.4761908870749708
+Suporte: 8.27815E-4
+F-Measure Suporte e Confiança: 0.002
+Chamada: java.util.concurrent.Semaphore.tryAcquire(I, J, java.util.concurrent.TimeUnit)
+Situação: Manual
+Chamada: java.lang.System.nanoTime()
+Situação: Automatizada
+Índice da Sugestão: 1
+Confiança: 0.9230764942016058
+Suporte: 9.93378E-4
+F-Measure Suporte e Confiança: 0.002
+Chamada: java.lang.Thread.currentThread()
+Situação: Automatizada
+Índice da Sugestão: 3
+Confiança: 0.3809527096599767
+Suporte: 6.62252E-4
+F-Measure Suporte e Confiança: 0.002
+Chamada: java.lang.Thread.interrupt()
+Situação: Automatizada
+Índice da Sugestão: 2
+Confiança: 0.3809527096599767
+Suporte: 6.62252E-4
+F-Measure Suporte e Confiança: 0.002
+Corretude/Utilidade dos Métodos
+Método: java.lang.Thread.currentThread()
+Útil
+Método: java.lang.System.nanoTime()
+Útil
+Método: java.lang.Thread.interrupt()
+Útil
+Percentual de Automatização: 0.8
+Corretude: 1.0
+F-Measure: 0.888888888888889
+************************ Método Avaliado: com.google.common.collect.MultisetsTest.testRemoveOccurrencesMultisetEmpty() ************************
+*Commit: commit 050aca81c004448a4a86c2541466828e83d12ffb 1402512714 ----sp
+*Alguma Sugestão Fornecida: Sim
+*Alguma Sugestão Aprovada: Não
+**************************************************************************************************************
+----------------Chamadas de método antigas:---------------
+----------------Chamadas de método novas:---------------
+com.google.common.collect.HashMultiset.create()
+java.util.Arrays.asList([Ljava.lang.String;)
+com.google.common.collect.HashMultiset.create(java.lang.Iterable)
+com.google.common.collect.Multisets.retainOccurrences(com.google.common.collect.Multiset, com.google.common.collect.Multiset)
+assertFalse
+java.util.Collection.isEmpty()
+assertTrue
+Chamada: com.google.common.collect.HashMultiset.create()
+Situação: Primeira Chamada
+Chamada: java.util.Arrays.asList([Ljava.lang.String;)
+Situação: Manual
+Chamada: com.google.common.collect.HashMultiset.create(java.lang.Iterable)
+Situação: Manual
+Chamada: com.google.common.collect.Multisets.retainOccurrences(com.google.common.collect.Multiset, com.google.common.collect.Multiset)
+Situação: Manual
+Chamada: assertFalse
+Situação: Manual
+Chamada: java.util.Collection.isEmpty()
+Situação: Manual
+Chamada: assertTrue
+Situação: Manual
+Corretude/Utilidade dos Métodos
+Método: com.google.common.collect.AbstractIterator.endOfData()
+Inútil
+Método: java.util.Collection.size()
+Inútil
+Percentual de Automatização: 0.0
+Corretude: 0.0
+F-Measure: 0.0
+************************ Método Avaliado: com.google.common.collect.MultisetsTest.testRemoveOccurrencesIterableEmpty() ************************
+*Commit: commit 050aca81c004448a4a86c2541466828e83d12ffb 1402512714 ----sp
+*Alguma Sugestão Fornecida: Sim
+*Alguma Sugestão Aprovada: Não
+**************************************************************************************************************
+----------------Chamadas de método antigas:---------------
+----------------Chamadas de método novas:---------------
+com.google.common.collect.HashMultiset.create()
+java.util.Arrays.asList([Ljava.lang.String;)
+com.google.common.collect.Multisets.removeOccurrences(com.google.common.collect.Multiset, com.google.common.collect.Multiset)
+assertFalse
+java.util.Collection.isEmpty()
+assertTrue
+Chamada: com.google.common.collect.HashMultiset.create()
+Situação: Primeira Chamada
+Chamada: java.util.Arrays.asList([Ljava.lang.String;)
+Situação: Manual
+Chamada: com.google.common.collect.Multisets.removeOccurrences(com.google.common.collect.Multiset, com.google.common.collect.Multiset)
+Situação: Manual
+Chamada: assertFalse
+Situação: Manual
+Chamada: java.util.Collection.isEmpty()
+Situação: Manual
+Chamada: assertTrue
+Situação: Manual
+Corretude/Utilidade dos Métodos
+Método: com.google.common.collect.AbstractIterator.endOfData()
+Inútil
+Método: java.util.Collection.size()
+Inútil
+Percentual de Automatização: 0.0
+Corretude: 0.0
+F-Measure: 0.0
+************************ Método Avaliado: com.google.common.collect.Multisets.removeOccurrencesImpl(com.google.common.collect.Multiset, java.lang.Iterable) ************************
+*Commit: commit 050aca81c004448a4a86c2541466828e83d12ffb 1402512714 ----sp
+*Alguma Sugestão Fornecida: Sim
+*Alguma Sugestão Aprovada: Não
+**************************************************************************************************************
+----------------Chamadas de método antigas:---------------
+----------------Chamadas de método novas:---------------
+com.google.common.base.Preconditions.checkNotNull(com.google.common.collect.Multiset)
+com.google.common.base.Preconditions.checkNotNull(java.lang.Iterable)
+com.google.common.collect.Multiset.remove(java.lang.Object)
+Chamada: com.google.common.base.Preconditions.checkNotNull(com.google.common.collect.Multiset)
+Situação: Primeira Chamada
+Chamada: com.google.common.base.Preconditions.checkNotNull(java.lang.Iterable)
+Situação: Manual
+Chamada: com.google.common.collect.Multiset.remove(java.lang.Object)
+Situação: Manual
+Corretude/Utilidade dos Métodos
+Método: com.google.common.collect.Multiset$Entry.getElement()
+Inútil
+Método: com.google.common.collect.Multiset.entrySet()
+Inútil
+Método: com.google.common.base.Preconditions.checkNotNull(com.google.common.collect.Multiset)
+Inútil
+Método: com.google.common.collect.Multiset$Entry.getCount()
+Inútil
+Método: com.google.common.collect.Multiset.count(java.lang.Object)
+Inútil
+Método: java.lang.Iterable.iterator()
+Inútil
+Percentual de Automatização: 0.0
+Corretude: 0.0
+F-Measure: 0.0
+************************ Método Avaliado: com.google.common.base.MoreObjects$ToStringHelper.toString() ************************
+*Commit: commit 39534cb20b1ae63e5a516ceacd9ba71fddeaa8c5 1403130468 ----sp
+*Alguma Sugestão Fornecida: Sim
+*Alguma Sugestão Aprovada: Sim
+**************************************************************************************************************
+----------------Chamadas de método antigas:---------------
+----------------Chamadas de método novas:---------------
+java.lang.StringBuilder.append(java.lang.String)
+java.lang.StringBuilder.append(C)
+java.lang.StringBuilder.append(java.lang.String)
+java.lang.StringBuilder.append(java.lang.String)
+java.lang.StringBuilder.append(C)
+java.lang.StringBuilder.append(java.lang.Object)
+java.lang.StringBuilder.append(C)
+java.lang.StringBuilder.toString()
+Chamada: java.lang.StringBuilder.append(java.lang.String)
+Situação: Primeira Chamada
+Chamada: java.lang.StringBuilder.append(C)
+Situação: Automatizada
+Índice da Sugestão: 2
+Confiança: 0.4761908870749708
+Suporte: 0.00165563
+F-Measure Suporte e Confiança: 0.004
+Chamada: java.lang.StringBuilder.append(java.lang.String)
+Situação: Automatizada
+Índice da Sugestão: 4
+Confiança: 0.4047606721084209
+Suporte: 0.00140728
+F-Measure Suporte e Confiança: 0.003
+Chamada: java.lang.StringBuilder.append(java.lang.String)
+Situação: Manual
+Chamada: java.lang.StringBuilder.append(C)
+Situação: Automatizada
+Índice da Sugestão: 3
+Confiança: 0.534883132936285
+Suporte: 0.00190397
+F-Measure Suporte e Confiança: 0.004
+Chamada: java.lang.StringBuilder.append(java.lang.Object)
+Situação: Manual
+Chamada: java.lang.StringBuilder.append(C)
+Situação: Automatizada
+Índice da Sugestão: 1
+Confiança: 0.6666671140741417
+Suporte: 4.96689E-4
+F-Measure Suporte e Confiança: 0.001
+Chamada: java.lang.StringBuilder.toString()
+Situação: Automatizada
+Índice da Sugestão: 1
+Confiança: 0.9523817741499416
+Suporte: 0.00331126
+F-Measure Suporte e Confiança: 0.007
+Corretude/Utilidade dos Métodos
+Método: java.lang.StringBuilder.append(C)
+Útil
+Método: java.lang.StringBuilder.append(java.lang.String)
+Útil
+Método: java.lang.StringBuilder.toString()
+Útil
+Percentual de Automatização: 0.7142857142857143
+Corretude: 1.0
+F-Measure: 0.8333333333333333
+************************ Método Avaliado: com.google.common.collect.Maps$FilteredEntryNavigableMap.isEmpty() ************************
+*Commit: commit 8988ec0278a4ffe0e1e5b9979e98ccbf0dc8faa3 1403297149 ----sp
+*Alguma Sugestão Fornecida: Sim
+*Alguma Sugestão Aprovada: Não
+**************************************************************************************************************
+----------------Chamadas de método antigas:---------------
+----------------Chamadas de método novas:---------------
+java.util.SortedMap.entrySet()
+com.google.common.collect.Iterables.any(java.lang.Iterable, com.google.common.base.Predicate)
+Chamada: java.util.SortedMap.entrySet()
+Situação: Primeira Chamada
+Chamada: com.google.common.collect.Iterables.any(java.lang.Iterable, com.google.common.base.Predicate)
+Situação: Manual
+Corretude/Utilidade dos Métodos
+Método: java.util.Set.iterator()
+Inútil
+Percentual de Automatização: 0.0
+Corretude: 0.0
+F-Measure: 0.0
+************************ Método Avaliado: com.google.common.util.concurrent.MoreExecutors$DirectExecutorService.endTask() ************************
+*Commit: commit 10695e272674ce32fe6a6486c2904a65ef3db4b1 1405543963 ----sp
+*Alguma Sugestão Fornecida: Sim
+*Alguma Sugestão Aprovada: Sim
+**************************************************************************************************************
+----------------Chamadas de método antigas:---------------
+----------------Chamadas de método novas:---------------
+java.util.concurrent.locks.Lock.lock()
+com.google.common.util.concurrent.MoreExecutors$DirectExecutorService.isTerminated()
+java.util.concurrent.locks.Condition.signalAll()
+java.util.concurrent.locks.Lock.unlock()
+Chamada: java.util.concurrent.locks.Lock.lock()
+Situação: Primeira Chamada
+Chamada: com.google.common.util.concurrent.MoreExecutors$DirectExecutorService.isTerminated()
+Situação: Manual
+Chamada: java.util.concurrent.locks.Condition.signalAll()
+Situação: Manual
+Chamada: java.util.concurrent.locks.Lock.unlock()
+Situação: Automatizada
+Índice da Sugestão: 1
+Confiança: 1.0
+Suporte: 7.45033E-4
+F-Measure Suporte e Confiança: 0.002
+Corretude/Utilidade dos Métodos
+Método: java.util.concurrent.locks.Lock.unlock()
+Útil
+Percentual de Automatização: 0.3333333333333333
+Corretude: 1.0
+F-Measure: 0.5
+************************ Método Avaliado: com.google.common.util.concurrent.MoreExecutors$DirectExecutorService.isShutdown() ************************
+*Commit: commit 10695e272674ce32fe6a6486c2904a65ef3db4b1 1405543963 ----sp
+*Alguma Sugestão Fornecida: Sim
+*Alguma Sugestão Aprovada: Sim
+**************************************************************************************************************
+----------------Chamadas de método antigas:---------------
+----------------Chamadas de método novas:---------------
+java.util.concurrent.locks.Lock.lock()
+java.util.concurrent.locks.Lock.unlock()
+Chamada: java.util.concurrent.locks.Lock.lock()
+Situação: Primeira Chamada
+Chamada: java.util.concurrent.locks.Lock.unlock()
+Situação: Automatizada
+Índice da Sugestão: 1
+Confiança: 1.0
+Suporte: 7.45033E-4
+F-Measure Suporte e Confiança: 0.002
+Corretude/Utilidade dos Métodos
+Método: java.util.concurrent.locks.Lock.unlock()
+Útil
+Percentual de Automatização: 1.0
+Corretude: 1.0
+F-Measure: 1.0
+************************ Método Avaliado: com.google.common.util.concurrent.MoreExecutors$DirectExecutorService.isTerminated() ************************
+*Commit: commit 10695e272674ce32fe6a6486c2904a65ef3db4b1 1405543963 ----sp
+*Alguma Sugestão Fornecida: Sim
+*Alguma Sugestão Aprovada: Sim
+**************************************************************************************************************
+----------------Chamadas de método antigas:---------------
+----------------Chamadas de método novas:---------------
+java.util.concurrent.locks.Lock.lock()
+java.util.concurrent.locks.Lock.unlock()
+Chamada: java.util.concurrent.locks.Lock.lock()
+Situação: Primeira Chamada
+Chamada: java.util.concurrent.locks.Lock.unlock()
+Situação: Automatizada
+Índice da Sugestão: 1
+Confiança: 1.0
+Suporte: 7.45033E-4
+F-Measure Suporte e Confiança: 0.002
+Corretude/Utilidade dos Métodos
+Método: java.util.concurrent.locks.Lock.unlock()
+Útil
+Percentual de Automatização: 1.0
+Corretude: 1.0
+F-Measure: 1.0
+************************ Método Avaliado: com.google.common.util.concurrent.MoreExecutors$DirectExecutorService.awaitTermination(J, java.util.concurrent.TimeUnit) ************************
+*Commit: commit 10695e272674ce32fe6a6486c2904a65ef3db4b1 1405543963 ----sp
+*Alguma Sugestão Fornecida: Sim
+*Alguma Sugestão Aprovada: Sim
+**************************************************************************************************************
+----------------Chamadas de método antigas:---------------
+----------------Chamadas de método novas:---------------
+java.util.concurrent.TimeUnit.toNanos(J)
+java.util.concurrent.locks.Lock.lock()
+com.google.common.util.concurrent.MoreExecutors$DirectExecutorService.isTerminated()
+java.util.concurrent.locks.Condition.awaitNanos(J)
+java.util.concurrent.locks.Lock.unlock()
+Chamada: java.util.concurrent.TimeUnit.toNanos(J)
+Situação: Primeira Chamada
+Chamada: java.util.concurrent.locks.Lock.lock()
+Situação: Manual
+Chamada: com.google.common.util.concurrent.MoreExecutors$DirectExecutorService.isTerminated()
+Situação: Manual
+Chamada: java.util.concurrent.locks.Condition.awaitNanos(J)
+Situação: Manual
+Chamada: java.util.concurrent.locks.Lock.unlock()
+Situação: Automatizada
+Índice da Sugestão: 1
+Confiança: 1.0
+Suporte: 7.45033E-4
+F-Measure Suporte e Confiança: 0.002
+Corretude/Utilidade dos Métodos
+Método: java.util.concurrent.locks.Lock.unlock()
+Útil
+Método: java.lang.Thread.currentThread()
+Inútil
+Método: java.lang.System.nanoTime()
+Inútil
+Método: java.lang.Thread.interrupt()
+Inútil
+Percentual de Automatização: 0.25
+Corretude: 0.25
+F-Measure: 0.25
+************************ Método Avaliado: com.google.common.util.concurrent.MoreExecutors$DirectExecutorService.shutdown() ************************
+*Commit: commit 10695e272674ce32fe6a6486c2904a65ef3db4b1 1405543963 ----sp
+*Alguma Sugestão Fornecida: Sim
+*Alguma Sugestão Aprovada: Sim
+**************************************************************************************************************
+----------------Chamadas de método antigas:---------------
+----------------Chamadas de método novas:---------------
+java.util.concurrent.locks.Lock.lock()
+java.util.concurrent.locks.Lock.unlock()
+Chamada: java.util.concurrent.locks.Lock.lock()
+Situação: Primeira Chamada
+Chamada: java.util.concurrent.locks.Lock.unlock()
+Situação: Automatizada
+Índice da Sugestão: 1
+Confiança: 1.0
+Suporte: 7.45033E-4
+F-Measure Suporte e Confiança: 0.002
+Corretude/Utilidade dos Métodos
+Método: java.util.concurrent.locks.Lock.unlock()
+Útil
+Percentual de Automatização: 1.0
+Corretude: 1.0
+F-Measure: 1.0
+************************ Método Avaliado: com.google.common.util.concurrent.MoreExecutors$DirectExecutorService.startTask() ************************
+*Commit: commit 10695e272674ce32fe6a6486c2904a65ef3db4b1 1405543963 ----sp
+*Alguma Sugestão Fornecida: Sim
+*Alguma Sugestão Aprovada: Sim
+**************************************************************************************************************
+----------------Chamadas de método antigas:---------------
+----------------Chamadas de método novas:---------------
+java.util.concurrent.locks.Lock.lock()
+com.google.common.util.concurrent.MoreExecutors$DirectExecutorService.isShutdown()
+java.util.concurrent.locks.Lock.unlock()
+Chamada: java.util.concurrent.locks.Lock.lock()
+Situação: Primeira Chamada
+Chamada: com.google.common.util.concurrent.MoreExecutors$DirectExecutorService.isShutdown()
+Situação: Manual
+Chamada: java.util.concurrent.locks.Lock.unlock()
+Situação: Automatizada
+Índice da Sugestão: 1
+Confiança: 1.0
+Suporte: 7.45033E-4
+F-Measure Suporte e Confiança: 0.002
+Corretude/Utilidade dos Métodos
+Método: java.util.concurrent.locks.Lock.unlock()
+Útil
+Percentual de Automatização: 0.5
+Corretude: 1.0
+F-Measure: 0.6666666666666666
+************************ Método Avaliado: com.google.common.util.concurrent.ServiceManager$ServiceManagerState.tryStartTiming(com.google.common.util.concurrent.Service) ************************
+*Commit: commit 150713cb8346a20c89c6bb1a23176942ee7beafc 1406579293 ----sp
+*Alguma Sugestão Fornecida: Sim
+*Alguma Sugestão Aprovada: Sim
+**************************************************************************************************************
+----------------Chamadas de método antigas:---------------
+----------------Chamadas de método novas:---------------
+com.google.common.util.concurrent.Monitor.enter()
+java.util.Map.get(java.lang.Object)
+com.google.common.base.Stopwatch.createStarted()
+java.util.Map.put(com.google.common.util.concurrent.Service, com.google.common.base.Stopwatch)
+com.google.common.util.concurrent.Monitor.leave()
+Chamada: com.google.common.util.concurrent.Monitor.enter()
+Situação: Primeira Chamada
+Chamada: java.util.Map.get(java.lang.Object)
+Situação: Manual
+Chamada: com.google.common.base.Stopwatch.createStarted()
+Situação: Manual
+Chamada: java.util.Map.put(com.google.common.util.concurrent.Service, com.google.common.base.Stopwatch)
+Situação: Manual
+Chamada: com.google.common.util.concurrent.Monitor.leave()
+Situação: Automatizada
+Índice da Sugestão: 1
+Confiança: 1.0
+Suporte: 9.10596E-4
+F-Measure Suporte e Confiança: 0.002
+Corretude/Utilidade dos Métodos
+Método: com.google.common.util.concurrent.Monitor.leave()
+Útil
+Percentual de Automatização: 0.25
+Corretude: 1.0
+F-Measure: 0.4
+************************ Método Avaliado: com.google.common.net.InetAddresses.decrement(java.net.InetAddress) ************************
+*Commit: commit d39130651d8a90f5ebe066de7f0b2311806e5152 1406579293 ----sp
+*Alguma Sugestão Fornecida: Sim
+*Alguma Sugestão Aprovada: Não
+**************************************************************************************************************
+----------------Chamadas de método antigas:---------------
+----------------Chamadas de método novas:---------------
+java.net.InetAddress.getAddress()
+com.google.common.base.Preconditions.checkArgument(Z, java.lang.String, [Ljava.lang.Object;)
+com.google.common.net.InetAddresses.bytesToInetAddress([B)
+Chamada: java.net.InetAddress.getAddress()
+Situação: Primeira Chamada
+Chamada: com.google.common.base.Preconditions.checkArgument(Z, java.lang.String, [Ljava.lang.Object;)
+Situação: Manual
+Chamada: com.google.common.net.InetAddresses.bytesToInetAddress([B)
+Situação: Manual
+Corretude/Utilidade dos Métodos
+Método: com.google.common.base.Preconditions.checkArgument(Z, java.lang.String, [Ljava.lang.Object;)
+Inútil
+Método: java.lang.String.length()
+Inútil
+Percentual de Automatização: 0.0
+Corretude: 0.0
+F-Measure: 0.0
+************************ Método Avaliado: EventBus ************************
+*Commit: commit 7c85e1303b7a506d500652d608329adf5dd90813 1407271082 ----sp
+*Alguma Sugestão Fornecida: Sim
+*Alguma Sugestão Aprovada: Não
+**************************************************************************************************************
+----------------Chamadas de método antigas:---------------
+----------------Chamadas de método novas:---------------
+com.google.common.base.Preconditions.checkNotNull(java.lang.String)
+com.google.common.base.Preconditions.checkNotNull(java.util.concurrent.Executor)
+com.google.common.base.Preconditions.checkNotNull(java.lang.Object)
+com.google.common.base.Preconditions.checkNotNull(com.google.common.eventbus.SubscriberExceptionHandler)
+Chamada: com.google.common.base.Preconditions.checkNotNull(java.lang.String)
+Situação: Primeira Chamada
+Chamada: com.google.common.base.Preconditions.checkNotNull(java.util.concurrent.Executor)
+Situação: Manual
+Chamada: com.google.common.base.Preconditions.checkNotNull(java.lang.Object)
+Situação: Manual
+Chamada: com.google.common.base.Preconditions.checkNotNull(com.google.common.eventbus.SubscriberExceptionHandler)
+Situação: Manual
+Corretude/Utilidade dos Métodos
+Método: java.lang.StringBuilder.append(java.lang.String)
+Inútil
+Método: java.lang.StringBuilder.toString()
+Inútil
+Método: java.lang.String.length()
+Inútil
+Método: java.lang.String.charAt(I)
+Inútil
+Percentual de Automatização: 0.0
+Corretude: 0.0
+F-Measure: 0.0
+************************ Método Avaliado: com.google.common.eventbus.SubscriberRegistry.getAnnotatedMethodsNotCached(java.lang.Class) ************************
+*Commit: commit 7c85e1303b7a506d500652d608329adf5dd90813 1407271082 ----sp
+*Alguma Sugestão Fornecida: Sim
+*Alguma Sugestão Aprovada: Não
+**************************************************************************************************************
+----------------Chamadas de método antigas:---------------
+----------------Chamadas de método novas:---------------
+com.google.common.reflect.TypeToken.of(java.lang.Class)
+com.google.common.reflect.TypeToken.getTypes()
+com.google.common.reflect.TypeToken$TypeSet.rawTypes()
+com.google.common.collect.Maps.newHashMap()
+java.lang.Class.getDeclaredMethods()
+java.lang.reflect.AccessibleObject.isAnnotationPresent(java.lang.Class)
+java.lang.reflect.Method.isSynthetic()
+java.lang.reflect.Method.getParameterTypes()
+com.google.common.base.Preconditions.checkArgument(Z, java.lang.String, [Ljava.lang.Object;)
+java.util.Map.containsKey(java.lang.Object)
+java.util.Map.put(com.google.common.eventbus.SubscriberRegistry$MethodIdentifier, java.lang.reflect.Method)
+java.util.Map.values()
+com.google.common.collect.ImmutableList.copyOf(java.util.Collection)
+Chamada: com.google.common.reflect.TypeToken.of(java.lang.Class)
+Situação: Primeira Chamada
+Chamada: com.google.common.reflect.TypeToken.getTypes()
+Situação: Manual
+Chamada: com.google.common.reflect.TypeToken$TypeSet.rawTypes()
+Situação: Manual
+Chamada: com.google.common.collect.Maps.newHashMap()
+Situação: Manual
+Chamada: java.lang.Class.getDeclaredMethods()
+Situação: Manual
+Chamada: java.lang.reflect.AccessibleObject.isAnnotationPresent(java.lang.Class)
+Situação: Manual
+Chamada: java.lang.reflect.Method.isSynthetic()
+Situação: Manual
+Chamada: java.lang.reflect.Method.getParameterTypes()
+Situação: Manual
+Chamada: com.google.common.base.Preconditions.checkArgument(Z, java.lang.String, [Ljava.lang.Object;)
+Situação: Manual
+Chamada: java.util.Map.containsKey(java.lang.Object)
+Situação: Manual
+Chamada: java.util.Map.put(com.google.common.eventbus.SubscriberRegistry$MethodIdentifier, java.lang.reflect.Method)
+Situação: Manual
+Chamada: java.util.Map.values()
+Situação: Manual
+Chamada: com.google.common.collect.ImmutableList.copyOf(java.util.Collection)
+Situação: Manual
+Corretude/Utilidade dos Métodos
+Método: java.util.Map.remove(java.lang.Object)
+Inútil
+Método: com.google.common.base.Preconditions.checkArgument(Z, java.lang.String, [Ljava.lang.Object;)
+Inútil
+Método: java.lang.String.length()
+Inútil
+Método: java.util.Map.get(java.lang.Object)
+Inútil
+Percentual de Automatização: 0.0
+Corretude: 0.0
+F-Measure: 0.0
+************************ Método Avaliado: getSubscribers ************************
+*Commit: commit 7c85e1303b7a506d500652d608329adf5dd90813 1407271082 ----sp
+*Alguma Sugestão Fornecida: Sim
+*Alguma Sugestão Aprovada: Não
+**************************************************************************************************************
+----------------Chamadas de método antigas:---------------
+----------------Chamadas de método novas:---------------
+java.lang.Object.getClass()
+com.google.common.eventbus.SubscriberRegistry.flattenHierarchy(java.lang.Class)
+java.util.AbstractCollection.size()
+newArrayListWithCapacity
+get
+iterator
+add
+iterator
+com.google.common.collect.Iterators.concat([Ljava.util.Iterator;)
+Chamada: java.lang.Object.getClass()
+Situação: Primeira Chamada
+Chamada: com.google.common.eventbus.SubscriberRegistry.flattenHierarchy(java.lang.Class)
+Situação: Manual
+Chamada: java.util.AbstractCollection.size()
+Situação: Manual
+Chamada: newArrayListWithCapacity
+Situação: Manual
+Chamada: get
+Situação: Manual
+Chamada: iterator
+Situação: Manual
+Chamada: add
+Situação: Manual
+Chamada: iterator
+Situação: Manual
+Chamada: com.google.common.collect.Iterators.concat([Ljava.util.Iterator;)
+Situação: Manual
+Corretude/Utilidade dos Métodos
+Método: java.util.AbstractCollection.size()
+Inútil
+Método: java.util.List.get(I)
+Inútil
+Percentual de Automatização: 0.0
+Corretude: 0.0
+F-Measure: 0.0
+************************ Método Avaliado: com.google.common.eventbus.SubscriberRegistry$MethodIdentifier.equals(java.lang.Object) ************************
+*Commit: commit 7c85e1303b7a506d500652d608329adf5dd90813 1407271082 ----sp
+*Alguma Sugestão Fornecida: Sim
+*Alguma Sugestão Aprovada: Não
+**************************************************************************************************************
+----------------Chamadas de método antigas:---------------
+----------------Chamadas de método novas:---------------
+java.lang.String.equals(java.lang.Object)
+java.util.List.equals(java.lang.Object)
+Chamada: java.lang.String.equals(java.lang.Object)
+Situação: Primeira Chamada
+Chamada: java.util.List.equals(java.lang.Object)
+Situação: Manual
+Corretude/Utilidade dos Métodos
+Método: java.lang.String.equals(java.lang.Object)
+Inútil
+Percentual de Automatização: 0.0
+Corretude: 0.0
+F-Measure: 0.0
+************************ Método Avaliado: com.google.common.io.ByteSource$ByteArrayByteSource.truncate(java.lang.CharSequence, I, java.lang.String) ************************
+*Commit: commit 6c9f886357a277e0fde19b87556eb7c0fa617e14 1409831465 ----sp
+*Alguma Sugestão Fornecida: Sim
+*Alguma Sugestão Aprovada: Sim
+**************************************************************************************************************
+----------------Chamadas de método antigas:---------------
+----------------Chamadas de método novas:---------------
+com.google.common.base.Preconditions.checkNotNull(java.lang.CharSequence)
+java.lang.String.length()
+java.lang.String.length()
+com.google.common.base.Preconditions.checkArgument(Z, java.lang.String, [Ljava.lang.Object;)
+java.lang.CharSequence.length()
+java.lang.CharSequence.toString()
+java.lang.String.length()
+java.lang.StringBuilder.append(java.lang.CharSequence, I, I)
+java.lang.StringBuilder.append(java.lang.String)
+java.lang.StringBuilder.toString()
+Chamada: com.google.common.base.Preconditions.checkNotNull(java.lang.CharSequence)
+Situação: Primeira Chamada
+Chamada: java.lang.String.length()
+Situação: Manual
+Chamada: java.lang.String.length()
+Situação: Automatizada
+Índice da Sugestão: 2
+Confiança: 0.31579047756297496
+Suporte: 0.00149007
+F-Measure Suporte e Confiança: 0.003
+Chamada: com.google.common.base.Preconditions.checkArgument(Z, java.lang.String, [Ljava.lang.Object;)
+Situação: Manual
+Chamada: java.lang.CharSequence.length()
+Situação: Manual
+Chamada: java.lang.CharSequence.toString()
+Situação: Automatizada
+Índice da Sugestão: 5
+Confiança: 0.18181828165289546
+Suporte: 8.27815E-4
+F-Measure Suporte e Confiança: 0.002
+Chamada: java.lang.String.length()
+Situação: Automatizada
+Índice da Sugestão: 2
+Confiança: 0.3333326622239224
+Suporte: 4.96689E-4
+F-Measure Suporte e Confiança: 0.001
+Chamada: java.lang.StringBuilder.append(java.lang.CharSequence, I, I)
+Situação: Manual
+Chamada: java.lang.StringBuilder.append(java.lang.String)
+Situação: Automatizada
+Índice da Sugestão: 4
+Confiança: 0.1929825751185748
+Suporte: 9.10596E-4
+F-Measure Suporte e Confiança: 0.002
+Chamada: java.lang.StringBuilder.toString()
+Situação: Automatizada
+Índice da Sugestão: 3
+Confiança: 0.2280705472455463
+Suporte: 0.00107616
+F-Measure Suporte e Confiança: 0.003
+Corretude/Utilidade dos Métodos
+Método: java.lang.StringBuilder.append(C)
+Inútil
+Método: com.google.common.base.Preconditions.checkArgument(Z, java.lang.String, [Ljava.lang.Object;)
+Inútil
+Método: java.lang.StringBuilder.append(java.lang.String)
+Útil
+Método: com.google.common.base.CharMatcher.matches(C)
+Inútil
+Método: java.lang.StringBuilder.toString()
+Útil
+Método: java.lang.String.length()
+Útil
+Método: java.lang.CharSequence.toString()
+Útil
+Método: java.lang.CharSequence.charAt(I)
+Inútil
+Método: java.lang.String.charAt(I)
+Inútil
+Percentual de Automatização: 0.5555555555555556
+Corretude: 0.4444444444444444
+F-Measure: 0.49382716049382713
+************************ Método Avaliado: com.google.common.io.CharSource$CharSequenceCharSource.truncate(java.lang.CharSequence, I, java.lang.String) ************************
+*Commit: commit 6c9f886357a277e0fde19b87556eb7c0fa617e14 1409831465 ----sp
+*Alguma Sugestão Fornecida: Sim
+*Alguma Sugestão Aprovada: Sim
+**************************************************************************************************************
+----------------Chamadas de método antigas:---------------
+----------------Chamadas de método novas:---------------
+com.google.common.base.Preconditions.checkNotNull(java.lang.CharSequence)
+java.lang.String.length()
+java.lang.String.length()
+com.google.common.base.Preconditions.checkArgument(Z, java.lang.String, [Ljava.lang.Object;)
+java.lang.CharSequence.length()
+java.lang.CharSequence.toString()
+java.lang.String.length()
+java.lang.StringBuilder.append(java.lang.CharSequence, I, I)
+java.lang.StringBuilder.append(java.lang.String)
+java.lang.StringBuilder.toString()
+Chamada: com.google.common.base.Preconditions.checkNotNull(java.lang.CharSequence)
+Situação: Primeira Chamada
+Chamada: java.lang.String.length()
+Situação: Manual
+Chamada: java.lang.String.length()
+Situação: Automatizada
+Índice da Sugestão: 2
+Confiança: 0.31579047756297496
+Suporte: 0.00149007
+F-Measure Suporte e Confiança: 0.003
+Chamada: com.google.common.base.Preconditions.checkArgument(Z, java.lang.String, [Ljava.lang.Object;)
+Situação: Manual
+Chamada: java.lang.CharSequence.length()
+Situação: Manual
+Chamada: java.lang.CharSequence.toString()
+Situação: Automatizada
+Índice da Sugestão: 5
+Confiança: 0.18181828165289546
+Suporte: 8.27815E-4
+F-Measure Suporte e Confiança: 0.002
+Chamada: java.lang.String.length()
+Situação: Automatizada
+Índice da Sugestão: 2
+Confiança: 0.3333326622239224
+Suporte: 4.96689E-4
+F-Measure Suporte e Confiança: 0.001
+Chamada: java.lang.StringBuilder.append(java.lang.CharSequence, I, I)
+Situação: Manual
+Chamada: java.lang.StringBuilder.append(java.lang.String)
+Situação: Automatizada
+Índice da Sugestão: 4
+Confiança: 0.1929825751185748
+Suporte: 9.10596E-4
+F-Measure Suporte e Confiança: 0.002
+Chamada: java.lang.StringBuilder.toString()
+Situação: Automatizada
+Índice da Sugestão: 3
+Confiança: 0.2280705472455463
+Suporte: 0.00107616
+F-Measure Suporte e Confiança: 0.003
+Corretude/Utilidade dos Métodos
+Método: java.lang.StringBuilder.append(C)
+Inútil
+Método: com.google.common.base.Preconditions.checkArgument(Z, java.lang.String, [Ljava.lang.Object;)
+Inútil
+Método: java.lang.StringBuilder.append(java.lang.String)
+Útil
+Método: com.google.common.base.CharMatcher.matches(C)
+Inútil
+Método: java.lang.StringBuilder.toString()
+Útil
+Método: java.lang.String.length()
+Útil
+Método: java.lang.CharSequence.toString()
+Útil
+Método: java.lang.CharSequence.charAt(I)
+Inútil
+Método: java.lang.String.charAt(I)
+Inútil
+Percentual de Automatização: 0.5555555555555556
+Corretude: 0.4444444444444444
+F-Measure: 0.49382716049382713
+************************ Método Avaliado: com.google.common.collect.ImmutableSortedMap.ofEntries([Lcom.google.common.collect.ImmutableMapEntry$TerminalEntry;) ************************
+*Commit: commit f2fb1352a5ee1b808635f699b93311698d9c5bef 1411502654 ----sp
+*Alguma Sugestão Fornecida: Sim
+*Alguma Sugestão Aprovada: Não
+**************************************************************************************************************
+----------------Chamadas de método antigas:---------------
+----------------Chamadas de método novas:---------------
+com.google.common.collect.Ordering.natural()
+com.google.common.collect.ImmutableSortedMap.fromEntries(java.util.Comparator, Z, [Ljava.util.Map$Entry;, I)
+Chamada: com.google.common.collect.Ordering.natural()
+Situação: Primeira Chamada
+Chamada: com.google.common.collect.ImmutableSortedMap.fromEntries(java.util.Comparator, Z, [Ljava.util.Map$Entry;, I)
+Situação: Manual
+Corretude/Utilidade dos Métodos
+Método: com.google.common.collect.Ordering.reverse()
+Inútil
+Método: com.google.common.collect.ImmutableSortedSet.construct(java.util.Comparator, I, [Ljava.lang.Comparable;)
+Inútil
+Método: com.google.common.collect.ImmutableSortedMultiset.copyOf(java.util.Comparator, java.lang.Iterable)
+Inútil
+Percentual de Automatização: 0.0
+Corretude: 0.0
+F-Measure: 0.0
+************************ Método Avaliado: com.google.common.collect.ImmutableSortedMap.fromEntries(java.util.Comparator, Z, [Ljava.util.Map$Entry;, I) ************************
+*Commit: commit f2fb1352a5ee1b808635f699b93311698d9c5bef 1411502654 ----sp
+*Alguma Sugestão Fornecida: Sim
+*Alguma Sugestão Aprovada: Sim
+**************************************************************************************************************
+----------------Chamadas de método antigas:---------------
+----------------Chamadas de método novas:---------------
+com.google.common.collect.ImmutableSortedMap.emptyMap(java.util.Comparator)
+java.util.Map$Entry.getKey()
+java.util.Map$Entry.getValue()
+com.google.common.collect.ImmutableSortedMap.of(java.util.Comparator, com.google.common.collect.ImmutableSortedMap$(Ljava/util/Comparator;Z[Ljava/util/Map$Entry;I)Lcom/google/common/collect/ImmutableSortedMap;$K, com.google.common.collect.ImmutableSortedMap$(Ljava/util/Comparator;Z[Ljava/util/Map$Entry;I)Lcom/google/common/collect/ImmutableSortedMap;$V)
+java.util.Map$Entry.getKey()
+java.util.Map$Entry.getValue()
+com.google.common.collect.CollectPreconditions.checkEntryNotNull(java.lang.Object, java.lang.Object)
+com.google.common.collect.Ordering.from(java.util.Comparator)
+com.google.common.collect.Ordering.onKeys()
+java.util.Arrays.sort([Ljava.util.Map$Entry;, I, I, java.util.Comparator)
+java.util.Map$Entry.getKey()
+java.util.Map$Entry.getValue()
+java.util.Map$Entry.getKey()
+java.util.Map$Entry.getValue()
+com.google.common.collect.CollectPreconditions.checkEntryNotNull(java.lang.Object, java.lang.Object)
+java.util.Comparator.compare(null, null)
+com.google.common.collect.ImmutableMap.checkNoConflict(Z, java.lang.String, java.util.Map$Entry, java.util.Map$Entry)
+Chamada: com.google.common.collect.ImmutableSortedMap.emptyMap(java.util.Comparator)
+Situação: Primeira Chamada
+Chamada: java.util.Map$Entry.getKey()
+Situação: Manual
+Chamada: java.util.Map$Entry.getValue()
+Situação: Automatizada
+Índice da Sugestão: 1
+Confiança: 0.7142866789717732
+Suporte: 0.00951987
+F-Measure Suporte e Confiança: 0.019
+Chamada: com.google.common.collect.ImmutableSortedMap.of(java.util.Comparator, com.google.common.collect.ImmutableSortedMap$(Ljava/util/Comparator;Z[Ljava/util/Map$Entry;I)Lcom/google/common/collect/ImmutableSortedMap;$K, com.google.common.collect.ImmutableSortedMap$(Ljava/util/Comparator;Z[Ljava/util/Map$Entry;I)Lcom/google/common/collect/ImmutableSortedMap;$V)
+Situação: Manual
+Chamada: java.util.Map$Entry.getKey()
+Situação: Automatizada
+Índice da Sugestão: 4
+Confiança: 0.06211190143909722
+Suporte: 8.27815E-4
+F-Measure Suporte e Confiança: 0.002
+Chamada: java.util.Map$Entry.getValue()
+Situação: Automatizada
+Índice da Sugestão: 2
+Confiança: 0.1388887770373204
+Suporte: 0.00206954
+F-Measure Suporte e Confiança: 0.005
+Chamada: com.google.common.collect.CollectPreconditions.checkEntryNotNull(java.lang.Object, java.lang.Object)
+Situação: Manual
+Chamada: com.google.common.collect.Ordering.from(java.util.Comparator)
+Situação: Manual
+Chamada: com.google.common.collect.Ordering.onKeys()
+Situação: Manual
+Chamada: java.util.Arrays.sort([Ljava.util.Map$Entry;, I, I, java.util.Comparator)
+Situação: Manual
+Chamada: java.util.Map$Entry.getKey()
+Situação: Automatizada
+Índice da Sugestão: 2
+Confiança: 0.14444422074130747
+Suporte: 0.00215232
+F-Measure Suporte e Confiança: 0.005
+Chamada: java.util.Map$Entry.getValue()
+Situação: Automatizada
+Índice da Sugestão: 3
+Confiança: 0.1388887770373204
+Suporte: 0.00206954
+F-Measure Suporte e Confiança: 0.005
+Chamada: java.util.Map$Entry.getKey()
+Situação: Automatizada
+Índice da Sugestão: 2
+Confiança: 0.14444422074130747
+Suporte: 0.00215232
+F-Measure Suporte e Confiança: 0.005
+Chamada: java.util.Map$Entry.getValue()
+Situação: Automatizada
+Índice da Sugestão: 3
+Confiança: 0.1388887770373204
+Suporte: 0.00206954
+F-Measure Suporte e Confiança: 0.005
+Chamada: com.google.common.collect.CollectPreconditions.checkEntryNotNull(java.lang.Object, java.lang.Object)
+Situação: Manual
+Chamada: java.util.Comparator.compare(null, null)
+Situação: Manual
+Chamada: com.google.common.collect.ImmutableMap.checkNoConflict(Z, java.lang.String, java.util.Map$Entry, java.util.Map$Entry)
+Situação: Manual
+Corretude/Utilidade dos Métodos
+Método: java.util.Iterator.remove()
+Inútil
+Método: com.google.common.collect.Ordering.reverse()
+Inútil
+Método: java.util.Map$Entry.getKey()
+Útil
+Método: java.util.Collection.size()
+Inútil
+Método: java.util.Map$Entry.getValue()
+Útil
+Percentual de Automatização: 0.4375
+Corretude: 0.4
+F-Measure: 0.41791044776119407
+************************ Método Avaliado: com.google.common.collect.Lists.indexMap(java.util.Collection) ************************
+*Commit: commit 8061999c2ae5a914ae765c1bdc373b9cc4ee70d0 1411502655 ----sp
+*Alguma Sugestão Fornecida: Sim
+*Alguma Sugestão Aprovada: Não
+**************************************************************************************************************
+----------------Chamadas de método antigas:---------------
+----------------Chamadas de método novas:---------------
+java.util.Collection.size()
+com.google.common.collect.ImmutableMap$Builder.put(com.google.common.collect.Lists$(Ljava/util/Collection;)Lcom/google/common/collect/ImmutableMap;$E, java.lang.Integer)
+com.google.common.collect.ImmutableMap$Builder.build()
+Chamada: java.util.Collection.size()
+Situação: Primeira Chamada
+Chamada: com.google.common.collect.ImmutableMap$Builder.put(com.google.common.collect.Lists$(Ljava/util/Collection;)Lcom/google/common/collect/ImmutableMap;$E, java.lang.Integer)
+Situação: Manual
+Chamada: com.google.common.collect.ImmutableMap$Builder.build()
+Situação: Manual
+Corretude/Utilidade dos Métodos
+Método: java.util.Collection.clear()
+Inútil
+Método: java.util.Collection.size()
+Inútil
+Método: java.util.Map$Entry.getValue()
+Inútil
+Percentual de Automatização: 0.0
+Corretude: 0.0
+F-Measure: 0.0
+************************ Método Avaliado: com.google.common.collect.Lists.indexMap(java.util.Collection) ************************
+*Commit: commit 8061999c2ae5a914ae765c1bdc373b9cc4ee70d0 1411502655 ----sp
+*Alguma Sugestão Fornecida: Sim
+*Alguma Sugestão Aprovada: Não
+**************************************************************************************************************
+----------------Chamadas de método antigas:---------------
+----------------Chamadas de método novas:---------------
+java.util.Collection.size()
+com.google.common.collect.ImmutableMap$Builder.put(com.google.common.collect.Lists$(Ljava/util/Collection;)Lcom/google/common/collect/ImmutableMap;$E, java.lang.Integer)
+com.google.common.collect.ImmutableMap$Builder.build()
+Chamada: java.util.Collection.size()
+Situação: Primeira Chamada
+Chamada: com.google.common.collect.ImmutableMap$Builder.put(com.google.common.collect.Lists$(Ljava/util/Collection;)Lcom/google/common/collect/ImmutableMap;$E, java.lang.Integer)
+Situação: Manual
+Chamada: com.google.common.collect.ImmutableMap$Builder.build()
+Situação: Manual
+Corretude/Utilidade dos Métodos
+Método: java.util.Collection.clear()
+Inútil
+Método: java.util.Collection.size()
+Inútil
+Método: java.util.Map$Entry.getValue()
+Inútil
+Percentual de Automatização: 0.0
+Corretude: 0.0
+F-Measure: 0.0
+************************ Método Avaliado: com.google.common.collect.RegularImmutableMap.checkNoConflictInBucket(java.lang.Object, java.util.Map$Entry, com.google.common.collect.ImmutableMapEntry) ************************
+*Commit: commit 0bb9c27ab75205ffefba86cbb6cc4a3b4ceec988 1411563580 ----sp
+*Alguma Sugestão Fornecida: Sim
+*Alguma Sugestão Aprovada: Não
+**************************************************************************************************************
+----------------Chamadas de método antigas:---------------
+----------------Chamadas de método novas:---------------
+com.google.common.collect.ImmutableMapEntry.getNextInKeyBucket()
+com.google.common.collect.ImmutableEntry.getKey()
+java.lang.Object.equals(java.lang.Object)
+com.google.common.collect.ImmutableMap.checkNoConflict(Z, java.lang.String, java.util.Map$Entry, java.util.Map$Entry)
+Chamada: com.google.common.collect.ImmutableMapEntry.getNextInKeyBucket()
+Situação: Primeira Chamada
+Chamada: com.google.common.collect.ImmutableEntry.getKey()
+Situação: Manual
+Chamada: java.lang.Object.equals(java.lang.Object)
+Situação: Manual
+Chamada: com.google.common.collect.ImmutableMap.checkNoConflict(Z, java.lang.String, java.util.Map$Entry, java.util.Map$Entry)
+Situação: Manual
+Corretude/Utilidade dos Métodos
+Método: java.lang.Object.equals(java.lang.Object)
+Inútil
+Método: com.google.common.collect.ImmutableEntry.getValue()
+Inútil
+Percentual de Automatização: 0.0
+Corretude: 0.0
+F-Measure: 0.0
+************************ Método Avaliado: com.google.common.collect.ImmutableMapEntrySet$RegularEntrySet.iterator() ************************
+*Commit: commit c2748c69b3a77f55990486130a139a161b3e12b2 1411563581 ----sp
+*Alguma Sugestão Fornecida: Sim
+*Alguma Sugestão Aprovada: Sim
+**************************************************************************************************************
+----------------Chamadas de método antigas:---------------
+----------------Chamadas de método novas:---------------
+com.google.common.collect.ImmutableCollection.asList()
+com.google.common.collect.ImmutableList.iterator()
+Chamada: com.google.common.collect.ImmutableCollection.asList()
+Situação: Primeira Chamada
+Chamada: com.google.common.collect.ImmutableList.iterator()
+Situação: Automatizada
+Índice da Sugestão: 2
+Confiança: 0.275862471153766
+Suporte: 6.62252E-4
+F-Measure Suporte e Confiança: 0.002
+Corretude/Utilidade dos Métodos
+Método: java.util.List.get(I)
+Inútil
+Método: com.google.common.collect.ImmutableList.iterator()
+Útil
+Percentual de Automatização: 1.0
+Corretude: 0.5
+F-Measure: 0.6666666666666666
+************************ Método Avaliado: com.google.common.collect.ImmutableMapEntrySet$RegularEntrySet.iterator() ************************
+*Commit: commit c2748c69b3a77f55990486130a139a161b3e12b2 1411563581 ----sp
+*Alguma Sugestão Fornecida: Sim
+*Alguma Sugestão Aprovada: Sim
+**************************************************************************************************************
+----------------Chamadas de método antigas:---------------
+----------------Chamadas de método novas:---------------
+com.google.common.collect.ImmutableCollection.asList()
+com.google.common.collect.ImmutableList.iterator()
+Chamada: com.google.common.collect.ImmutableCollection.asList()
+Situação: Primeira Chamada
+Chamada: com.google.common.collect.ImmutableList.iterator()
+Situação: Automatizada
+Índice da Sugestão: 2
+Confiança: 0.275862471153766
+Suporte: 6.62252E-4
+F-Measure Suporte e Confiança: 0.002
+Corretude/Utilidade dos Métodos
+Método: java.util.List.get(I)
+Inútil
+Método: com.google.common.collect.ImmutableList.iterator()
+Útil
+Percentual de Automatização: 1.0
+Corretude: 0.5
+F-Measure: 0.6666666666666666
+************************ Método Avaliado: com.google.common.collect.ImmutableMap.copyOfEnumMap(java.util.EnumMap) ************************
+*Commit: commit 544b57a25702ee58b9b87c3673b8748352a429e3 1411563584 ----sp
+*Alguma Sugestão Fornecida: Sim
+*Alguma Sugestão Aprovada: Sim
+**************************************************************************************************************
+----------------Chamadas de método antigas:---------------
+----------------Chamadas de método novas:---------------
+java.util.EnumMap.entrySet()
+java.util.Map$Entry.getKey()
+java.util.Map$Entry.getValue()
+com.google.common.collect.CollectPreconditions.checkEntryNotNull(java.lang.Object, java.lang.Object)
+com.google.common.collect.ImmutableEnumMap.asImmutable(java.util.EnumMap)
+Chamada: java.util.EnumMap.entrySet()
+Situação: Primeira Chamada
+Chamada: java.util.Map$Entry.getKey()
+Situação: Manual
+Chamada: java.util.Map$Entry.getValue()
+Situação: Automatizada
+Índice da Sugestão: 1
+Confiança: 0.7142866789717732
+Suporte: 0.00951987
+F-Measure Suporte e Confiança: 0.019
+Chamada: com.google.common.collect.CollectPreconditions.checkEntryNotNull(java.lang.Object, java.lang.Object)
+Situação: Manual
+Chamada: com.google.common.collect.ImmutableEnumMap.asImmutable(java.util.EnumMap)
+Situação: Manual
+Corretude/Utilidade dos Métodos
+Método: java.util.Iterator.remove()
+Inútil
+Método: java.util.Map$Entry.getKey()
+Inútil
+Método: java.util.Collection.size()
+Inútil
+Método: java.util.Map$Entry.getValue()
+Útil
+Percentual de Automatização: 0.25
+Corretude: 0.25
+F-Measure: 0.25
+************************ Método Avaliado: com.google.common.collect.RegularImmutableBiMap.checkNoConflictInValueBucket(java.lang.Object, java.util.Map$Entry, com.google.common.collect.ImmutableMapEntry) ************************
+*Commit: commit 842efacbd00611778a4b33d917be6f71542259a8 1411565463 ----sp
+*Alguma Sugestão Fornecida: Sim
+*Alguma Sugestão Aprovada: Não
+**************************************************************************************************************
+----------------Chamadas de método antigas:---------------
+----------------Chamadas de método novas:---------------
+com.google.common.collect.ImmutableMapEntry.getNextInValueBucket()
+com.google.common.collect.ImmutableEntry.getValue()
+java.lang.Object.equals(java.lang.Object)
+com.google.common.collect.ImmutableMap.checkNoConflict(Z, java.lang.String, java.util.Map$Entry, java.util.Map$Entry)
+Chamada: com.google.common.collect.ImmutableMapEntry.getNextInValueBucket()
+Situação: Primeira Chamada
+Chamada: com.google.common.collect.ImmutableEntry.getValue()
+Situação: Manual
+Chamada: java.lang.Object.equals(java.lang.Object)
+Situação: Manual
+Chamada: com.google.common.collect.ImmutableMap.checkNoConflict(Z, java.lang.String, java.util.Map$Entry, java.util.Map$Entry)
+Situação: Manual
+Corretude/Utilidade dos Métodos
+Método: java.lang.Object.equals(java.lang.Object)
+Inútil
+Percentual de Automatização: 0.0
+Corretude: 0.0
+F-Measure: 0.0
+************************ Método Avaliado: com.google.common.collect.RegularImmutableMap.checkNoConflictInKeyBucket(java.lang.Object, java.util.Map$Entry, com.google.common.collect.ImmutableMapEntry) ************************
+*Commit: commit 842efacbd00611778a4b33d917be6f71542259a8 1411565463 ----sp
+*Alguma Sugestão Fornecida: Sim
+*Alguma Sugestão Aprovada: Não
+**************************************************************************************************************
+----------------Chamadas de método antigas:---------------
+----------------Chamadas de método novas:---------------
+com.google.common.collect.ImmutableMapEntry.getNextInKeyBucket()
+com.google.common.collect.ImmutableEntry.getKey()
+java.lang.Object.equals(java.lang.Object)
+com.google.common.collect.ImmutableMap.checkNoConflict(Z, java.lang.String, java.util.Map$Entry, java.util.Map$Entry)
+Chamada: com.google.common.collect.ImmutableMapEntry.getNextInKeyBucket()
+Situação: Primeira Chamada
+Chamada: com.google.common.collect.ImmutableEntry.getKey()
+Situação: Manual
+Chamada: java.lang.Object.equals(java.lang.Object)
+Situação: Manual
+Chamada: com.google.common.collect.ImmutableMap.checkNoConflict(Z, java.lang.String, java.util.Map$Entry, java.util.Map$Entry)
+Situação: Manual
+Corretude/Utilidade dos Métodos
+Método: java.lang.Object.equals(java.lang.Object)
+Inútil
+Método: com.google.common.collect.ImmutableEntry.getValue()
+Inútil
+Percentual de Automatização: 0.0
+Corretude: 0.0
+F-Measure: 0.0
+************************ Método Avaliado: com.google.common.collect.RegularImmutableMap.get(java.lang.Object, [Lcom.google.common.collect.ImmutableMapEntry;, I) ************************
+*Commit: commit 842efacbd00611778a4b33d917be6f71542259a8 1411565463 ----sp
+*Alguma Sugestão Fornecida: Sim
+*Alguma Sugestão Aprovada: Sim
+**************************************************************************************************************
+----------------Chamadas de método antigas:---------------
+----------------Chamadas de método novas:---------------
+java.lang.Object.hashCode()
+com.google.common.collect.Hashing.smear(I)
+com.google.common.collect.ImmutableMapEntry.getNextInKeyBucket()
+com.google.common.collect.ImmutableEntry.getKey()
+java.lang.Object.equals(java.lang.Object)
+com.google.common.collect.ImmutableEntry.getValue()
+Chamada: java.lang.Object.hashCode()
+Situação: Primeira Chamada
+Chamada: com.google.common.collect.Hashing.smear(I)
+Situação: Automatizada
+Índice da Sugestão: 2
+Confiança: 0.18032782340232134
+Suporte: 9.10596E-4
+F-Measure Suporte e Confiança: 0.002
+Chamada: com.google.common.collect.ImmutableMapEntry.getNextInKeyBucket()
+Situação: Manual
+Chamada: com.google.common.collect.ImmutableEntry.getKey()
+Situação: Manual
+Chamada: java.lang.Object.equals(java.lang.Object)
+Situação: Automatizada
+Índice da Sugestão: 3
+Confiança: 0.11475403343188763
+Suporte: 5.7947E-4
+F-Measure Suporte e Confiança: 0.002
+Chamada: com.google.common.collect.ImmutableEntry.getValue()
+Situação: Automatizada
+Índice da Sugestão: 1
+Confiança: 0.7692304118346713
+Suporte: 8.27815E-4
+F-Measure Suporte e Confiança: 0.002
+Corretude/Utilidade dos Métodos
+Método: java.lang.Object.equals(java.lang.Object)
+Útil
+Método: java.lang.Object.hashCode()
+Inútil
+Método: com.google.common.collect.ImmutableEntry.getValue()
+Útil
+Método: com.google.common.collect.Hashing.smear(I)
+Útil
+Percentual de Automatização: 0.6
+Corretude: 0.75
+F-Measure: 0.6666666666666665
+************************ Método Avaliado: com.google.common.collect.ImmutableMap$MapViewOfValuesAsSingletonSets.entryIterator() ************************
+*Commit: commit 055f93996fe9dba92972a7a1742b182fd80ed133 1412002416 ----sp
+*Alguma Sugestão Fornecida: Sim
+*Alguma Sugestão Aprovada: Sim
+**************************************************************************************************************
+----------------Chamadas de método antigas:---------------
+----------------Chamadas de método novas:---------------
+com.google.common.collect.ImmutableMap.entrySet()
+com.google.common.collect.ImmutableSet.iterator()
+java.util.Iterator.hasNext()
+java.util.Iterator.next()
+java.util.Map$Entry.getKey()
+java.util.Map$Entry.getValue()
+com.google.common.collect.ImmutableSet.of(com.google.common.collect.ImmutableMap$V)
+Chamada: com.google.common.collect.ImmutableMap.entrySet()
+Situação: Primeira Chamada
+Chamada: com.google.common.collect.ImmutableSet.iterator()
+Situação: Manual
+Chamada: java.util.Iterator.hasNext()
+Situação: Manual
+Chamada: java.util.Iterator.next()
+Situação: Automatizada
+Índice da Sugestão: 1
+Confiança: 0.7487176628010704
+Suporte: 0.0120861
+F-Measure Suporte e Confiança: 0.024
+Chamada: java.util.Map$Entry.getKey()
+Situação: Automatizada
+Índice da Sugestão: 2
+Confiança: 0.6666666666666666
+Suporte: 6.62252E-4
+F-Measure Suporte e Confiança: 0.002
+Chamada: java.util.Map$Entry.getValue()
+Situação: Automatizada
+Índice da Sugestão: 1
+Confiança: 0.6666666666666666
+Suporte: 6.62252E-4
+F-Measure Suporte e Confiança: 0.002
+Chamada: com.google.common.collect.ImmutableSet.of(com.google.common.collect.ImmutableMap$V)
+Situação: Manual
+Corretude/Utilidade dos Métodos
+Método: java.util.Iterator.remove()
+Inútil
+Método: java.util.Iterator.hasNext()
+Inútil
+Método: java.util.Map$Entry.getKey()
+Útil
+Método: com.google.common.collect.AbstractIterator.endOfData()
+Inútil
+Método: java.util.Iterator.next()
+Útil
+Método: java.util.Map$Entry.getValue()
+Útil
+Percentual de Automatização: 0.5
+Corretude: 0.5
+F-Measure: 0.5
+************************ Método Avaliado: com.google.common.collect.DenseImmutableTable$ImmutableArrayMap.entryIterator() ************************
+*Commit: commit 055f93996fe9dba92972a7a1742b182fd80ed133 1412002416 ----sp
+*Alguma Sugestão Fornecida: Sim
+*Alguma Sugestão Aprovada: Não
+**************************************************************************************************************
+----------------Chamadas de método antigas:---------------
+----------------Chamadas de método novas:---------------
+com.google.common.collect.DenseImmutableTable$ImmutableArrayMap.keyToIndex()
+java.util.Map.size()
+com.google.common.collect.DenseImmutableTable$ImmutableArrayMap.getValue(I)
+com.google.common.collect.DenseImmutableTable$ImmutableArrayMap.getKey(I)
+com.google.common.collect.Maps.immutableEntry(com.google.common.collect.DenseImmutableTable$ImmutableArrayMap$K, com.google.common.collect.DenseImmutableTable$ImmutableArrayMap$V)
+com.google.common.collect.AbstractIterator.endOfData()
+Chamada: com.google.common.collect.DenseImmutableTable$ImmutableArrayMap.keyToIndex()
+Situação: Primeira Chamada
+Chamada: java.util.Map.size()
+Situação: Manual
+Chamada: com.google.common.collect.DenseImmutableTable$ImmutableArrayMap.getValue(I)
+Situação: Manual
+Chamada: com.google.common.collect.DenseImmutableTable$ImmutableArrayMap.getKey(I)
+Situação: Manual
+Chamada: com.google.common.collect.Maps.immutableEntry(com.google.common.collect.DenseImmutableTable$ImmutableArrayMap$K, com.google.common.collect.DenseImmutableTable$ImmutableArrayMap$V)
+Situação: Manual
+Chamada: com.google.common.collect.AbstractIterator.endOfData()
+Situação: Manual
+Corretude/Utilidade dos Métodos
+Método: java.util.Map$Entry.getKey()
+Inútil
+Método: java.util.Map.entrySet()
+Inútil
+Método: java.util.Map$Entry.getValue()
+Inútil
+Percentual de Automatização: 0.0
+Corretude: 0.0
+F-Measure: 0.0
+************************ Método Avaliado: com.google.common.collect.ImmutableMap$MapViewOfValuesAsSingletonSets.entryIterator() ************************
+*Commit: commit 055f93996fe9dba92972a7a1742b182fd80ed133 1412002416 ----sp
+*Alguma Sugestão Fornecida: Sim
+*Alguma Sugestão Aprovada: Sim
+**************************************************************************************************************
+----------------Chamadas de método antigas:---------------
+----------------Chamadas de método novas:---------------
+com.google.common.collect.ImmutableMap.entrySet()
+com.google.common.collect.ImmutableSet.iterator()
+java.util.Iterator.hasNext()
+java.util.Iterator.next()
+java.util.Map$Entry.getKey()
+java.util.Map$Entry.getValue()
+com.google.common.collect.ImmutableSet.of(com.google.common.collect.ImmutableMap$V)
+Chamada: com.google.common.collect.ImmutableMap.entrySet()
+Situação: Primeira Chamada
+Chamada: com.google.common.collect.ImmutableSet.iterator()
+Situação: Manual
+Chamada: java.util.Iterator.hasNext()
+Situação: Manual
+Chamada: java.util.Iterator.next()
+Situação: Automatizada
+Índice da Sugestão: 1
+Confiança: 0.7487176628010704
+Suporte: 0.0120861
+F-Measure Suporte e Confiança: 0.024
+Chamada: java.util.Map$Entry.getKey()
+Situação: Automatizada
+Índice da Sugestão: 2
+Confiança: 0.6666666666666666
+Suporte: 6.62252E-4
+F-Measure Suporte e Confiança: 0.002
+Chamada: java.util.Map$Entry.getValue()
+Situação: Automatizada
+Índice da Sugestão: 1
+Confiança: 0.6666666666666666
+Suporte: 6.62252E-4
+F-Measure Suporte e Confiança: 0.002
+Chamada: com.google.common.collect.ImmutableSet.of(com.google.common.collect.ImmutableMap$V)
+Situação: Manual
+Corretude/Utilidade dos Métodos
+Método: java.util.Iterator.remove()
+Inútil
+Método: java.util.Iterator.hasNext()
+Inútil
+Método: java.util.Map$Entry.getKey()
+Útil
+Método: com.google.common.collect.AbstractIterator.endOfData()
+Inútil
+Método: java.util.Iterator.next()
+Útil
+Método: java.util.Map$Entry.getValue()
+Útil
+Percentual de Automatização: 0.5
+Corretude: 0.5
+F-Measure: 0.5
+************************ Método Avaliado: com.google.common.collect.ImmutableMap.keyIterator() ************************
+*Commit: commit 366da0b7956e2ae3e794c0d600d21e5dc7a404f0 1412002930 ----sp
+*Alguma Sugestão Fornecida: Sim
+*Alguma Sugestão Aprovada: Sim
+**************************************************************************************************************
+----------------Chamadas de método antigas:---------------
+----------------Chamadas de método novas:---------------
+com.google.common.collect.ImmutableMap.entrySet()
+com.google.common.collect.ImmutableSet.iterator()
+java.util.Iterator.hasNext()
+java.util.Iterator.next()
+java.util.Map$Entry.getKey()
+Chamada: com.google.common.collect.ImmutableMap.entrySet()
+Situação: Primeira Chamada
+Chamada: com.google.common.collect.ImmutableSet.iterator()
+Situação: Manual
+Chamada: java.util.Iterator.hasNext()
+Situação: Manual
+Chamada: java.util.Iterator.next()
+Situação: Automatizada
+Índice da Sugestão: 1
+Confiança: 0.7487176628010704
+Suporte: 0.0120861
+F-Measure Suporte e Confiança: 0.024
+Chamada: java.util.Map$Entry.getKey()
+Situação: Automatizada
+Índice da Sugestão: 2
+Confiança: 0.6666666666666666
+Suporte: 6.62252E-4
+F-Measure Suporte e Confiança: 0.002
+Corretude/Utilidade dos Métodos
+Método: java.util.Iterator.remove()
+Inútil
+Método: java.util.Iterator.hasNext()
+Inútil
+Método: java.util.Map$Entry.getKey()
+Útil
+Método: com.google.common.collect.AbstractIterator.endOfData()
+Inútil
+Método: java.util.Iterator.next()
+Útil
+Método: java.util.Map$Entry.getValue()
+Inútil
+Percentual de Automatização: 0.5
+Corretude: 0.3333333333333333
+F-Measure: 0.4
+************************ Método Avaliado: com.google.common.collect.Maps.unmodifiableEntryIterator(java.util.Iterator) ************************
+*Commit: commit 366da0b7956e2ae3e794c0d600d21e5dc7a404f0 1412002930 ----sp
+*Alguma Sugestão Fornecida: Sim
+*Alguma Sugestão Aprovada: Sim
+**************************************************************************************************************
+----------------Chamadas de método antigas:---------------
+----------------Chamadas de método novas:---------------
+java.util.Iterator.hasNext()
+java.util.Iterator.next()
+com.google.common.collect.Maps.unmodifiableEntry(java.util.Map$Entry)
+Chamada: java.util.Iterator.hasNext()
+Situação: Primeira Chamada
+Chamada: java.util.Iterator.next()
+Situação: Automatizada
+Índice da Sugestão: 1
+Confiança: 0.7487176628010704
+Suporte: 0.0120861
+F-Measure Suporte e Confiança: 0.024
+Chamada: com.google.common.collect.Maps.unmodifiableEntry(java.util.Map$Entry)
+Situação: Manual
+Corretude/Utilidade dos Métodos
+Método: java.util.Iterator.remove()
+Inútil
+Método: java.util.Iterator.hasNext()
+Inútil
+Método: com.google.common.collect.AbstractIterator.endOfData()
+Inútil
+Método: java.util.Iterator.next()
+Útil
+Método: java.util.Map$Entry.getValue()
+Inútil
+Percentual de Automatização: 0.5
+Corretude: 0.2
+F-Measure: 0.28571428571428575
+************************ Método Avaliado: com.google.common.collect.ImmutableEnumMap.keyIterator() ************************
+*Commit: commit 366da0b7956e2ae3e794c0d600d21e5dc7a404f0 1412002930 ----sp
+*Alguma Sugestão Fornecida: Sim
+*Alguma Sugestão Aprovada: Não
+**************************************************************************************************************
+----------------Chamadas de método antigas:---------------
+----------------Chamadas de método novas:---------------
+java.util.EnumMap.keySet()
+java.util.Set.iterator()
+com.google.common.collect.Iterators.unmodifiableIterator(java.util.Iterator)
+Chamada: java.util.EnumMap.keySet()
+Situação: Primeira Chamada
+Chamada: java.util.Set.iterator()
+Situação: Manual
+Chamada: com.google.common.collect.Iterators.unmodifiableIterator(java.util.Iterator)
+Situação: Manual
+Corretude/Utilidade dos Métodos
+Método: java.util.Iterator.remove()
+Inútil
+Método: java.util.Iterator.hasNext()
+Inútil
+Método: java.util.Iterator.next()
+Inútil
+Método: java.util.Map$Entry.getValue()
+Inútil
+Percentual de Automatização: 0.0
+Corretude: 0.0
+F-Measure: 0.0
+************************ Método Avaliado: com.google.common.collect.ImmutableMap.keyIterator() ************************
+*Commit: commit 366da0b7956e2ae3e794c0d600d21e5dc7a404f0 1412002930 ----sp
+*Alguma Sugestão Fornecida: Sim
+*Alguma Sugestão Aprovada: Sim
+**************************************************************************************************************
+----------------Chamadas de método antigas:---------------
+----------------Chamadas de método novas:---------------
+com.google.common.collect.ImmutableMap.entrySet()
+com.google.common.collect.ImmutableSet.iterator()
+java.util.Iterator.hasNext()
+java.util.Iterator.next()
+java.util.Map$Entry.getKey()
+Chamada: com.google.common.collect.ImmutableMap.entrySet()
+Situação: Primeira Chamada
+Chamada: com.google.common.collect.ImmutableSet.iterator()
+Situação: Manual
+Chamada: java.util.Iterator.hasNext()
+Situação: Manual
+Chamada: java.util.Iterator.next()
+Situação: Automatizada
+Índice da Sugestão: 1
+Confiança: 0.7487176628010704
+Suporte: 0.0120861
+F-Measure Suporte e Confiança: 0.024
+Chamada: java.util.Map$Entry.getKey()
+Situação: Automatizada
+Índice da Sugestão: 2
+Confiança: 0.6666666666666666
+Suporte: 6.62252E-4
+F-Measure Suporte e Confiança: 0.002
+Corretude/Utilidade dos Métodos
+Método: java.util.Iterator.remove()
+Inútil
+Método: java.util.Iterator.hasNext()
+Inútil
+Método: java.util.Map$Entry.getKey()
+Útil
+Método: com.google.common.collect.AbstractIterator.endOfData()
+Inútil
+Método: java.util.Iterator.next()
+Útil
+Método: java.util.Map$Entry.getValue()
+Inútil
+Percentual de Automatização: 0.5
+Corretude: 0.3333333333333333
+F-Measure: 0.4
+************************ Método Avaliado: com.google.common.collect.Maps.unmodifiableEntryIterator(java.util.Iterator) ************************
+*Commit: commit 366da0b7956e2ae3e794c0d600d21e5dc7a404f0 1412002930 ----sp
+*Alguma Sugestão Fornecida: Sim
+*Alguma Sugestão Aprovada: Sim
+**************************************************************************************************************
+----------------Chamadas de método antigas:---------------
+----------------Chamadas de método novas:---------------
+java.util.Iterator.hasNext()
+java.util.Iterator.next()
+com.google.common.collect.Maps.unmodifiableEntry(java.util.Map$Entry)
+Chamada: java.util.Iterator.hasNext()
+Situação: Primeira Chamada
+Chamada: java.util.Iterator.next()
+Situação: Automatizada
+Índice da Sugestão: 1
+Confiança: 0.7487176628010704
+Suporte: 0.0120861
+F-Measure Suporte e Confiança: 0.024
+Chamada: com.google.common.collect.Maps.unmodifiableEntry(java.util.Map$Entry)
+Situação: Manual
+Corretude/Utilidade dos Métodos
+Método: java.util.Iterator.remove()
+Inútil
+Método: java.util.Iterator.hasNext()
+Inútil
+Método: com.google.common.collect.AbstractIterator.endOfData()
+Inútil
+Método: java.util.Iterator.next()
+Útil
+Método: java.util.Map$Entry.getValue()
+Inútil
+Percentual de Automatização: 0.5
+Corretude: 0.2
+F-Measure: 0.28571428571428575
+************************ Método Avaliado: com.google.common.collect.Maps.indexMap(java.util.Collection) ************************
+*Commit: commit f7e4a609d40d6ff422e5c90c860525b45b526250 1412003827 ----sp
+*Alguma Sugestão Fornecida: Sim
+*Alguma Sugestão Aprovada: Não
+**************************************************************************************************************
+----------------Chamadas de método antigas:---------------
+----------------Chamadas de método novas:---------------
+java.util.Collection.size()
+com.google.common.collect.ImmutableMap$Builder.put(com.google.common.collect.Maps$(Ljava/util/Collection;)Lcom/google/common/collect/ImmutableMap;$E, java.lang.Integer)
+com.google.common.collect.ImmutableMap$Builder.build()
+Chamada: java.util.Collection.size()
+Situação: Primeira Chamada
+Chamada: com.google.common.collect.ImmutableMap$Builder.put(com.google.common.collect.Maps$(Ljava/util/Collection;)Lcom/google/common/collect/ImmutableMap;$E, java.lang.Integer)
+Situação: Manual
+Chamada: com.google.common.collect.ImmutableMap$Builder.build()
+Situação: Manual
+Corretude/Utilidade dos Métodos
+Método: java.util.Collection.clear()
+Inútil
+Método: java.util.Collection.size()
+Inútil
+Método: java.util.Map$Entry.getValue()
+Inútil
+Percentual de Automatização: 0.0
+Corretude: 0.0
+F-Measure: 0.0
+************************ Método Avaliado: com.google.common.collect.Maps.indexMap(java.util.Collection) ************************
+*Commit: commit f7e4a609d40d6ff422e5c90c860525b45b526250 1412003827 ----sp
+*Alguma Sugestão Fornecida: Sim
+*Alguma Sugestão Aprovada: Não
+**************************************************************************************************************
+----------------Chamadas de método antigas:---------------
+----------------Chamadas de método novas:---------------
+java.util.Collection.size()
+com.google.common.collect.ImmutableMap$Builder.put(com.google.common.collect.Maps$(Ljava/util/Collection;)Lcom/google/common/collect/ImmutableMap;$E, java.lang.Integer)
+com.google.common.collect.ImmutableMap$Builder.build()
+Chamada: java.util.Collection.size()
+Situação: Primeira Chamada
+Chamada: com.google.common.collect.ImmutableMap$Builder.put(com.google.common.collect.Maps$(Ljava/util/Collection;)Lcom/google/common/collect/ImmutableMap;$E, java.lang.Integer)
+Situação: Manual
+Chamada: com.google.common.collect.ImmutableMap$Builder.build()
+Situação: Manual
+Corretude/Utilidade dos Métodos
+Método: java.util.Collection.clear()
+Inútil
+Método: java.util.Collection.size()
+Inútil
+Método: java.util.Map$Entry.getValue()
+Inútil
+Percentual de Automatização: 0.0
+Corretude: 0.0
+F-Measure: 0.0
+************************ Método Avaliado: com.google.common.collect.ImmutableMap.copyOf(java.lang.Iterable) ************************
+*Commit: commit d0a0c8fb1c7df372e617878c1d8414861558637d 1412003977 ----sp
+*Alguma Sugestão Fornecida: Sim
+*Alguma Sugestão Aprovada: Não
+**************************************************************************************************************
+----------------Chamadas de método antigas:---------------
+----------------Chamadas de método novas:---------------
+com.google.common.collect.ImmutableMap.fromEntryList(java.util.Collection)
+java.lang.Iterable.iterator()
+com.google.common.collect.Lists.newArrayList(java.util.Iterator)
+com.google.common.collect.ImmutableMap.fromEntryList(java.util.Collection)
+Chamada: com.google.common.collect.ImmutableMap.fromEntryList(java.util.Collection)
+Situação: Primeira Chamada
+Chamada: java.lang.Iterable.iterator()
+Situação: Manual
+Chamada: com.google.common.collect.Lists.newArrayList(java.util.Iterator)
+Situação: Manual
+Chamada: com.google.common.collect.ImmutableMap.fromEntryList(java.util.Collection)
+Situação: Manual
+Corretude/Utilidade dos Métodos
+Método: java.util.Iterator.hasNext()
+Inútil
+Método: java.util.Iterator.next()
+Inútil
+Percentual de Automatização: 0.0
+Corretude: 0.0
+F-Measure: 0.0
+************************ Método Avaliado: com.google.common.collect.ImmutableMap.fromEntryList(java.util.Collection) ************************
+*Commit: commit d0a0c8fb1c7df372e617878c1d8414861558637d 1412003977 ----sp
+*Alguma Sugestão Fornecida: Sim
+*Alguma Sugestão Aprovada: Sim
+**************************************************************************************************************
+----------------Chamadas de método antigas:---------------
+----------------Chamadas de método novas:---------------
+java.util.Collection.size()
+com.google.common.collect.ImmutableMap.of()
+com.google.common.collect.Iterables.getOnlyElement(java.lang.Iterable)
+java.util.Map$Entry.getKey()
+java.util.Map$Entry.getValue()
+com.google.common.collect.ImmutableMap.of(com.google.common.collect.ImmutableMap$(Ljava/util/Collection;)Lcom/google/common/collect/ImmutableMap;$K, com.google.common.collect.ImmutableMap$(Ljava/util/Collection;)Lcom/google/common/collect/ImmutableMap;$V)
+java.util.Collection.size()
+java.util.Collection.toArray([Ljava.util.Map$Entry;)
+Chamada: java.util.Collection.size()
+Situação: Primeira Chamada
+Chamada: com.google.common.collect.ImmutableMap.of()
+Situação: Manual
+Chamada: com.google.common.collect.Iterables.getOnlyElement(java.lang.Iterable)
+Situação: Manual
+Chamada: java.util.Map$Entry.getKey()
+Situação: Manual
+Chamada: java.util.Map$Entry.getValue()
+Situação: Automatizada
+Índice da Sugestão: 3
+Confiança: 0.10714294959186843
+Suporte: 4.96689E-4
+F-Measure Suporte e Confiança: 0.001
+Chamada: com.google.common.collect.ImmutableMap.of(com.google.common.collect.ImmutableMap$(Ljava/util/Collection;)Lcom/google/common/collect/ImmutableMap;$K, com.google.common.collect.ImmutableMap$(Ljava/util/Collection;)Lcom/google/common/collect/ImmutableMap;$V)
+Situação: Manual
+Chamada: java.util.Collection.size()
+Situação: Automatizada
+Índice da Sugestão: 2
+Confiança: 0.14285726612249125
+Suporte: 6.62252E-4
+F-Measure Suporte e Confiança: 0.002
+Chamada: java.util.Collection.toArray([Ljava.util.Map$Entry;)
+Situação: Manual
+Corretude/Utilidade dos Métodos
+Método: java.util.Iterator.remove()
+Inútil
+Método: java.util.Map$Entry.getKey()
+Inútil
+Método: java.util.Collection.clear()
+Inútil
+Método: java.util.Collection.size()
+Útil
+Método: java.util.Map$Entry.getValue()
+Útil
+Percentual de Automatização: 0.2857142857142857
+Corretude: 0.4
+F-Measure: 0.3333333333333333
+************************ Método Avaliado: com.google.common.collect.ImmutableSetMultimapTest$ImmutableSetMultimapGenerator.create([Ljava.util.Map$Entry;) ************************
+*Commit: commit d0a0c8fb1c7df372e617878c1d8414861558637d 1412003977 ----sp
+*Alguma Sugestão Fornecida: Sim
+*Alguma Sugestão Aprovada: Sim
+**************************************************************************************************************
+----------------Chamadas de método antigas:---------------
+----------------Chamadas de método novas:---------------
+com.google.common.collect.ImmutableSetMultimap.builder()
+java.util.Map$Entry.getKey()
+java.util.Map$Entry.getValue()
+com.google.common.collect.ImmutableSetMultimap$Builder.put(java.lang.String, java.lang.String)
+com.google.common.collect.ImmutableSetMultimap$Builder.build()
+Chamada: com.google.common.collect.ImmutableSetMultimap.builder()
+Situação: Primeira Chamada
+Chamada: java.util.Map$Entry.getKey()
+Situação: Manual
+Chamada: java.util.Map$Entry.getValue()
+Situação: Automatizada
+Índice da Sugestão: 1
+Confiança: 0.7142866789717732
+Suporte: 0.00951987
+F-Measure Suporte e Confiança: 0.019
+Chamada: com.google.common.collect.ImmutableSetMultimap$Builder.put(java.lang.String, java.lang.String)
+Situação: Manual
+Chamada: com.google.common.collect.ImmutableSetMultimap$Builder.build()
+Situação: Automatizada
+Índice da Sugestão: 1
+Confiança: 0.8749992450003926
+Suporte: 5.7947E-4
+F-Measure Suporte e Confiança: 0.002
+Corretude/Utilidade dos Métodos
+Método: java.util.Iterator.remove()
+Inútil
+Método: java.util.Map$Entry.getKey()
+Inútil
+Método: com.google.common.collect.ImmutableSetMultimap$Builder.build()
+Útil
+Método: java.util.Collection.size()
+Inútil
+Método: java.util.Map$Entry.getValue()
+Útil
+Percentual de Automatização: 0.5
+Corretude: 0.4
+F-Measure: 0.4444444444444445
+************************ Método Avaliado: com.google.common.collect.ImmutableBiMap.copyOf(java.lang.Iterable) ************************
+*Commit: commit d0a0c8fb1c7df372e617878c1d8414861558637d 1412003977 ----sp
+*Alguma Sugestão Fornecida: Sim
+*Alguma Sugestão Aprovada: Sim
+**************************************************************************************************************
+----------------Chamadas de método antigas:---------------
+----------------Chamadas de método novas:---------------
+com.google.common.collect.Iterables.toArray(java.lang.Iterable, java.lang.Class)
+com.google.common.collect.ImmutableBiMap.of()
+java.util.Map$Entry.getKey()
+java.util.Map$Entry.getValue()
+com.google.common.collect.ImmutableBiMap.of(com.google.common.collect.ImmutableBiMap$(Ljava/lang/Iterable;)Lcom/google/common/collect/ImmutableBiMap;$K, com.google.common.collect.ImmutableBiMap$(Ljava/lang/Iterable;)Lcom/google/common/collect/ImmutableBiMap;$V)
+Chamada: com.google.common.collect.Iterables.toArray(java.lang.Iterable, java.lang.Class)
+Situação: Primeira Chamada
+Chamada: com.google.common.collect.ImmutableBiMap.of()
+Situação: Manual
+Chamada: java.util.Map$Entry.getKey()
+Situação: Manual
+Chamada: java.util.Map$Entry.getValue()
+Situação: Automatizada
+Índice da Sugestão: 1
+Confiança: 0.7142866789717732
+Suporte: 0.00951987
+F-Measure Suporte e Confiança: 0.019
+Chamada: com.google.common.collect.ImmutableBiMap.of(com.google.common.collect.ImmutableBiMap$(Ljava/lang/Iterable;)Lcom/google/common/collect/ImmutableBiMap;$K, com.google.common.collect.ImmutableBiMap$(Ljava/lang/Iterable;)Lcom/google/common/collect/ImmutableBiMap;$V)
+Situação: Manual
+Corretude/Utilidade dos Métodos
+Método: java.util.Iterator.remove()
+Inútil
+Método: java.util.Map$Entry.getKey()
+Inútil
+Método: java.util.Collection.size()
+Inútil
+Método: java.util.Map$Entry.getValue()
+Útil
+Percentual de Automatização: 0.25
+Corretude: 0.25
+F-Measure: 0.25
+************************ Método Avaliado: com.google.common.collect.ImmutableMap.copyOf(java.lang.Iterable) ************************
+*Commit: commit d0a0c8fb1c7df372e617878c1d8414861558637d 1412003977 ----sp
+*Alguma Sugestão Fornecida: Sim
+*Alguma Sugestão Aprovada: Sim
+**************************************************************************************************************
+----------------Chamadas de método antigas:---------------
+----------------Chamadas de método novas:---------------
+com.google.common.collect.Iterables.toArray(java.lang.Iterable, java.lang.Class)
+com.google.common.collect.ImmutableMap.of()
+java.util.Map$Entry.getKey()
+java.util.Map$Entry.getValue()
+com.google.common.collect.ImmutableMap.of(com.google.common.collect.ImmutableMap$(Ljava/lang/Iterable;)Lcom/google/common/collect/ImmutableMap;$K, com.google.common.collect.ImmutableMap$(Ljava/lang/Iterable;)Lcom/google/common/collect/ImmutableMap;$V)
+Chamada: com.google.common.collect.Iterables.toArray(java.lang.Iterable, java.lang.Class)
+Situação: Primeira Chamada
+Chamada: com.google.common.collect.ImmutableMap.of()
+Situação: Manual
+Chamada: java.util.Map$Entry.getKey()
+Situação: Manual
+Chamada: java.util.Map$Entry.getValue()
+Situação: Automatizada
+Índice da Sugestão: 1
+Confiança: 0.7142866789717732
+Suporte: 0.00951987
+F-Measure Suporte e Confiança: 0.019
+Chamada: com.google.common.collect.ImmutableMap.of(com.google.common.collect.ImmutableMap$(Ljava/lang/Iterable;)Lcom/google/common/collect/ImmutableMap;$K, com.google.common.collect.ImmutableMap$(Ljava/lang/Iterable;)Lcom/google/common/collect/ImmutableMap;$V)
+Situação: Manual
+Corretude/Utilidade dos Métodos
+Método: java.util.Iterator.remove()
+Inútil
+Método: java.util.Map$Entry.getKey()
+Inútil
+Método: java.util.Collection.size()
+Inútil
+Método: java.util.Map$Entry.getValue()
+Útil
+Percentual de Automatização: 0.25
+Corretude: 0.25
+F-Measure: 0.25
+************************ Método Avaliado: com.google.common.collect.Maps$TransformedEntriesMap.entryIterator() ************************
+*Commit: commit 1c5554dedb0924689285a34489ec1d6b57d076e9 1414678021 ----sp
+*Alguma Sugestão Fornecida: Sim
+*Alguma Sugestão Aprovada: Sim
+**************************************************************************************************************
+----------------Chamadas de método antigas:---------------
+----------------Chamadas de método novas:---------------
+java.util.Map.entrySet()
+java.util.Set.iterator()
+com.google.common.collect.Maps.asEntryToEntryFunction(com.google.common.collect.Maps$EntryTransformer)
+com.google.common.collect.Iterators.transform(java.util.Iterator, com.google.common.base.Function)
+Chamada: java.util.Map.entrySet()
+Situação: Primeira Chamada
+Chamada: java.util.Set.iterator()
+Situação: Automatizada
+Índice da Sugestão: 4
+Confiança: 0.261363090392696
+Suporte: 0.00190397
+F-Measure Suporte e Confiança: 0.004
+Chamada: com.google.common.collect.Maps.asEntryToEntryFunction(com.google.common.collect.Maps$EntryTransformer)
+Situação: Manual
+Chamada: com.google.common.collect.Iterators.transform(java.util.Iterator, com.google.common.base.Function)
+Situação: Manual
+Corretude/Utilidade dos Métodos
+Método: java.util.Iterator.hasNext()
+Inútil
+Método: java.util.Map$Entry.getKey()
+Inútil
+Método: java.util.Set.iterator()
+Útil
+Método: java.util.Iterator.next()
+Inútil
+Método: java.util.Map$Entry.getValue()
+Inútil
+Percentual de Automatização: 0.3333333333333333
+Corretude: 0.2
+F-Measure: 0.25
+************************ Método Avaliado: com.google.common.collect.HashBiMap.entryIterator() ************************
+*Commit: commit 1c5554dedb0924689285a34489ec1d6b57d076e9 1414678021 ----sp
+*Alguma Sugestão Fornecida: Sim
+*Alguma Sugestão Aprovada: Sim
+**************************************************************************************************************
+----------------Chamadas de método antigas:---------------
+----------------Chamadas de método novas:---------------
+com.google.common.collect.HashBiMap.hash(java.lang.Object)
+com.google.common.base.Objects.equal(java.lang.Object, java.lang.Object)
+com.google.common.collect.HashBiMap.seekByValue(java.lang.Object, I)
+com.google.common.base.Preconditions.checkArgument(Z, java.lang.String, [Ljava.lang.Object;)
+com.google.common.collect.HashBiMap.delete(com.google.common.collect.HashBiMap$BiEntry)
+com.google.common.collect.HashBiMap.insert(com.google.common.collect.HashBiMap$BiEntry)
+Chamada: com.google.common.collect.HashBiMap.hash(java.lang.Object)
+Situação: Primeira Chamada
+Chamada: com.google.common.base.Objects.equal(java.lang.Object, java.lang.Object)
+Situação: Automatizada
+Índice da Sugestão: 4
+Confiança: 0.4666672035563573
+Suporte: 5.7947E-4
+F-Measure Suporte e Confiança: 0.002
+Chamada: com.google.common.collect.HashBiMap.seekByValue(java.lang.Object, I)
+Situação: Automatizada
+Índice da Sugestão: 3
+Confiança: 0.5333344071127146
+Suporte: 6.62252E-4
+F-Measure Suporte e Confiança: 0.002
+Chamada: com.google.common.base.Preconditions.checkArgument(Z, java.lang.String, [Ljava.lang.Object;)
+Situação: Automatizada
+Índice da Sugestão: 5
+Confiança: 0.2195121448185643
+Suporte: 7.45033E-4
+F-Measure Suporte e Confiança: 0.002
+Chamada: com.google.common.collect.HashBiMap.delete(com.google.common.collect.HashBiMap$BiEntry)
+Situação: Automatizada
+Índice da Sugestão: 1
+Confiança: 0.7333344071127146
+Suporte: 9.10596E-4
+F-Measure Suporte e Confiança: 0.002
+Chamada: com.google.common.collect.HashBiMap.insert(com.google.common.collect.HashBiMap$BiEntry)
+Situação: Automatizada
+Índice da Sugestão: 5
+Confiança: 0.4666672035563573
+Suporte: 5.7947E-4
+F-Measure Suporte e Confiança: 0.002
+Corretude/Utilidade dos Métodos
+Método: com.google.common.collect.HashBiMap.delete(com.google.common.collect.HashBiMap$BiEntry)
+Útil
+Método: com.google.common.base.Preconditions.checkArgument(Z, java.lang.String, [Ljava.lang.Object;)
+Útil
+Método: com.google.common.collect.HashBiMap.insert(com.google.common.collect.HashBiMap$BiEntry)
+Útil
+Método: com.google.common.collect.HashBiMap.seekByKey(java.lang.Object, I)
+Inútil
+Método: com.google.common.base.Objects.equal(java.lang.Object, java.lang.Object)
+Útil
+Método: com.google.common.collect.HashBiMap.seekByValue(java.lang.Object, I)
+Útil
+Percentual de Automatização: 1.0
+Corretude: 0.8333333333333334
+F-Measure: 0.9090909090909091
+************************ Método Avaliado: com.google.common.collect.Maps$TransformedEntriesMap.entryIterator() ************************
+*Commit: commit 1c5554dedb0924689285a34489ec1d6b57d076e9 1414678021 ----sp
+*Alguma Sugestão Fornecida: Sim
+*Alguma Sugestão Aprovada: Sim
+**************************************************************************************************************
+----------------Chamadas de método antigas:---------------
+----------------Chamadas de método novas:---------------
+java.util.Map.entrySet()
+java.util.Set.iterator()
+com.google.common.collect.Maps.asEntryToEntryFunction(com.google.common.collect.Maps$EntryTransformer)
+com.google.common.collect.Iterators.transform(java.util.Iterator, com.google.common.base.Function)
+Chamada: java.util.Map.entrySet()
+Situação: Primeira Chamada
+Chamada: java.util.Set.iterator()
+Situação: Automatizada
+Índice da Sugestão: 4
+Confiança: 0.261363090392696
+Suporte: 0.00190397
+F-Measure Suporte e Confiança: 0.004
+Chamada: com.google.common.collect.Maps.asEntryToEntryFunction(com.google.common.collect.Maps$EntryTransformer)
+Situação: Manual
+Chamada: com.google.common.collect.Iterators.transform(java.util.Iterator, com.google.common.base.Function)
+Situação: Manual
+Corretude/Utilidade dos Métodos
+Método: java.util.Iterator.hasNext()
+Inútil
+Método: java.util.Map$Entry.getKey()
+Inútil
+Método: java.util.Set.iterator()
+Útil
+Método: java.util.Iterator.next()
+Inútil
+Método: java.util.Map$Entry.getValue()
+Inútil
+Percentual de Automatização: 0.3333333333333333
+Corretude: 0.2
+F-Measure: 0.25
+************************ Método Avaliado: com.google.common.collect.StandardTable$Row.entryIterator() ************************
+*Commit: commit 1c5554dedb0924689285a34489ec1d6b57d076e9 1414678021 ----sp
+*Alguma Sugestão Fornecida: Sim
+*Alguma Sugestão Aprovada: Sim
+**************************************************************************************************************
+----------------Chamadas de método antigas:---------------
+----------------Chamadas de método novas:---------------
+com.google.common.collect.StandardTable$Row.backingRowMap()
+com.google.common.collect.Iterators.emptyModifiableIterator()
+java.util.Map.entrySet()
+java.util.Set.iterator()
+java.util.Iterator.hasNext()
+java.util.Iterator.next()
+com.google.common.base.Preconditions.checkNotNull(com.google.common.collect.StandardTable$V)
+com.google.common.collect.ForwardingMapEntry.standardEquals(java.lang.Object)
+java.util.Iterator.remove()
+com.google.common.collect.StandardTable$Row.maintainEmptyInvariant()
+Chamada: com.google.common.collect.StandardTable$Row.backingRowMap()
+Situação: Primeira Chamada
+Chamada: com.google.common.collect.Iterators.emptyModifiableIterator()
+Situação: Manual
+Chamada: java.util.Map.entrySet()
+Situação: Manual
+Chamada: java.util.Set.iterator()
+Situação: Automatizada
+Índice da Sugestão: 4
+Confiança: 0.261363090392696
+Suporte: 0.00190397
+F-Measure Suporte e Confiança: 0.004
+Chamada: java.util.Iterator.hasNext()
+Situação: Automatizada
+Índice da Sugestão: 4
+Confiança: 0.4782617373172896
+Suporte: 9.10596E-4
+F-Measure Suporte e Confiança: 0.002
+Chamada: java.util.Iterator.next()
+Situação: Automatizada
+Índice da Sugestão: 5
+Confiança: 0.13636367380164371
+Suporte: 9.93378E-4
+F-Measure Suporte e Confiança: 0.002
+Chamada: com.google.common.base.Preconditions.checkNotNull(com.google.common.collect.StandardTable$V)
+Situação: Manual
+Chamada: com.google.common.collect.ForwardingMapEntry.standardEquals(java.lang.Object)
+Situação: Manual
+Chamada: java.util.Iterator.remove()
+Situação: Manual
+Chamada: com.google.common.collect.StandardTable$Row.maintainEmptyInvariant()
+Situação: Manual
+Corretude/Utilidade dos Métodos
+Método: java.util.Iterator.hasNext()
+Útil
+Método: java.util.Map$Entry.getKey()
+Inútil
+Método: java.util.Collection.clear()
+Inútil
+Método: java.util.Set.iterator()
+Útil
+Método: java.util.Iterator.next()
+Útil
+Método: java.util.Map$Entry.getValue()
+Inútil
+Percentual de Automatização: 0.3333333333333333
+Corretude: 0.5
+F-Measure: 0.4
+************************ Método Avaliado: com.google.common.collect.TreeRangeMap$AsMapOfRanges.entryIterator() ************************
+*Commit: commit 1c5554dedb0924689285a34489ec1d6b57d076e9 1414678021 ----sp
+*Alguma Sugestão Fornecida: Sim
+*Alguma Sugestão Aprovada: Sim
+**************************************************************************************************************
+----------------Chamadas de método antigas:---------------
+----------------Chamadas de método novas:---------------
+java.util.SortedMap.values()
+java.util.Collection.iterator()
+Chamada: java.util.SortedMap.values()
+Situação: Primeira Chamada
+Chamada: java.util.Collection.iterator()
+Situação: Automatizada
+Índice da Sugestão: 1
+Confiança: 0.8333333333333333
+Suporte: 8.27815E-4
+F-Measure Suporte e Confiança: 0.002
+Corretude/Utilidade dos Métodos
+Método: java.util.Iterator.hasNext()
+Inútil
+Método: java.util.Collection.iterator()
+Útil
+Método: com.google.common.collect.AbstractIterator.endOfData()
+Inútil
+Percentual de Automatização: 1.0
+Corretude: 0.3333333333333333
+F-Measure: 0.5
+************************ Método Avaliado: com.google.common.hash.BloomFilter.create(com.google.common.hash.Funnel, J, D, com.google.common.hash.BloomFilter$Strategy) ************************
+*Commit: commit 727f62163b685f720a8c001532271f648e250fa2 1415306058 ----sp
+*Alguma Sugestão Fornecida: Sim
+*Alguma Sugestão Aprovada: Sim
+**************************************************************************************************************
+----------------Chamadas de método antigas:---------------
+----------------Chamadas de método novas:---------------
+com.google.common.base.Preconditions.checkNotNull(com.google.common.hash.Funnel)
+com.google.common.base.Preconditions.checkArgument(Z, java.lang.String, [Ljava.lang.Object;)
+com.google.common.base.Preconditions.checkArgument(Z, java.lang.String, [Ljava.lang.Object;)
+com.google.common.base.Preconditions.checkArgument(Z, java.lang.String, [Ljava.lang.Object;)
+com.google.common.base.Preconditions.checkNotNull(com.google.common.hash.BloomFilter$Strategy)
+com.google.common.hash.BloomFilter.optimalNumOfBits(J, D)
+com.google.common.hash.BloomFilter.optimalNumOfHashFunctions(J, J)
+Chamada: com.google.common.base.Preconditions.checkNotNull(com.google.common.hash.Funnel)
+Situação: Primeira Chamada
+Chamada: com.google.common.base.Preconditions.checkArgument(Z, java.lang.String, [Ljava.lang.Object;)
+Situação: Manual
+Chamada: com.google.common.base.Preconditions.checkArgument(Z, java.lang.String, [Ljava.lang.Object;)
+Situação: Automatizada
+Índice da Sugestão: 1
+Confiança: 0.2845532846858703
+Suporte: 0.00289735
+F-Measure Suporte e Confiança: 0.006
+Chamada: com.google.common.base.Preconditions.checkArgument(Z, java.lang.String, [Ljava.lang.Object;)
+Situação: Automatizada
+Índice da Sugestão: 1
+Confiança: 0.2845532846858703
+Suporte: 0.00289735
+F-Measure Suporte e Confiança: 0.006
+Chamada: com.google.common.base.Preconditions.checkNotNull(com.google.common.hash.BloomFilter$Strategy)
+Situação: Manual
+Chamada: com.google.common.hash.BloomFilter.optimalNumOfBits(J, D)
+Situação: Manual
+Chamada: com.google.common.hash.BloomFilter.optimalNumOfHashFunctions(J, J)
+Situação: Manual
+Corretude/Utilidade dos Métodos
+Método: com.google.common.base.Preconditions.checkArgument(Z, java.lang.String, [Ljava.lang.Object;)
+Útil
+Método: java.lang.String.length()
+Inútil
+Percentual de Automatização: 0.3333333333333333
+Corretude: 0.5
+F-Measure: 0.4
+************************ Método Avaliado: com.google.common.base.Utf8Test.testEncodedLength_validStrings2() ************************
+*Commit: commit f78ba14b0e1012184b67f2fe1a27d4d5aa3eb689 1415653667 ----sp
+*Alguma Sugestão Fornecida: Sim
+*Alguma Sugestão Aprovada: Sim
+**************************************************************************************************************
+----------------Chamadas de método antigas:---------------
+----------------Chamadas de método novas:---------------
+java.util.HashMap.put(java.lang.Integer, java.lang.Integer)
+java.util.HashMap.put(java.lang.Integer, java.lang.Integer)
+java.util.HashMap.put(java.lang.Integer, java.lang.Integer)
+java.util.HashMap.put(java.lang.Integer, java.lang.Integer)
+java.util.HashMap.put(java.lang.Integer, java.lang.Integer)
+java.util.HashMap.put(java.lang.Integer, java.lang.Integer)
+java.util.HashMap.put(java.lang.Integer, java.lang.Integer)
+java.util.HashMap.put(java.lang.Integer, java.lang.Integer)
+java.util.HashMap.keySet()
+java.util.Set.toArray([Ljava.lang.Integer;)
+java.lang.AbstractStringBuilder.setLength(I)
+java.util.Random.nextInt(I)
+java.lang.StringBuilder.appendCodePoint(I)
+java.util.HashMap.get(java.lang.Object)
+com.google.common.base.Utf8.encodedLength(java.lang.CharSequence)
+java.lang.AbstractStringBuilder.length()
+java.lang.AbstractStringBuilder.charAt(I)
+java.lang.StringBuilder.append(java.lang.String)
+java.lang.StringBuilder.toString()
+com.google.common.base.Utf8.encodedLength(java.lang.CharSequence)
+assertEquals
+Chamada: java.util.HashMap.put(java.lang.Integer, java.lang.Integer)
+Situação: Primeira Chamada
+Chamada: java.util.HashMap.put(java.lang.Integer, java.lang.Integer)
+Situação: Manual
+Chamada: java.util.HashMap.put(java.lang.Integer, java.lang.Integer)
+Situação: Manual
+Chamada: java.util.HashMap.put(java.lang.Integer, java.lang.Integer)
+Situação: Manual
+Chamada: java.util.HashMap.put(java.lang.Integer, java.lang.Integer)
+Situação: Manual
+Chamada: java.util.HashMap.put(java.lang.Integer, java.lang.Integer)
+Situação: Manual
+Chamada: java.util.HashMap.put(java.lang.Integer, java.lang.Integer)
+Situação: Manual
+Chamada: java.util.HashMap.put(java.lang.Integer, java.lang.Integer)
+Situação: Manual
+Chamada: java.util.HashMap.keySet()
+Situação: Manual
+Chamada: java.util.Set.toArray([Ljava.lang.Integer;)
+Situação: Manual
+Chamada: java.lang.AbstractStringBuilder.setLength(I)
+Situação: Manual
+Chamada: java.util.Random.nextInt(I)
+Situação: Manual
+Chamada: java.lang.StringBuilder.appendCodePoint(I)
+Situação: Manual
+Chamada: java.util.HashMap.get(java.lang.Object)
+Situação: Manual
+Chamada: com.google.common.base.Utf8.encodedLength(java.lang.CharSequence)
+Situação: Manual
+Chamada: java.lang.AbstractStringBuilder.length()
+Situação: Manual
+Chamada: java.lang.AbstractStringBuilder.charAt(I)
+Situação: Manual
+Chamada: java.lang.StringBuilder.append(java.lang.String)
+Situação: Manual
+Chamada: java.lang.StringBuilder.toString()
+Situação: Automatizada
+Índice da Sugestão: 1
+Confiança: 0.9523817741499416
+Suporte: 0.00331126
+F-Measure Suporte e Confiança: 0.007
+Chamada: com.google.common.base.Utf8.encodedLength(java.lang.CharSequence)
+Situação: Manual
+Chamada: assertEquals
+Situação: Manual
+Corretude/Utilidade dos Métodos
+Método: java.lang.StringBuilder.append(C)
+Inútil
+Método: java.lang.StringBuilder.append(java.lang.String)
+Inútil
+Método: java.lang.StringBuilder.toString()
+Útil
+Percentual de Automatização: 0.05
+Corretude: 0.3333333333333333
+F-Measure: 0.08695652173913045

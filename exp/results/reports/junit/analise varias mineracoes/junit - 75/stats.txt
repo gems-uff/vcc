@@ -1,0 +1,4 @@
+Tempo total: 0 segundos
+Total de métodos novos:736
+Total de métodos modificados:290
+67089

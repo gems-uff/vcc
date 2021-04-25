@@ -1,0 +1,588 @@
+**************************************************************************************************************
+*Métodos codificados: 471
+*Métodos codificados automaticamente: 136
+*Métodos codificados manualmente: 335
+*Percentual de Automatização: 0.289
+*Posição média da sugestão: 2.052
+**************************************************************************************************************
+**************************************************************************************************************
+TOTAIS APÓS 50 COMMITS (Commit Date: Fri Aug 03 05:11:50 BRT 2012):
+**************************************************************************************************************
+*Métodos válidos: 216
+*Métodos avaliados(alguma sugestão fornecida): 116
+*Métodos onde alguma sugestão foi fornecida: 116
+*Métodos onde uma sugestão foi aceita: 78
+*Corretude Média: 0.240
+*Desvio Padrão Corretude: 0.247
+*Percentual de Automatização Médio: 0.359
+*Desvio Padrão Percentual de Automatização: 0.363
+*F-Measure Médio: 0.257
+*Desvio Padrão F-Measure: 0.230
+**************************************************************************************************************
+**************************************************************************************************************
+*Métodos codificados: 517
+*Métodos codificados automaticamente: 165
+*Métodos codificados manualmente: 352
+*Percentual de Automatização: 0.320
+*Posição média da sugestão: 2.072
+**************************************************************************************************************
+**************************************************************************************************************
+TOTAIS APÓS 55 COMMITS (Commit Date: Mon Aug 20 03:43:29 BRT 2012):
+**************************************************************************************************************
+*Métodos válidos: 236
+*Métodos avaliados(alguma sugestão fornecida): 127
+*Métodos onde alguma sugestão foi fornecida: 127
+*Métodos onde uma sugestão foi aceita: 88
+*Corretude Média: 0.269
+*Desvio Padrão Corretude: 0.259
+*Percentual de Automatização Médio: 0.393
+*Desvio Padrão Percentual de Automatização: 0.373
+*F-Measure Médio: 0.288
+*Desvio Padrão F-Measure: 0.244
+**************************************************************************************************************
+**************************************************************************************************************
+*Métodos codificados: 479
+*Métodos codificados automaticamente: 145
+*Métodos codificados manualmente: 334
+*Percentual de Automatização: 0.303
+*Posição média da sugestão: 2.157
+**************************************************************************************************************
+**************************************************************************************************************
+TOTAIS APÓS 60 COMMITS (Commit Date: Thu Sep 27 22:22:29 BRT 2012):
+**************************************************************************************************************
+*Métodos válidos: 249
+*Métodos avaliados(alguma sugestão fornecida): 137
+*Métodos onde alguma sugestão foi fornecida: 137
+*Métodos onde uma sugestão foi aceita: 96
+*Corretude Média: 0.256
+*Desvio Padrão Corretude: 0.273
+*Percentual de Automatização Médio: 0.321
+*Desvio Padrão Percentual de Automatização: 0.321
+*F-Measure Médio: 0.264
+*Desvio Padrão F-Measure: 0.250
+**************************************************************************************************************
+**************************************************************************************************************
+*Métodos codificados: 458
+*Métodos codificados automaticamente: 144
+*Métodos codificados manualmente: 314
+*Percentual de Automatização: 0.315
+*Posição média da sugestão: 2.130
+**************************************************************************************************************
+**************************************************************************************************************
+TOTAIS APÓS 65 COMMITS (Commit Date: Sat Nov 10 02:06:39 BRST 2012):
+**************************************************************************************************************
+*Métodos válidos: 256
+*Métodos avaliados(alguma sugestão fornecida): 141
+*Métodos onde alguma sugestão foi fornecida: 141
+*Métodos onde uma sugestão foi aceita: 99
+*Corretude Média: 0.270
+*Desvio Padrão Corretude: 0.278
+*Percentual de Automatização Médio: 0.335
+*Desvio Padrão Percentual de Automatização: 0.327
+*F-Measure Médio: 0.277
+*Desvio Padrão F-Measure: 0.254
+**************************************************************************************************************
+**************************************************************************************************************
+*Métodos codificados: 476
+*Métodos codificados automaticamente: 146
+*Métodos codificados manualmente: 330
+*Percentual de Automatização: 0.307
+*Posição média da sugestão: 2.170
+**************************************************************************************************************
+**************************************************************************************************************
+TOTAIS APÓS 70 COMMITS (Commit Date: Thu Nov 15 15:39:45 BRST 2012):
+**************************************************************************************************************
+*Métodos válidos: 271
+*Métodos avaliados(alguma sugestão fornecida): 154
+*Métodos onde alguma sugestão foi fornecida: 154
+*Métodos onde uma sugestão foi aceita: 101
+*Corretude Média: 0.230
+*Desvio Padrão Corretude: 0.256
+*Percentual de Automatização Médio: 0.299
+*Desvio Padrão Percentual de Automatização: 0.329
+*F-Measure Médio: 0.245
+*Desvio Padrão F-Measure: 0.255
+**************************************************************************************************************
+**************************************************************************************************************
+*Métodos codificados: 445
+*Métodos codificados automaticamente: 130
+*Métodos codificados manualmente: 315
+*Percentual de Automatização: 0.293
+*Posição média da sugestão: 2.170
+**************************************************************************************************************
+**************************************************************************************************************
+TOTAIS APÓS 75 COMMITS (Commit Date: Sat Nov 17 19:12:35 BRST 2012):
+**************************************************************************************************************
+*Métodos válidos: 281
+*Métodos avaliados(alguma sugestão fornecida): 155
+*Métodos onde alguma sugestão foi fornecida: 155
+*Métodos onde uma sugestão foi aceita: 101
+*Corretude Média: 0.218
+*Desvio Padrão Corretude: 0.247
+*Percentual de Automatização Médio: 0.288
+*Desvio Padrão Percentual de Automatização: 0.331
+*F-Measure Médio: 0.234
+*Desvio Padrão F-Measure: 0.249
+**************************************************************************************************************
+**************************************************************************************************************
+*Métodos codificados: 492
+*Métodos codificados automaticamente: 140
+*Métodos codificados manualmente: 352
+*Percentual de Automatização: 0.285
+*Posição média da sugestão: 2.180
+**************************************************************************************************************
+**************************************************************************************************************
+TOTAIS APÓS 80 COMMITS (Commit Date: Tue Dec 04 11:17:00 BRST 2012):
+**************************************************************************************************************
+*Métodos válidos: 296
+*Métodos avaliados(alguma sugestão fornecida): 164
+*Métodos onde alguma sugestão foi fornecida: 164
+*Métodos onde uma sugestão foi aceita: 108
+*Corretude Média: 0.208
+*Desvio Padrão Corretude: 0.212
+*Percentual de Automatização Médio: 0.285
+*Desvio Padrão Percentual de Automatização: 0.330
+*F-Measure Médio: 0.225
+*Desvio Padrão F-Measure: 0.228
+**************************************************************************************************************
+**************************************************************************************************************
+*Métodos codificados: 593
+*Métodos codificados automaticamente: 168
+*Métodos codificados manualmente: 425
+*Percentual de Automatização: 0.284
+*Posição média da sugestão: 2.171
+**************************************************************************************************************
+**************************************************************************************************************
+TOTAIS APÓS 85 COMMITS (Commit Date: Mon Dec 10 16:33:01 BRST 2012):
+**************************************************************************************************************
+*Métodos válidos: 328
+*Métodos avaliados(alguma sugestão fornecida): 185
+*Métodos onde alguma sugestão foi fornecida: 185
+*Métodos onde uma sugestão foi aceita: 128
+*Corretude Média: 0.239
+*Desvio Padrão Corretude: 0.211
+*Percentual de Automatização Médio: 0.306
+*Desvio Padrão Percentual de Automatização: 0.315
+*F-Measure Médio: 0.251
+*Desvio Padrão F-Measure: 0.224
+**************************************************************************************************************
+**************************************************************************************************************
+*Métodos codificados: 590
+*Métodos codificados automaticamente: 166
+*Métodos codificados manualmente: 424
+*Percentual de Automatização: 0.282
+*Posição média da sugestão: 2.176
+**************************************************************************************************************
+**************************************************************************************************************
+TOTAIS APÓS 90 COMMITS (Commit Date: Sun Jan 13 07:26:11 BRST 2013):
+**************************************************************************************************************
+*Métodos válidos: 337
+*Métodos avaliados(alguma sugestão fornecida): 191
+*Métodos onde alguma sugestão foi fornecida: 191
+*Métodos onde uma sugestão foi aceita: 134
+*Corretude Média: 0.265
+*Desvio Padrão Corretude: 0.224
+*Percentual de Automatização Médio: 0.304
+*Desvio Padrão Percentual de Automatização: 0.306
+*F-Measure Médio: 0.263
+*Desvio Padrão F-Measure: 0.224
+**************************************************************************************************************
+**************************************************************************************************************
+*Métodos codificados: 700
+*Métodos codificados automaticamente: 189
+*Métodos codificados manualmente: 511
+*Percentual de Automatização: 0.271
+*Posição média da sugestão: 2.245
+**************************************************************************************************************
+**************************************************************************************************************
+TOTAIS APÓS 95 COMMITS (Commit Date: Sun Jan 27 16:42:21 BRST 2013):
+**************************************************************************************************************
+*Métodos válidos: 366
+*Métodos avaliados(alguma sugestão fornecida): 216
+*Métodos onde alguma sugestão foi fornecida: 216
+*Métodos onde uma sugestão foi aceita: 148
+*Corretude Média: 0.253
+*Desvio Padrão Corretude: 0.219
+*Percentual de Automatização Médio: 0.278
+*Desvio Padrão Percentual de Automatização: 0.292
+*F-Measure Médio: 0.246
+*Desvio Padrão F-Measure: 0.218
+**************************************************************************************************************
+**************************************************************************************************************
+*Métodos codificados: 802
+*Métodos codificados automaticamente: 218
+*Métodos codificados manualmente: 584
+*Percentual de Automatização: 0.272
+*Posição média da sugestão: 2.238
+**************************************************************************************************************
+**************************************************************************************************************
+TOTAIS APÓS 100 COMMITS (Commit Date: Fri Mar 01 19:22:47 BRT 2013):
+**************************************************************************************************************
+*Métodos válidos: 395
+*Métodos avaliados(alguma sugestão fornecida): 232
+*Métodos onde alguma sugestão foi fornecida: 232
+*Métodos onde uma sugestão foi aceita: 156
+*Corretude Média: 0.256
+*Desvio Padrão Corretude: 0.226
+*Percentual de Automatização Médio: 0.260
+*Desvio Padrão Percentual de Automatização: 0.267
+*F-Measure Médio: 0.241
+*Desvio Padrão F-Measure: 0.212
+**************************************************************************************************************
+**************************************************************************************************************
+*Métodos codificados: 968
+*Métodos codificados automaticamente: 218
+*Métodos codificados manualmente: 750
+*Percentual de Automatização: 0.226
+*Posição média da sugestão: 2.261
+**************************************************************************************************************
+**************************************************************************************************************
+TOTAIS APÓS 105 COMMITS (Commit Date: Wed Mar 13 20:13:10 BRT 2013):
+**************************************************************************************************************
+*Métodos válidos: 450
+*Métodos avaliados(alguma sugestão fornecida): 267
+*Métodos onde alguma sugestão foi fornecida: 267
+*Métodos onde uma sugestão foi aceita: 179
+*Corretude Média: 0.224
+*Desvio Padrão Corretude: 0.209
+*Percentual de Automatização Médio: 0.207
+*Desvio Padrão Percentual de Automatização: 0.217
+*F-Measure Médio: 0.199
+*Desvio Padrão F-Measure: 0.177
+**************************************************************************************************************
+**************************************************************************************************************
+*Métodos codificados: 839
+*Métodos codificados automaticamente: 180
+*Métodos codificados manualmente: 659
+*Percentual de Automatização: 0.215
+*Posição média da sugestão: 2.264
+**************************************************************************************************************
+**************************************************************************************************************
+TOTAIS APÓS 110 COMMITS (Commit Date: Sat Mar 16 19:35:49 BRT 2013):
+**************************************************************************************************************
+*Métodos válidos: 464
+*Métodos avaliados(alguma sugestão fornecida): 273
+*Métodos onde alguma sugestão foi fornecida: 273
+*Métodos onde uma sugestão foi aceita: 181
+*Corretude Média: 0.217
+*Desvio Padrão Corretude: 0.211
+*Percentual de Automatização Médio: 0.195
+*Desvio Padrão Percentual de Automatização: 0.211
+*F-Measure Médio: 0.190
+*Desvio Padrão F-Measure: 0.177
+**************************************************************************************************************
+**************************************************************************************************************
+*Métodos codificados: 886
+*Métodos codificados automaticamente: 200
+*Métodos codificados manualmente: 686
+*Percentual de Automatização: 0.226
+*Posição média da sugestão: 2.217
+**************************************************************************************************************
+**************************************************************************************************************
+TOTAIS APÓS 115 COMMITS (Commit Date: Thu Mar 21 13:35:25 BRT 2013):
+**************************************************************************************************************
+*Métodos válidos: 494
+*Métodos avaliados(alguma sugestão fornecida): 297
+*Métodos onde alguma sugestão foi fornecida: 297
+*Métodos onde uma sugestão foi aceita: 195
+*Corretude Média: 0.225
+*Desvio Padrão Corretude: 0.222
+*Percentual de Automatização Médio: 0.225
+*Desvio Padrão Percentual de Automatização: 0.256
+*F-Measure Médio: 0.206
+*Desvio Padrão F-Measure: 0.197
+**************************************************************************************************************
+**************************************************************************************************************
+*Métodos codificados: 861
+*Métodos codificados automaticamente: 197
+*Métodos codificados manualmente: 664
+*Percentual de Automatização: 0.229
+*Posição média da sugestão: 2.224
+**************************************************************************************************************
+**************************************************************************************************************
+TOTAIS APÓS 120 COMMITS (Commit Date: Tue Apr 02 15:44:10 BRT 2013):
+**************************************************************************************************************
+*Métodos válidos: 504
+*Métodos avaliados(alguma sugestão fornecida): 305
+*Métodos onde alguma sugestão foi fornecida: 305
+*Métodos onde uma sugestão foi aceita: 199
+*Corretude Média: 0.236
+*Desvio Padrão Corretude: 0.222
+*Percentual de Automatização Médio: 0.237
+*Desvio Padrão Percentual de Automatização: 0.256
+*F-Measure Médio: 0.217
+*Desvio Padrão F-Measure: 0.196
+**************************************************************************************************************
+**************************************************************************************************************
+*Métodos codificados: 869
+*Métodos codificados automaticamente: 198
+*Métodos codificados manualmente: 671
+*Percentual de Automatização: 0.228
+*Posição média da sugestão: 2.223
+**************************************************************************************************************
+**************************************************************************************************************
+TOTAIS APÓS 125 COMMITS (Commit Date: Sun May 05 17:26:56 BRT 2013):
+**************************************************************************************************************
+*Métodos válidos: 511
+*Métodos avaliados(alguma sugestão fornecida): 307
+*Métodos onde alguma sugestão foi fornecida: 307
+*Métodos onde uma sugestão foi aceita: 200
+*Corretude Média: 0.235
+*Desvio Padrão Corretude: 0.221
+*Percentual de Automatização Médio: 0.236
+*Desvio Padrão Percentual de Automatização: 0.256
+*F-Measure Médio: 0.216
+*Desvio Padrão F-Measure: 0.196
+**************************************************************************************************************
+**************************************************************************************************************
+*Métodos codificados: 835
+*Métodos codificados automaticamente: 190
+*Métodos codificados manualmente: 645
+*Percentual de Automatização: 0.228
+*Posição média da sugestão: 2.217
+**************************************************************************************************************
+**************************************************************************************************************
+TOTAIS APÓS 130 COMMITS (Commit Date: Fri Sep 13 02:01:56 BRT 2013):
+**************************************************************************************************************
+*Métodos válidos: 521
+*Métodos avaliados(alguma sugestão fornecida): 315
+*Métodos onde alguma sugestão foi fornecida: 315
+*Métodos onde uma sugestão foi aceita: 206
+*Corretude Média: 0.234
+*Desvio Padrão Corretude: 0.222
+*Percentual de Automatização Médio: 0.237
+*Desvio Padrão Percentual de Automatização: 0.253
+*F-Measure Médio: 0.216
+*Desvio Padrão F-Measure: 0.198
+**************************************************************************************************************
+**************************************************************************************************************
+*Métodos codificados: 779
+*Métodos codificados automaticamente: 178
+*Métodos codificados manualmente: 601
+*Percentual de Automatização: 0.229
+*Posição média da sugestão: 2.221
+**************************************************************************************************************
+**************************************************************************************************************
+TOTAIS APÓS 135 COMMITS (Commit Date: Mon Jun 03 09:27:53 BRT 2013):
+**************************************************************************************************************
+*Métodos válidos: 556
+*Métodos avaliados(alguma sugestão fornecida): 334
+*Métodos onde alguma sugestão foi fornecida: 334
+*Métodos onde uma sugestão foi aceita: 214
+*Corretude Média: 0.213
+*Desvio Padrão Corretude: 0.233
+*Percentual de Automatização Médio: 0.210
+*Desvio Padrão Percentual de Automatização: 0.247
+*F-Measure Médio: 0.193
+*Desvio Padrão F-Measure: 0.197
+**************************************************************************************************************
+**************************************************************************************************************
+*Métodos codificados: 754
+*Métodos codificados automaticamente: 168
+*Métodos codificados manualmente: 586
+*Percentual de Automatização: 0.223
+*Posição média da sugestão: 2.227
+**************************************************************************************************************
+**************************************************************************************************************
+TOTAIS APÓS 140 COMMITS (Commit Date: Thu Sep 19 05:12:41 BRT 2013):
+**************************************************************************************************************
+*Métodos válidos: 574
+*Métodos avaliados(alguma sugestão fornecida): 338
+*Métodos onde alguma sugestão foi fornecida: 338
+*Métodos onde uma sugestão foi aceita: 217
+*Corretude Média: 0.203
+*Desvio Padrão Corretude: 0.227
+*Percentual de Automatização Médio: 0.207
+*Desvio Padrão Percentual de Automatização: 0.250
+*F-Measure Médio: 0.188
+*Desvio Padrão F-Measure: 0.198
+**************************************************************************************************************
+**************************************************************************************************************
+*Métodos codificados: 633
+*Métodos codificados automaticamente: 140
+*Métodos codificados manualmente: 493
+*Percentual de Automatização: 0.222
+*Posição média da sugestão: 2.225
+**************************************************************************************************************
+**************************************************************************************************************
+TOTAIS APÓS 145 COMMITS (Commit Date: Sun Oct 20 12:26:10 BRST 2013):
+**************************************************************************************************************
+*Métodos válidos: 585
+*Métodos avaliados(alguma sugestão fornecida): 344
+*Métodos onde alguma sugestão foi fornecida: 344
+*Métodos onde uma sugestão foi aceita: 219
+*Corretude Média: 0.203
+*Desvio Padrão Corretude: 0.233
+*Percentual de Automatização Médio: 0.207
+*Desvio Padrão Percentual de Automatização: 0.249
+*F-Measure Médio: 0.188
+*Desvio Padrão F-Measure: 0.202
+**************************************************************************************************************
+**************************************************************************************************************
+*Métodos codificados: 530
+*Métodos codificados automaticamente: 110
+*Métodos codificados manualmente: 420
+*Percentual de Automatização: 0.208
+*Posição média da sugestão: 2.222
+**************************************************************************************************************
+**************************************************************************************************************
+TOTAIS APÓS 150 COMMITS (Commit Date: Sat Nov 09 19:16:31 BRST 2013):
+**************************************************************************************************************
+*Métodos válidos: 594
+*Métodos avaliados(alguma sugestão fornecida): 348
+*Métodos onde alguma sugestão foi fornecida: 348
+*Métodos onde uma sugestão foi aceita: 220
+*Corretude Média: 0.198
+*Desvio Padrão Corretude: 0.228
+*Percentual de Automatização Médio: 0.210
+*Desvio Padrão Percentual de Automatização: 0.256
+*F-Measure Médio: 0.188
+*Desvio Padrão F-Measure: 0.205
+**************************************************************************************************************
+**************************************************************************************************************
+*Métodos codificados: 313
+*Métodos codificados automaticamente: 79
+*Métodos codificados manualmente: 234
+*Percentual de Automatização: 0.253
+*Posição média da sugestão: 2.222
+**************************************************************************************************************
+**************************************************************************************************************
+TOTAIS APÓS 155 COMMITS (Commit Date: Mon Dec 02 10:52:00 BRST 2013):
+**************************************************************************************************************
+*Métodos válidos: 602
+*Métodos avaliados(alguma sugestão fornecida): 349
+*Métodos onde alguma sugestão foi fornecida: 349
+*Métodos onde uma sugestão foi aceita: 221
+*Corretude Média: 0.202
+*Desvio Padrão Corretude: 0.239
+*Percentual de Automatização Médio: 0.234
+*Desvio Padrão Percentual de Automatização: 0.290
+*F-Measure Médio: 0.203
+*Desvio Padrão F-Measure: 0.228
+**************************************************************************************************************
+**************************************************************************************************************
+*Métodos codificados: 321
+*Métodos codificados automaticamente: 83
+*Métodos codificados manualmente: 238
+*Percentual de Automatização: 0.259
+*Posição média da sugestão: 2.222
+**************************************************************************************************************
+**************************************************************************************************************
+TOTAIS APÓS 160 COMMITS (Commit Date: Thu Sep 26 20:13:22 BRT 2013):
+**************************************************************************************************************
+*Métodos válidos: 619
+*Métodos avaliados(alguma sugestão fornecida): 354
+*Métodos onde alguma sugestão foi fornecida: 354
+*Métodos onde uma sugestão foi aceita: 225
+*Corretude Média: 0.208
+*Desvio Padrão Corretude: 0.235
+*Percentual de Automatização Médio: 0.243
+*Desvio Padrão Percentual de Automatização: 0.289
+*F-Measure Médio: 0.209
+*Desvio Padrão F-Measure: 0.223
+**************************************************************************************************************
+**************************************************************************************************************
+*Métodos codificados: 309
+*Métodos codificados automaticamente: 76
+*Métodos codificados manualmente: 233
+*Percentual de Automatização: 0.246
+*Posição média da sugestão: 2.261
+**************************************************************************************************************
+**************************************************************************************************************
+TOTAIS APÓS 165 COMMITS (Commit Date: Mon Apr 14 12:52:28 BRT 2014):
+**************************************************************************************************************
+*Métodos válidos: 655
+*Métodos avaliados(alguma sugestão fornecida): 369
+*Métodos onde alguma sugestão foi fornecida: 369
+*Métodos onde uma sugestão foi aceita: 233
+*Corretude Média: 0.196
+*Desvio Padrão Corretude: 0.238
+*Percentual de Automatização Médio: 0.205
+*Desvio Padrão Percentual de Automatização: 0.243
+*F-Measure Médio: 0.187
+*Desvio Padrão F-Measure: 0.208
+**************************************************************************************************************
+**************************************************************************************************************
+*Métodos codificados: 325
+*Métodos codificados automaticamente: 97
+*Métodos codificados manualmente: 228
+*Percentual de Automatização: 0.299
+*Posição média da sugestão: 2.223
+**************************************************************************************************************
+**************************************************************************************************************
+TOTAIS APÓS 170 COMMITS (Commit Date: Sat May 03 14:09:47 BRT 2014):
+**************************************************************************************************************
+*Métodos válidos: 679
+*Métodos avaliados(alguma sugestão fornecida): 382
+*Métodos onde alguma sugestão foi fornecida: 382
+*Métodos onde uma sugestão foi aceita: 244
+*Corretude Média: 0.248
+*Desvio Padrão Corretude: 0.290
+*Percentual de Automatização Médio: 0.290
+*Desvio Padrão Percentual de Automatização: 0.330
+*F-Measure Médio: 0.250
+*Desvio Padrão F-Measure: 0.277
+**************************************************************************************************************
+**************************************************************************************************************
+*Métodos codificados: 353
+*Métodos codificados automaticamente: 116
+*Métodos codificados manualmente: 237
+*Percentual de Automatização: 0.329
+*Posição média da sugestão: 2.207
+**************************************************************************************************************
+**************************************************************************************************************
+TOTAIS APÓS 175 COMMITS (Commit Date: Sun Jun 08 13:15:08 BRT 2014):
+**************************************************************************************************************
+*Métodos válidos: 700
+*Métodos avaliados(alguma sugestão fornecida): 392
+*Métodos onde alguma sugestão foi fornecida: 392
+*Métodos onde uma sugestão foi aceita: 250
+*Corretude Média: 0.258
+*Desvio Padrão Corretude: 0.297
+*Percentual de Automatização Médio: 0.315
+*Desvio Padrão Percentual de Automatização: 0.350
+*F-Measure Médio: 0.265
+*Desvio Padrão F-Measure: 0.288
+**************************************************************************************************************
+**************************************************************************************************************
+*Métodos codificados: 412
+*Métodos codificados automaticamente: 129
+*Métodos codificados manualmente: 283
+*Percentual de Automatização: 0.314
+*Posição média da sugestão: 2.179
+**************************************************************************************************************
+**************************************************************************************************************
+TOTAIS APÓS 180 COMMITS (Commit Date: Tue Jul 15 16:20:32 BRT 2014):
+**************************************************************************************************************
+*Métodos válidos: 728
+*Métodos avaliados(alguma sugestão fornecida): 411
+*Métodos onde alguma sugestão foi fornecida: 411
+*Métodos onde uma sugestão foi aceita: 266
+*Corretude Média: 0.283
+*Desvio Padrão Corretude: 0.310
+*Percentual de Automatização Médio: 0.309
+*Desvio Padrão Percentual de Automatização: 0.333
+*F-Measure Médio: 0.274
+*Desvio Padrão F-Measure: 0.284
+**************************************************************************************************************
+**************************************************************************************************************
+*Métodos codificados: 412
+*Métodos codificados automaticamente: 129
+*Métodos codificados manualmente: 283
+*Percentual de Automatização: 0.314
+*Posição média da sugestão: 2.179
+**************************************************************************************************************
+**************************************************************************************************************
+TOTAIS APÓS 181 COMMITS (Commit Date: ULTIMO):
+**************************************************************************************************************
+*Métodos válidos: 728
+*Métodos avaliados(alguma sugestão fornecida): 411
+*Métodos onde alguma sugestão foi fornecida: 411
+*Métodos onde uma sugestão foi aceita: 266
+*Corretude Média: 0.283
+*Desvio Padrão Corretude: 0.310
+*Percentual de Automatização Médio: 0.309
+*Desvio Padrão Percentual de Automatização: 0.333
+*F-Measure Médio: 0.274
+*Desvio Padrão F-Measure: 0.284
+**************************************************************************************************************
