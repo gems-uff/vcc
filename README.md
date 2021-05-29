@@ -91,3 +91,23 @@ The structure is pretty similar to the one of the previous RQ. This time, the in
 #### Final metrics files and reports
 
 Following the same structure of the previous RQ. Metrics are available on .csv files and reports in .xlsx files.
+
+### RQ3
+
+In this experiment we evaluated if **the  effectiveness  of  the  sequential  coding  patterns degrade over time**.
+
+The files used for this RQ evaluation are available at:
+* (exp/results/reports/commons-io/analise temporal)[https://github.com/gems-uff/vcc/tree/master/exp/results/reports/commons-io/analise%20temporal]
+* (exp/results/reports/guava/analise temporal)[https://github.com/gems-uff/vcc/tree/master/exp/results/reports/guava/analise%20temporal]
+* (exp/results/reports/junit/analise temporal)[https://github.com/gems-uff/vcc/tree/master/exp/results/reports/junit/analise%20temporal]
+* (exp/results/reports/rxjava-core/analise temporal)[https://github.com/gems-uff/vcc/tree/master/exp/results/reports/rxjava-core/analise%20temporal]
+* (exp/results/reports/spring-security/analise temporal)[https://github.com/gems-uff/vcc/tree/master/exp/results/reports/spring-security/analise%20temporal]
+
+#### Individual execution files
+
+In this case we evaluated the patterns performance over time, using always a limit of five suggestions. That is why there are only individual execution files with the name starting with `5_`. Inside 5_Grafico.csv[https://github.com/gems-uff/vcc/blob/master/exp/results/reports/commons-io/analise%20temporal/5_Grafico.csv] for instance, all the calculated metrics for each evaluated commit window can be seen. 
+
+
+#### Final metrics files and reports
+
+Following the same structure of the previous RQ. Metrics are available on .csv files and reports in .xlsx files.
