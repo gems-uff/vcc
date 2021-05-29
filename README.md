@@ -35,4 +35,42 @@ The .txt files were used only for manual validation of the calculated metrics. T
 
 ### RQ1
 
-In this experiment we evaluated 
+In this experiment we evaluated **how many frequent coding patterns should be presented in a code recommendation.**
+
+The files used for this RQ evaluation are available at:
+* (exp/results/reports/commons-io/limite quantidade-agrupado e limitado por metodos)[https://github.com/gems-uff/vcc/tree/master/exp/results/reports/commons-io/limite%20quantidade%20-%20agrupado%20e%20limitado%20por%20metodos]
+* (exp/results/reports/guava/limite quantidade-agrupado e limitado por metodos)[https://github.com/gems-uff/vcc/tree/master/exp/results/reports/guava/limite%20quantidade%20-%20agrupado%20e%20limitado%20por%20metodos]
+* (exp/results/reports/junit/limite quantidade-agrupado e limitado por metodos)[https://github.com/gems-uff/vcc/tree/master/exp/results/reports/junit/limite%20quantidade%20-%20agrupado%20e%20limitado%20por%20metodos]
+* (exp/results/reports/rxjava-core/limite quantidade-agrupado e limitado por metodos)[https://github.com/gems-uff/vcc/tree/master/exp/results/reports/rxjava-core/limite%20quantidade%20-%20agrupado%20e%20limitado%20por%20metodos]
+* (exp/results/reports/spring-security/limite quantidade-agrupado e limitado por metodos)[https://github.com/gems-uff/vcc/tree/master/exp/results/reports/spring-security/limite%20quantidade%20-%20agrupado%20e%20limitado%20por%20metodos]
+
+#### Individual execution files
+
+Each file, starting with a number between 1 and 20, contains gross data for each evaluated amount of suggested methods. The .txt files are the fine grain details, as explained above, while the X_Grafico.csv, 1<=X<=20, ones contain the calculated metrics: 
+* Automatization Percentage
+* Correctness
+* F-Measure
+
+We calculated both global and per method body metrics. For the correctness for instance, global values are calculated through: 
+`globalCorrectness = usefulSuggestionsCount / uselessSuggestionsCount + usefulSuggestionsCount;` as can be seen in: [global correctness calculation source code].(https://github.com/gems-uff/vcc/blob/bef9b6313cbbc44b2f136f3101a71070ac65d4b8/exp/src/br/uff/vcc/exp/report/TxtReportWriter.java#L493) 
+
+Per body method metrics were calculated through:
+`correctness = calculateMean(eachMethodBodyCorrectnessValues);` as can be seen in: [per method body correctness calculation source code](https://github.com/gems-uff/vcc/blob/bef9b6313cbbc44b2f136f3101a71070ac65d4b8/exp/src/br/uff/vcc/exp/report/TxtReportWriter.java#L204).
+
+#### Final metric files
+
+Grouped data of all the 20 different executions are available in the following .csv files:
+* automatizationPerc.csv
+* correctness.csv
+* fMeasure.csv
+* globalAutomatizationPerc.csv
+* globalCorrectness.csv
+* globalFfMeasure.csv
+
+For the RQs we decided to use always global values, since they are less prone to validity threats (small methods with too big or too small metric values having great impact on the results).
+
+#### Reports
+
+The reports are available in the .XLSX files of each metric.
+
+
