@@ -20,7 +20,7 @@ In order to evaluate the Research Questions (RQ), we devised a 2-steps approach,
 2. Patterns evaluation: using commits that followed the commit used for pattern tree generation.
 
 **Pattern trees location**
-All the pattern trees are available at [exp/results/pattern trees](https://github.com/gems-uff/vcc/tree/master/exp/results/pattern%20trees). Each evaluated repository contains 4 different pattern trees and they are used according to the RQ experiment (more details on each RQ section below).
+All the pattern trees are available at [exp/results/pattern trees](https://github.com/gems-uff/vcc/tree/master/exp/results/pattern%20trees). Each evaluated repository contains 4 different pattern trees and they are used according to the RQ experiment (more details on each RQ section below). For the paper **Sequential coding patterns: How to use them effectively in code recommendation** paper, we only used `Ignoring Control Structures` folder. The `25` and `75` folders were used in a RQ4 and the `Considering Control Structures` in a RQ5, that are not available in this paper.
 
 **Results data**
 
