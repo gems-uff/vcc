@@ -57,7 +57,7 @@ We calculated both global and per method body metrics. For the correctness for i
 Per body method metrics were calculated through:
 `correctness = calculateMean(eachMethodBodyCorrectnessValues);` as can be seen in: [per method body correctness calculation source code](https://github.com/gems-uff/vcc/blob/bef9b6313cbbc44b2f136f3101a71070ac65d4b8/exp/src/br/uff/vcc/exp/report/TxtReportWriter.java#L204).
 
-#### Final metric files
+#### Final metrics files
 
 Grouped data of all the 20 different executions are available in the following .csv files:
 * automatizationPerc.csv
@@ -73,4 +73,21 @@ For the RQs we decided to use always global values, since they are less prone to
 
 The reports are available in the .XLSX files of each metric.
 
+### RQ2
 
+In this experiment we evaluated **what is the impact of filtering suggestions by their confidence insteadof only ranking them.**
+
+The files used for this RQ evaluation are available at:
+* (exp/results/reports/commons-io/limite confiança - scatter - agrupado e limitado por metodos)[https://github.com/gems-uff/vcc/tree/master/exp/results/reports/commons-io/limite%20confiança%20-%20scatter%20-%20agrupado%20e%20limitado%20por%20metodos]
+* (exp/results/reports/guava/limite confiança - scatter - agrupado e limitado por metodos)[https://github.com/gems-uff/vcc/tree/master/exp/results/reports/guava/limite%20confiança%20-%20scatter%20-%20agrupado%20e%20limitado%20por%20metodos]
+* (exp/results/reports/junit/limite confiança - scatter - agrupado e limitado por metodos)[https://github.com/gems-uff/vcc/tree/master/exp/results/reports/junit/limite%20confiança%20-%20scatter%20-%20agrupado%20e%20limitado%20por%20metodos]
+* (exp/results/reports/rxjava-core/limite confiança - scatter - agrupado e limitado por metodos)[https://github.com/gems-uff/vcc/tree/master/exp/results/reports/rxjava-core/limite%20confiança%20-%20scatter%20-%20agrupado%20e%20limitado%20por%20metodos]
+* (exp/results/reports/spring-security/limite confiança - scatter - agrupado e limitado por metodos)[https://github.com/gems-uff/vcc/tree/master/exp/results/reports/spring-security/limite%20confiança%20-%20scatter%20-%20agrupado%20e%20limitado%20por%20metodos]
+
+#### Individual execution files
+
+The structure is pretty similar to the one of the previous RQ. This time, the individual execution files start with values between 0.0 and 1.0, with 0.1 increments, representing the minimum confidence values varying between 0% and 100%.
+
+#### Final metrics files and reports
+
+Following the same structure of the previous RQ. Metrics are available on .csv files and reports in .xlsx files.
